@@ -1,0 +1,11 @@
+
+section[data-id=container] {
+  display: inline-flex;
+  background: green;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 12px;
+  padding: 12px;
+}
