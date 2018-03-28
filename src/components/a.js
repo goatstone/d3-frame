@@ -11,31 +11,27 @@ function A(props) {
     const hOff = height + 60
 
     // date scale function
-    const selectX = data => new Date(data.day).setHours(0, 0, 0, 0)
+    const convertToEpochSec = date => new Date(date).setHours(0, 0, 0, 0)
+
+    // xScale, yScale
     const xScale = d3.scaleTime()
-        .domain(d3.extent(datum, selectX))
+        .domain(d3.extent(datum, d => convertToEpochSec(d.day)))
         .range([0, width])
-    const selectScaledX = datum => xScale(selectX(datum))
 
     // quality scale function
-    let dataQual = datum.map(d => d.quality)
-    const yScale = LScale(dataQual, height, 0)
-    const selectScaledY = data => yScale(data) // qualityLevel
+    const yScale = LScale(datum.map(d => d.quality), height, 0)
 
-    //          elements of the chart
-    // line
+    //// Elements of the chart
+    // line pathD
     const sparkLine = d3.line()
-        .x(selectScaledX)
-        .y(d => selectScaledY(d.quality))
+        .x(d => xScale(convertToEpochSec(d.day)))
+        .y(d => yScale(d.quality))
     const linePath = sparkLine(datum)
-
-    // datum getSVGCircle    
-    const circlePoints = datum.map(datum => ({
-        x: selectScaledX(datum),
-        y: selectScaledY(datum.quality),
+    // circles chartPoints circleSVG
+    const circlePoints = datum.map(data => ({
+        x: xScale(convertToEpochSec(data.day)),
+        y: yScale(data.quality),
     }))
-
-    // circleSVG
     const circleSVG = circlePoints.map(circlePoint => (
         <circle
             cx={circlePoint.x}
@@ -44,8 +40,7 @@ function A(props) {
             r={4}
             />
     ))
-
-    // getAxis xScale datum     yScale datum
+    // xAxis yAxis
     const xAxis = d3.axisBottom()
         .scale(xScale)
         .ticks(datum.length / 2)
