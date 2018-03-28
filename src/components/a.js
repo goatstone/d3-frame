@@ -3,9 +3,14 @@ import * as d3 from "d3"
 import './a.css'
 import LScale from '../l-scale'
 
-function A({datum, height, width}) {
+
+function A({datum, controlEvent, height, width, colors}) {
     const widthOffset = width + 60
     const heightOffset = height + 60
+
+    function chartClick() {
+        controlEvent.emit('color', 'gray')
+    }
 
     // date scale function
     const convertToEpochSec = date => new Date(date).setHours(0, 0, 0, 0)
@@ -57,9 +62,13 @@ function A({datum, height, width}) {
         .ticks(3)
 
     return (
-        <svg width={widthOffset} height={heightOffset}>
+        <svg
+            width={widthOffset}
+            height={heightOffset}
+            onClick={chartClick}
+            >
             <g>
-                <rect fill="gray" x="0" y="0" width={widthOffset} height={heightOffset} />
+                <rect fill={colors.background} width={widthOffset} height={heightOffset} />
             </g>
             <g style={{ transform: "translate(30px, 30px)" }}>
                 <g
