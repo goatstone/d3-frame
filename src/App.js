@@ -9,8 +9,8 @@ function App(props) {
     <section data-id="container">
       <A datum={datum}
         height={200}
-        width={400}
-        margin="1" />
+        width={400} 
+        />
       <B datum={datum} />
     </section>
   )

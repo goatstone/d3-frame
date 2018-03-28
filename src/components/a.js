@@ -3,12 +3,9 @@ import * as d3 from "d3"
 import './a.css'
 import LScale from '../l-scale'
 
-function A(props) {
-    const width = props.width
-    const height = props.height
-    const datum = props.datum
-    const wOff = width + 60
-    const hOff = height + 60
+function A({datum, height, width}) {
+    const widthOffset = width + 60
+    const heightOffset = height + 60
 
     // date scale function
     const convertToEpochSec = date => new Date(date).setHours(0, 0, 0, 0)
@@ -27,19 +24,30 @@ function A(props) {
         .x(d => xScale(convertToEpochSec(d.day)))
         .y(d => yScale(d.quality))
     const linePath = sparkLine(datum)
-    // circles chartPoints circleSVG
-    const circlePoints = datum.map(data => ({
-        x: xScale(convertToEpochSec(data.day)),
-        y: yScale(data.quality),
-    }))
-    const circleSVG = circlePoints.map(circlePoint => (
-        <circle
-            cx={circlePoint.x}
-            cy={circlePoint.y}
-            key={`${circlePoint.x},${circlePoint.y}`}
-            r={4}
-            />
-    ))
+
+    // symbols, data markers
+    let arc = d3.symbol()
+        .type(d3.symbolCircle)
+        .size(100)
+    const chartSymbols = datum
+        .map(data => ({
+            x: xScale(convertToEpochSec(data.day)),
+            y: yScale(data.quality),
+        }))
+        .map(circlePoint => (
+            <path
+                onMouseOver={e => {
+                    e.target.style.fill = 'red'
+                    e.target.style.cursor = 'hand'
+                } }
+                onMouseOut={e => {
+                    e.target.style.fill = 'none'
+                } }
+                style={{ transform: `translate(${circlePoint.x}px, ${circlePoint.y}px)` }}
+                key={`${circlePoint.x},${circlePoint.y}`}
+                d={arc()}
+                />
+        ))
     // xAxis yAxis
     const xAxis = d3.axisBottom()
         .scale(xScale)
@@ -49,9 +57,9 @@ function A(props) {
         .ticks(3)
 
     return (
-        <svg width={wOff} height={hOff}>
+        <svg width={widthOffset} height={heightOffset}>
             <g>
-                <rect fill="gray" x="0" y="0" width={wOff} height={hOff} />
+                <rect fill="gray" x="0" y="0" width={widthOffset} height={heightOffset} />
             </g>
             <g style={{ transform: "translate(30px, 30px)" }}>
                 <g
@@ -65,7 +73,7 @@ function A(props) {
                     <path d={linePath} />
                 </g>
                 <g>
-                    {circleSVG}
+                    {chartSymbols}
                 </g>
             </g>
         </svg>
