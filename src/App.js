@@ -1,29 +1,25 @@
 import React from 'react'
-import datum from './datum'
 import A from './components/a'
 import B from './components/b'
 import Control from './components/control'
 import './App.css'
-import EventEmitter from 'events'
 
 class App extends React.Component {
-  constructor(props) {
-    super(props)
-    this.controlEvent = new EventEmitter()
-    this.state = { h: 100, colors: { background: 'red' } }
-    this.colorOptions = [
-      { name: 'red', display: 'Red' },
-      { name: 'blue', display: 'Blue' },
-      { name: 'green', display: 'Green' },
-      { name: 'white', display: 'White' },
-      { name: 'gray', display: 'Gray' },
-    ]
+  constructor({colorOptions, controlEvent, datum, chartSize}) {
+    super(colorOptions, controlEvent, datum)
+    this.controlEvent = controlEvent
+    this.colorOptions = colorOptions
     this.datum = datum
+    this.chartSize = chartSize
+    this.state = {
+      colors: {
+        background: 'red'
+      }
+    }
     this.setEvents()
   }
   setEvents() {
     this.controlEvent.on('color', (color) => {
-      console.log(color)
       this.setState({ colors: { background: color } })
     })
   }
@@ -41,8 +37,8 @@ class App extends React.Component {
       <A
         datum={this.datum}
         controlEvent={this.controlEvent}
-        height={this.state.h}
-        width={400}
+        width={this.chartSize.width}
+        height={this.chartSize.height}
         colors={this.state.colors}
         colorOptions={this.colorOptions}
         />

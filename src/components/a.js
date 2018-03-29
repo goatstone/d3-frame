@@ -4,12 +4,14 @@ import './a.css'
 import LScale from '../l-scale'
 
 
-function A({datum, controlEvent, height, width, colors}) {
+function A({datum, controlEvent, height, width, colors, colorOptions}) {
     const widthOffset = width + 60
     const heightOffset = height + 60
-
     function chartClick() {
-        controlEvent.emit('color', 'gray')
+        controlEvent.emit('color',
+            colorOptions[
+                Math.floor(colorOptions.length * Math.random())
+            ].name)
     }
 
     // date scale function
