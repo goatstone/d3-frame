@@ -4,7 +4,17 @@ import './a.css'
 import LScale from '../l-scale'
 
 
-function A({datum, controlEvent, height, width, colors, colorOptions}) {
+function A({
+    datum,
+    controlEvent,
+    height,
+    width,
+    colors,
+    chartSymbol,
+    chartType,
+    colorOptions
+}) {
+
     const widthOffset = width + 60
     const heightOffset = height + 60
     function chartClick() {
@@ -34,7 +44,7 @@ function A({datum, controlEvent, height, width, colors, colorOptions}) {
 
     // symbols, data markers
     let arc = d3.symbol()
-        .type(d3.symbolCircle)
+        .type(d3[chartSymbol])
         .size(100)
     const chartSymbols = datum
         .map(data => ({

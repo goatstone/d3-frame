@@ -13,13 +13,25 @@ const colorOptions = [
     { name: 'white', display: 'White' },
     { name: 'gray', display: 'Gray' },
 ]
+const chartTypeOptions = [
+    { name: 'line', display: 'Line' },
+    { name: 'pie', display: 'Pie' },
+    { name: 'histogram', display: 'Histogram' },
+]
+const chartSymbolOptions = [
+    { name: 'symbolCircle', display: 'Circle' },
+    { name: 'symbolSquare', display: 'Square' },
+    { name: 'symbolTriangle', display: 'Triangle' },
+]
 const controlEvent = new EventEmitter()
-const chartSize = {width: 400, height: 200 }
+const chartSize = { width: 400, height: 200 }
 ReactDOM.render(<App
     colorOptions={colorOptions}
     controlEvent={controlEvent}
     datum={datum}
     chartSize={chartSize}
+    chartTypeOptions={chartTypeOptions}
+    chartSymbolOptions={chartSymbolOptions}
     />,
     document.getElementById('root'));
 registerServiceWorker();

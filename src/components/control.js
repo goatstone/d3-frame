@@ -1,7 +1,15 @@
 import React from 'react'
 import './control.css'
 
-function Control({controlEvent, colors, colorOptions}) {
+function Control({
+    controlEvent,
+    colors,
+    chartSymbol,
+    chartType,
+    colorOptions,
+    chartTypeOptions,
+    chartSymbolOptions
+}) {
     function emitEvent(e) {
         const name = e.target.name
         const value = e.target.value
@@ -12,7 +20,8 @@ function Control({controlEvent, colors, colorOptions}) {
             <form>
                 <label>
                     Color
-                    <select name="color"
+                    <select
+                        name="color"
                         onChange={emitEvent}
                         value={colors.background}
                         >
@@ -22,23 +31,27 @@ function Control({controlEvent, colors, colorOptions}) {
                 </label>
                 <label>
                     Symbol
-                    <select>
-                        <option>Circle</option>
-                        <option>Square</option>
-                        <option>Triangle</option>
+                    <select
+                        name="chartSymbol"
+                        onChange={emitEvent}
+                        value={chartSymbol}
+                        >
+                        {chartSymbolOptions
+                            .map(cso => <option value={cso.name} key={cso.name}>{cso.display}</option>)}
                     </select>
                 </label>
                 <label>
                     Type
-                    <select>
-                        <option>Line</option>
-                        <option>Pie</option>
-                        <option>Histogram</option>
+                    <select
+                        name="chartType"
+                        onChange={emitEvent}
+                        value={chartType}
+                        >
+                        {chartTypeOptions
+                            .map(cto => <option value={cto.name} key={cto.name}>{cto.display}</option>)}
                     </select>
                 </label>
-                <input type="button" value="Generate Data" />
             </form>
-            <h3>Control</h3>
         </section>
     )
 }
