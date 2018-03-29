@@ -1,6 +1,6 @@
 import React from 'react'
 import A from './components/a'
-import B from './components/b'
+import PieChart from './components/pie-chart'
 import Control from './components/control'
 import './App.css'
 
@@ -40,6 +40,9 @@ class App extends React.Component {
       this.setState({ chartType: e })
     })
   }
+  setCharts() {
+
+  }
   initEvents() {
     setTimeout(() => {
       this.controlEvent.emit('color', this.colorOptions[1].name)
@@ -48,9 +51,19 @@ class App extends React.Component {
   componentDidMount() {
     this.initEvents()
   }
-  render() {
-    return <section data-id="container">
-      <A
+  getChart() {
+    const charts = {
+      line: <A
+        datum={this.datum}
+        controlEvent={this.controlEvent}
+        width={this.chartSize.width}
+        height={this.chartSize.height}
+        colors={this.state.colors}
+        chartSymbol={this.state.chartSymbol}
+        chartType={this.state.chartType}
+        colorOptions={this.colorOptions}
+        />,
+      pie: <PieChart
         datum={this.datum}
         controlEvent={this.controlEvent}
         width={this.chartSize.width}
@@ -60,6 +73,12 @@ class App extends React.Component {
         chartType={this.state.chartType}
         colorOptions={this.colorOptions}
         />
+    }
+    return charts[this.state.chartType]
+  }
+  render() {
+    return <section data-id="container">
+      {this.getChart()}
       <Control
         controlEvent={this.controlEvent}
         colors={this.state.colors}
@@ -69,7 +88,6 @@ class App extends React.Component {
         chartTypeOptions={this.chartTypeOptions}
         chartSymbolOptions={this.chartSymbolOptions}
         />
-      <B datum={this.datum} />
     </section>
   }
 }

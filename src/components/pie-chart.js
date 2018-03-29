@@ -3,6 +3,7 @@ import * as d3 from "d3"
 import './a.css'
 import LScale from '../l-scale'
 
+
 function A({
     datum,
     controlEvent,
@@ -96,6 +97,7 @@ function A({
                     {chartSymbols}
                 </g>
             </g>
+                <text x="100" y="100">Pie</text>
         </svg>
     )
 }

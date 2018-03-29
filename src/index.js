@@ -6,6 +6,8 @@ import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import datum from './datum'
 
+const controlEvent = new EventEmitter()
+const chartSize = { width: 400, height: 200 }
 const colorOptions = [
     { name: 'red', display: 'Red' },
     { name: 'blue', display: 'Blue' },
@@ -23,8 +25,7 @@ const chartSymbolOptions = [
     { name: 'symbolSquare', display: 'Square' },
     { name: 'symbolTriangle', display: 'Triangle' },
 ]
-const controlEvent = new EventEmitter()
-const chartSize = { width: 400, height: 200 }
+
 ReactDOM.render(<App
     colorOptions={colorOptions}
     controlEvent={controlEvent}
