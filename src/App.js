@@ -29,6 +29,7 @@ class App extends React.Component {
     }
     this.setEvents()
   }
+  // setEvents : set state as a result of the events being created: map events to application state
   setEvents() {
     this.controlEvent.on('color', (color) => {
       this.setState({ colors: { background: color } })
@@ -40,37 +41,23 @@ class App extends React.Component {
       this.setState({ chartType: e })
     })
   }
-  setCharts() {
-
-  }
-  initEvents() {
-    setTimeout(() => {
-      this.controlEvent.emit('color', this.colorOptions[1].name)
-    }, 2000)
-  }
-  componentDidMount() {
-    this.initEvents()
-  }
   getChart() {
     const charts = {
       line: <A
-        datum={this.datum}
+        datum={this.datum.line}
         controlEvent={this.controlEvent}
         width={this.chartSize.width}
         height={this.chartSize.height}
         colors={this.state.colors}
         chartSymbol={this.state.chartSymbol}
-        chartType={this.state.chartType}
         colorOptions={this.colorOptions}
         />,
       pie: <PieChart
-        datum={this.datum}
+        datum={this.datum.pie}
         controlEvent={this.controlEvent}
         width={this.chartSize.width}
         height={this.chartSize.height}
         colors={this.state.colors}
-        chartSymbol={this.state.chartSymbol}
-        chartType={this.state.chartType}
         colorOptions={this.colorOptions}
         />
     }

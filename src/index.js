@@ -6,6 +6,7 @@ import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import datum from './datum'
 
+const pieData = [1, 1, 2, 3, 5, 8, 13, 21];
 const controlEvent = new EventEmitter()
 const chartSize = { width: 400, height: 200 }
 const colorOptions = [
@@ -29,7 +30,7 @@ const chartSymbolOptions = [
 ReactDOM.render(<App
     colorOptions={colorOptions}
     controlEvent={controlEvent}
-    datum={datum}
+    datum={{line: datum, pie: pieData}}
     chartSize={chartSize}
     chartTypeOptions={chartTypeOptions}
     chartSymbolOptions={chartSymbolOptions}

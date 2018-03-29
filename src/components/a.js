@@ -10,7 +10,6 @@ function A({
     width,
     colors,
     chartSymbol,
-    chartType,
     colorOptions
 }) {
 
