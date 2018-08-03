@@ -26,11 +26,17 @@ const chartSymbolOptions = [
     { name: 'symbolSquare', display: 'Square' },
     { name: 'symbolTriangle', display: 'Triangle' },
 ]
+const controlConfig = [
+    { name: 'color', isVisible: true },
+    { name: 'symbol', isVisible: true },
+    { name: 'type', isVisible: true }
+]
 
 ReactDOM.render(<App
     colorOptions={colorOptions}
+    controlConfig={controlConfig}
     controlEvent={controlEvent}
-    datum={{line: datum, pie: pieData}}
+    datum={{ line: datum, pie: pieData }}
     chartSize={chartSize}
     chartTypeOptions={chartTypeOptions}
     chartSymbolOptions={chartSymbolOptions}

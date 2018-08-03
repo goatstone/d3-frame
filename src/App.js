@@ -8,6 +8,7 @@ class App extends React.Component {
   constructor({
     colorOptions,
     controlEvent,
+    controlConfig,
     datum,
     chartSize,
     chartTypeOptions,
@@ -15,6 +16,7 @@ class App extends React.Component {
   }) {
     super(...Array.from(arguments))
     this.controlEvent = controlEvent
+    this.controlConfig = controlConfig
     this.colorOptions = colorOptions
     this.chartTypeOptions = chartTypeOptions
     this.chartSymbolOptions = chartSymbolOptions
@@ -68,6 +70,7 @@ class App extends React.Component {
       {this.getChart()}
       <Control
         controlEvent={this.controlEvent}
+        config={this.controlConfig}
         colors={this.state.colors}
         chartSymbol={this.state.chartSymbol}
         chartType={this.state.chartType}

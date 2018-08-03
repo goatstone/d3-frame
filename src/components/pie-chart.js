@@ -43,7 +43,6 @@ function A({
                 <rect fill={colors.background} width={widthOffset} height={heightOffset} />
             </g>
             <g style={{ transform: "translate(130px, 130px)" }}>
-                <path d={piePaths[0]} />
                 {piePaths.map((da, i) => <path d={da} key={i} />)}
             </g>
         </svg>
