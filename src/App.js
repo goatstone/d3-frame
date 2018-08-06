@@ -14,15 +14,7 @@ class App extends React.Component {
         chartTypeOptions,
         chartSymbolOptions,
     }) {
-        super({
-            colorOptions,
-            controlEvent,
-            controlConfig,
-            datum,
-            chartSize,
-            chartTypeOptions,
-            chartSymbolOptions,
-        })
+        super(...Array.from(arguments))
         this.controlEvent = controlEvent
         this.controlConfig = controlConfig
         this.colorOptions = colorOptions
