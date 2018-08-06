@@ -1,12 +1,11 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from 'react'
+import ReactDOM from 'react-dom'
 import EventEmitter from 'events'
-import './index.css';
-import App from './App';
-import registerServiceWorker from './registerServiceWorker';
+import './index.css'
+import App from './App'
 import datum from './datum'
 
-const pieData = [1, 1, 2, 3, 5, 8, 13, 21];
+const pieData = [1, 1, 2, 3, 5, 8, 13, 21]
 const controlEvent = new EventEmitter()
 const chartSize = { width: 400, height: 200 }
 const colorOptions = [
@@ -29,9 +28,8 @@ const chartSymbolOptions = [
 const controlConfig = [
     { name: 'color', isVisible: true },
     { name: 'symbol', isVisible: true },
-    { name: 'type', isVisible: true }
+    { name: 'type', isVisible: true },
 ]
-
 ReactDOM.render(<App
     colorOptions={colorOptions}
     controlConfig={controlConfig}
@@ -40,6 +38,4 @@ ReactDOM.render(<App
     chartSize={chartSize}
     chartTypeOptions={chartTypeOptions}
     chartSymbolOptions={chartSymbolOptions}
-    />,
-    document.getElementById('root'));
-registerServiceWorker();
+/>, document.getElementById('root'))
