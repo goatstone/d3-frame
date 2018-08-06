@@ -44,7 +44,7 @@ const base = {
     plugins: [
         copyWebpackPlugin([
             {
-                from: 'public/index.html',
+                from: 'src/public/index.html',
                 to: 'index.html',
                 force: true,
             },
