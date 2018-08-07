@@ -70,6 +70,4 @@ function Control({
         </section>
     )
 }
-Control.events = new EventEmitter()
-Control.events.on('color', e => console.log('c', e))
 export default Control

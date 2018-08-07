@@ -1,13 +1,18 @@
 import React from 'react'
+import EventEmitter from 'events'
 import A from './components/a' // line chart
 import PieChart from './components/pie-chart'
 import Control from './components/control'
 import './App.css'
+import withEvents from './components/hoc/with-events'
+
+// evntE : single event emitter
+const evntE = new EventEmitter()
+const EventControl = withEvents(Control, evntE)
 
 class App extends React.Component {
     constructor({
         colorOptions,
-        // controlEvent,
         controlConfig,
         datum,
         chartSize,
@@ -28,9 +33,9 @@ class App extends React.Component {
             chartSymbol: chartSymbolOptions[1].name,
             chartType: chartTypeOptions[1].name,
         }
-        // // const controlEvent = new EventEmitter()
-        this.controlEvent = Control.events
+        this.controlEvent = evntE
         this.setEvents()
+
     }
     // setEvents : set state as a result of the events being created: map events to application state
     setEvents() {
@@ -54,7 +59,7 @@ class App extends React.Component {
                 colors={this.state.colors}
                 chartSymbol={this.state.chartSymbol}
                 colorOptions={this.colorOptions}
-            />,
+                />,
             pie: <PieChart
                 datum={this.datum.pie}
                 controlEvent={this.controlEvent}
@@ -62,7 +67,7 @@ class App extends React.Component {
                 height={this.chartSize.height}
                 colors={this.state.colors}
                 colorOptions={this.colorOptions}
-            />,
+                />,
         }
         return charts[this.state.chartType]
     }
@@ -70,8 +75,7 @@ class App extends React.Component {
         return (
             <section data-id="container">
                 {this.getChart()}
-                <Control
-                    controlEvent={this.controlEvent}
+                <EventControl
                     config={this.controlConfig}
                     colors={this.state.colors}
                     chartSymbol={this.state.chartSymbol}
@@ -79,7 +83,7 @@ class App extends React.Component {
                     colorOptions={this.colorOptions}
                     chartTypeOptions={this.chartTypeOptions}
                     chartSymbolOptions={this.chartSymbolOptions}
-                />
+                    />
             </section>)
     }
 }
