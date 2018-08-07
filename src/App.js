@@ -1,5 +1,5 @@
 import React from 'react'
-import A from './components/a'
+import A from './components/a' // line chart
 import PieChart from './components/pie-chart'
 import Control from './components/control'
 import './App.css'
