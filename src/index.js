@@ -1,11 +1,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import './index.css'
-import App from './App'
+import D3React from './d3-react'
 import datum from './datum'
 import config from './config'
 
-ReactDOM.render(<App
+ReactDOM.render(<D3React
     colorOptions={config.chart.colors}
     controlConfig={config.control}
     datum={{ line: datum.line, pie: datum.pie }}

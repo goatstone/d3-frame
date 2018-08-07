@@ -1,5 +1,4 @@
 import React from 'react'
-import EventEmitter from 'events'
 import './control.css'
 
 function Control({

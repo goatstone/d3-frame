@@ -10,7 +10,7 @@ import withEvents from './components/hoc/with-events'
 const evntE = new EventEmitter()
 const EventControl = withEvents(Control, evntE)
 
-class App extends React.Component {
+class D3React extends React.Component {
     constructor({
         colorOptions,
         controlConfig,
@@ -35,7 +35,6 @@ class App extends React.Component {
         }
         this.controlEvent = evntE
         this.setEvents()
-
     }
     // setEvents : set state as a result of the events being created: map events to application state
     setEvents() {
@@ -59,7 +58,7 @@ class App extends React.Component {
                 colors={this.state.colors}
                 chartSymbol={this.state.chartSymbol}
                 colorOptions={this.colorOptions}
-                />,
+            />,
             pie: <PieChart
                 datum={this.datum.pie}
                 controlEvent={this.controlEvent}
@@ -67,7 +66,7 @@ class App extends React.Component {
                 height={this.chartSize.height}
                 colors={this.state.colors}
                 colorOptions={this.colorOptions}
-                />,
+            />,
         }
         return charts[this.state.chartType]
     }
@@ -83,9 +82,9 @@ class App extends React.Component {
                     colorOptions={this.colorOptions}
                     chartTypeOptions={this.chartTypeOptions}
                     chartSymbolOptions={this.chartSymbolOptions}
-                    />
+                />
             </section>)
     }
 }
 
-export default App
+export default D3React
