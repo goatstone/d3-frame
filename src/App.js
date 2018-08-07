@@ -7,7 +7,7 @@ import './App.css'
 class App extends React.Component {
     constructor({
         colorOptions,
-        controlEvent,
+        // controlEvent,
         controlConfig,
         datum,
         chartSize,
@@ -15,7 +15,6 @@ class App extends React.Component {
         chartSymbolOptions,
     }) {
         super(...Array.from(arguments))
-        this.controlEvent = controlEvent
         this.controlConfig = controlConfig
         this.colorOptions = colorOptions
         this.chartTypeOptions = chartTypeOptions
@@ -29,6 +28,8 @@ class App extends React.Component {
             chartSymbol: chartSymbolOptions[1].name,
             chartType: chartTypeOptions[1].name,
         }
+        // // const controlEvent = new EventEmitter()
+        this.controlEvent = Control.events
         this.setEvents()
     }
     // setEvents : set state as a result of the events being created: map events to application state

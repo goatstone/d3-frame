@@ -1,4 +1,5 @@
 import React from 'react'
+import EventEmitter from 'events'
 import './control.css'
 
 function Control({
@@ -69,4 +70,6 @@ function Control({
         </section>
     )
 }
+Control.events = new EventEmitter()
+Control.events.on('color', e => console.log('c', e))
 export default Control
