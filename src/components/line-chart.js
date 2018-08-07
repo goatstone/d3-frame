@@ -3,7 +3,7 @@ import * as d3 from 'd3'
 import './a.css'
 import LScale from '../l-scale'
 
-function A({
+function LineChart({
     datum,
     controlEvent,
     height,
@@ -105,4 +105,4 @@ function A({
         </svg>
     )
 }
-export default A
+export default LineChart

@@ -1,6 +1,6 @@
 import React from 'react'
 import EventEmitter from 'events'
-import A from './components/a' // line chart
+import LineChart from './components/line-chart'
 import PieChart from './components/pie-chart'
 import Control from './components/control'
 import './App.css'
@@ -51,7 +51,7 @@ class App extends React.Component {
     }
     getChart() {
         const charts = {
-            line: <A
+            line: <LineChart
                 datum={this.datum.line}
                 controlEvent={this.controlEvent}
                 width={this.chartSize.width}
