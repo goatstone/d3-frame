@@ -5,16 +5,17 @@ import PieChart from './components/pie-chart'
 import Control from './components/control'
 import './App.css'
 import withEvents from './components/hoc/with-events'
+import datum from './datum'
 
-// evntE : single event emitter
 const evntE = new EventEmitter()
 const EventControl = withEvents(Control, evntE)
+const EventPieChart = withEvents(PieChart, evntE)
+const EventLineChart = withEvents(LineChart, evntE)
 
 class D3React extends React.Component {
     constructor({
         colorOptions,
         controlConfig,
-        datum,
         chartSize,
         chartTypeOptions,
         chartSymbolOptions,
@@ -27,6 +28,7 @@ class D3React extends React.Component {
         this.datum = datum
         this.chartSize = chartSize
         this.state = {
+            data: datum,
             colors: {
                 background: colorOptions[0].name,
             },
@@ -36,7 +38,18 @@ class D3React extends React.Component {
         this.controlEvent = evntE
         this.setEvents()
     }
-    // setEvents : set state as a result of the events being created: map events to application state
+    componentDidMount() {
+        const interval = setInterval(() => {
+            const rand = Math.floor(Math.random() * 30)
+            const data = Object(
+                { pie: [2, 3, 4, rand], line: this.state.data.line },
+                this.state.data,
+            )
+            this.setState({ data })
+        }, 2000)
+        setTimeout(() => clearInterval(interval), 30000)
+    }
+    // // setEvents : set state as a result of the events being created: map events to application state
     setEvents() {
         this.controlEvent.on('color', (color) => {
             this.setState({ colors: { background: color } })
@@ -50,18 +63,16 @@ class D3React extends React.Component {
     }
     getChart() {
         const charts = {
-            line: <LineChart
-                datum={this.datum.line}
-                controlEvent={this.controlEvent}
+            line: <EventLineChart
+                datum={this.state.data.line}
                 width={this.chartSize.width}
                 height={this.chartSize.height}
                 colors={this.state.colors}
                 chartSymbol={this.state.chartSymbol}
                 colorOptions={this.colorOptions}
             />,
-            pie: <PieChart
-                datum={this.datum.pie}
-                controlEvent={this.controlEvent}
+            pie: <EventPieChart
+                datum={this.state.data.pie}
                 width={this.chartSize.width}
                 height={this.chartSize.height}
                 colors={this.state.colors}

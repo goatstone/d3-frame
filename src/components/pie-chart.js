@@ -1,7 +1,7 @@
 import React from 'react'
 import * as d3 from 'd3'
 
-function A({
+function PieChart({
     datum,
     controlEvent,
     height,
@@ -50,4 +50,4 @@ function A({
         </svg>
     )
 }
-export default A
+export default PieChart
