@@ -2,7 +2,7 @@ import React from 'react'
 import * as d3 from 'd3'
 import LScale from '../l-scale'
 
-const Hello = ({ datum = {}, config }) => {
+const Hello = ({ datum = [], config }) => {
     const widthOffset = config.chart.size.width + 60
     const heightOffset = config.chart.size.height + 60
 

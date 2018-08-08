@@ -1,29 +1,12 @@
 import React from 'react'
-import EventEmitter from 'events'
-import LineChart from './components/line-chart'
-import PieChart from './components/pie-chart'
-import Hello from './components/hello'
 import Control from './components/control'
 import withEvents from './components/hoc/with-events'
 import withConfig from './components/hoc/with-config'
 import datum from './datum'
 import config from './config'
 
-const evntE = new EventEmitter()
-
-let EventControl = withEvents(Control, evntE)
-EventControl = withConfig(EventControl, config)
-
-let EventPieChart = withEvents(PieChart, evntE)
-EventPieChart = withConfig(EventPieChart, config)
-
-let EventLineChart = withEvents(LineChart, evntE)
-EventLineChart = withConfig(EventLineChart, config)
-
-const EventHello = withConfig(Hello, config)
-
 class D3React extends React.Component {
-    constructor() {
+    constructor({ charts, events }) {
         super(...Array.from(arguments))
         this.state = {
             data: datum,
@@ -33,7 +16,11 @@ class D3React extends React.Component {
             chartSymbol: config.symbols[1].name,
             chartType: config.chart.types[0].name,
         }
-        this.controlEvent = evntE
+        this.controlEvent = events
+        this.chartComps = charts
+        // TODO use an HOC
+        const EventControl = withEvents(Control, events)
+        this.EventControl = withConfig(EventControl, config)
         this.setEvents()
     }
     componentDidMount() {
@@ -47,6 +34,22 @@ class D3React extends React.Component {
         }, 2000)
         setTimeout(() => clearInterval(interval), 30000)
     }
+    getCharts() {
+        return {
+            hello: <this.chartComps.hello
+                datum={this.state.data.line}
+            />,
+            line: <this.chartComps.line
+                datum={this.state.data.line}
+                colors={this.state.colors}
+                chartSymbol={this.state.chartSymbol}
+            />,
+            pie: <this.chartComps.pie
+                datum={this.state.data.pie}
+                colors={this.state.colors}
+            />,
+        }
+    }
     // setEvents : set state as a result of the events being created: map events to application state
     setEvents() {
         this.controlEvent.on('color', (color) => {
@@ -59,26 +62,11 @@ class D3React extends React.Component {
             this.setState({ chartType: e })
         })
     }
-    getChart() {
-        const charts = {
-            line: <EventLineChart
-                datum={this.state.data.line}
-                colors={this.state.colors}
-                chartSymbol={this.state.chartSymbol}
-            />,
-            pie: <EventPieChart
-                datum={this.state.data.pie}
-                colors={this.state.colors}
-            />,
-            hello: <EventHello datum={this.state.data.line} />,
-        }
-        return charts[this.state.chartType]
-    }
     render() {
         return (
             <section data-id="container">
-                {this.getChart()}
-                <EventControl
+                {this.getCharts()[this.state.chartType]}
+                <this.EventControl
                     colors={this.state.colors}
                     chartSymbol={this.state.chartSymbol}
                     chartType={this.state.chartType}
