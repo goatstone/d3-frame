@@ -5,35 +5,33 @@ import PieChart from './components/pie-chart'
 import Control from './components/control'
 import './App.css'
 import withEvents from './components/hoc/with-events'
+import withConfig from './components/hoc/with-config'
 import datum from './datum'
+import config from './config'
 
 const evntE = new EventEmitter()
 const EventControl = withEvents(Control, evntE)
-const EventPieChart = withEvents(PieChart, evntE)
+let EventPieChart = withEvents(PieChart, evntE)
+EventPieChart = withConfig(EventPieChart, config)
+
 const EventLineChart = withEvents(LineChart, evntE)
 
 class D3React extends React.Component {
-    constructor({
-        colorOptions,
-        controlConfig,
-        chartSize,
-        chartTypeOptions,
-        chartSymbolOptions,
-    }) {
+    constructor() {
         super(...Array.from(arguments))
-        this.controlConfig = controlConfig
-        this.colorOptions = colorOptions
-        this.chartTypeOptions = chartTypeOptions
-        this.chartSymbolOptions = chartSymbolOptions
+        this.controlConfig = config.control
+        this.colorOptions = config.chart.colors
+        this.chartTypeOptions = config.chart.types
+        this.chartSymbolOptions = config.symbols
         this.datum = datum
-        this.chartSize = chartSize
+        this.chartSize = config.chart.size
         this.state = {
             data: datum,
             colors: {
-                background: colorOptions[0].name,
+                background: config.chart.colors[1].name,
             },
-            chartSymbol: chartSymbolOptions[1].name,
-            chartType: chartTypeOptions[1].name,
+            chartSymbol: config.symbols[1].name,
+            chartType: config.chart.types[1].name,
         }
         this.controlEvent = evntE
         this.setEvents()
@@ -73,10 +71,7 @@ class D3React extends React.Component {
             />,
             pie: <EventPieChart
                 datum={this.state.data.pie}
-                width={this.chartSize.width}
-                height={this.chartSize.height}
                 colors={this.state.colors}
-                colorOptions={this.colorOptions}
             />,
         }
         return charts[this.state.chartType]

@@ -1,23 +1,23 @@
 import React from 'react'
 import * as d3 from 'd3'
 
+// just use config as, reduce args
+
 function PieChart({
     datum,
     controlEvent,
-    height,
-    width,
+    config,
     colors,
-    colorOptions,
 }) {
     const pieArcs = d3.pie()(datum)
     const arcGenerator = d3.arc()
-    const widthOffset = width + 60
-    const heightOffset = height + 60
+    const widthOffset = config.chart.size.width + 60
+    const heightOffset = config.chart.size.height + 60
     function chartClick() {
         controlEvent.emit(
             'color',
-            colorOptions[
-                Math.floor(colorOptions.length * Math.random())
+            config.chart.colors[
+                Math.floor(config.chart.colors.length * Math.random())
             ].name,
         )
     }
