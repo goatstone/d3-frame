@@ -2,6 +2,7 @@ import React from 'react'
 import EventEmitter from 'events'
 import LineChart from './components/line-chart'
 import PieChart from './components/pie-chart'
+import Hello from './components/hello'
 import Control from './components/control'
 import withEvents from './components/hoc/with-events'
 import withConfig from './components/hoc/with-config'
@@ -18,6 +19,8 @@ EventPieChart = withConfig(EventPieChart, config)
 
 let EventLineChart = withEvents(LineChart, evntE)
 EventLineChart = withConfig(EventLineChart, config)
+
+const EventHello = withConfig(Hello, config)
 
 class D3React extends React.Component {
     constructor() {
@@ -67,6 +70,7 @@ class D3React extends React.Component {
                 datum={this.state.data.pie}
                 colors={this.state.colors}
             />,
+            hello: <EventHello datum={this.state.data.line} />,
         }
         return charts[this.state.chartType]
     }

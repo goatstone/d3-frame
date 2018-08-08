@@ -2,9 +2,12 @@ import React from 'react'
 import * as d3 from 'd3'
 import LScale from '../l-scale'
 
-const B = ({ datum = {} }) => {
+const Hello = ({ datum = {}, config }) => {
+    const widthOffset = config.chart.size.width + 60
+    const heightOffset = config.chart.size.height + 60
+
     const pathData = d3.path()
-    pathData.moveTo(12, 12)
+    pathData.moveTo(0, 0)
     pathData.lineTo(136, 12)
     pathData.closePath()
 
@@ -14,7 +17,7 @@ const B = ({ datum = {} }) => {
     // date scale function
     const convertToEpochSec = date => new Date(date).setHours(0, 0, 0, 0)
 
-    const els = Object.entries(datum).map(d => <text key={`els${d}`} >{d[0]}</text>)
+    const els = datum.map(d => <text key={`x${d.day}`} >{d.day}</text>)
     const xScale = d3.scaleTime()
         .domain(d3.extent(datum, d => convertToEpochSec(d.day)))
         .range([0, width])
@@ -37,9 +40,17 @@ const B = ({ datum = {} }) => {
             />
         ))
     return (
-        <svg>
+        <svg
+            width={widthOffset}
+            height={heightOffset}
+        >
+            <rect
+                fill="red"
+                width={widthOffset}
+                height={heightOffset}
+            />
             <text>B</text>
-            <g style={{ transform: 'translate(100px, 100px)' }}>
+            <g style={{ transform: 'translate(20px, 20px)' }}>
                 {paths}
                 {els}
                 {circleSVG}
@@ -48,4 +59,4 @@ const B = ({ datum = {} }) => {
     )
 }
 
-export default B
+export default Hello

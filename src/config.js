@@ -11,7 +11,7 @@ export default {
         types: [
             { name: 'line', display: 'Line' },
             { name: 'pie', display: 'Pie' },
-            { name: 'histogram', display: 'Histogram' },
+            { name: 'hello', display: 'Hello' },
         ],
     },
     symbols: [
