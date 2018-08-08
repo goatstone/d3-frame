@@ -6,41 +6,34 @@ import LScale from '../l-scale'
 function LineChart({
     datum,
     controlEvent,
-    height,
-    width,
+    config,
     colors,
     chartSymbol,
-    colorOptions,
 }) {
-    const widthOffset = width + 60
-    const heightOffset = height + 60
+    const widthOffset = config.chart.size.width + 60
+    const heightOffset = config.chart.size.height + 60
     function chartClick() {
         controlEvent.emit(
             'color',
-            colorOptions[
-                Math.floor(colorOptions.length * Math.random())
+            config.chart.colors[
+                Math.floor(config.chart.colors.length * Math.random())
             ].name,
         )
     }
-
     // date scale function
     const convertToEpochSec = date => new Date(date).setHours(0, 0, 0, 0)
-
     // xScale, yScale
     const xScale = d3.scaleTime()
         .domain(d3.extent(datum, d => convertToEpochSec(d.day)))
-        .range([0, width])
-
+        .range([0, config.chart.size.width])
     // quality scale function
-    const yScale = LScale(datum.map(d => d.quality), height, 0)
-
+    const yScale = LScale(datum.map(d => d.quality), config.chart.size.height, 0)
     // Elements of the chart
     // line pathD
     const sparkLine = d3.line()
         .x(d => xScale(convertToEpochSec(d.day)))
         .y(d => yScale(d.quality))
     const linePath = sparkLine(datum)
-
     // symbols, data markers
     const arc = d3.symbol()
         .type(d3[chartSymbol])
@@ -91,7 +84,7 @@ function LineChart({
                 <g
                     ref={node => d3.select(node).call(xAxis)}
                     style={{
-                        transform: `translateY(${height}px)`,
+                        transform: `translateY(${config.chart.size.height}px)`,
                     }}
                 />
                 <g ref={node => d3.select(node).call(yAxis)} />

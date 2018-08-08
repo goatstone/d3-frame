@@ -10,11 +10,15 @@ import datum from './datum'
 import config from './config'
 
 const evntE = new EventEmitter()
-const EventControl = withEvents(Control, evntE)
+
+let EventControl = withEvents(Control, evntE)
+EventControl = withConfig(EventControl, config)
+
 let EventPieChart = withEvents(PieChart, evntE)
 EventPieChart = withConfig(EventPieChart, config)
 
-const EventLineChart = withEvents(LineChart, evntE)
+let EventLineChart = withEvents(LineChart, evntE)
+EventLineChart = withConfig(EventLineChart, config)
 
 class D3React extends React.Component {
     constructor() {
@@ -31,7 +35,7 @@ class D3React extends React.Component {
                 background: config.chart.colors[1].name,
             },
             chartSymbol: config.symbols[1].name,
-            chartType: config.chart.types[1].name,
+            chartType: config.chart.types[0].name,
         }
         this.controlEvent = evntE
         this.setEvents()
@@ -47,7 +51,7 @@ class D3React extends React.Component {
         }, 2000)
         setTimeout(() => clearInterval(interval), 30000)
     }
-    // // setEvents : set state as a result of the events being created: map events to application state
+    // setEvents : set state as a result of the events being created: map events to application state
     setEvents() {
         this.controlEvent.on('color', (color) => {
             this.setState({ colors: { background: color } })
@@ -63,11 +67,8 @@ class D3React extends React.Component {
         const charts = {
             line: <EventLineChart
                 datum={this.state.data.line}
-                width={this.chartSize.width}
-                height={this.chartSize.height}
                 colors={this.state.colors}
                 chartSymbol={this.state.chartSymbol}
-                colorOptions={this.colorOptions}
             />,
             pie: <EventPieChart
                 datum={this.state.data.pie}
@@ -81,13 +82,9 @@ class D3React extends React.Component {
             <section data-id="container">
                 {this.getChart()}
                 <EventControl
-                    config={this.controlConfig}
                     colors={this.state.colors}
                     chartSymbol={this.state.chartSymbol}
                     chartType={this.state.chartType}
-                    colorOptions={this.colorOptions}
-                    chartTypeOptions={this.chartTypeOptions}
-                    chartSymbolOptions={this.chartSymbolOptions}
                 />
             </section>)
     }

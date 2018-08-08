@@ -4,12 +4,9 @@ import './control.css'
 function Control({
     controlEvent,
     config,
-    colors, // chartColors
+    colors,
     chartSymbol,
     chartType,
-    colorOptions, // chartColorOptions
-    chartTypeOptions,
-    chartSymbolOptions,
 }) {
     function emitEvent(e) {
         const { name, value } = e.target
@@ -23,7 +20,7 @@ function Control({
                 onChange={emitEvent}
                 value={colors.background}
             >
-                {colorOptions
+                {config.chart.colors
                     .map(co => <option value={co.name} key={co.name}>{co.display}</option>)}
             </select>
         </label>)
@@ -35,7 +32,7 @@ function Control({
                 onChange={emitEvent}
                 value={chartSymbol}
             >
-                {chartSymbolOptions
+                {config.symbols
                     .map(cso => <option value={cso.name} key={cso.name}>{cso.display}</option>)}
             </select>
         </label>)
@@ -47,7 +44,7 @@ function Control({
                 onChange={emitEvent}
                 value={chartType}
             >
-                {chartTypeOptions
+                {config.chart.types
                     .map(cto => <option value={cto.name} key={cto.name}>{cto.display}</option>)}
             </select>
         </label>)
@@ -55,7 +52,7 @@ function Control({
     const elements = { color, symbol, type }
     const visibleElements = []
 
-    config.forEach((e) => {
+    config.control.forEach((e) => {
         if (elements[e.name] && e.isVisible) {
             visibleElements.push(elements[e.name])
         }
