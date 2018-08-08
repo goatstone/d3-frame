@@ -48,6 +48,11 @@ const base = {
                 to: 'index.html',
                 force: true,
             },
+            {
+                from: 'src/public/style.css',
+                to: 'style.css',
+                force: true,
+            },
         ]),
         new webpack.LoaderOptionsPlugin({
             options: {

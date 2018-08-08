@@ -1,5 +1,4 @@
 import React from 'react'
-import './control.css'
 
 function Control({
     controlEvent,

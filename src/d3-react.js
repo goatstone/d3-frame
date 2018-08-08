@@ -3,7 +3,6 @@ import EventEmitter from 'events'
 import LineChart from './components/line-chart'
 import PieChart from './components/pie-chart'
 import Control from './components/control'
-import './App.css'
 import withEvents from './components/hoc/with-events'
 import withConfig from './components/hoc/with-config'
 import datum from './datum'
@@ -23,12 +22,6 @@ EventLineChart = withConfig(EventLineChart, config)
 class D3React extends React.Component {
     constructor() {
         super(...Array.from(arguments))
-        this.controlConfig = config.control
-        this.colorOptions = config.chart.colors
-        this.chartTypeOptions = config.chart.types
-        this.chartSymbolOptions = config.symbols
-        this.datum = datum
-        this.chartSize = config.chart.size
         this.state = {
             data: datum,
             colors: {

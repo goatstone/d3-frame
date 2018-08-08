@@ -1,6 +1,5 @@
 import React from 'react'
 import * as d3 from 'd3'
-import './a.css'
 import LScale from '../l-scale'
 
 function LineChart({
