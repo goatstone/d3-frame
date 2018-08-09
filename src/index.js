@@ -27,6 +27,9 @@ let D3ReactWrap = withCharts(D3React, {
     line: LineChartWrapper,
     pie: PieChartWrapper,
 })
-D3ReactWrap = withComponent(D3ReactWrap, Control)
+D3ReactWrap = withComponent(D3ReactWrap, HelloWrapper, 'Hello')
+D3ReactWrap = withComponent(D3ReactWrap, LineChartWrapper, 'LineChart')
+D3ReactWrap = withComponent(D3ReactWrap, PieChartWrapper, 'PieChart')
+D3ReactWrap = withComponent(D3ReactWrap, Control, 'Control')
 
 ReactDOM.render(<D3ReactWrap events={evntE} />, document.getElementById('root'))

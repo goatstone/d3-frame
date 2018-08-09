@@ -1,12 +1,13 @@
 import React from 'react'
-import Control from './components/control'
 import withEvents from './components/hoc/with-events'
 import withConfig from './components/hoc/with-config'
 import datum from './datum'
 import config from './config'
 
 class D3React extends React.Component {
-    constructor({ charts, events }) {
+    constructor({
+        PieChart, LineChart, Hello, Control, events, charts,
+    }) {
         super(...Array.from(arguments))
         this.state = {
             data: datum,
@@ -18,7 +19,9 @@ class D3React extends React.Component {
         }
         this.controlEvent = events
         this.chartComps = charts
-        // TODO use an HOC
+        this.PieChart = PieChart
+        this.LineChart = LineChart
+        this.Hello = Hello
         const EventControl = withEvents(Control, events)
         this.EventControl = withConfig(EventControl, config)
         this.setEvents()
@@ -36,15 +39,15 @@ class D3React extends React.Component {
     }
     getCharts() {
         return {
-            hello: <this.chartComps.hello
+            hello: <this.Hello
                 datum={this.state.data.line}
             />,
-            line: <this.chartComps.line
+            line: <this.LineChart
                 datum={this.state.data.line}
                 colors={this.state.colors}
                 chartSymbol={this.state.chartSymbol}
             />,
-            pie: <this.chartComps.pie
+            pie: <this.PieChart
                 datum={this.state.data.pie}
                 colors={this.state.colors}
             />,

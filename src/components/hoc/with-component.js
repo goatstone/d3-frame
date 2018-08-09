@@ -1,9 +1,8 @@
 import React from 'react'
 
-const withComponent = (WrappedComponent, Component) => {
-    const componeantName = Component.name
+const withComponent = (WrappedComponent, Component, propName) => {
     return (props) => {
-        return <WrappedComponent {...{ [componeantName]: Component }} {...props} />
+        return <WrappedComponent {...{ [propName]: Component }} {...props} />
     }
 }
 
