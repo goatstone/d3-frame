@@ -1,29 +1,23 @@
 import React from 'react'
-import withEvents from './components/hoc/with-events'
-import withConfig from './components/hoc/with-config'
-import datum from './datum'
-import config from './config'
 
 class D3React extends React.Component {
     constructor({
-        PieChart, LineChart, Hello, Control, events, charts,
+        PieChart, LineChart, HelloChart, Control, controlEvent, config, data,
     }) {
         super(...Array.from(arguments))
         this.state = {
-            data: datum,
+            data,
             colors: {
                 background: config.chart.colors[1].name,
             },
             chartSymbol: config.symbols[1].name,
             chartType: config.chart.types[0].name,
         }
-        this.controlEvent = events
-        this.chartComps = charts
+        this.controlEvent = controlEvent
         this.PieChart = PieChart
         this.LineChart = LineChart
-        this.Hello = Hello
-        const EventControl = withEvents(Control, events)
-        this.EventControl = withConfig(EventControl, config)
+        this.HelloChart = HelloChart
+        this.EventControl = Control
         this.setEvents()
     }
     componentDidMount() {
@@ -39,7 +33,7 @@ class D3React extends React.Component {
     }
     getCharts() {
         return {
-            hello: <this.Hello
+            hello: <this.HelloChart
                 datum={this.state.data.line}
             />,
             line: <this.LineChart
