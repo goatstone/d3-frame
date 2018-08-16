@@ -58,7 +58,7 @@ function Control({
     })
 
     return (
-        <section>
+        <section data-id="control">
             <form>
                 {visibleElements}
             </form>

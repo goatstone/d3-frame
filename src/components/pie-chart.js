@@ -40,11 +40,13 @@ function PieChart({
             width={widthOffset}
             height={heightOffset}
             onClick={chartClick}
+            data-id="pie-chart"
+            data-component-type="chart"
         >
             <g>
                 <rect fill={colors.background} width={widthOffset} height={heightOffset} />
             </g>
-            <g style={{ transform: 'translate(130px, 130px)' }}>
+            <g style={{ transform: 'translate(225px, 130px)' }}>
                 {piePaths.map(da => <path d={da} key={`k-${da}`} />)}
             </g>
         </svg>

@@ -75,6 +75,8 @@ function LineChart({
             width={widthOffset}
             height={heightOffset}
             onClick={chartClick}
+            data-id="line-chart"
+            data-component-type="chart"
         >
             <g>
                 <rect fill={colors.background} width={widthOffset} height={heightOffset} />

@@ -43,6 +43,8 @@ const Hello = ({ datum = [], config }) => {
         <svg
             width={widthOffset}
             height={heightOffset}
+            data-id="hello-chart"
+            data-component-type="chart"
         >
             <rect
                 fill="red"
