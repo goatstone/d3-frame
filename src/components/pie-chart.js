@@ -5,7 +5,7 @@ import * as d3 from 'd3'
 
 function PieChart({
     datum,
-    controlEvent,
+    events,
     config,
     colors,
 }) {
@@ -14,7 +14,7 @@ function PieChart({
     const widthOffset = config.chart.size.width + 60
     const heightOffset = config.chart.size.height + 60
     function chartClick() {
-        controlEvent.emit(
+        events.emit(
             'color',
             config.chart.colors[
                 Math.floor(config.chart.colors.length * Math.random())

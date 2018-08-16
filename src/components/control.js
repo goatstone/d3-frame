@@ -1,7 +1,7 @@
 import React from 'react'
 
 function Control({
-    controlEvent,
+    events,
     config,
     colors,
     chartSymbol,
@@ -9,7 +9,7 @@ function Control({
 }) {
     function emitEvent(e) {
         const { name, value } = e.target
-        controlEvent.emit(name, value)
+        events.emit(name, value)
     }
     const color = (
         <label key="color">

@@ -4,7 +4,7 @@ import LScale from '../l-scale'
 
 function LineChart({
     datum,
-    controlEvent,
+    events,
     config,
     colors,
     chartSymbol,
@@ -12,7 +12,7 @@ function LineChart({
     const widthOffset = config.chart.size.width + 60
     const heightOffset = config.chart.size.height + 60
     function chartClick() {
-        controlEvent.emit(
+        events.emit(
             'color',
             config.chart.colors[
                 Math.floor(config.chart.colors.length * Math.random())

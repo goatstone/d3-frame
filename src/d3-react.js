@@ -2,7 +2,7 @@ import React from 'react'
 
 class D3React extends React.Component {
     constructor({
-        PieChart, LineChart, HelloChart, Control, controlEvent, config, data,
+        PieChart, LineChart, HelloChart, Control, events, config, data,
     }) {
         super(...Array.from(arguments))
         this.state = {
@@ -13,7 +13,7 @@ class D3React extends React.Component {
             chartSymbol: config.symbols[1].name,
             chartType: config.chart.types[0].name,
         }
-        this.controlEvent = controlEvent
+        this.controlEvent = events
         this.PieChart = PieChart
         this.LineChart = LineChart
         this.HelloChart = HelloChart
