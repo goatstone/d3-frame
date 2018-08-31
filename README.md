@@ -69,18 +69,14 @@ A series of controls will be presented. The controls will give the user the abil
 
 ## Links to relevant sites
 
-D3
-React
-JavaScript
-
-
-[]https://reactjs.org/docs/refs-and-the-dom.html
+[D3](https://d3js.org/)
+ , [React](https://reactjs.org/)
+ , [ReactJS refs and the DOM](https://reactjs.org/docs/refs-and-the-dom.html)
 
 The starter kits used for this application
 
-https://github.com/oscarmorrison/react-webpack-starter
-
-[Create React App](https://github.com/facebookincubator/create-react-app)
+[React, Webpack, Babel, Jest, ESLint Starter](https://github.com/oscarmorrison/react-webpack-starter)
+ ,[Create React App](https://github.com/facebookincubator/create-react-app)
 
 
 
