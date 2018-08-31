@@ -44,7 +44,6 @@
         "jest": "./node_modules/.bin/jest",
         "jest:watch": "./node_modules/.bin/jest --watch",
         "lint": "./node_modules/.bin/eslint src/ test --ext .js --ext .jsx",
-        "lint:watch": "./node_modules/.bin/esw src/ test --ext .js --ext .jsx -w --color --clear",
-        "lint:fix": "./node_modules/.bin/eslint src/ test --ext .js --ext .jsx --fix"
+        "lint:watch": "./node_modules/.bin/esw src/ test --ext .js --ext .jsx -w --color --clear"
     }
 }
