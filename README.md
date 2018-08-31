@@ -10,6 +10,11 @@ Methodologies for using the D3 visualization library with ReactJS
 git clone git@github.com:JoseHerminioCollas/d3-react.git
 ```
 
+### Install
+```
+cd d3-react/
+yarn
+```
 ### Development
 
 ```    
@@ -40,7 +45,7 @@ yarn run test:watch
 
 The following are strategies for approaching some of the issues that arise when using D3 with other frameworks, specifically ReactJS. In the future I will be exploring D3 integration with other frameworks and libraries in this location. Ultimately, the objective is to clearly separate the functionality of D3 from any framework that you may be using in the future. 
 
-D3 is a very large library and comes with many utilities that become redundant when working with a modern client side web framework. Fortunately, as of D3 version ?>>>CCCCCVVV5, one can strategically use libraries as needed.
+D3 is a very large library and comes with many utilities that become redundant when working with a modern client side web framework. Fortunately, as of D3 version 4.0, one can strategically use libraries as needed.
 
 ### Some Issues To Consider
 
