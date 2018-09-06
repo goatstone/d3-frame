@@ -1,0 +1,15 @@
+## set the default shell
+shell bash
+
+autodetach on
+
+# Big scrollback
+defscrollback 5000
+
+# Setup screens
+chdir /home/goat/projects/d3-react
+
+screen -t 'main'
+screen -t 'run' yarn run dev
+screen -t 'run emacs' emacs /home/goat/projects/d3-react/src/index.js
+screeb -t 'run browsser' firefox localhost:8080
