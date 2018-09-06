@@ -11,8 +11,9 @@ export default {
         types: [
             { name: 'line', display: 'Line' },
             { name: 'pie', display: 'Pie' },
-            { name: 'hello', display: 'Hello' },
+            { name: 'bar', display: 'Bar' },
         ],
+        format: {margin: '20px'},
     },
     symbols: [
         { name: 'symbolCircle', display: 'Circle' },

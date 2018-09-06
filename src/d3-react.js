@@ -2,21 +2,24 @@ import React from 'react'
 
 class D3React extends React.Component {
     constructor({
-        PieChart, LineChart, HelloChart, Control, events, config, data,
+        PieChart, LineChart, BarChart, Control, events, config, data,
     }) {
         super(...Array.from(arguments))
+
+        console.log('c', config)
+
         this.state = {
             data,
             colors: {
                 background: config.chart.colors[1].name,
             },
             chartSymbol: config.symbols[1].name,
-            chartType: config.chart.types[0].name,
+            chartType: config.chart.types[2].name,
         }
         this.controlEvent = events
         this.PieChart = PieChart
         this.LineChart = LineChart
-        this.HelloChart = HelloChart
+        this.BarChart = BarChart
         this.EventControl = Control
         this.setEvents()
     }
@@ -33,7 +36,7 @@ class D3React extends React.Component {
     }
     getCharts() {
         return {
-            hello: <this.HelloChart
+            bar: <this.BarChart
                 datum={this.state.data.line}
             />,
             line: <this.LineChart
