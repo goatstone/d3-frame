@@ -1,6 +1,6 @@
 export default {
     chart: {
-        size: { width: 400, height: 200 },
+        size: { width: '100%', height: 200 },
         colors: [
             { name: 'red', display: 'Red' },
             { name: 'blue', display: 'Blue' },
@@ -13,7 +13,7 @@ export default {
             { name: 'pie', display: 'Pie' },
             { name: 'bar', display: 'Bar' },
         ],
-        format: {margin: '20px'},
+        format: { margin: '20px' },
     },
     symbols: [
         { name: 'symbolCircle', display: 'Circle' },

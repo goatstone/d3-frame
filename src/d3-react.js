@@ -6,15 +6,13 @@ class D3React extends React.Component {
     }) {
         super(...Array.from(arguments))
 
-        console.log('c', config)
-
         this.state = {
             data,
             colors: {
                 background: config.chart.colors[1].name,
             },
             chartSymbol: config.symbols[1].name,
-            chartType: config.chart.types[2].name,
+            chartType: config.chart.types[2].name, // the selected charte
         }
         this.controlEvent = events
         this.PieChart = PieChart
@@ -24,20 +22,14 @@ class D3React extends React.Component {
         this.setEvents()
     }
     componentDidMount() {
-        const interval = setInterval(() => {
-            const rand = Math.floor(Math.random() * 30)
-            const data = Object(
-                { pie: [2, 3, 4, rand], line: this.state.data.line },
-                this.state.data,
-            )
-            this.setState({ data })
-        }, 2000)
-        setTimeout(() => clearInterval(interval), 30000)
+        // animate the pie chart on init
+        // this.engine()
     }
     getCharts() {
         return {
             bar: <this.BarChart
-                datum={this.state.data.line}
+                datum={this.state.data.bar}
+                colors={this.state.colors}
             />,
             line: <this.LineChart
                 datum={this.state.data.line}
@@ -61,6 +53,17 @@ class D3React extends React.Component {
         this.controlEvent.on('chartType', (e) => {
             this.setState({ chartType: e })
         })
+    }
+    engine() {
+        const interval = setInterval(() => {
+            const rand = Math.floor(Math.random() * 30)
+            const data = Object(
+                { pie: [2, 3, 4, rand], line: this.state.data.line },
+                this.state.data,
+            )
+            this.setState({ data })
+        }, 2000)
+        setTimeout(() => clearInterval(interval), 30000)
     }
     render() {
         return (
