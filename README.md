@@ -2,6 +2,10 @@
 
 Methodologies for using the D3 visualization library with ReactJS
 
+## Website
+    
+(d3-frame.goatsone.com)(http://d3-frame.goatsone.com)
+    
 ## Usage
 
 ### Clone the GitHub repo.
@@ -53,7 +57,7 @@ D3 is a very large library and comes with many utilities that become redundant w
 
 Since D3 interacts with the DOM there are potential conflicts when both libraries try to change the DOM. To address this I will simply not be using the D3 DOM manipulation and use only ReactJS to update the DOM. 
 
-#### A Unified Event System
+#### A unified event system
 
 DIfferent libraries come with different notions of how an event system should be done. A single eventing system with the same form of event objects being sent is crucial to a successful application.
 
