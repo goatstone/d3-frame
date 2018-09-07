@@ -28,7 +28,7 @@ class D3React extends React.Component {
     getCharts() {
         return {
             bar: <this.BarChart
-                datum={this.state.data.bar}
+                data={this.state.data.bar}
                 colors={this.state.colors}
             />,
             line: <this.LineChart

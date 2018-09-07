@@ -1,73 +1,76 @@
 import React from 'react'
 import * as d3 from 'd3'
 
-const BarChart = ({ datum = [], config, colors = [] }) => {
-    const widthOffset = config.chart.size.width + 60
+const BarChart = ({ data = [], config, colors = [] }) => {
     const heightOffset = config.chart.size.height + 60
-    const width =  config.chart.size.width
-    
-    const x = d3.scaleBand().rangeRound([0, 900]).padding(0.1)
+    const width = config.chart.size.width
+    const barHeightMax = 200
 
-    // generate the data that will be used to generate the elements
-    const data2 = [['A', 1.0], ...datum]
+    const x = d3
+          .scaleBand()
+          .rangeRound([0, 900])
+          .padding(0.1)
+          .domain(data.map(d => d[0]))
 
-    x.domain(data2.map(function(d) { return d[0]; }));
+    const y = d3
+          .scaleLinear()
+          .rangeRound([0, barHeightMax])
+          .domain([0, d3.max(data, d => d[1])])
 
-    const elementData = data2.map(function(d) {
-
-        const barMax = 200
-        const barHeight = d[1] * barMax
-        this.x += 50
-        this.y = barMax - barHeight
-        console.log(d[0], x(d[0]))
-        const r = {
-            label:d[0],
-            frequency: d,
+    const elementData = data.map((d) => {
+        const yValue = y(d[1])
+        return {
+            label: d[0],
+            frequency: d[1],
             x: x(d[0]),
-            y: this.y,
-            w: 30,
-            h: barHeight
+            y: barHeightMax - yValue,
+            w: x.bandwidth(),
+            h: yValue,
         }
-        return r
-    }, { x: 0, y: 0 })
+    })
     // generate the elements
     const elements = elementData
-          .map((d, i) => {
+          .map((d) => {
               return (
                       <g
                   key={`x${d.label}`}
                       >
                       <rect
                   key={`xx${d.y}`}
-                  x={ d.x }
-                  y={ d.y }
+                  x={d.x}
+                  y={d.y}
                   width={d.w}
-                  height={ d.h }
-                      >
-                  </rect>
-                  <text
+                  height={d.h}
+                      />
+                      <text
                   key={`xxx${d.x}`}
                   x={d.x}
-                  y={d.y - 10}
-                      >{d.label} :  {d.frequency} 
+                  y={d.y + d.h + 20}
+                      >{d.label}
+                  </text>
+                      <text
+                  key={`xxxx${d.frequency}`}
+                  x={d.x}
+                  y={d.y + d.h + 35}
+                      >
+                      {d.frequency}
                   </text>
                       </g>
               )
           })
-    
     return (
         <svg
-        width={width}
+            width={width}
             height={heightOffset}
             data-id="bar-chart"
             data-component-type="chart"
         >
             <rect
-                fill={'red'}
+        fill={colors.background}
                 width={width}
                 height={300}
             />
-            <g style={{ transform: 'translate(0px, 20px)' }}>
+            <g style={{ transform: 'translate(20px, 20px)' }}>
                 {elements}
             </g>
         </svg>

@@ -12,7 +12,7 @@ function Control({
         events.emit(name, value)
     }
     const color = (
-        <label key="color">
+        <label key="color" data-id="control.color">
             Color
             <select
                 name="color"
@@ -24,7 +24,7 @@ function Control({
             </select>
         </label>)
     const symbol = (
-        <label key="symbol">
+        <label key="symbol" data-id="control.symbol">
             Symbol
             <select
                 name="chartSymbol"
@@ -36,7 +36,7 @@ function Control({
             </select>
         </label>)
     const type = (
-        <label key="type">
+        <label key="type" data-id="control.type">
             Type
             <select
                 name="chartType"
@@ -48,7 +48,7 @@ function Control({
             </select>
         </label>)
 
-    const elements = { color, symbol, type }
+    const elements = { type, color, symbol }
     const visibleElements = []
 
     config.control.forEach((e) => {

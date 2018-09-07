@@ -11,7 +11,7 @@ function PieChart({
 }) {
     const pieArcs = d3.pie()(datum)
     const arcGenerator = d3.arc()
-    const widthOffset = config.chart.size.width + 60
+    const widthOffset = config.chart.size.width && 500
     const heightOffset = config.chart.size.height + 60
     function chartClick() {
         events.emit(

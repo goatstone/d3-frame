@@ -7,9 +7,10 @@ function LineChart({
     events,
     config,
     colors,
-   chartSymbol,
+    chartSymbol,
 }) {
-    // const widthOffset = config.chart.size.width + 60
+    // const widthOffset = 360
+    const width = config.chart.size.width && 600
     const heightOffset = config.chart.size.height + 60
     function chartClick() {
         events.emit(
@@ -24,7 +25,7 @@ function LineChart({
     // xScale, yScale
     const xScale = d3.scaleTime()
         .domain(d3.extent(datum, d => convertToEpochSec(d.day)))
-        .range([0, config.chart.size.width])
+        .range([0, width])
     // quality scale function
     const yScale = LScale(datum.map(d => d.quality), config.chart.size.height, 0)
     // Elements of the chart
@@ -72,14 +73,14 @@ function LineChart({
 
     return (
         <svg
-            width={1500}
-            height={100}
+            width={width}
+            height={heightOffset}
             onClick={chartClick}
             data-id="line-chart"
             data-component-type="chart"
         >
             <g>
-                <rect fill={colors.background} width={width} height={heightOffset} />
+                <rect fill={colors.background} width={width + 200} height={heightOffset} />
             </g>
             <g style={{ transform: 'translate(30px, 30px)' }}>
                 <g
