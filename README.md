@@ -4,7 +4,7 @@ Methodologies for using the D3 visualization library with ReactJS
 
 ## Website
     
-[d3-frame.goatstone.com](d3-frame.goatstone.com)
+[d3-frame.goatstone.com](http://d3-frame.goatstone.com)
     
 ## Usage
 
