@@ -1,5 +1,7 @@
 import React from 'react'
 import * as d3 from 'd3'
+import elementData from './element-data'
+// import elements from './elements' //
 
 const BarChart = ({ data = [], config, colors = [] }) => {
     const heightOffset = config.chart.size.height + 60
@@ -17,6 +19,8 @@ const BarChart = ({ data = [], config, colors = [] }) => {
           .rangeRound([0, barHeightMax])
           .domain([0, d3.max(data, d => d[1])])
 
+    const ed = elementData(data, x, y, barHeightMax)
+/*
     const elementData = data.map((d) => {
         const yValue = y(d[1])
         return {
@@ -28,8 +32,9 @@ const BarChart = ({ data = [], config, colors = [] }) => {
             h: yValue,
         }
     })
+*/
     // generate the elements
-    const elements = elementData
+    const elements = ed
           .map((d) => {
               return (
                       <g
@@ -58,6 +63,7 @@ const BarChart = ({ data = [], config, colors = [] }) => {
                       </g>
               )
           })
+
     return (
         <svg
             width={width}

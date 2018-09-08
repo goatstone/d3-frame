@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 import EventEmitter from 'events'
 
 import D3React from './d3-react'
-import BarChart from './components/bar-chart'
+import BarChart from './components/bar-chart/'
 import LineChart from './components/line-chart'
 import PieChart from './components/pie-chart'
 import Control from './components/control'
