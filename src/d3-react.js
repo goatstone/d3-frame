@@ -8,10 +8,11 @@ class D3React extends React.Component {
 
         this.state = {
             data,
+            config,
             colors: {
                 background: config.chart.colors[1].name,
             },
-            chartSymbol: config.symbols[1].name,
+            chartSymbol: config.chart.symbols[1].name,
             chartType: config.chart.types[2].name, // the selected charte
         }
         this.controlEvent = events
@@ -20,16 +21,17 @@ class D3React extends React.Component {
         this.BarChart = BarChart
         this.EventControl = Control
         this.setEvents()
+        this.config = config
     }
     componentDidMount() {
         // animate the pie chart on init
-        // this.engine()
+        this.engine()
     }
     getCharts() {
         return {
             bar: <this.BarChart
-                data={this.state.data.bar}
-                colors={this.state.colors}
+            data={this.state.data.bar}
+            config={this.state.config}
             />,
             line: <this.LineChart
                 datum={this.state.data.line}
@@ -54,14 +56,43 @@ class D3React extends React.Component {
             this.setState({ chartType: e })
         })
     }
+    updateData() {
+        const rand = Math.floor(Math.random() * 30)
+        return Object.assign(
+            {},
+            this.state.data,
+            { pie: [2, 3, 4, rand] },
+        )
+    }
+    updateConfig() {
+        const newConfig = Object.assign(
+            {},
+            this.state.config.chart,
+            { style: { background: 'red' } },
+        )
+        return newConfig
+    }
     engine() {
         const interval = setInterval(() => {
-            const rand = Math.floor(Math.random() * 30)
-            const data = Object(
-                { pie: [2, 3, 4, rand], line: this.state.data.line },
-                this.state.data,
+            const colors = ['red', 'yellow', 'gray', 'blue']
+            const rn = Math.round(Math.random() * (colors.length - 1))
+            const newColor = colors[rn]
+            const s = Object.assign(
+                {},
+                this.state.config.chart.style,
+                { background: newColor },
             )
-            this.setState({ data })
+            const c = Object.assign(
+                {},
+                this.state.config.chart,
+                { style: s },
+            )
+            const config = Object.assign(
+                {},
+                this.state.config,
+                { chart: c },
+            )
+            this.setState({ config })
         }, 2000)
         setTimeout(() => clearInterval(interval), 30000)
     }
@@ -74,7 +105,7 @@ class D3React extends React.Component {
                     chartSymbol={this.state.chartSymbol}
                     chartType={this.state.chartType}
                 />
-            </section>)
+  </section>)
     }
 }
 

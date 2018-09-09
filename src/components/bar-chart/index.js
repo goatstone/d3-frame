@@ -4,12 +4,12 @@ import elements from './elements'
 import xScaleBarChart from './x-scale'
 import yScaleBarChart from './y-scale'
 
-const BarChart = ({ data = [], config, colors = {} }) => {
-    const heightOffset = config.chart.size.height + 60
-    const width = config.chart.size.width
+const BarChart = ({ data = [], config }) => {
+    const width = 800
+    const height = 300
     const barHeightMax = 200
-
-    const elementConfig = elementData(
+    const background = config.chart.style.background
+    const elementsConfig = elementData(
         data,
         xScaleBarChart(data),
         yScaleBarChart(data, barHeightMax),
@@ -17,21 +17,21 @@ const BarChart = ({ data = [], config, colors = {} }) => {
     )
 
     return (
-        <svg
-            width={width}
-            height={heightOffset}
-            data-id="bar-chart"
-            data-component-type="chart"
-        >
+            <svg
+        width={width}
+        height={height}
+        data-id="bar-chart"
+        data-component-type="chart"
+            >
             <rect
-        fill={colors.background}
-                width={width}
-                height={300}
+        fill={background}
+        width={width}
+        height={height}
             />
             <g style={{ transform: 'translate(20px, 20px)' }}>
-                {elements(elementConfig)}
-            </g>
-        </svg>
+            {elements(elementsConfig)}
+        </g>
+            </svg>
     )
 }
 

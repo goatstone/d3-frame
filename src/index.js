@@ -13,7 +13,6 @@ import withResources from './components/hoc/with-resources'
 
 // the main event emitter
 const events = new EventEmitter()
-const BarChartWrapper = withResources(BarChart, { config })
 const LineChartWrapper = withResources(LineChart, { config, events })
 const PieChartWrapper = withResources(PieChart, { events, config })
 const ControlWrapper = withResources(Control, { events, config })
@@ -21,7 +20,7 @@ const D3ReactWrap = withResources(D3React, {
     config,
     events,
     data,
-    BarChart: BarChartWrapper,
+    BarChart,
     LineChart: LineChartWrapper,
     PieChart: PieChartWrapper,
     Control: ControlWrapper,

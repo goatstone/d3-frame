@@ -45,16 +45,17 @@ section[data-id=container] svg[data-component-type=chart] circle {
 }
 
 section[data-id=control] {
-    position: relative;
+    position: fixed;
+    bottom: 0;
+    left: 0;
     display: inline-flex;
     font-size: 1rem;
     flex-direction: row;
     justify-content: center;
     padding: 3px;
-    margin: 16px;
-    width: 100%;
+    margin: 3px;
     background: #888;
-    border-radius: 0.5rem;  
+    border-radius: 0.5rem;
 }
 section[data-id="control"] form label {
   color: #000;

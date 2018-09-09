@@ -31,7 +31,7 @@ function Control({
                 onChange={emitEvent}
                 value={chartSymbol}
             >
-                {config.symbols
+                {config.chart.symbols
                     .map(cso => <option value={cso.name} key={cso.name}>{cso.display}</option>)}
             </select>
         </label>)
@@ -51,7 +51,7 @@ function Control({
     const elements = { type, color, symbol }
     const visibleElements = []
 
-    config.control.forEach((e) => {
+    config.control.controls.forEach((e) => {
         if (elements[e.name] && e.isVisible) {
             visibleElements.push(elements[e.name])
         }
