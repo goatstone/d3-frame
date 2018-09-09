@@ -4,7 +4,7 @@ import elements from './elements'
 import xScaleBarChart from './x-scale'
 import yScaleBarChart from './y-scale'
 
-const BarChart = ({ data = [], config, colors = [] }) => {
+const BarChart = ({ data = [], config, colors = {} }) => {
     const heightOffset = config.chart.size.height + 60
     const width = config.chart.size.width
     const barHeightMax = 200
