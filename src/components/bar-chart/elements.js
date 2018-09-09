@@ -1,6 +1,6 @@
 import React from 'react'
 
-const elements = elementData => elementData
+const elements = eData => eData
       .map((d) => {
           return (
                   <g
@@ -18,7 +18,7 @@ const elements = elementData => elementData
               x={d.x}
               y={d.y + d.h + 20}
                   >{d.label}
-                  </text>
+              </text>
                   <text
               key={`xxxx${d.frequency}`}
               x={d.x}
