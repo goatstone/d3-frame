@@ -13,7 +13,7 @@ class D3React extends React.Component {
                 background: config.chart.colors[1].name,
             },
             chartSymbol: config.chart.symbols[1].name,
-            chartType: config.chart.types[2].name, // the selected charte
+            chartType: config.chart.types[0].name, // the selected charte
         }
         this.controlEvent = events
         this.PieChart = PieChart
@@ -25,7 +25,7 @@ class D3React extends React.Component {
     }
     componentDidMount() {
         // animate the pie chart on init
-        this.engine()
+        // this.engine()
     }
     getCharts() {
         return {
@@ -34,13 +34,15 @@ class D3React extends React.Component {
             config={this.state.config}
             />,
             line: <this.LineChart
-                datum={this.state.data.line}
-                colors={this.state.colors}
-                chartSymbol={this.state.chartSymbol}
+            datum={this.state.data.line}
+            config={this.state.config}
+            colors={this.state.colors}
+            chartSymbol={this.state.chartSymbol}
             />,
             pie: <this.PieChart
-                datum={this.state.data.pie}
-                colors={this.state.colors}
+            datum={this.state.data.pie}
+            colors={this.state.colors}
+            config={this.state.config}
             />,
         }
     }
@@ -85,7 +87,9 @@ class D3React extends React.Component {
             const c = Object.assign(
                 {},
                 this.state.config.chart,
-                { style: s },
+                {
+                    style: s,
+                },
             )
             const config = Object.assign(
                 {},
@@ -98,14 +102,14 @@ class D3React extends React.Component {
     }
     render() {
         return (
-            <section data-id="container">
+                <section data-id="container">
                 {this.getCharts()[this.state.chartType]}
                 <this.EventControl
-                    colors={this.state.colors}
-                    chartSymbol={this.state.chartSymbol}
-                    chartType={this.state.chartType}
+            colors={this.state.colors}
+            chartSymbol={this.state.chartSymbol}
+            chartType={this.state.chartType}
                 />
-  </section>)
+                </section>)
     }
 }
 

@@ -5,30 +5,33 @@ import xScaleBarChart from './x-scale'
 import yScaleBarChart from './y-scale'
 
 const BarChart = ({ data = [], config }) => {
-    const width = 800
+    const width = config.chart.size.width
+    const containerWidth = width + 60
     const height = 300
+    const chartLeft = 20
+    const chartTop = 30
     const barHeightMax = 200
     const background = config.chart.style.background
     const elementsConfig = elementData(
         data,
-        xScaleBarChart(data),
+        xScaleBarChart(data, width),
         yScaleBarChart(data, barHeightMax),
         barHeightMax,
     )
 
     return (
             <svg
-        width={width}
+        width={containerWidth}
         height={height}
         data-id="bar-chart"
         data-component-type="chart"
             >
             <rect
         fill={background}
-        width={width}
+        width="100%"
         height={height}
             />
-            <g style={{ transform: 'translate(20px, 20px)' }}>
+            <g style={{ transform: `translate(${chartLeft}px, ${chartTop}px)` }}>
             {elements(elementsConfig)}
         </g>
             </svg>

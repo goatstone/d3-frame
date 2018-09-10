@@ -16,7 +16,7 @@ export default {
         ],
         selectedChart: '',
         selelctedSymbol: '',
-        size: { width: '100%', height: 200 },
+        size: { width: 550, height: 200 },
         colors: [
             { name: 'red', display: 'Red' },
             { name: 'blue', display: 'Blue' },

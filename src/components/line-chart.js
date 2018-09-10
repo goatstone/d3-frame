@@ -6,12 +6,13 @@ function LineChart({
     datum,
     events,
     config,
-    colors,
     chartSymbol,
 }) {
-    // const widthOffset = 360
-    const width = config.chart.size.width && 600
+    const width = config.chart.size.width
+    const containerWidth = width + 60
     const heightOffset = config.chart.size.height + 60
+    const background = config.chart.style.background
+
     function chartClick() {
         events.emit(
             'color',
@@ -73,14 +74,14 @@ function LineChart({
 
     return (
         <svg
-            width={width}
+            width={containerWidth}
             height={heightOffset}
             onClick={chartClick}
             data-id="line-chart"
             data-component-type="chart"
         >
             <g>
-                <rect fill={colors.background} width={width + 200} height={heightOffset} />
+                <rect fill={background} width={containerWidth} height={heightOffset} />
             </g>
             <g style={{ transform: 'translate(30px, 30px)' }}>
                 <g
