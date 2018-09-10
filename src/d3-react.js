@@ -8,12 +8,13 @@ class D3React extends React.Component {
 
         this.state = {
             data,
-            config,
-            colors: {
+            config, // TODO replace
+            chartConfig: config.chart,
+            colors: { // replace
                 background: config.chart.colors[1].name,
             },
-            chartSymbol: config.chart.symbols[1].name,
-            chartType: config.chart.types[0].name, // the selected charte
+            chartSymbol: config.chart.symbols[1].name, // REPLACE
+            chartType: config.chart.types[2].name, // the selected charte
         }
         this.controlEvent = events
         this.PieChart = PieChart
@@ -21,7 +22,8 @@ class D3React extends React.Component {
         this.BarChart = BarChart
         this.EventControl = Control
         this.setEvents()
-        this.config = config
+        this.config = config // replace
+        this.options = config.options
     }
     componentDidMount() {
         // animate the pie chart on init
@@ -31,7 +33,7 @@ class D3React extends React.Component {
         return {
             bar: <this.BarChart
             data={this.state.data.bar}
-            config={this.state.config}
+            config={this.state.chartConfig}
             />,
             line: <this.LineChart
             datum={this.state.data.line}

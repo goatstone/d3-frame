@@ -5,13 +5,13 @@ import xScaleBarChart from './x-scale'
 import yScaleBarChart from './y-scale'
 
 const BarChart = ({ data = [], config }) => {
-    const width = config.chart.size.width
+    const width = config.width
     const containerWidth = width + 60
     const height = 300
     const chartLeft = 20
     const chartTop = 30
     const barHeightMax = 200
-    const background = config.chart.style.background
+    const background = config.background
     const elementsConfig = elementData(
         data,
         xScaleBarChart(data, width),
