@@ -8,7 +8,7 @@ class D3React extends React.Component {
         this.state = {
             data,
             chartConfig: config.chart,
-            chartType: config.options.types[1].name, // the selected chart
+            chartType: config.options.types[0].name, // the selected chart
         }
         this.controlEvent = events
         this.PieChart = PieChart
