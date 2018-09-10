@@ -7,6 +7,7 @@ function PieChart({
     datum,
     events,
     config,
+    options,
 }) {
     const width = config.width
     const containerWidth = width + 60
@@ -19,9 +20,10 @@ function PieChart({
     const chartRadius = 100
 
     function chartClick() {
+        const rn = Math.round(Math.random() * (options.colors.length - 1))
         events.emit(
             'color',
-            'purple',
+            options.colors[rn].name,
         )
     }
     const piePaths = pieArcs

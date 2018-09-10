@@ -14,7 +14,7 @@ import withResources from './components/hoc/with-resources'
 // the main event emitter
 const events = new EventEmitter()
 const LineChartWrapper = withResources(LineChart, { events })
-const PieChartWrapper = withResources(PieChart, { events })
+const PieChartWrapper = withResources(PieChart, { events, options: config.options })
 const ControlWrapper = withResources(Control, { events, config })
 const D3ReactWrap = withResources(D3React, {
     config,

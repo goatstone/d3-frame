@@ -20,7 +20,7 @@ class D3React extends React.Component {
    }
     componentDidMount() {
         // animate the pie chart on init
-        this.engine()
+        // this.engine()
     }
     getCharts() {
         return {
