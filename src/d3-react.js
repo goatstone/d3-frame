@@ -1,4 +1,5 @@
 import React from 'react'
+import Info from './components/Info'
 
 class D3React extends React.Component {
     constructor({
@@ -9,6 +10,7 @@ class D3React extends React.Component {
             data,
             chartConfig: config.chart,
             chartType: config.options.types[0].name, // the selected chart
+            isInfoVissible: false,
         }
         this.controlEvent = events
         this.PieChart = PieChart
@@ -17,6 +19,7 @@ class D3React extends React.Component {
         this.EventControl = Control
         this.options = config.options
         this.setEvents()
+        this.hideInfo = this.hideInfo.bind(this)
    }
     componentDidMount() {
         // animate the pie chart on init
@@ -59,6 +62,9 @@ class D3React extends React.Component {
         this.controlEvent.on('chartType', (e) => {
             this.setState({ chartType: e })
         })
+        this.controlEvent.on('info', () => {
+            this.showInfo()
+        })
     }
     setColor() {
         const colors = ['red', 'yellow', 'gray', 'blue']
@@ -71,6 +77,12 @@ class D3React extends React.Component {
         )
         this.setState({ chartConfig })
     }
+    hideInfo() {
+        this.setState({ isInfoVissible: false })
+    }
+    showInfo() {
+        this.setState({ isInfoVissible: true })
+    }
     engine() {
         const interval = setInterval(() => {
             this.setColor()
@@ -80,13 +92,29 @@ class D3React extends React.Component {
     render() {
         return (
                 <section data-id="container">
-                {this.getCharts()[this.state.chartType]}
+
+            {this.getCharts()[this.state.chartType]}
                 <this.EventControl
             chartConfig={this.state.chartConfig}
             chartType={this.state.chartType}
             options={this.options}
                 />
-                </section>)
+
+            { this.state.isInfoVissible &&
+              <Info onClick={this.hideInfo} />
+            }
+
+                <section data-id="info-min">
+                <a href="https://github.com/JoseHerminioCollas/d3-react" target="new">
+                D3 Framework
+            </a>
+
+                <a href="http://goatstone.com" target="new">
+                Goatstone &copy; 2018
+            </a>
+                </section>
+
+            </section>)
     }
 }
 

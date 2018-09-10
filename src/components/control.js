@@ -7,13 +7,21 @@ function Control({
     options,
 }) {
     function emitEvent(e) {
+        e.preventDefault()
         const { name, value } = e.target
         events.emit(name, value)
     }
+    const Button = () => (
+            <button name="info" value="show" onClick={emitEvent}>
+            ?
+            </button>
+    )
     return (
             <section data-id="control">
             <form>
-
+            <label key="info" data-id="control.info">
+            <Button />
+            </label>
             <label key="type" data-id="control.type">
               Type
               <select name="chartType" onChange={emitEvent} value={chartType}>
