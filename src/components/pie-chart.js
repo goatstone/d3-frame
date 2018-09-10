@@ -9,7 +9,7 @@ function PieChart({
     config,
 }) {
     const width = config.width
-    const containerWidth = width + 60 
+    const containerWidth = width + 60
     const heightOffset = config.height + 60
     const chartLeft = Math.round(containerWidth / 2)
     const chartTop = 130
@@ -21,7 +21,7 @@ function PieChart({
     function chartClick() {
         events.emit(
             'color',
-            'purple'
+            'purple',
         )
     }
     const piePaths = pieArcs

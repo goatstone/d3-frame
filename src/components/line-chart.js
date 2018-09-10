@@ -12,7 +12,7 @@ function LineChart({
     const heightOffset = config.height + 60
     const background = config.background
     const chartSymbol = config.symbol
-    
+
     function chartClick() {
         events.emit(
             'color',

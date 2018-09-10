@@ -72,10 +72,8 @@ section[data-id="control"] form input, select {
     font-size: 1rem;
 }
 section[data-id="control"] label[data-id="control.color"] {
-    display: none;
 }
 section[data-id="control"] label[data-id="control.symbol"] {
-    display: none;
 }
 section[data-id="control"] label[data-id="control.type"] {
     background: #ccc;

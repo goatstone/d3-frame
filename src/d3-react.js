@@ -48,13 +48,23 @@ class D3React extends React.Component {
     // setEvents : set state as a result of the events being created: map events to application state
     setEvents() {
         this.controlEvent.on('color', (color) => {
-            // this.setState({ colors: { background: color } })
+            const chartConfig = Object.assign(
+                {},
+                this.state.chartConfig,
+                { background: color },
+            )
+            this.setState({ chartConfig })
         })
         this.controlEvent.on('chartSymbol', (e) => {
-            // this.setState({ chartSymbol: e })
+            const chartConfig = Object.assign(
+                {},
+                this.state.chartConfig,
+                { symbol: e },
+            )
+            this.setState({ chartConfig })
         })
         this.controlEvent.on('chartType', (e) => {
-            // this.setState({ chartType: e })
+            this.setState({ chartType: e })
         })
     }
     updateData() {
@@ -104,9 +114,11 @@ class D3React extends React.Component {
                 <section data-id="container">
                 {this.getCharts()[this.state.chartType]}
                 <this.EventControl
+            chartConfig={this.state.chartConfig}
             colors={this.state.colors}
             chartSymbol={this.state.chartSymbol}
             chartType={this.state.chartType}
+            options={this.options}
                 />
                 </section>)
     }
