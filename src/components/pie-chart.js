@@ -8,12 +8,12 @@ function PieChart({
     events,
     config,
 }) {
-    const width = config.chart.size.width
+    const width = config.width
     const containerWidth = width + 60 
-    const heightOffset = config.chart.size.height + 60
+    const heightOffset = config.height + 60
     const chartLeft = Math.round(containerWidth / 2)
     const chartTop = 130
-    const background = config.chart.style.background
+    const background = config.background
     const pieArcs = d3.pie()(datum)
     const arcGenerator = d3.arc()
     const chartRadius = 100
@@ -21,9 +21,7 @@ function PieChart({
     function chartClick() {
         events.emit(
             'color',
-            config.chart.colors[
-                Math.floor(config.chart.colors.length * Math.random())
-            ].name,
+            'purple'
         )
     }
     const piePaths = pieArcs
