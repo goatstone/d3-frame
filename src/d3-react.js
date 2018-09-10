@@ -11,10 +11,10 @@ class D3React extends React.Component {
             config, // TODO replace
             chartConfig: config.chart,
             colors: { // replace
-                background: config.chart.colors[1].name,
+                background: config.chart.colors[0].name,
             },
             chartSymbol: config.chart.symbols[1].name, // REPLACE
-            chartType: config.chart.types[2].name, // the selected charte
+            chartType: config.chart.types[0].name, // the selected charte
         }
         this.controlEvent = events
         this.PieChart = PieChart
@@ -37,9 +37,7 @@ class D3React extends React.Component {
             />,
             line: <this.LineChart
             datum={this.state.data.line}
-            config={this.state.config}
-            colors={this.state.colors}
-            chartSymbol={this.state.chartSymbol}
+            config={this.state.chartConfig}
             />,
             pie: <this.PieChart
             datum={this.state.data.pie}

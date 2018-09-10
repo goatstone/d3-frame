@@ -29,6 +29,7 @@ export default {
         background: 'gray',
         width: 550,
         height: 200,
+        symbol: 'symbolSquare',
         style: {
             margin: '20px',
             background: 'gray',

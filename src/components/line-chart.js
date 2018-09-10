@@ -6,19 +6,17 @@ function LineChart({
     datum,
     events,
     config,
-    chartSymbol,
 }) {
-    const width = config.chart.size.width
+    const width = config.width
     const containerWidth = width + 60
-    const heightOffset = config.chart.size.height + 60
-    const background = config.chart.style.background
-
+    const heightOffset = config.height + 60
+    const background = config.background
+    const chartSymbol = config.symbol
+    
     function chartClick() {
         events.emit(
             'color',
-            config.chart.colors[
-                Math.floor(config.chart.colors.length * Math.random())
-            ].name,
+            'green',
         )
     }
     // date scale function
@@ -28,7 +26,7 @@ function LineChart({
         .domain(d3.extent(datum, d => convertToEpochSec(d.day)))
         .range([0, width])
     // quality scale function
-    const yScale = LScale(datum.map(d => d.quality), config.chart.size.height, 0)
+    const yScale = LScale(datum.map(d => d.quality), config.height, 0)
     // Elements of the chart
     // line pathD
     const sparkLine = d3.line()
@@ -87,7 +85,7 @@ function LineChart({
                 <g
                     ref={node => d3.select(node).call(xAxis)}
                     style={{
-                        transform: `translateY(${config.chart.size.height}px)`,
+                        transform: `translateY(${config.height}px)`,
                     }}
                 />
                 <g ref={node => d3.select(node).call(yAxis)} />
