@@ -1,5 +1,5 @@
 module.exports = {
     verbose: true,
-    "setupFiles": ["./shim.js", "./test-setup.js"],
-    "coveragePathIgnorePatterns": ['./test-setup.js', './shim.js']
+    "setupFiles": ["./src/test/test-setup.js"],
+    "coveragePathIgnorePatterns": ["./src/test/test-setup.js"],
 };
