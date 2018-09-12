@@ -9,7 +9,7 @@ Enzyme.configure({ adapter: new Adapter() })
 
 describe('BarChart', () => {
     test('should mount and have a single SVG element', () => {
-        const BarChartWrapper = withResources(BarChart, { config })
+        const BarChartWrapper = withResources(BarChart, { config: config.chart })
         const data = [
             ['A', 1.0],
             ['B', 0.01492],
