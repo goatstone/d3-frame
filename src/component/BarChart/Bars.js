@@ -25,16 +25,10 @@ const elements = ({
                         width={d.w}
                         height={d.h}
                     />
-                    <text
-                        key={`xxx${d.x}`}
-                        x={d.x}
-                        y={d.y + d.h + 20}
-                    >{d.label}
-                    </text>
-                    <text
+                    <text fill="#fff"
                         key={`xxxx${d.frequency}`}
-                        x={d.x}
-                        y={d.y + d.h + 35}
+                        x={d.x + 2}
+                        y={d.y - 5 }
                     >
                         {d.frequency}
                     </text>
