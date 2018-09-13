@@ -15,7 +15,6 @@ exports[`D3 Framework shows the Info element 1`] = `
       height={300}
       width="100%"
     />
-    // ChartContainer
     <g
       style={
         Object {
