@@ -1,8 +1,5 @@
 import React from 'react'
-import elementData from './element-data'
-import elements from './elements'
-import xScaleBarChart from './x-scale'
-import yScaleBarChart from './y-scale'
+import Bars from './Bars'
 
 const BarChart = ({ data = [], config }) => {
     const width = config.width
@@ -12,29 +9,28 @@ const BarChart = ({ data = [], config }) => {
     const chartTop = 30
     const barHeightMax = 200
     const background = config.background
-    const elementsConfig = elementData(
-        data,
-        xScaleBarChart(data, width),
-        yScaleBarChart(data, barHeightMax),
-        barHeightMax,
-    )
 
     return (
-            <svg
-        width={containerWidth}
-        height={height}
-        data-id="bar-chart"
-        data-component-type="chart"
-            >
+        <svg
+            width={containerWidth}
+            height={height}
+            data-id="bar-chart"
+            data-component-type="chart"
+        >
             <rect
-        fill={background}
-        width="100%"
-        height={height}
+                fill={background}
+                width="100%"
+                height={height}
             />
             <g style={{ transform: `translate(${chartLeft}px, ${chartTop}px)` }}>
-            {elements(elementsConfig)}
-        </g>
-            </svg>
+                <Bars
+                    data={data}
+                    width={width}
+                    height={height}
+                    barHeightMax={barHeightMax}
+                />
+            </g>
+        </svg>
     )
 }
 

@@ -1,12 +1,12 @@
 import Enzyme from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16'
-import elements from '../component/bar-chart/elements'
+import Bars from '../component/bar-chart/Bars'
 
 Enzyme.configure({ adapter: new Adapter() })
 
-describe('elements', () => {
+describe('Bars', () => {
     test('should return an array', () => {
-        const returnValue = elements([])
+        const returnValue = Bars([])
         expect(Array.isArray(returnValue)).toBe(true)
     })
     test('should return an a array of React Objects', () => {
@@ -18,7 +18,7 @@ describe('elements', () => {
             w: 2,
             h: 2,
         }]
-        const returnValue = elements(providedData)
+        const returnValue = Bars(providedData)
         const A = returnValue[0]
         const w2 = Enzyme.shallow(A)
 
