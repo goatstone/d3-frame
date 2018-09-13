@@ -6,7 +6,7 @@ import Adapter from 'enzyme-adapter-react-16'
 import renderer from 'react-test-renderer'
 
 import D3React from '../d3-react'
-import BarChart from '../component/bar-chart'
+import BarChart from '../component/BarChart'
 import LineChart from '../component/line-chart'
 import PieChart from '../component/pie-chart'
 import Control from '../component/control'

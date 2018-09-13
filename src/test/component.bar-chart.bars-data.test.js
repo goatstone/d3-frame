@@ -1,4 +1,4 @@
-import barsData from '../component/bar-chart/bars-data'
+import barsData from '../component/BarChart/bars-data'
 
 describe('element data', () => {
     test('should return an array', () => {

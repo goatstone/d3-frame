@@ -1,4 +1,4 @@
-import yScaleBarChart from '../component/bar-chart/y-scale'
+import yScaleBarChart from '../component/BarChart/y-scale'
 
 const data = [1, 0.1]
 describe('yScaleBarChart', () => {
