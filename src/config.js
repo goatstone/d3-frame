@@ -25,10 +25,10 @@ export default {
         ],
     },
     chart: {
-        margin: '20px',
+        margin: [20, 20, 20, 20],
         background: 'gray',
         width: 550,
-        height: 200,
+        height: 300,
         symbol: 'symbolSquare',
     },
     control: {

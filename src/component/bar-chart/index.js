@@ -3,11 +3,11 @@ import Bars from './Bars'
 
 const BarChart = ({ data = [], config }) => {
     const width = config.width
-    const containerWidth = width + 60
-    const height = 300
-    const chartLeft = 20
-    const chartTop = 30
-    const barHeightMax = 200
+    const height = config.height
+    const containerWidth = width + (config.margin[0] * 2)
+    const chartLeft = config.margin[3]
+    const chartTop = config.margin[0]
+    const barHeightMax = height - 120
     const background = config.background
 
     return (
