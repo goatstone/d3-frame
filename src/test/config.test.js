@@ -1,5 +1,5 @@
 import config from '../config'
-;
+
 describe('Config', () => {
     it(' should  be of type object', () => {
        expect(typeof config).toBe('object')

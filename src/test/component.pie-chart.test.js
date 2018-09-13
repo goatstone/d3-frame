@@ -11,7 +11,7 @@ const PieChartWrapper = withResources(PieChart, {
     events,
     options: config.options,
     datum: data.pie,
-    config: config.chart
+    config: config.chart,
 })
 
 describe('Pie Chart', () => {

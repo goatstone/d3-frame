@@ -20,26 +20,6 @@ class D3React extends React.Component {
         this.options = config.options
         this.setEvents()
         this.hideInfo = this.hideInfo.bind(this)
-   }
-    componentDidMount() {
-        // animate the pie chart on init
-        // this.engine()
-    }
-    getCharts() {
-        return {
-            bar: <this.BarChart
-            data={this.state.data.bar}
-            config={this.state.chartConfig}
-            />,
-            line: <this.LineChart
-            datum={this.state.data.line}
-            config={this.state.chartConfig}
-            />,
-            pie: <this.PieChart
-            datum={this.state.data.pie}
-            config={this.state.chartConfig}
-            />,
-        }
     }
     // setEvents : set state as a result of the events being created: map events to application state
     setEvents() {
@@ -63,7 +43,7 @@ class D3React extends React.Component {
             this.setState({ chartType: e })
         })
         this.controlEvent.on('info', () => {
-            this.showInfo()
+            this.setState({ isInfoVissible: true })
         })
     }
     setColor() {
@@ -80,37 +60,40 @@ class D3React extends React.Component {
     hideInfo() {
         this.setState({ isInfoVissible: false })
     }
-    showInfo() {
-        this.setState({ isInfoVissible: true })
-    }
-    engine() {
-        const interval = setInterval(() => {
-            this.setColor()
-        }, 2000)
-        setTimeout(() => clearInterval(interval), 30000)
-    }
     render() {
         return (
-                <section data-id="container">
-
-            {this.getCharts()[this.state.chartType]}
+            <section data-id="container">
+                {{
+                    bar: <this.BarChart
+                        data={this.state.data.bar}
+                        config={this.state.chartConfig}
+                    />,
+                    line: <this.LineChart
+                        datum={this.state.data.line}
+                        config={this.state.chartConfig}
+                    />,
+                    pie: <this.PieChart
+                        datum={this.state.data.pie}
+                        config={this.state.chartConfig}
+                    />,
+                }[this.state.chartType]}
                 <this.EventControl
-            chartConfig={this.state.chartConfig}
-            chartType={this.state.chartType}
-            options={this.options}
+                    chartConfig={this.state.chartConfig}
+                    chartType={this.state.chartType}
+                    options={this.options}
                 />
 
-            { this.state.isInfoVissible &&
-              <Info onClick={this.hideInfo} />
-            }
+                {this.state.isInfoVissible &&
+                    <Info onClick={this.hideInfo} />
+                }
 
                 <section data-id="info-min">
-                <a href="https://github.com/JoseHerminioCollas/d3-react" target="new">
-                D3 Framework
+                    <a href="https://github.com/JoseHerminioCollas/d3-react" target="new">
+                        D3 Framework
             </a>
 
-                <a href="http://goatstone.com" target="new">
-                Goatstone &copy; 2018
+                    <a href="http://goatstone.com" target="new">
+                        Goatstone &copy; 2018
             </a>
                 </section>
 
