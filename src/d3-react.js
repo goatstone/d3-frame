@@ -1,5 +1,5 @@
 import React from 'react'
-import Info from './components/Info'
+import Info from './component/Info'
 
 class D3React extends React.Component {
     constructor({

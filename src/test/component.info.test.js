@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import Info from '../components/Info'
+import Info from '../component/Info'
 
 describe('Info', () => {
     it(' should  mount', () => {

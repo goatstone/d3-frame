@@ -3,13 +3,13 @@ import ReactDOM from 'react-dom'
 import EventEmitter from 'events'
 
 import D3React from './d3-react'
-import BarChart from './components/bar-chart/'
-import LineChart from './components/line-chart'
-import PieChart from './components/pie-chart'
-import Control from './components/control'
+import BarChart from './component/bar-chart/'
+import LineChart from './component/line-chart'
+import PieChart from './component/pie-chart'
+import Control from './component/control'
 import config from './config'
 import data from './data'
-import withResources from './components/hoc/with-resources'
+import withResources from './component/hoc/with-resources'
 
 // the main event emitter
 const events = new EventEmitter()

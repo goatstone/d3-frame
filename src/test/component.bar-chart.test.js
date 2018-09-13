@@ -1,9 +1,9 @@
 import React from 'react'
 import Enzyme from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16'
-import BarChart from './index'
-import withResources from '../hoc/with-resources'
-import config from '../../config'
+import BarChart from '../component/bar-chart/'
+import withResources from '../component/hoc/with-resources'
+import config from '../config'
 
 Enzyme.configure({ adapter: new Adapter() })
 

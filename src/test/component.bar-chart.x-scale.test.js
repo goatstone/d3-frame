@@ -1,4 +1,4 @@
-import xScaleBarChart from './x-scale'
+import xScaleBarChart from '../component/bar-chart/x-scale'
 
 const data = [1, 0.1]
 describe('xScaleBarChart', () => {

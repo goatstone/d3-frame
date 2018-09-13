@@ -1,6 +1,6 @@
 import Enzyme from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16'
-import elements from './elements'
+import elements from '../component/bar-chart/elements'
 
 Enzyme.configure({ adapter: new Adapter() })
 

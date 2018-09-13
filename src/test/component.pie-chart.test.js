@@ -1,8 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import EventEmitter from 'events'
-import PieChart from '../components/pie-chart'
-import withResources from '../components/hoc/with-resources'
+import PieChart from '../component/pie-chart'
+import withResources from '../component/hoc/with-resources'
 import data from '../data'
 import config from '../config'
 

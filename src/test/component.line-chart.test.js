@@ -1,8 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import EventEmitter from 'events'
-import LineChart from '../components/line-chart'
-import withResources from '../components/hoc/with-resources'
+import LineChart from '../component/line-chart'
+import withResources from '../component/hoc/with-resources'
 import data from '../data'
 import config from '../config'
 
