@@ -2,6 +2,7 @@ import React from 'react'
 import Bars from './Bars'
 import ChartFrame from '../ChartFrame'
 import XAxis from './XAxis'
+import YAxis from './YAxis'
 
 const BarChart = ({ data = [], config }) => {
     const width = config.width
@@ -25,6 +26,11 @@ const BarChart = ({ data = [], config }) => {
                 data={data}
                 width={width}
                 height={300}
+                />
+            <YAxis
+                data={data}
+                width={width}
+                height={barHeightMax}
                 />
             <Bars
                 data={data}

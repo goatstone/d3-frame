@@ -25,9 +25,9 @@ export default {
         ],
     },
     chart: {
-        margin: [20, 20, 20, 20],
+        margin: [20, 20, 20, 30],
         background: 'gray',
-        width: 550,
+        width: 600,
         height: 300,
         symbol: 'symbolSquare',
     },

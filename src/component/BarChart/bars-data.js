@@ -4,9 +4,9 @@ const elementData = (data, xScale, yScale, barHeightMax) => data.map((d) => {
         label: d[0],
         frequency: d[1],
         x: xScale(d[0]),
-        y: barHeightMax - yValue,
+        y: yValue,
         w: xScale.bandwidth(),
-        h: yValue,
+        h: barHeightMax - yValue,
     }
 })
 export default elementData
