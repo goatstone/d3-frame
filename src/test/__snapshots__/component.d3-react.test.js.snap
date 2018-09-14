@@ -22,6 +22,13 @@ exports[`D3 Framework shows the Info element 1`] = `
         }
       }
     >
+      <g
+        style={
+          Object {
+            "transform": "translateY(190px)",
+          }
+        }
+      />
       <g>
         <rect
           height={180}
@@ -30,14 +37,9 @@ exports[`D3 Framework shows the Info element 1`] = `
           y={0}
         />
         <text
-          x={8}
-          y={200}
-        >
-          A
-        </text>
-        <text
-          x={8}
-          y={215}
+          fill="#fff"
+          x={10}
+          y={-5}
         >
           1
         </text>
@@ -50,14 +52,9 @@ exports[`D3 Framework shows the Info element 1`] = `
           y={177}
         />
         <text
-          x={62}
-          y={200}
-        >
-          B
-        </text>
-        <text
-          x={62}
-          y={215}
+          fill="#fff"
+          x={64}
+          y={172}
         >
           0.01492
         </text>
@@ -70,14 +67,9 @@ exports[`D3 Framework shows the Info element 1`] = `
           y={175}
         />
         <text
-          x={116}
-          y={200}
-        >
-          C
-        </text>
-        <text
-          x={116}
-          y={215}
+          fill="#fff"
+          x={118}
+          y={170}
         >
           0.02782
         </text>
@@ -90,14 +82,9 @@ exports[`D3 Framework shows the Info element 1`] = `
           y={172}
         />
         <text
-          x={170}
-          y={200}
-        >
-          D
-        </text>
-        <text
-          x={170}
-          y={215}
+          fill="#fff"
+          x={172}
+          y={167}
         >
           0.04253
         </text>
@@ -110,14 +97,9 @@ exports[`D3 Framework shows the Info element 1`] = `
           y={157}
         />
         <text
-          x={224}
-          y={200}
-        >
-          E
-        </text>
-        <text
-          x={224}
-          y={215}
+          fill="#fff"
+          x={226}
+          y={152}
         >
           0.12702
         </text>
@@ -130,14 +112,9 @@ exports[`D3 Framework shows the Info element 1`] = `
           y={176}
         />
         <text
-          x={278}
-          y={200}
-        >
-          F
-        </text>
-        <text
-          x={278}
-          y={215}
+          fill="#fff"
+          x={280}
+          y={171}
         >
           0.02288
         </text>
@@ -150,14 +127,9 @@ exports[`D3 Framework shows the Info element 1`] = `
           y={176}
         />
         <text
-          x={332}
-          y={200}
-        >
-          G
-        </text>
-        <text
-          x={332}
-          y={215}
+          fill="#fff"
+          x={334}
+          y={171}
         >
           0.02015
         </text>
@@ -170,14 +142,9 @@ exports[`D3 Framework shows the Info element 1`] = `
           y={169}
         />
         <text
-          x={386}
-          y={200}
-        >
-          H
-        </text>
-        <text
-          x={386}
-          y={215}
+          fill="#fff"
+          x={388}
+          y={164}
         >
           0.06094
         </text>
@@ -190,36 +157,26 @@ exports[`D3 Framework shows the Info element 1`] = `
           y={167}
         />
         <text
-          x={440}
-          y={200}
-        >
-          I
-        </text>
-        <text
-          x={440}
-          y={215}
+          fill="#fff"
+          x={442}
+          y={162}
         >
           0.06966
         </text>
       </g>
       <g>
         <rect
-          height={0}
+          height={28}
           width={49}
           x={494}
-          y={180}
+          y={152}
         />
         <text
-          x={494}
-          y={200}
+          fill="#fff"
+          x={496}
+          y={147}
         >
-          J
-        </text>
-        <text
-          x={494}
-          y={215}
-        >
-          0.00153
+          0.153
         </text>
       </g>
     </g>
