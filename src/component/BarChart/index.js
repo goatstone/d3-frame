@@ -13,32 +13,35 @@ const BarChart = ({ data = [], config }) => {
     const margin = config.margin
 
     return (
-        <ChartFrame
-            width={containerWidth}
-            height={height}
-            dataId="bar-chart"
-            dataComponentType="chart"
-            background={background}
-            margin={margin}
-            containerWidth={containerWidth}
-            >
-            <XAxis
-                data={data}
-                width={width}
-                height={300}
-                />
-            <YAxis
-                data={data}
-                width={width}
-                height={barHeightMax}
-                />
-            <Bars
-                data={data}
-                width={width}
+        <div>
+            <ChartFrame
+                width={containerWidth}
                 height={height}
-                barHeightMax={barHeightMax}
-                />
-        </ChartFrame>
+                dataId="bar-chart"
+                dataComponentType="chart"
+                background={background}
+                margin={margin}
+                containerWidth={containerWidth}
+                >
+                <XAxis
+                    data={data}
+                    width={width}
+                    height={300}
+                    />
+                <YAxis
+                    data={data}
+                    width={width}
+                    height={barHeightMax}
+                    />
+                <Bars
+                    data={data}
+                    width={width}
+                    height={height}
+                    barHeightMax={barHeightMax}
+                    />
+            </ChartFrame>
+            <h3>The Frequency of Letters in the English Language</ h3>
+        </div>
     )
 }
 

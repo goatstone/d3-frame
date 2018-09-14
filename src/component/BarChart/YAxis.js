@@ -5,7 +5,7 @@ import yScaleBarChart from './y-scale'
 const YAxis = ({ data, width, height }) => {
     const yAxisD3Node = d3.axisLeft()
         .scale(yScaleBarChart(data, height))
-        .ticks(3)
+        .ticks(3, '%')
 
     return (<g
         ref={node => d3.select(node).call(yAxisD3Node)}

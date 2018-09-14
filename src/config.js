@@ -25,7 +25,7 @@ export default {
         ],
     },
     chart: {
-        margin: [20, 20, 20, 30],
+        margin: [40, 20, 20, 40],
         background: 'gray',
         width: 600,
         height: 300,
