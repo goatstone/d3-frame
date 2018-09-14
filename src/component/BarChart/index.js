@@ -23,7 +23,7 @@ const BarChart = ({ data = [], config }) => {
             >
             <XAxis
                 data={data}
-                width={500}
+                width={width}
                 height={300}
                 />
             <Bars
