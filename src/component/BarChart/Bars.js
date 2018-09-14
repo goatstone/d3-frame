@@ -1,4 +1,5 @@
 import React from 'react'
+import numeral from 'numeral'
 import barsData from './bars-data'
 import xScaleBarChart from './x-scale'
 import yScaleBarChart from './y-scale'
@@ -31,7 +32,7 @@ const elements = ({
                         x={d.x + 2}
                         y={d.y - 5}
                     >
-                        {d.frequency}
+                    {numeral(d.frequency).format('0%')}
                     </text>
                 </g>
             )
