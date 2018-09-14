@@ -1,5 +1,6 @@
 import React from 'react'
 import Info from './component/Info'
+import './container.scss'
 
 class D3React extends React.Component {
     constructor({

@@ -3,6 +3,7 @@ import Bars from './Bars'
 import ChartFrame from '../ChartFrame'
 import XAxis from './XAxis'
 import YAxis from './YAxis'
+import './style.scss'
 
 const BarChart = ({ data = [], config }) => {
     const width = config.width
@@ -13,8 +14,9 @@ const BarChart = ({ data = [], config }) => {
     const margin = config.margin
 
     return (
-        <div>
-            <ChartFrame
+        <div 
+            className='main'>
+            <ChartFrame 
                 width={containerWidth}
                 height={height}
                 dataId="bar-chart"

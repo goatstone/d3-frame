@@ -1,4 +1,5 @@
 import React from 'react'
+import './info-style.scss'
 
 const Info = props => (
         <section

@@ -1,4 +1,5 @@
 import React from 'react'
+import './control-style.scss'
 
 function Control({
     events,
