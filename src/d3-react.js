@@ -10,7 +10,7 @@ class D3React extends React.Component {
         this.state = {
             data,
             chartConfig: config.chart,
-            chartType: config.options.types[0].name, // the selected chart
+            chartType: config.options.types[1].name, // the selected chart
             isInfoVissible: false,
         }
         this.controlEvent = events
@@ -70,11 +70,11 @@ class D3React extends React.Component {
                         config={this.state.chartConfig}
                     />,
                     line: <this.LineChart
-                        datum={this.state.data.line}
+                        data={this.state.data.line}
                         config={this.state.chartConfig}
                     />,
                     pie: <this.PieChart
-                        datum={this.state.data.pie}
+                        data={this.state.data.bar} // set to PieChart to bar data
                         config={this.state.chartConfig}
                     />,
                 }[this.state.chartType]}
