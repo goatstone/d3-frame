@@ -6,17 +6,23 @@ import YAxis from './YAxis'
 import './style.scss'
 
 const BarChart = ({ data = [], config }) => {
-    const width = config.width
-    const height = config.height
-    const containerWidth = width + (config.margin[0] * 2)
-    const barHeightMax = height - 120
-    const background = config.background
-    const margin = config.margin
+    const {
+        width,
+        height,
+        barHeightMax,
+        margin,
+        containerWidth,
+        color: { background: background },
+        color: { foreground: foregroundColor },
+        color: { axis: axisColor },
+        color: { label: labelColor },
+        color: { theme: themeColor },
+    } = config
 
     return (
-        <div 
-            className='main'>
-            <ChartFrame 
+        <div
+            className="main">
+            <ChartFrame
                 width={containerWidth}
                 height={height}
                 dataId="bar-chart"
@@ -40,9 +46,10 @@ const BarChart = ({ data = [], config }) => {
                     width={width}
                     height={height}
                     barHeightMax={barHeightMax}
+                    foregroundColor={foregroundColor}
                     />
             </ChartFrame>
-            <h3>The Frequency of Letters in the English Language</ h3>
+            <h3>The Frequency of Letters in the English Language</h3>
         </div>
     )
 }

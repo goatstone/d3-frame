@@ -25,10 +25,19 @@ export default {
         ],
     },
     chart: {
-        margin: [40, 20, 20, 40],
-        background: 'gray',
+        color: {
+            background: 'blue',
+            foreground: 'gray',
+            axis: '#666',
+            label: '#ddd',
+            theme: [],
+        },
+        background: 'blue',
         width: 600,
+        containerWidth: 700,
         height: 300,
+        barHeightMax: 190,
+        margin: [40, 20, 20, 40],
         symbol: 'symbolSquare',
     },
     control: {

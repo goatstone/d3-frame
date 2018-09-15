@@ -13,7 +13,7 @@ const ChartFrame = ({
 }) => {
     const chartLeft = margin[3]
     const chartTop = margin[0]
-    return (<svg 
+    return (<svg
         className="main"
         width={containerWidth}
         height={height}

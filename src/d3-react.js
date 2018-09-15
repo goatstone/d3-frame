@@ -28,8 +28,8 @@ class D3React extends React.Component {
             const chartConfig = Object.assign(
                 {},
                 this.state.chartConfig,
-                { background: color },
             )
+            chartConfig.color.background = color            
             this.setState({ chartConfig })
         })
         this.controlEvent.on('chartSymbol', (e) => {

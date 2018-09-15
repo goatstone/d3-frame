@@ -38,7 +38,7 @@ function Control({
             <select
         name="color"
         onChange={emitEvent}
-        value={chartConfig.background}
+        value={chartConfig.color.background}
             >
             {options.colors
              .map(co =>

@@ -5,7 +5,7 @@ import xScaleBarChart from './x-scale'
 import yScaleBarChart from './y-scale'
 
 const elements = ({
-    data, width, height, barHeightMax,
+    data, width, height, barHeightMax, foregroundColor
 }) => {
     const elementData = barsData(
         data,
@@ -18,21 +18,22 @@ const elements = ({
             return (
                 <g
                     key={`x${d.label}`}
-                >
+                    >
                     <rect
                         key={`xx${d.y}`}
                         x={d.x}
                         y={d.y}
                         width={d.w}
                         height={d.h}
-                    />
-                    <text 
+                        fill={foregroundColor}
+                        />
+                    <text
                         fill="#fff"
                         key={`xxxx${d.frequency}`}
                         x={d.x + 2}
                         y={d.y - 5}
-                    >
-                    {numeral(d.frequency).format('0%')}
+                        >
+                        {numeral(d.frequency).format('0%')}
                     </text>
                 </g>
             )

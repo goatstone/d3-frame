@@ -22,6 +22,7 @@
             "react/jsx-space-before-closing": [0],
             "react/no-multi-comp": [0],
             "react/jsx-closing-tag-location": [0],
+            "react/jsx-closing-bracket-location": [0],
             "no-mixed-operators": [0],
             "arrow-body-style": [0],
             "semi": ["error", "never"],
