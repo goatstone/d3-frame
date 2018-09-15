@@ -1,7 +1,6 @@
 import React from 'react'
 import * as d3 from 'd3'
-
-// just use config as, reduce args
+import './pie-chart-style.scss'
 
 function PieChart({
     datum,
@@ -9,12 +8,22 @@ function PieChart({
     config,
     options,
 }) {
-    const width = config.width
-    const containerWidth = width + 60
-    const heightOffset = config.height + 60
+    const {
+        width,
+        height,
+        barHeightMax,
+        margin,
+        containerWidth,
+        color: { background: backgroundColor },
+        color: { foreground: foregroundColor },
+        color: { axis: axisColor },
+        color: { label: labelColor },
+        color: { theme: themeColor },
+        chartSymbol = config.symbol,
+    } = config
+    const heightOffset = height + 60
     const chartLeft = Math.round(containerWidth / 2)
     const chartTop = 130
-    const background = config.background
     const pieArcs = d3.pie()(datum)
     const arcGenerator = d3.arc()
     const chartRadius = 100
@@ -43,14 +52,15 @@ function PieChart({
     return (
             <svg
         width={containerWidth}
-        height={heightOffset}
+        height={height}
         onClick={chartClick}
         data-id="pie-chart"
         data-component-type="chart"
+        className="main"
             >
             <g>
             <rect
-        fill={background}
+        fill={backgroundColor}
         width={containerWidth}
         height={heightOffset}
             />

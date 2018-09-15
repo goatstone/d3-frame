@@ -1,6 +1,7 @@
 import React from 'react'
 import * as d3 from 'd3'
 import LScale from '../l-scale'
+import './line-chart-style.scss'
 
 function LineChart({
     datum,
@@ -35,7 +36,7 @@ function LineChart({
         .domain(d3.extent(datum, d => convertToEpochSec(d.day)))
         .range([0, width])
     // quality scale function
-    const yScale = LScale(datum.map(d => d.quality), config.height, 0)
+    const yScale = LScale(datum.map(d => d.quality), barHeightMax, 0)
     // Elements of the chart
     // line pathD
     const sparkLine = d3.line()
@@ -82,19 +83,20 @@ function LineChart({
     return (
         <svg
             width={containerWidth}
-            height={heightOffset}
+            height={height}
             onClick={chartClick}
             data-id="line-chart"
             data-component-type="chart"
+            className="main"
         >
             <g>
                 <rect fill={backgroundColor} width={containerWidth} height={heightOffset} />
             </g>
-            <g style={{ transform: 'translate(30px, 30px)' }}>
+            <g style={{ transform: `translate(${margin[3]}px, ${margin[0]}px)` }}>
                 <g
                     ref={node => d3.select(node).call(xAxis)}
                     style={{
-                        transform: `translateY(${config.height}px)`,
+                        transform: `translateY(${barHeightMax}px)`,
                     }}
                 />
                 <g ref={node => d3.select(node).call(yAxis)} />
