@@ -37,7 +37,7 @@ export default {
         containerWidth: 700,
         height: 300,
         barHeightMax: 190,
-        margin: [40, 20, 20, 40],
+        margin: [50, 20, 20, 55],
         symbol: 'symbolSquare',
     },
     control: {

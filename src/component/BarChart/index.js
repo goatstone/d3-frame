@@ -12,7 +12,7 @@ const BarChart = ({ data = [], config }) => {
         barHeightMax,
         margin,
         containerWidth,
-        color: { background: background },
+        color: { background: backgroundColor },
         color: { foreground: foregroundColor },
         color: { axis: axisColor },
         color: { label: labelColor },
@@ -27,7 +27,7 @@ const BarChart = ({ data = [], config }) => {
                 height={height}
                 dataId="bar-chart"
                 dataComponentType="chart"
-                background={background}
+                background={backgroundColor}
                 margin={margin}
                 containerWidth={containerWidth}
                 >

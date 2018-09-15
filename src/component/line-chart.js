@@ -7,11 +7,20 @@ function LineChart({
     events,
     config,
 }) {
-    const width = config.width
-    const containerWidth = width + 60
-    const heightOffset = config.height + 60
-    const background = config.background
-    const chartSymbol = config.symbol
+    const {
+        width,
+        height,
+        barHeightMax,
+        margin,
+        containerWidth,
+        color: { background: backgroundColor },
+        color: { foreground: foregroundColor },
+        color: { axis: axisColor },
+        color: { label: labelColor },
+        color: { theme: themeColor },
+        chartSymbol = config.symbol,
+    } = config
+    const heightOffset = height + 60
 
     function chartClick() {
         events.emit(
@@ -79,7 +88,7 @@ function LineChart({
             data-component-type="chart"
         >
             <g>
-                <rect fill={background} width={containerWidth} height={heightOffset} />
+                <rect fill={backgroundColor} width={containerWidth} height={heightOffset} />
             </g>
             <g style={{ transform: 'translate(30px, 30px)' }}>
                 <g

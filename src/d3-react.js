@@ -10,7 +10,7 @@ class D3React extends React.Component {
         this.state = {
             data,
             chartConfig: config.chart,
-            chartType: config.options.types[2].name, // the selected chart
+            chartType: config.options.types[0].name, // the selected chart
             isInfoVissible: false,
         }
         this.controlEvent = events
@@ -29,7 +29,7 @@ class D3React extends React.Component {
                 {},
                 this.state.chartConfig,
             )
-            chartConfig.color.background = color            
+            chartConfig.color.background = color
             this.setState({ chartConfig })
         })
         this.controlEvent.on('chartSymbol', (e) => {
