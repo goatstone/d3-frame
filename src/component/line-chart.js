@@ -81,15 +81,14 @@ function LineChart({
         .ticks(3)
 
     return (
-        <div
-            className="main">
+        <div>
             <svg
                 width={containerWidth}
                 height={height}
                 onClick={chartClick}
                 data-id="line-chart"
                 data-component-type="chart"
-                className="main"
+                className="line-chart"
                 >
                 <g>
                     <rect fill={backgroundColor} width={containerWidth} height={heightOffset} />
@@ -103,7 +102,7 @@ function LineChart({
                         />
                     <g ref={node => d3.select(node).call(yAxis)} />
                     <g>
-                        <path d={linePath} />
+                        <path className="spark-line" d={linePath} />
                     </g>
                     <g>
                         {chartSymbols}

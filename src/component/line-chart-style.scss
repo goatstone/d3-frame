@@ -1,7 +1,12 @@
-.main {
-  color: #aaa;
+svg[data-id=line-chart] {
+  color: red;
+  fill: red;
   border-radius: 12px;
 }
-.main text {
-  font-weight: 700;
+svg[data-id=line-chart] text {
+  font-weight: 200;
+}
+svg[data-id=line-chart][data-component-type="chart"].line-chart  path.spark-line {
+  stroke: #555;
+  stroke-width: 6px;
 }
