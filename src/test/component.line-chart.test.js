@@ -13,7 +13,7 @@ describe('Line Chart', () => {
     it(' should  mount', () => {
         const div = document.createElement('div')
         ReactDOM.render(<LineChartWrapper
-            datum={data.line}
+            data={data.line}
             config={config.chart}
         />, div)
         ReactDOM.unmountComponentAtNode(div)

@@ -10,14 +10,14 @@ const events = new EventEmitter()
 const PieChartWrapper = withResources(PieChart, {
     events,
     options: config.options,
-    datum: data.pie,
+    data: data.bar,
     config: config.chart,
 })
 
 describe('Pie Chart', () => {
     it(' should  mount', () => {
         const div = document.createElement('div')
-        ReactDOM.render(<PieChartWrapper />, div)
+        ReactDOM.render(<PieChartWrapper data={data.bar} />, div)
         ReactDOM.unmountComponentAtNode(div)
     })
 })
