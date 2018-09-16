@@ -23,9 +23,8 @@ function PieChart({
     } = config
     const heightOffset = height + 60
     const chartLeft = Math.round(containerWidth / 2)
-    const chartTop = 150
+    const chartTop = 180
     const pieArcs = d3.pie()(data.map(d => d[1]))
-    const txtArcs = d3.pie()(data.map(d => [d[1]]))
     const arcGenerator = d3.arc()
     const chartRadius = 100
 
@@ -36,15 +35,31 @@ function PieChart({
             options.colors[rn].name,
         )
     }
-    const radius = 165
-    const label = d3.arc()
-        .outerRadius(radius - 40)
-        .innerRadius(radius - 40);
-    const a3 = txtArcs.map((d, i) => {
-        const r = { label: data[i][0], location: label.centroid(d), value: d.value }
-        return r
-    })
+    // Labels
+    const Labels = ({ data }) => {
+        let radius = 90
+        const labelData = data.map(function cb(c, i) {
+            if (this[i].index > 20) {
+                radius = 105 + (this[i].index - 20) * 14
+            } else {
+                radius = 110
+            }
+            const label2 = d3.arc()
+                .outerRadius(radius)
+                .innerRadius(radius)
+            const centroid = label2.centroid(this[i])
+            const r = { label: c[0], location: centroid, value: this[i].value }
+            return r
+        }, (d3.pie()(data.map(d => d[1]))))
 
+        return labelData.map(tD => (
+            <text
+                x={tD.location[0]}
+                y={tD.location[1]}
+                key={`${tD.label}`} >
+                {tD.label}
+            </text>))
+    }
     const piePaths = pieArcs
         .map((d) => {
             const newValues = {
@@ -76,18 +91,12 @@ function PieChart({
                         height={heightOffset}
                         />
                 </g>
-                <g
-                    style={{ transform: `translate(${chartLeft - 5}px, ${chartTop + 5}px)` }}
-                    >
-                    {
-                        a3.map(tD => (<text x={tD.location[0]} y={tD.location[1]} key={`${tD.label}`} >
-                            {tD.label}</text>))
-                    }
+                <g style={{ transform: `translate(${chartLeft - 5}px, ${chartTop + 7}px)` }}>
+                    <Labels
+                        data={data}
+                        />
                 </g>
-
-                <g
-                    style={{ transform: `translate(${chartLeft}px, ${chartTop}px)` }}
-                    >
+                <g style={{ transform: `translate(${chartLeft}px, ${chartTop}px)` }}>
                     {piePaths.map(da => <path d={da} key={`k-${da}`} />)}
                 </g>
             </svg>

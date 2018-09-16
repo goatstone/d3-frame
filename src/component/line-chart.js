@@ -66,7 +66,7 @@ function LineChart({
                 }}
                 onBlur={(e) => {
                     e.target.style.fill = 'none'
-                } }
+                }}
                 style={{ transform: `translate(${circlePoint.x}px, ${circlePoint.y}px)` }}
                 key={`${circlePoint.x},${circlePoint.y}`}
                 d={arc()}
