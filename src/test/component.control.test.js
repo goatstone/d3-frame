@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 import EventEmitter from 'events'
 import config from '../config'
 import withResources from '../component/hoc/with-resources'
-import Control from '../component/control'
+import Control from '../component/Control'
 
 const events = new EventEmitter()
 const ControlWrapper = withResources(Control, { events, config })

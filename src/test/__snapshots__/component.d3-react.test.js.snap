@@ -29,149 +29,147 @@ exports[`D3 Framework shows the Info element 1`] = `
           }
         }
       >
+        <g
+          style={
+            Object {
+              "transform": "translateY(190px)",
+            }
+          }
+        />
+        <g />
         <g>
-          <g
+          <path
+            className="spark-line"
+            d="M0,184.57142857142858L46.15384615384615,179.14285714285717L92.3076923076923,190L138.46153846153848,103.14285714285717L184.6153846153846,86.85714285714289L230.76923076923077,65.14285714285714L276.92307692307696,54.28571428571428L323.07692307692304,59.71428571428572L369.2307692307692,76.00000000000003L415.38461538461536,70.57142857142856L461.53846153846155,59.71428571428572L507.6923076923077,48.85714285714286L553.8461538461539,32.57142857142861L600,0"
+          />
+        </g>
+        <g>
+          <path
+            d="M-5,-5h10v10h-10Z"
+            data-id="line-chart-symbol"
             style={
               Object {
-                "transform": "translateY(190px)",
+                "transform": "translate(0px, 184.57142857142858px)",
               }
             }
           />
-          <g>
-            <g />
-            <path
-              className="spark-line"
-              d="M0,184.57142857142858L46.15384615384615,179.14285714285717L92.3076923076923,190L138.46153846153848,103.14285714285717L184.6153846153846,86.85714285714289L230.76923076923077,65.14285714285714L276.92307692307696,54.28571428571428L323.07692307692304,59.71428571428572L369.2307692307692,76.00000000000003L415.38461538461536,70.57142857142856L461.53846153846155,59.71428571428572L507.6923076923077,48.85714285714286L553.8461538461539,32.57142857142861L600,0"
-            />
-          </g>
-          <g>
-            <path
-              d="M-5,-5h10v10h-10Z"
-              data-id="line-chart-symbol"
-              style={
-                Object {
-                  "transform": "translate(0px, 184.57142857142858px)",
-                }
+          <path
+            d="M-5,-5h10v10h-10Z"
+            data-id="line-chart-symbol"
+            style={
+              Object {
+                "transform": "translate(46.15384615384615px, 179.14285714285717px)",
               }
-            />
-            <path
-              d="M-5,-5h10v10h-10Z"
-              data-id="line-chart-symbol"
-              style={
-                Object {
-                  "transform": "translate(46.15384615384615px, 179.14285714285717px)",
-                }
+            }
+          />
+          <path
+            d="M-5,-5h10v10h-10Z"
+            data-id="line-chart-symbol"
+            style={
+              Object {
+                "transform": "translate(92.3076923076923px, 190px)",
               }
-            />
-            <path
-              d="M-5,-5h10v10h-10Z"
-              data-id="line-chart-symbol"
-              style={
-                Object {
-                  "transform": "translate(92.3076923076923px, 190px)",
-                }
+            }
+          />
+          <path
+            d="M-5,-5h10v10h-10Z"
+            data-id="line-chart-symbol"
+            style={
+              Object {
+                "transform": "translate(138.46153846153848px, 103.14285714285717px)",
               }
-            />
-            <path
-              d="M-5,-5h10v10h-10Z"
-              data-id="line-chart-symbol"
-              style={
-                Object {
-                  "transform": "translate(138.46153846153848px, 103.14285714285717px)",
-                }
+            }
+          />
+          <path
+            d="M-5,-5h10v10h-10Z"
+            data-id="line-chart-symbol"
+            style={
+              Object {
+                "transform": "translate(184.6153846153846px, 86.85714285714289px)",
               }
-            />
-            <path
-              d="M-5,-5h10v10h-10Z"
-              data-id="line-chart-symbol"
-              style={
-                Object {
-                  "transform": "translate(184.6153846153846px, 86.85714285714289px)",
-                }
+            }
+          />
+          <path
+            d="M-5,-5h10v10h-10Z"
+            data-id="line-chart-symbol"
+            style={
+              Object {
+                "transform": "translate(230.76923076923077px, 65.14285714285714px)",
               }
-            />
-            <path
-              d="M-5,-5h10v10h-10Z"
-              data-id="line-chart-symbol"
-              style={
-                Object {
-                  "transform": "translate(230.76923076923077px, 65.14285714285714px)",
-                }
+            }
+          />
+          <path
+            d="M-5,-5h10v10h-10Z"
+            data-id="line-chart-symbol"
+            style={
+              Object {
+                "transform": "translate(276.92307692307696px, 54.28571428571428px)",
               }
-            />
-            <path
-              d="M-5,-5h10v10h-10Z"
-              data-id="line-chart-symbol"
-              style={
-                Object {
-                  "transform": "translate(276.92307692307696px, 54.28571428571428px)",
-                }
+            }
+          />
+          <path
+            d="M-5,-5h10v10h-10Z"
+            data-id="line-chart-symbol"
+            style={
+              Object {
+                "transform": "translate(323.07692307692304px, 59.71428571428572px)",
               }
-            />
-            <path
-              d="M-5,-5h10v10h-10Z"
-              data-id="line-chart-symbol"
-              style={
-                Object {
-                  "transform": "translate(323.07692307692304px, 59.71428571428572px)",
-                }
+            }
+          />
+          <path
+            d="M-5,-5h10v10h-10Z"
+            data-id="line-chart-symbol"
+            style={
+              Object {
+                "transform": "translate(369.2307692307692px, 76.00000000000003px)",
               }
-            />
-            <path
-              d="M-5,-5h10v10h-10Z"
-              data-id="line-chart-symbol"
-              style={
-                Object {
-                  "transform": "translate(369.2307692307692px, 76.00000000000003px)",
-                }
+            }
+          />
+          <path
+            d="M-5,-5h10v10h-10Z"
+            data-id="line-chart-symbol"
+            style={
+              Object {
+                "transform": "translate(415.38461538461536px, 70.57142857142856px)",
               }
-            />
-            <path
-              d="M-5,-5h10v10h-10Z"
-              data-id="line-chart-symbol"
-              style={
-                Object {
-                  "transform": "translate(415.38461538461536px, 70.57142857142856px)",
-                }
+            }
+          />
+          <path
+            d="M-5,-5h10v10h-10Z"
+            data-id="line-chart-symbol"
+            style={
+              Object {
+                "transform": "translate(461.53846153846155px, 59.71428571428572px)",
               }
-            />
-            <path
-              d="M-5,-5h10v10h-10Z"
-              data-id="line-chart-symbol"
-              style={
-                Object {
-                  "transform": "translate(461.53846153846155px, 59.71428571428572px)",
-                }
+            }
+          />
+          <path
+            d="M-5,-5h10v10h-10Z"
+            data-id="line-chart-symbol"
+            style={
+              Object {
+                "transform": "translate(507.6923076923077px, 48.85714285714286px)",
               }
-            />
-            <path
-              d="M-5,-5h10v10h-10Z"
-              data-id="line-chart-symbol"
-              style={
-                Object {
-                  "transform": "translate(507.6923076923077px, 48.85714285714286px)",
-                }
+            }
+          />
+          <path
+            d="M-5,-5h10v10h-10Z"
+            data-id="line-chart-symbol"
+            style={
+              Object {
+                "transform": "translate(553.8461538461539px, 32.57142857142861px)",
               }
-            />
-            <path
-              d="M-5,-5h10v10h-10Z"
-              data-id="line-chart-symbol"
-              style={
-                Object {
-                  "transform": "translate(553.8461538461539px, 32.57142857142861px)",
-                }
+            }
+          />
+          <path
+            d="M-5,-5h10v10h-10Z"
+            data-id="line-chart-symbol"
+            style={
+              Object {
+                "transform": "translate(600px, 0px)",
               }
-            />
-            <path
-              d="M-5,-5h10v10h-10Z"
-              data-id="line-chart-symbol"
-              style={
-                Object {
-                  "transform": "translate(600px, 0px)",
-                }
-              }
-            />
-          </g>
+            }
+          />
         </g>
       </g>
     </svg>
