@@ -4,7 +4,7 @@ import EventEmitter from 'events'
 
 import D3React from './d3-react'
 import BarChart from './component/BarChart/'
-import LineChart from './component/line-chart'
+import LineChart from './component/LineChart'
 import PieChart from './component/pie-chart'
 import Control from './component/control'
 import config from './config'

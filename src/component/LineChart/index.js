@@ -1,8 +1,8 @@
 import React from 'react'
 import * as d3 from 'd3'
-import ChartFrame from './ChartFrame'
-import LScale from '../l-scale'
-import './line-chart-style.scss'
+import ChartFrame from '../ChartFrame'
+import LScale from './l-scale'
+import './style.scss'
 
 function LineChart({
     data,
@@ -23,13 +23,6 @@ function LineChart({
         chartSymbol = config.symbol,
     } = config
     const heightOffset = height + 60
-
-    function chartClick() {
-        events.emit(
-            'color',
-            'green',
-        )
-    }
     // date scale function
     const convertToEpochSec = date => new Date(date).setHours(0, 0, 0, 0)
     // xScale, yScale
@@ -49,25 +42,13 @@ function LineChart({
         .type(d3[chartSymbol])
         .size(100)
     const chartSymbols = data
-        .map(data => ({
-            x: xScale(convertToEpochSec(data.day)),
-            y: yScale(data.quality),
+        .map(sData => ({
+            x: xScale(convertToEpochSec(sData.day)),
+            y: yScale(sData.quality),
         }))
         .map(circlePoint => (
-            <path data-id="line-chart-symbol"
-                // onMouseOver={(e) => {
-                //     e.target.style.fill = 'red'
-                //     e.target.style.cursor = 'hand'
-                // }}
-                // onMouseOut={(e) => {
-                //     e.target.style.fill = 'none'
-                // }}
-                // onFocus={(e) => {
-                //     e.target.style.fill = 'none'
-                // }}
-                // onBlur={(e) => {
-                //     e.target.style.fill = 'none'
-                // }}
+            <path
+                data-id="line-chart-symbol"
                 style={{ transform: `translate(${circlePoint.x}px, ${circlePoint.y}px)` }}
                 key={`${circlePoint.x},${circlePoint.y}`}
                 d={arc()}
@@ -86,11 +67,10 @@ function LineChart({
             data-id="line-chart"
             className="line-chart"
             data-component-type="chart"
-        >
+            >
             <ChartFrame
                 width={containerWidth}
                 height={height}
-                onClick={chartClick}
                 background={backgroundColor}
                 margin={margin}
                 containerWidth={containerWidth}
