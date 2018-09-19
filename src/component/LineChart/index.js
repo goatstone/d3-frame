@@ -4,6 +4,7 @@ import ChartFrame from '../ChartFrame'
 import YAxis from './YAxis'
 import XAxis from './XAxis'
 import Symbols from './Symbols'
+import SparkLine from './SparkLine'
 import LScale from './l-scale'
 import './style.scss'
 
@@ -26,23 +27,13 @@ function LineChart({
         chartSymbol = config.symbol,
     } = config
     const heightOffset = height + 60
-    const convertToEpochSec = date => new Date(date).setHours(0, 0, 0, 0)
-
     // date scale function
-    // xScale, yScale
     const xScale = d3.scaleTime()
-        .domain(d3.extent(data, d => convertToEpochSec(d.day)))
+        .domain(d3.extent(data, d => new Date(d.day).setHours(0, 0, 0, 0)))
         .range([0, width])
     // quality scale function
     const yScale = LScale(data.map(d => d.quality), barHeightMax, 0)
-    // Elements of the chart
-    // line pathD
-    const sparkLine = d3.line()
-        .x(d => xScale(convertToEpochSec(d.day)))
-        .y(d => yScale(d.quality))
-    const linePath = sparkLine(data)
 
-    // Sparkine
     return (
         <div
             data-id="line-chart"
@@ -57,24 +48,25 @@ function LineChart({
                 containerWidth={containerWidth}
                 data-component-type="chart"
                 >
-                <g>
-                    <XAxis
-                        xScale={xScale}
-                        ticks={data.length / 2}
-                        barHeightMax={barHeightMax}
-                        />
-                    <YAxis
-                        yScale={yScale} />
-                    <g>
-                        <path className="spark-line" d={linePath} />
-                    </g>
-                    <Symbols
-                        xScale={xScale}
-                        yScale={yScale}
-                        data={data}
-                        symbol={chartSymbol}
-                        />
-                </g>
+                <XAxis
+                    xScale={xScale}
+                    ticks={data.length / 2}
+                    barHeightMax={barHeightMax}
+                    />
+                <YAxis
+                    yScale={yScale}
+                    />
+                <SparkLine
+                    data={data}
+                    xScale={xScale}
+                    yScale={yScale}
+                    />
+                <Symbols
+                    xScale={xScale}
+                    yScale={yScale}
+                    data={data}
+                    symbol={chartSymbol}
+                    />
             </ChartFrame>
             <h3>Quality Level Over Time</h3>
         </div>
