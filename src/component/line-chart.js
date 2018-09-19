@@ -1,5 +1,6 @@
 import React from 'react'
 import * as d3 from 'd3'
+import ChartFrame from './ChartFrame'
 import LScale from '../l-scale'
 import './line-chart-style.scss'
 
@@ -53,20 +54,20 @@ function LineChart({
             y: yScale(data.quality),
         }))
         .map(circlePoint => (
-            <path
-                onMouseOver={(e) => {
-                    e.target.style.fill = 'red'
-                    e.target.style.cursor = 'hand'
-                }}
-                onMouseOut={(e) => {
-                    e.target.style.fill = 'none'
-                }}
-                onFocus={(e) => {
-                    e.target.style.fill = 'none'
-                }}
-                onBlur={(e) => {
-                    e.target.style.fill = 'none'
-                }}
+            <path data-id="line-chart-symbol"
+                // onMouseOver={(e) => {
+                //     e.target.style.fill = 'red'
+                //     e.target.style.cursor = 'hand'
+                // }}
+                // onMouseOut={(e) => {
+                //     e.target.style.fill = 'none'
+                // }}
+                // onFocus={(e) => {
+                //     e.target.style.fill = 'none'
+                // }}
+                // onBlur={(e) => {
+                //     e.target.style.fill = 'none'
+                // }}
                 style={{ transform: `translate(${circlePoint.x}px, ${circlePoint.y}px)` }}
                 key={`${circlePoint.x},${circlePoint.y}`}
                 d={arc()}
@@ -81,19 +82,21 @@ function LineChart({
         .ticks(3)
 
     return (
-        <div>
-            <svg
+        <div
+            data-id="line-chart"
+            className="line-chart"
+            data-component-type="chart"
+        >
+            <ChartFrame
                 width={containerWidth}
                 height={height}
                 onClick={chartClick}
-                data-id="line-chart"
+                background={backgroundColor}
+                margin={margin}
+                containerWidth={containerWidth}
                 data-component-type="chart"
-                className="line-chart"
                 >
                 <g>
-                    <rect fill={backgroundColor} width={containerWidth} height={heightOffset} />
-                </g>
-                <g style={{ transform: `translate(${margin[3]}px, ${margin[0]}px)` }}>
                     <g
                         ref={node => d3.select(node).call(xAxis)}
                         style={{
@@ -108,7 +111,7 @@ function LineChart({
                         {chartSymbols}
                     </g>
                 </g>
-            </svg>
+            </ChartFrame>
             <h3>Quality Level Over Time</h3>
         </div>
     )

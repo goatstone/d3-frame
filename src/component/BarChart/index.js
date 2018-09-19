@@ -3,7 +3,6 @@ import Bars from './Bars'
 import ChartFrame from '../ChartFrame'
 import XAxis from './XAxis'
 import YAxis from './YAxis'
-import './style.scss'
 
 const BarChart = ({ data = [], config }) => {
     const {
@@ -21,11 +20,12 @@ const BarChart = ({ data = [], config }) => {
 
     return (
         <div
-            className="main">
+            data-id="bar-chart"
+            data-component-type="chart"
+            >
             <ChartFrame
                 width={containerWidth}
                 height={height}
-                dataId="bar-chart"
                 dataComponentType="chart"
                 background={backgroundColor}
                 margin={margin}

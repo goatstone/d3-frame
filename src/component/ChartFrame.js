@@ -5,8 +5,6 @@ const ChartFrame = ({
     children,
     width,
     height,
-    dataId,
-    dataComponentType,
     background,
     margin,
     containerWidth,
@@ -18,7 +16,7 @@ const ChartFrame = ({
         width={containerWidth}
         height={height}
         data-id="chart-frame"
-        data-component-type={dataComponentType}
+        data-component-type="container"
     >
         <rect
             fill={background}

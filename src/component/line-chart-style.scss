@@ -1,12 +1,23 @@
-svg[data-id=line-chart] {
-  color: red;
-  fill: red;
+div[data-id=line-chart] {
+  color: #eee;
+  fill: #ccc;
   border-radius: 12px;
 }
-svg[data-id=line-chart] text {
+div[data-id=line-chart] svg text {
   font-weight: 200;
 }
-svg[data-id=line-chart][data-component-type="chart"].line-chart  path.spark-line {
+div[data-id=line-chart][data-component-type="chart"].line-chart svg  path.spark-line {
   stroke: #555;
   stroke-width: 6px;
+  fill: none;
+}
+div[data-id=line-chart][data-component-type="chart"].line-chart 
+svg  
+path[data-id="line-chart-symbol"] {
+  // fill: #111;
+}
+div[data-id=line-chart][data-component-type="chart"].line-chart 
+svg path[data-id="line-chart-symbol"]:hover {
+  fill: red;
+  cursor: pointer;
 }

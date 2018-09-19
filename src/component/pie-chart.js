@@ -1,5 +1,6 @@
 import React from 'react'
 import * as d3 from 'd3'
+import ChartFrame from './ChartFrame'
 import './pie-chart-style.scss'
 
 function PieChart({
@@ -22,8 +23,8 @@ function PieChart({
         chartSymbol = config.symbol,
     } = config
     const heightOffset = height + 60
-    const chartLeft = Math.round(containerWidth / 2)
-    const chartTop = 180
+    const chartLeft = Math.round(width / 2)
+    const chartTop = 130
     const pieArcs = d3.pie()(data.map(d => d[1]))
     const arcGenerator = d3.arc()
     const chartRadius = 100
@@ -75,22 +76,17 @@ function PieChart({
         })
     return (
         <div
-            className="main"
-            data-id="pie-chart">
-            <svg
+            data-id="pie-chart"
+            data-component-type="chart"
+            >
+            <ChartFrame
                 width={containerWidth}
                 height={height}
+                background={backgroundColor}
+                margin={margin}
+                containerWidth={containerWidth}
                 onClick={chartClick}
-                data-component-type="chart"
-                className="main"
                 >
-                <g>
-                    <rect
-                        fill={backgroundColor}
-                        width={containerWidth}
-                        height={heightOffset}
-                        />
-                </g>
                 <g style={{ transform: `translate(${chartLeft - 5}px, ${chartTop + 7}px)` }}>
                     <Labels
                         data={data}
@@ -99,7 +95,7 @@ function PieChart({
                 <g style={{ transform: `translate(${chartLeft}px, ${chartTop}px)` }}>
                     {piePaths.map(da => <path d={da} key={`k-${da}`} />)}
                 </g>
-            </svg>
+            </ChartFrame>
             <h3>The Frequency of Letters in the English Language</h3>
         </div>
     )

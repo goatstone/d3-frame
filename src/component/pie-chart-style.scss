@@ -1,10 +1,6 @@
-.main {
-  color: #aaa;
-  border-radius: 12px;
-}
-[data-id="pie-chart"] svg[data-component-type="chart"] g text {
+[data-id="pie-chart"] g text {
   fill: white;
   font-family: sans-serif;
-  font-size: 10px;
-  font-weight: 700;
+  font-size: 9px;
+  font-weight: 100;
 }
