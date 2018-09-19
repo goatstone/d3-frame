@@ -1,6 +1,6 @@
 import React from 'react'
 import * as d3 from 'd3'
-import ChartFrame from './ChartFrame'
+import ChartFrame from '../ChartFrame'
 import './pie-chart-style.scss'
 
 function PieChart({
