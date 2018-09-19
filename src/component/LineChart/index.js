@@ -2,6 +2,7 @@ import React from 'react'
 import * as d3 from 'd3'
 import ChartFrame from '../ChartFrame'
 import YAxis from './YAxis'
+import XAxis from './XAxis'
 import LScale from './l-scale'
 import './style.scss'
 
@@ -56,13 +57,6 @@ function LineChart({
                 />
         ))
     // XAxis YAxis Sparkine Symbols
-    // xAxis yAxis
-
-    // XAxis
-    const xAxis = d3.axisBottom()
-        .scale(xScale)
-        .ticks(data.length / 2)
-
     return (
         <div
             data-id="line-chart"
@@ -78,15 +72,14 @@ function LineChart({
                 data-component-type="chart"
                 >
                 <g>
-                    <g
-                        ref={node => d3.select(node).call(xAxis)}
-                        style={{
-                            transform: `translateY(${barHeightMax}px)`,
-                        }}
+                    <XAxis
+                        xScale={xScale}
+                        ticks={data.length / 2}
+                        barHeightMax={barHeightMax}
                         />
+                    <YAxis
+                        yScale={yScale} />
                     <g>
-                        <YAxis
-                            yScale={yScale} />
                         <path className="spark-line" d={linePath} />
                     </g>
                     <g>
