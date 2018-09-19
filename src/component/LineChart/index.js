@@ -3,6 +3,7 @@ import * as d3 from 'd3'
 import ChartFrame from '../ChartFrame'
 import YAxis from './YAxis'
 import XAxis from './XAxis'
+import Symbols from './Symbols'
 import LScale from './l-scale'
 import './style.scss'
 
@@ -25,8 +26,9 @@ function LineChart({
         chartSymbol = config.symbol,
     } = config
     const heightOffset = height + 60
-    // date scale function
     const convertToEpochSec = date => new Date(date).setHours(0, 0, 0, 0)
+
+    // date scale function
     // xScale, yScale
     const xScale = d3.scaleTime()
         .domain(d3.extent(data, d => convertToEpochSec(d.day)))
@@ -39,24 +41,8 @@ function LineChart({
         .x(d => xScale(convertToEpochSec(d.day)))
         .y(d => yScale(d.quality))
     const linePath = sparkLine(data)
-    // symbols, data markers
-    const arc = d3.symbol()
-        .type(d3[chartSymbol])
-        .size(100)
-    const chartSymbols = data
-        .map(sData => ({
-            x: xScale(convertToEpochSec(sData.day)),
-            y: yScale(sData.quality),
-        }))
-        .map(circlePoint => (
-            <path
-                data-id="line-chart-symbol"
-                style={{ transform: `translate(${circlePoint.x}px, ${circlePoint.y}px)` }}
-                key={`${circlePoint.x},${circlePoint.y}`}
-                d={arc()}
-                />
-        ))
-    // XAxis YAxis Sparkine Symbols
+
+    // Sparkine
     return (
         <div
             data-id="line-chart"
@@ -82,9 +68,12 @@ function LineChart({
                     <g>
                         <path className="spark-line" d={linePath} />
                     </g>
-                    <g>
-                        {chartSymbols}
-                    </g>
+                    <Symbols
+                        xScale={xScale}
+                        yScale={yScale}
+                        data={data}
+                        symbol={chartSymbol}
+                        />
                 </g>
             </ChartFrame>
             <h3>Quality Level Over Time</h3>
