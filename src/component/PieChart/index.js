@@ -53,4 +53,3 @@ function PieChart({
     )
 }
 export default PieChart
-//             <h3>The Frequency of Letters in the English Language</h3>

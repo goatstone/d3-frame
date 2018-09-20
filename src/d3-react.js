@@ -13,7 +13,6 @@ const events = new EventEmitter()
 const LineChartWrapper = withResources(LineChart, { events })
 const PieChartWrapper = withResources(PieChart, { events, options: config.options })
 const ControlWrapper = withResources(Control, { events, config })
-
 class D3React extends React.Component {
     constructor({
         data,
@@ -26,10 +25,6 @@ class D3React extends React.Component {
             isInfoVissible: false,
         }
         this.controlEvent = events
-        this.PieChart = PieChartWrapper
-        this.LineChart = LineChartWrapper
-        this.BarChart = BarChart
-        this.EventControl = ControlWrapper
         this.options = config.options
         this.setEvents()
         this.hideInfo = this.hideInfo.bind(this)
@@ -76,40 +71,43 @@ class D3React extends React.Component {
     render() {
         return (
             <section data-id="container">
-                {{
-                    bar: <this.BarChart
+                {this.state.chartType === 'bar' && <div>
+                    <BarChart
                         data={this.state.data.bar}
                         config={this.state.chartConfig}
-                    />,
-                    line: <this.LineChart
-                        data={this.state.data.line}
+                        />
+                </div>
+                }
+                {this.state.chartType === 'line' && <div><LineChartWrapper
+                    data={this.state.data.line}
+                    config={this.state.chartConfig}
+                    />
+                </div>
+                }
+                {this.state.chartType === 'pie' && <div>
+                    <PieChartWrapper
+                        data={this.state.data.bar}
                         config={this.state.chartConfig}
-                    />,
-                    pie: <this.PieChart
-                        data={this.state.data.bar} // set to PieChart to bar data
-                        config={this.state.chartConfig}
-                    />,
-                }[this.state.chartType]}
-                <this.EventControl
-                    chartConfig={this.state.chartConfig}
-                    chartType={this.state.chartType}
-                    options={this.options}
-                />
-
+                        />
+                    <h3>The Frequency of Letters in the English Language</h3>
+                </div>
+                }
                 {this.state.isInfoVissible &&
                     <Info onClick={this.hideInfo} />
                 }
-
+                <ControlWrapper
+                    chartConfig={this.state.chartConfig}
+                    chartType={this.state.chartType}
+                    options={this.options}
+                    />
                 <section data-id="info-min">
                     <a href="https://github.com/JoseHerminioCollas/d3-react" target="new">
                         D3 Framework
-            </a>
-
+                    </a>
                     <a href="http://goatstone.com" target="new">
                         Goatstone &copy; 2018
-            </a>
+                    </a>
                 </section>
-
             </section>)
     }
 }
