@@ -1,9 +1,8 @@
 import React from 'react'
 import * as d3 from 'd3'
 
-// Labels
-const Labels = ({ data, chartTop, chartLeft }) => {
-    let radius = 90
+let radius = 90
+const Text = ({ data }) => {
     const labelData = data.map(function cb(c, i) {
         if (this[i].index > 20) {
             radius = 105 + (this[i].index - 20) * 14
@@ -19,16 +18,19 @@ const Labels = ({ data, chartTop, chartLeft }) => {
     }, (d3.pie()(data.map(d => d[1]))))
 
     return labelData.map(tD => (
-        <g 
-        style={{ transform: `translate(${chartLeft - 5}px, ${chartTop + 7}px)` }}>
-            <text
-                x={tD.location[0]}
-                y={tD.location[1]}
-                key={`${tD.label}`} >
-                {tD.label}
-            </text>
-        </g>
+        <text
+            x={tD.location[0]}
+            y={tD.location[1]}
+            key={`${tD.label}`} >
+            {tD.label}
+        </text>
     ))
+}
+const Labels = ({ data, chartTop, chartLeft }) => {
+    return (<g
+        style={{ transform: `translate(${chartLeft - 5}px, ${chartTop + 7}px)` }}>
+        <Text data={data} />
+    </g>)
 }
 
 export default Labels
