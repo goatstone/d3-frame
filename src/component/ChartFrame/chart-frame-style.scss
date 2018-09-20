@@ -5,3 +5,20 @@
   color: blue;
   stroke: gray;
 }
+[data-id=chart-frame] text {
+    stroke: white;
+    font-size: 0.8rem;
+}
+[data-id=chart-frame] path {
+  fill: transparent;
+  stroke: #29b6f6;
+  stroke-width: 2;
+}
+[data-id=chart-frame]{
+    border-radius: 0.5rem;
+}
+[data-id=chart-frame] g circle {
+  fill: #5c6bc0;
+  stroke: #fafafa;
+  stroke-width: 2;
+}

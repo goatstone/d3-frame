@@ -13,7 +13,6 @@ function PieChart({
     const {
         width,
         height,
-        barHeightMax,
         margin,
         containerWidth,
         color: { background: backgroundColor },
@@ -25,32 +24,33 @@ function PieChart({
     } = config
     const chartLeft = Math.round(width / 2)
     const chartTop = 130
+    const id = 'pie-chart'
+    const type = 'chart'
 
     return (
-        <div
-            data-id="pie-chart"
-            data-component-type="chart"
+        <ChartFrame
+            width={containerWidth}
+            height={height}
+            background={backgroundColor}
+            margin={margin}
+            containerWidth={containerWidth}
+            chartId={id}
+            // componentType={type}
             >
-            <ChartFrame
-                width={containerWidth}
-                height={height}
-                background={backgroundColor}
-                margin={margin}
-                containerWidth={containerWidth}
-                >
-                <Labels
-                    data={data}
-                    chartLeft={chartLeft}
-                    chartTop={chartTop}
-                    />
-                <Pies
-                    data={data}
-                    chartLeft={chartLeft}
-                    chartTop={chartTop}
-                    />
-            </ChartFrame>
-            <h3>The Frequency of Letters in the English Language</h3>
-        </div>
+            <Labels
+                data={data}
+                chartLeft={chartLeft}
+                chartTop={chartTop}
+                dataId="pie-chart-labels"
+                />
+            <Pies
+                data={data}
+                chartLeft={chartLeft}
+                chartTop={chartTop}
+                dataId="pie-chart-pies"
+                />
+        </ChartFrame>
     )
 }
 export default PieChart
+//             <h3>The Frequency of Letters in the English Language</h3>

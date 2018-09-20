@@ -8,6 +8,7 @@ const ChartFrame = ({
     background,
     margin,
     containerWidth,
+    chartId,
 }) => {
     const chartLeft = margin[3]
     const chartTop = margin[0]
@@ -17,6 +18,7 @@ const ChartFrame = ({
         height={height}
         data-id="chart-frame"
         data-component-type="container"
+        data-chart-id={chartId}
     >
         <rect
             fill={background}

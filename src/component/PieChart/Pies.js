@@ -1,7 +1,9 @@
 import React from 'react'
 import * as d3 from 'd3'
 
-const Pies = ({ data, chartTop, chartLeft }) => {
+const Pies = ({
+    data, chartTop, chartLeft, dataId,
+}) => {
     const pieArcs = d3.pie()(data.map(d => d[1]))
     const arcGenerator = d3.arc()
     const chartRadius = 100
@@ -18,7 +20,9 @@ const Pies = ({ data, chartTop, chartLeft }) => {
             const ac = arcGenerator(d)
             return ac
         })
-    return (<g style={{ transform: `translate(${chartLeft}px, ${chartTop}px)` }}>
+    return (<g
+        data-id={dataId}
+        style={{ transform: `translate(${chartLeft}px, ${chartTop}px)` }}>
         {piePaths.map(da => <path d={da} key={`k-${da}`} />)}
     </g>)
 }

@@ -26,8 +26,11 @@ const Text = ({ data }) => {
         </text>
     ))
 }
-const Labels = ({ data, chartTop, chartLeft }) => {
+const Labels = ({
+    data, chartTop, chartLeft, dataId,
+}) => {
     return (<g
+        data-id={dataId}
         style={{ transform: `translate(${chartLeft - 5}px, ${chartTop + 7}px)` }}>
         <Text data={data} />
     </g>)
