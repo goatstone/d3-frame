@@ -1,10 +1,22 @@
+import EventEmitter from 'events'
 import React from 'react'
 import Info from './component/Info'
+import BarChart from './component/BarChart/'
+import LineChart from './component/LineChart'
+import PieChart from './component/PieChart'
+import Control from './component/Control'
 import './container.scss'
+import withResources from './component/hoc/with-resources'
+import config from './config'
+
+const events = new EventEmitter()
+const LineChartWrapper = withResources(LineChart, { events })
+const PieChartWrapper = withResources(PieChart, { events, options: config.options })
+const ControlWrapper = withResources(Control, { events, config })
 
 class D3React extends React.Component {
     constructor({
-        PieChart, LineChart, BarChart, Control, events, config, data,
+        data,
     }) {
         super(...Array.from(arguments))
         this.state = {
@@ -14,10 +26,10 @@ class D3React extends React.Component {
             isInfoVissible: false,
         }
         this.controlEvent = events
-        this.PieChart = PieChart
-        this.LineChart = LineChart
+        this.PieChart = PieChartWrapper
+        this.LineChart = LineChartWrapper
         this.BarChart = BarChart
-        this.EventControl = Control
+        this.EventControl = ControlWrapper
         this.options = config.options
         this.setEvents()
         this.hideInfo = this.hideInfo.bind(this)
