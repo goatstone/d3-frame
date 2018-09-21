@@ -13,59 +13,59 @@ function Control({
         events.emit(name, value)
     }
     const Button = () => (
-            <button name="info" value="show" onClick={emitEvent}>
+        <button name="info" value="show" onClick={emitEvent}>
             ?
             </button>
     )
     return (
-            <section data-id="control">
+        <section data-id="control">
             <form>
-            <label key="info" data-id="control.info">
-            <Button />
-            </label>
-            <label key="type" data-id="control.type">
-              Type
-              <select name="chartType" onChange={emitEvent} value={chartType}>
-              {options.types
-               .map(cto =>
-                    <option value={cto.name} key={cto.name}>{cto.display}</option>)
-              }
-              </select>
-            </label>
-
-            <label key="color" data-id="control.color">
-            Color
-            <select
-        name="color"
-        onChange={emitEvent}
-        value={chartConfig.color.background}
-            >
-            {options.colors
-             .map(co =>
-                  <option value={co.name} key={co.name}>{co.display}</option>)
-            }
-        </select>
-            </label>
-
-        {chartType === 'line' && (
-                <label key="symbol" data-id="control.symbol">
-                Symbol
-                <select
-            name="chartSymbol"
-            onChange={emitEvent}
-            value={chartConfig.symbol}
-                >
-                {options.symbols
-                 .map(cso =>
-                      <option value={cso.name} key={cso.name}>{cso.display}</option>)
+                <label key="info" data-id="control.info">
+                    <Button />
+                </label>
+                <label key="type" data-id="control.type">
+                    Chart Type
+                    <select name="chartType" onChange={emitEvent} value={chartType}>
+                        {options.types
+                            .map(cto =>
+                                <option value={cto.name} key={cto.name}>{cto.display}</option>)
+                        }
+                    </select>
+                </label>
+                <label key="color" data-id="control.color">
+                    Theme
+                    <select
+                        name="theme"
+                        onChange={emitEvent}
+                        value={chartConfig.theme}
+                        >
+                        {Object.entries(options.themes)
+                            .map(co => (
+                                <option
+                                    value={co[0]}
+                                    key={co[0]}>
+                                    {co[1].name}
+                                </option>))
+                        }
+                    </select>
+                </label>
+                {chartType === 'line' && (
+                    <label key="symbol" data-id="control.symbol">
+                        Symbol
+                        <select
+                            name="chartSymbol"
+                            onChange={emitEvent}
+                            value={chartConfig.symbol}
+                            >
+                            {options.symbols
+                                .map(cso =>
+                                    <option value={cso.name} key={cso.name}>{cso.display}</option>)
+                            }
+                        </select>
+                    </label>)
                 }
-            </select>
-                </label>)
-
-        }
-
-        </form>
-            </section>
+            </form>
+        </section>
     )
 }
 export default Control

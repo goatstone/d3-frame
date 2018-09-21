@@ -45,7 +45,7 @@ class D3React extends React.Component {
     }
     componentDidMount() {
         this.setEvents()
-        this.controlEvent.emit('theme', config.options.themes.green)
+        this.controlEvent.emit('theme', 'green')
     }
     setEvents() {
         this.controlEvent.on('theme', (theme) => {
@@ -74,21 +74,13 @@ class D3React extends React.Component {
             this.setState({ isInfoVissible: true })
         })
     }
-    setTheme(selectedTheme) {
-        // const themes = {
-        //     red: { hue: 0, name: 'Red' },
-        //     green: { hue: 200, name: 'Green' },
-        //     blue: { hue: 250, name: 'Blue' },
-        //     gray: { hue: 0, saturation: 0, name: 'Gray' },
-        // }
-        // const selectedTheme = themes.blue
-
+    setTheme(themeId) {
+        const selectedTheme = this.options.themes[themeId]
         const grayThemeColors = ['#111', '#444', '#aaa', '#eee']
         scheme
             .from_hue(selectedTheme.hue)
             .scheme(schemes[0])
             .variation(variations[3])
-
         let themeColors = scheme.colors().map(c => `#${c}`)
         if (typeof selectedTheme.saturation !== 'undefined'
             && selectedTheme.saturation === 0) {
@@ -107,6 +99,7 @@ class D3React extends React.Component {
             this.state.chartConfig,
         )
         chartConfig.color = newColorConfig
+        chartConfig.theme = themeId
         this.setState({ chartConfig })
     }
     hideInfo() {

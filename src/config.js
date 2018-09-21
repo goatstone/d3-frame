@@ -45,6 +45,7 @@ export default {
         barHeightMax: 190,
         margin: [50, 20, 20, 55],
         symbol: 'symbolSquare',
+        theme: 'gray',
     },
     control: {
         style: {
