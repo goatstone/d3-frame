@@ -23,6 +23,12 @@ export default {
             { name: 'pie', display: 'Pie' },
             { name: 'bar', display: 'Bar' },
         ],
+        themes: {
+            red: { hue: 0, name: 'Red' },
+            green: { hue: 200, name: 'Green' },
+            blue: { hue: 250, name: 'Blue' },
+            gray: { hue: 0, saturation: 0, name: 'Gray' },
+        },
     },
     chart: {
         color: {

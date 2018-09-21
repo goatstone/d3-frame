@@ -41,14 +41,16 @@ class D3React extends React.Component {
         }
         this.controlEvent = events
         this.options = config.options
-        this.setEvents()
         this.hideInfo = this.hideInfo.bind(this)
     }
     componentDidMount() {
-        this.setTheme()
+        this.setEvents()
+        this.controlEvent.emit('theme', config.options.themes.green)
     }
-    // setEvents : set state as a result of the events being created: map events to application state
     setEvents() {
+        this.controlEvent.on('theme', (theme) => {
+            this.setTheme(theme)
+        })
         this.controlEvent.on('color', (color) => {
             const chartConfig = Object.assign(
                 {},
@@ -72,14 +74,14 @@ class D3React extends React.Component {
             this.setState({ isInfoVissible: true })
         })
     }
-    setTheme() {
-        const themes = {
-            red: { hue: 0, name: 'Red' },
-            green: { hue: 200, name: 'Green' },
-            blue: { hue: 250, name: 'Blue' },
-            gray: { hue: 0, saturation: 0, name: 'Gray' },
-        }
-        const selectedTheme = themes.blue
+    setTheme(selectedTheme) {
+        // const themes = {
+        //     red: { hue: 0, name: 'Red' },
+        //     green: { hue: 200, name: 'Green' },
+        //     blue: { hue: 250, name: 'Blue' },
+        //     gray: { hue: 0, saturation: 0, name: 'Gray' },
+        // }
+        // const selectedTheme = themes.blue
 
         const grayThemeColors = ['#111', '#444', '#aaa', '#eee']
         scheme
