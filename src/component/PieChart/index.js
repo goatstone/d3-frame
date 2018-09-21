@@ -35,19 +35,20 @@ function PieChart({
             margin={margin}
             containerWidth={containerWidth}
             chartId={id}
-            // componentType={type}
             >
             <Labels
                 data={data}
                 chartLeft={chartLeft}
                 chartTop={chartTop}
                 dataId="pie-chart-labels"
+                color={labelColor}
                 />
             <Pies
                 data={data}
                 chartLeft={chartLeft}
                 chartTop={chartTop}
                 dataId="pie-chart-pies"
+                foregroundColor={foregroundColor}
                 />
         </ChartFrame>
     )

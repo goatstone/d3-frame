@@ -26,10 +26,10 @@ export default {
     },
     chart: {
         color: {
-            background: 'blue',
-            foreground: 'gray',
+            background: 'gray',
+            foreground: 'darkblue',
             axis: '#666',
-            label: '#ddd',
+            label: '#eee',
             theme: [],
         },
         background: 'blue',

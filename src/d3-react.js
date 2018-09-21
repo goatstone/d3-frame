@@ -1,5 +1,6 @@
 import EventEmitter from 'events'
 import React from 'react'
+import ColorScheme from 'color-scheme'
 import Info from './component/Info'
 import BarChart from './component/BarChart/'
 import LineChart from './component/LineChart'
@@ -8,6 +9,20 @@ import Control from './component/Control'
 import './container.scss'
 import withResources from './component/hoc/with-resources'
 import config from './config'
+
+const scheme = new ColorScheme()
+const schemes = [
+    'mono',
+    'contrast',
+    'triade',
+    'tetrade',
+    'analogic']
+const variations = [
+    'pastel',
+    'soft',
+    'light',
+    'hard',
+    'pale']
 
 const events = new EventEmitter()
 const LineChartWrapper = withResources(LineChart, { events })
@@ -28,6 +43,9 @@ class D3React extends React.Component {
         this.options = config.options
         this.setEvents()
         this.hideInfo = this.hideInfo.bind(this)
+    }
+    componentDidMount() {
+        this.setTheme()
     }
     // setEvents : set state as a result of the events being created: map events to application state
     setEvents() {
@@ -54,15 +72,39 @@ class D3React extends React.Component {
             this.setState({ isInfoVissible: true })
         })
     }
-    setColor() {
-        const colors = ['red', 'yellow', 'gray', 'blue']
-        const rn = Math.round(Math.random() * (colors.length - 1))
-        const newColor = colors[rn]
+    setTheme() {
+        const themes = {
+            red: { hue: 0, name: 'Red' },
+            green: { hue: 200, name: 'Green' },
+            blue: { hue: 250, name: 'Blue' },
+            gray: { hue: 0, saturation: 0, name: 'Gray' },
+        }
+        const selectedTheme = themes.blue
+
+        const grayThemeColors = ['#111', '#444', '#aaa', '#eee']
+        scheme
+            .from_hue(selectedTheme.hue)
+            .scheme(schemes[0])
+            .variation(variations[3])
+
+        let themeColors = scheme.colors().map(c => `#${c}`)
+        if (typeof selectedTheme.saturation !== 'undefined'
+            && selectedTheme.saturation === 0) {
+            themeColors = grayThemeColors
+        }
+        const newColorConfig =
+            {
+                background: themeColors[1],
+                foreground: themeColors[0],
+                axis: themeColors[3],
+                label: themeColors[2],
+                theme: themeColors,
+            }
         const chartConfig = Object.assign(
             {},
             this.state.chartConfig,
-            { background: newColor },
         )
+        chartConfig.color = newColorConfig
         this.setState({ chartConfig })
     }
     hideInfo() {
@@ -71,6 +113,9 @@ class D3React extends React.Component {
     render() {
         return (
             <section data-id="container">
+                {[].map(c => (<div
+                    style={{ background: c }}>{c}
+                </div>))}
                 {this.state.chartType === 'bar' && <div>
                     <BarChart
                         data={this.state.data.bar}
