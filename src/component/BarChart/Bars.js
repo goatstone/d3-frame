@@ -18,6 +18,7 @@ const elements = ({
             return (
                 <g
                     key={`x${d.label}`}
+                    data-id="bar-chart.bars"
                     >
                     <rect
                         key={`xx${d.y}`}
@@ -33,7 +34,9 @@ const elements = ({
                         x={d.x + 2}
                         y={d.y - 5}
                         >
-                        {numeral(d.frequency).format('0%')}
+                        {
+                            numeral(d.frequency * 100).format('0.0')
+                        }
                     </text>
                 </g>
             )

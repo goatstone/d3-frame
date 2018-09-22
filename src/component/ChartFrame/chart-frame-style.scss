@@ -7,7 +7,9 @@
 }
 [data-id=chart-frame] text {
     stroke: white;
+    fill: white;
     font-size: 0.8rem;
+    font-weight: 100;
 }
 [data-id=chart-frame] path {
   fill: transparent;

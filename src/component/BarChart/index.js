@@ -3,6 +3,7 @@ import Bars from './Bars'
 import ChartFrame from '../ChartFrame'
 import XAxis from './XAxis'
 import YAxis from './YAxis'
+import './style.scss'
 
 const BarChart = ({ data = [], config }) => {
     const {

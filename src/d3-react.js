@@ -36,7 +36,7 @@ class D3React extends React.Component {
         this.state = {
             data,
             chartConfig: config.chart,
-            chartType: config.options.types[1].name, // the selected chart
+            chartType: config.options.types[2].name, // the selected chart
             isInfoVissible: false,
         }
         this.controlEvent = events
@@ -45,7 +45,7 @@ class D3React extends React.Component {
     }
     componentDidMount() {
         this.setEvents()
-        this.controlEvent.emit('theme', 'green')
+        this.controlEvent.emit('theme', 'gray')
     }
     setEvents() {
         this.controlEvent.on('theme', (theme) => {
