@@ -108,9 +108,6 @@ class D3React extends React.Component {
     render() {
         return (
             <section data-id="container">
-                {[].map(c => (<div
-                    style={{ background: c }}>{c}
-                </div>))}
                 {this.state.chartType === 'bar' && <div>
                     <BarChart
                         data={this.state.data.bar}

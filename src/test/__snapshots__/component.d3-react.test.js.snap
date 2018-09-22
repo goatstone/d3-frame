@@ -5,544 +5,519 @@ exports[`D3 Framework shows the Info element 1`] = `
   data-id="container"
 >
   <div>
-    <svg
-      className="main"
-      data-chart-id="pie-chart"
-      data-component-type="container"
-      data-id="chart-frame"
-      height={300}
-      width={700}
+    <div
+      data-component-type="chart"
+      data-id="bar-chart"
     >
-      <rect
-        data-id="chart-frame-background"
-        fill="#006748"
+      <svg
+        className="main"
+        data-chart-id={undefined}
+        data-component-type="container"
+        data-id="chart-frame"
         height={300}
-        width="100%"
-      />
-      <g
-        style={
-          Object {
-            "transform": "translate(55px, 50px)",
-          }
-        }
+        width={700}
       >
+        <rect
+          data-id="chart-frame-background"
+          fill="#444"
+          height={300}
+          width="100%"
+        />
         <g
-          data-id="pie-chart-labels"
           style={
             Object {
-              "transform": "translate(295px, 137px)",
+              "transform": "translate(55px, 50px)",
             }
           }
         >
-          <text
+          <g
             style={
               Object {
-                "stroke": "#e6fff7",
+                "transform": "translate(0, 190px)",
               }
             }
-            x={86.01455316868521}
-            y={68.56746052750843}
-          >
-            A
-          </text>
-          <text
+          />
+          <g
             style={
               Object {
-                "stroke": "#e6fff7",
+                "transform": "translate(0, 0px)",
               }
             }
-            x={-16.82164378919939}
-            y={-108.7061741587353}
+          />
+          <g
+            data-id="bar-chart.bars"
           >
-            B
-          </text>
-          <text
-            style={
-              Object {
-                "stroke": "#e6fff7",
-              }
-            }
-            x={-99.38983278937803}
-            y={-47.134500507584406}
+            <rect
+              fill="#111"
+              height={101}
+              width={20}
+              x={15}
+              y={89}
+            />
+            <text
+              fill="#fff"
+              x={17}
+              y={84}
+            >
+              8.2
+            </text>
+          </g>
+          <g
+            data-id="bar-chart.bars"
           >
-            C
-          </text>
-          <text
-            style={
-              Object {
-                "stroke": "#e6fff7",
-              }
-            }
-            x={-109.9455386984042}
-            y={-3.460999901430637}
+            <rect
+              fill="#111"
+              height={19}
+              width={20}
+              x={37}
+              y={171}
+            />
+            <text
+              fill="#fff"
+              x={39}
+              y={166}
+            >
+              1.5
+            </text>
+          </g>
+          <g
+            data-id="bar-chart.bars"
           >
-            D
-          </text>
-          <text
-            style={
-              Object {
-                "stroke": "#e6fff7",
-              }
-            }
-            x={101.74087629807639}
-            y={-41.81858546268058}
+            <rect
+              fill="#111"
+              height={35}
+              width={20}
+              x={59}
+              y={155}
+            />
+            <text
+              fill="#fff"
+              x={61}
+              y={150}
+            >
+              2.8
+            </text>
+          </g>
+          <g
+            data-id="bar-chart.bars"
           >
-            E
-          </text>
-          <text
-            style={
-              Object {
-                "stroke": "#e6fff7",
-              }
-            }
-            x={-60.224156690584806}
-            y={-92.04917680733429}
+            <rect
+              fill="#111"
+              height={53}
+              width={20}
+              x={81}
+              y={137}
+            />
+            <text
+              fill="#fff"
+              x={83}
+              y={132}
+            >
+              4.3
+            </text>
+          </g>
+          <g
+            data-id="bar-chart.bars"
           >
-            F
-          </text>
-          <text
-            style={
-              Object {
-                "stroke": "#e6fff7",
-              }
-            }
-            x={-49.03374632609426}
-            y={-98.46670361715293}
+            <rect
+              fill="#111"
+              height={158}
+              width={20}
+              x={103}
+              y={32}
+            />
+            <text
+              fill="#fff"
+              x={105}
+              y={27}
+            >
+              12.7
+            </text>
+          </g>
+          <g
+            data-id="bar-chart.bars"
           >
-            G
-          </text>
-          <text
-            style={
-              Object {
-                "stroke": "#e6fff7",
-              }
-            }
-            x={-92.17870272236986}
-            y={60.02571752524881}
+            <rect
+              fill="#111"
+              height={28}
+              width={20}
+              x={125}
+              y={162}
+            />
+            <text
+              fill="#fff"
+              x={127}
+              y={157}
+            >
+              2.3
+            </text>
+          </g>
+          <g
+            data-id="bar-chart.bars"
           >
-            H
-          </text>
-          <text
-            style={
-              Object {
-                "stroke": "#e6fff7",
-              }
-            }
-            x={8.319017900891643}
-            y={109.68497591358921}
+            <rect
+              fill="#111"
+              height={25}
+              width={20}
+              x={147}
+              y={165}
+            />
+            <text
+              fill="#fff"
+              x={149}
+              y={160}
+            >
+              2.0
+            </text>
+          </g>
+          <g
+            data-id="bar-chart.bars"
           >
-            I
-          </text>
-          <text
-            style={
-              Object {
-                "stroke": "#e6fff7",
-              }
-            }
-            x={44.5743592680264}
-            y={-100.56404176366874}
+            <rect
+              fill="#111"
+              height={76}
+              width={20}
+              x={169}
+              y={114}
+            />
+            <text
+              fill="#fff"
+              x={171}
+              y={109}
+            >
+              6.1
+            </text>
+          </g>
+          <g
+            data-id="bar-chart.bars"
           >
-            J
-          </text>
-          <text
-            style={
-              Object {
-                "stroke": "#e6fff7",
-              }
-            }
-            x={-5.112561130942436}
-            y={-132.9016994574651}
+            <rect
+              fill="#111"
+              height={87}
+              width={20}
+              x={191}
+              y={103}
+            />
+            <text
+              fill="#fff"
+              x={193}
+              y={98}
+            >
+              7.0
+            </text>
+          </g>
+          <g
+            data-id="bar-chart.bars"
           >
-            K
-          </text>
-          <text
-            style={
-              Object {
-                "stroke": "#e6fff7",
-              }
-            }
-            x={-106.38153560978314}
-            y={-27.981581108015362}
+            <rect
+              fill="#111"
+              height={190}
+              width={20}
+              x={213}
+              y={0}
+            />
+            <text
+              fill="#fff"
+              x={215}
+              y={-5}
+            >
+              15.3
+            </text>
+          </g>
+          <g
+            data-id="bar-chart.bars"
           >
-            L
-          </text>
-          <text
-            style={
-              Object {
-                "stroke": "#e6fff7",
-              }
-            }
-            x={-81.62217550924842}
-            y={-73.74157894388652}
+            <rect
+              fill="#111"
+              height={10}
+              width={20}
+              x={235}
+              y={180}
+            />
+            <text
+              fill="#fff"
+              x={237}
+              y={175}
+            >
+              0.8
+            </text>
+          </g>
+          <g
+            data-id="bar-chart.bars"
           >
-            M
-          </text>
-          <text
-            style={
-              Object {
-                "stroke": "#e6fff7",
-              }
-            }
-            x={-32.328466079432815}
-            y={105.14214322026616}
+            <rect
+              fill="#111"
+              height={50}
+              width={20}
+              x={257}
+              y={140}
+            />
+            <text
+              fill="#fff"
+              x={259}
+              y={135}
+            >
+              4.0
+            </text>
+          </g>
+          <g
+            data-id="bar-chart.bars"
           >
-            N
-          </text>
-          <text
-            style={
-              Object {
-                "stroke": "#e6fff7",
-              }
-            }
-            x={49.853677324447034}
-            y={98.05412208178663}
+            <rect
+              fill="#111"
+              height={30}
+              width={20}
+              x={279}
+              y={160}
+            />
+            <text
+              fill="#fff"
+              x={281}
+              y={155}
+            >
+              2.4
+            </text>
+          </g>
+          <g
+            data-id="bar-chart.bars"
           >
-            O
-          </text>
-          <text
-            style={
-              Object {
-                "stroke": "#e6fff7",
-              }
-            }
-            x={-26.874826829653454}
-            y={-106.6665068466955}
+            <rect
+              fill="#111"
+              height={84}
+              width={20}
+              x={301}
+              y={106}
+            />
+            <text
+              fill="#fff"
+              x={303}
+              y={101}
+            >
+              6.7
+            </text>
+          </g>
+          <g
+            data-id="bar-chart.bars"
           >
-            P
-          </text>
-          <text
-            style={
-              Object {
-                "stroke": "#e6fff7",
-              }
-            }
-            x={-1.066850944443508}
-            y={-160.99646526884476}
+            <rect
+              fill="#111"
+              height={93}
+              width={20}
+              x={323}
+              y={97}
+            />
+            <text
+              fill="#fff"
+              x={325}
+              y={92}
+            >
+              7.5
+            </text>
+          </g>
+          <g
+            data-id="bar-chart.bars"
           >
-            Q
-          </text>
-          <text
-            style={
-              Object {
-                "stroke": "#e6fff7",
-              }
-            }
-            x={-106.6408082012705}
-            y={26.976619991760224}
+            <rect
+              fill="#111"
+              height={24}
+              width={20}
+              x={345}
+              y={166}
+            />
+            <text
+              fill="#fff"
+              x={347}
+              y={161}
+            >
+              1.9
+            </text>
+          </g>
+          <g
+            data-id="bar-chart.bars"
           >
-            R
-          </text>
-          <text
-            style={
-              Object {
-                "stroke": "#e6fff7",
-              }
-            }
-            x={-66.99647425484933}
-            y={87.24375299939423}
+            <rect
+              fill="#111"
+              height={1}
+              width={20}
+              x={367}
+              y={189}
+            />
+            <text
+              fill="#fff"
+              x={369}
+              y={184}
+            >
+              0.1
+            </text>
+          </g>
+          <g
+            data-id="bar-chart.bars"
           >
-            S
-          </text>
-          <text
-            style={
-              Object {
-                "stroke": "#e6fff7",
-              }
-            }
-            x={107.73356381863178}
-            y={22.214392337779415}
+            <rect
+              fill="#111"
+              height={74}
+              width={20}
+              x={389}
+              y={116}
+            />
+            <text
+              fill="#fff"
+              x={391}
+              y={111}
+            >
+              6.0
+            </text>
+          </g>
+          <g
+            data-id="bar-chart.bars"
           >
-            T
-          </text>
-          <text
-            style={
-              Object {
-                "stroke": "#e6fff7",
-              }
-            }
-            x={-91.16415313138117}
-            y={-61.55564298939688}
+            <rect
+              fill="#111"
+              height={79}
+              width={20}
+              x={411}
+              y={111}
+            />
+            <text
+              fill="#fff"
+              x={413}
+              y={106}
+            >
+              6.3
+            </text>
+          </g>
+          <g
+            data-id="bar-chart.bars"
           >
-            U
-          </text>
-          <text
-            style={
-              Object {
-                "stroke": "#e6fff7",
-              }
-            }
-            x={-10.2416802410208}
-            y={-118.55845809490222}
+            <rect
+              fill="#111"
+              height={112}
+              width={20}
+              x={433}
+              y={78}
+            />
+            <text
+              fill="#fff"
+              x={435}
+              y={73}
+            >
+              9.1
+            </text>
+          </g>
+          <g
+            data-id="bar-chart.bars"
           >
-            V
-          </text>
-          <text
-            style={
-              Object {
-                "stroke": "#e6fff7",
-              }
-            }
-            x={-71.37688187160394}
-            y={-83.69791355993944}
+            <rect
+              fill="#111"
+              height={34}
+              width={20}
+              x={455}
+              y={156}
+            />
+            <text
+              fill="#fff"
+              x={457}
+              y={151}
+            >
+              2.8
+            </text>
+          </g>
+          <g
+            data-id="bar-chart.bars"
           >
-            W
-          </text>
-          <text
-            style={
-              Object {
-                "stroke": "#e6fff7",
-              }
-            }
-            x={-1.9561363043111109}
-            y={-146.98698422227378}
+            <rect
+              fill="#111"
+              height={12}
+              width={20}
+              x={477}
+              y={178}
+            />
+            <text
+              fill="#fff"
+              x={479}
+              y={173}
+            >
+              1.0
+            </text>
+          </g>
+          <g
+            data-id="bar-chart.bars"
           >
-            X
-          </text>
-          <text
-            style={
-              Object {
-                "stroke": "#e6fff7",
-              }
-            }
-            x={-38.05409069338942}
-            y={-103.20797537738686}
+            <rect
+              fill="#111"
+              height={29}
+              width={20}
+              x={499}
+              y={161}
+            />
+            <text
+              fill="#fff"
+              x={501}
+              y={156}
+            >
+              2.4
+            </text>
+          </g>
+          <g
+            data-id="bar-chart.bars"
           >
-            Y
-          </text>
-          <text
-            style={
-              Object {
-                "stroke": "#e6fff7",
-              }
-            }
-            x={-0.3531378335594624}
-            y={-174.99964369583873}
+            <rect
+              fill="#111"
+              height={2}
+              width={20}
+              x={521}
+              y={188}
+            />
+            <text
+              fill="#fff"
+              x={523}
+              y={183}
+            >
+              0.2
+            </text>
+          </g>
+          <g
+            data-id="bar-chart.bars"
           >
-            Z
-          </text>
+            <rect
+              fill="#111"
+              height={25}
+              width={20}
+              x={543}
+              y={165}
+            />
+            <text
+              fill="#fff"
+              x={545}
+              y={160}
+            >
+              2.0
+            </text>
+          </g>
+          <g
+            data-id="bar-chart.bars"
+          >
+            <rect
+              fill="#111"
+              height={1}
+              width={20}
+              x={565}
+              y={189}
+            />
+            <text
+              fill="#fff"
+              x={567}
+              y={184}
+            >
+              0.1
+            </text>
+          </g>
         </g>
-        <g
-          data-id="pie-chart-pies"
-          style={
-            Object {
-              "transform": "translate(300px, 130px)",
-            }
-          }
-        >
-          <path
-            d="M90.03171098099911,43.52345365241418A100,100,0,0,1,62.49597797696558,78.06569500556971L0,0Z"
-            style={
-              Object {
-                "fill": "#00ab78",
-              }
-            }
-          />
-          <path
-            d="M-19.299370917372695,-98.11999939968237A100,100,0,0,1,-11.260125337537627,-99.36402556953368L0,0Z"
-            style={
-              Object {
-                "fill": "#00ab78",
-              }
-            }
-          />
-          <path
-            d="M-93.34210431670589,-35.87828816609283A100,100,0,0,1,-86.8469202722446,-49.57431229201661L0,0Z"
-            style={
-              Object {
-                "fill": "#00ab78",
-              }
-            }
-          />
-          <path
-            d="M-99.64313477540706,8.440716328017714A100,100,0,0,1,-98.91496100006754,-14.691170489621241L0,0Z"
-            style={
-              Object {
-                "fill": "#00ab78",
-              }
-            }
-          />
-          <path
-            d="M74.09219383501788,-67.15911563380016A100,100,0,0,1,99.9049509740916,-4.3589873668492185L0,0Z"
-            style={
-              Object {
-                "fill": "#00ab78",
-              }
-            }
-          />
-          <path
-            d="M-59.86036937943413,-80.1045328165498A100,100,0,0,1,-49.42503889098314,-86.9319592015779L0,0Z"
-            style={
-              Object {
-                "fill": "#00ab78",
-              }
-            }
-          />
-          <path
-            d="M-49.42503889098314,-86.9319592015779A100,100,0,0,1,-39.59267434772854,-91.82820992480862L0,0Z"
-            style={
-              Object {
-                "fill": "#00ab78",
-              }
-            }
-          />
-          <path
-            d="M-73.61786659878693,67.67872425986775A100,100,0,0,1,-91.67094084948094,39.95545774698328L0,0Z"
-            style={
-              Object {
-                "fill": "#00ab78",
-              }
-            }
-          />
-          <path
-            d="M26.25442429680912,96.49199554804076A100,100,0,0,1,-11.401012770334507,99.34795875009547L0,0Z"
-            style={
-              Object {
-                "fill": "#00ab78",
-              }
-            }
-          />
-          <path
-            d="M6.123233995736766e-15,-100A100,100,0,0,1,74.09219383501788,-67.15911563380016L0,0Z"
-            style={
-              Object {
-                "fill": "#00ab78",
-              }
-            }
-          />
-          <path
-            d="M-5.946661582798292,-99.8230294872865A100,100,0,0,1,-1.7396967178556835,-99.98486613147954L0,0Z"
-            style={
-              Object {
-                "fill": "#00ab78",
-              }
-            }
-          />
-          <path
-            d="M-98.91496100006754,-14.691170489621241A100,100,0,0,1,-93.34210431670589,-35.87828816609283L0,0Z"
-            style={
-              Object {
-                "fill": "#00ab78",
-              }
-            }
-          />
-          <path
-            d="M-78.43752589782741,-62.02865894913134A100,100,0,0,1,-69.64712842616294,-71.75846641330602L0,0Z"
-            style={
-              Object {
-                "fill": "#00ab78",
-              }
-            }
-          />
-          <path
-            d="M-11.401012770334507,99.34795875009547A100,100,0,0,1,-46.38536991029988,88.59118160564654L0,0Z"
-            style={
-              Object {
-                "fill": "#00ab78",
-              }
-            }
-          />
-          <path
-            d="M62.49597797696558,78.06569500556971A100,100,0,0,1,26.25442429680912,96.49199554804076L0,0Z"
-            style={
-              Object {
-                "fill": "#00ab78",
-              }
-            }
-          />
-          <path
-            d="M-29.496363018418503,-95.55084807936387A100,100,0,0,1,-19.299370917372695,-98.11999939968237L0,0Z"
-            style={
-              Object {
-                "fill": "#00ab78",
-              }
-            }
-          />
-          <path
-            d="M-0.9216909554674894,-99.99575233869992A100,100,0,0,1,-0.40358527378553416,-99.99918559131761L0,0Z"
-            style={
-              Object {
-                "fill": "#00ab78",
-              }
-            }
-          />
-          <path
-            d="M-91.67094084948094,39.95545774698328A100,100,0,0,1,-99.64313477540706,8.440716328017714L0,0Z"
-            style={
-              Object {
-                "fill": "#00ab78",
-              }
-            }
-          />
-          <path
-            d="M-46.38536991029988,88.59118160564654A100,100,0,0,1,-73.61786659878693,67.67872425986775L0,0Z"
-            style={
-              Object {
-                "fill": "#00ab78",
-              }
-            }
-          />
-          <path
-            d="M99.9049509740916,-4.3589873668492185A100,100,0,0,1,90.03171098099911,43.52345365241418L0,0Z"
-            style={
-              Object {
-                "fill": "#00ab78",
-              }
-            }
-          />
-          <path
-            d="M-86.8469202722446,-49.57431229201661A100,100,0,0,1,-78.43752589782741,-62.02865894913134L0,0Z"
-            style={
-              Object {
-                "fill": "#00ab78",
-              }
-            }
-          />
-          <path
-            d="M-11.260125337537627,-99.36402556953368A100,100,0,0,1,-5.946661582798292,-99.8230294872865L0,0Z"
-            style={
-              Object {
-                "fill": "#00ab78",
-              }
-            }
-          />
-          <path
-            d="M-69.64712842616294,-71.75846641330602A100,100,0,0,1,-59.86036937943413,-80.1045328165498L0,0Z"
-            style={
-              Object {
-                "fill": "#00ab78",
-              }
-            }
-          />
-          <path
-            d="M-1.7396967178556835,-99.98486613147954A100,100,0,0,1,-0.9216909554674894,-99.99575233869992L0,0Z"
-            style={
-              Object {
-                "fill": "#00ab78",
-              }
-            }
-          />
-          <path
-            d="M-39.59267434772854,-91.82820992480862A100,100,0,0,1,-29.496363018418503,-95.55084807936387L0,0Z"
-            style={
-              Object {
-                "fill": "#00ab78",
-              }
-            }
-          />
-          <path
-            d="M-0.40358527378553416,-99.99918559131761A100,100,0,0,1,-1.8369701987210297e-14,-100L0,0Z"
-            style={
-              Object {
-                "fill": "#00ab78",
-              }
-            }
-          />
-        </g>
-      </g>
-    </svg>
-    <h3>
-      The Frequency of Letters in the English Language
-    </h3>
+      </svg>
+      <h3>
+        The Frequency of Letters in the English Language
+      </h3>
+    </div>
   </div>
   <section
     data-id="control"
@@ -566,7 +541,7 @@ exports[`D3 Framework shows the Info element 1`] = `
         <select
           name="chartType"
           onChange={[Function]}
-          value="pie"
+          value="bar"
         >
           <option
             value="line"
@@ -592,7 +567,7 @@ exports[`D3 Framework shows the Info element 1`] = `
         <select
           name="theme"
           onChange={[Function]}
-          value="green"
+          value="gray"
         >
           <option
             value="red"
