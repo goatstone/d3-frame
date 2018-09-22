@@ -11,12 +11,12 @@ Methodologies for using the D3 visualization library with ReactJS
 ### Clone the GitHub repo.
 
 ```    
-git clone git@github.com:JoseHerminioCollas/d3-react.git
+git clone git@github.com:goatstone/d3-frame.git
 ```
 
 ### Install
 ```
-cd d3-react/
+cd d3-frame/
 yarn
 ```
 ### Development

@@ -138,7 +138,7 @@ class D3React extends React.Component {
                     options={this.options}
                     />
                 <section data-id="info-min">
-                    <a href="https://github.com/JoseHerminioCollas/d3-react" target="new">
+                    <a href="https://github.com/goatstone/d3-frame" target="new">
                         D3 Framework
                     </a>
                     <a href="http://goatstone.com" target="new">
