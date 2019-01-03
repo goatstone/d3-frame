@@ -1,13 +1,11 @@
 import EventEmitter from 'events'
 import React from 'react'
 import ColorScheme from 'color-scheme'
+
 import Info from './component/Info'
-import BarChart from './component/BarChart/'
-import LineChart from './component/LineChart'
-import PieChart from './component/PieChart'
 import Control from './component/Control'
+import Chart from './component/Chart'
 import './container.scss'
-import withResources from './component/hoc/with-resources'
 import config from './config'
 
 const scheme = new ColorScheme()
@@ -25,9 +23,7 @@ const variations = [
     'pale']
 
 const events = new EventEmitter()
-const LineChartWrapper = withResources(LineChart, { events })
-const PieChartWrapper = withResources(PieChart, { events, options: config.options })
-const ControlWrapper = withResources(Control, { events, config })
+
 class D3React extends React.Component {
     constructor({
         data,
@@ -108,34 +104,18 @@ class D3React extends React.Component {
     render() {
         return (
             <section data-id="container">
-                {this.state.chartType === 'bar' && <div>
-                    <BarChart
-                        data={this.state.data.bar}
-                        config={this.state.chartConfig}
-                        />
-                </div>
-                }
-                {this.state.chartType === 'line' && <div><LineChartWrapper
-                    data={this.state.data.line}
-                    config={this.state.chartConfig}
+                <Chart
+                    chartType={this.state.chartType}
+                    data={this.state.data}
+                    chartConfig={this.state.chartConfig}
+                    events={events}
                     />
-                </div>
-                }
-                {this.state.chartType === 'pie' && <div>
-                    <PieChartWrapper
-                        data={this.state.data.bar}
-                        config={this.state.chartConfig}
-                        />
-                    <h3>The Frequency of Letters in the English Language</h3>
-                </div>
-                }
-                {this.state.isInfoVissible &&
-                    <Info onClick={this.hideInfo} />
-                }
-                <ControlWrapper
+                <Control
                     chartConfig={this.state.chartConfig}
                     chartType={this.state.chartType}
                     options={this.options}
+                    chartConfig={this.state.chartConfig}
+                    events={events}
                     />
                 <section data-id="info-min">
                     <a href="https://github.com/goatstone/d3-frame" target="new">
@@ -145,6 +125,9 @@ class D3React extends React.Component {
                         Goatstone &copy; 2018
                     </a>
                 </section>
+                {this.state.isInfoVissible &&
+                    <Info onClick={this.hideInfo} />
+                }
             </section>)
     }
 }
