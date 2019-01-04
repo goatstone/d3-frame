@@ -5,7 +5,7 @@ import xScaleBarChart from './x-scale'
 import yScaleBarChart from './y-scale'
 
 const elements = ({
-    data, width, height, barHeightMax, foregroundColor,
+    data, width, barHeightMax, foregroundColor,
 }) => {
     const elementData = barsData(
         data,

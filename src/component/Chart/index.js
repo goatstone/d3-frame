@@ -4,7 +4,11 @@ import BarChart from '../BarChart/'
 import LineChart from '../LineChart'
 import PieChart from '../PieChart'
 
-function Chart({chartType, data, chartConfig, events}) {
+function Chart({
+    chartType,
+    data,
+    chartConfig,
+}) {
     return (
         <div>
             {chartType === 'bar' && <BarChart

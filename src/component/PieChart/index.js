@@ -6,9 +6,7 @@ import './pie-chart-style.scss'
 
 function PieChart({
     data,
-    events,
     config,
-    options,
 }) {
     const {
         width,
@@ -17,15 +15,11 @@ function PieChart({
         containerWidth,
         color: { background: backgroundColor },
         color: { foreground: foregroundColor },
-        color: { axis: axisColor },
         color: { label: labelColor },
-        color: { theme: themeColor },
-        chartSymbol = config.symbol,
     } = config
     const chartLeft = Math.round(width / 2)
     const chartTop = 130
     const id = 'pie-chart'
-    const type = 'chart'
 
     return (
         <ChartFrame

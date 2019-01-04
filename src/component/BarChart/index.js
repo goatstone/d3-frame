@@ -14,9 +14,6 @@ const BarChart = ({ data = [], config }) => {
         containerWidth,
         color: { background: backgroundColor },
         color: { foreground: foregroundColor },
-        color: { axis: axisColor },
-        color: { label: labelColor },
-        color: { theme: themeColor },
     } = config
 
     return (

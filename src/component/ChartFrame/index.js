@@ -3,7 +3,6 @@ import './chart-frame-style.scss'
 
 const ChartFrame = ({
     children,
-    width,
     height,
     background,
     margin,

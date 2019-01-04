@@ -10,7 +10,6 @@ import './style.scss'
 
 function LineChart({
     data,
-    events,
     config,
 }) {
     const {
@@ -20,13 +19,8 @@ function LineChart({
         margin,
         containerWidth,
         color: { background: backgroundColor },
-        color: { foreground: foregroundColor },
-        color: { axis: axisColor },
-        color: { label: labelColor },
-        color: { theme: themeColor },
         chartSymbol = config.symbol,
     } = config
-    const heightOffset = height + 60
     // date scale function
     const xScale = d3.scaleTime()
         .domain(d3.extent(data, d => new Date(d.day).setHours(0, 0, 0, 0)))

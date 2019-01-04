@@ -1,4 +1,4 @@
-section[data-id=info] {
+button[data-id=info] {
     position: fixed;
     display: flex;
     align-items: center;
@@ -7,10 +7,11 @@ section[data-id=info] {
     left: 0;
     width: 100%;
     height: 100%;
+    margin: 0;
     background: white;
     opacity: 0.8;
 }
-section[data-id=info] div{
+button[data-id=info] div{
     color: white;
     background: black;
     opacity: 1.0;
@@ -20,19 +21,19 @@ section[data-id=info] div{
     width: 100%;
     max-width: 600px;
 }
-section[data-id=info] div a{
+button[data-id=info] div a{
     color: gray;
     display: block;
     width: 100%;
 }
-section[data-id="info-min"] {
+button[data-id="info-min"] {
     position: fixed;
     bottom: 0;
     right: 0;
     color: darkblue;
     padding: 12px;
 }
-section[data-id="info-min"] a{
+button[data-id="info-min"] a{
     color: darkblue;
     padding: 12px;
 }
