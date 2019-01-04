@@ -5,7 +5,6 @@ import Adapter from 'enzyme-adapter-react-16'
 import renderer from 'react-test-renderer'
 
 import D3React from '../d3-react'
-import data from '../data'
 
 Enzyme.configure({ adapter: new Adapter() })
 

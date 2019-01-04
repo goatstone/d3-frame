@@ -1,6 +1,5 @@
 import EventEmitter from 'events'
 import React from 'react'
-import ColorScheme from 'color-scheme'
 
 import Info from './component/Info'
 import Control from './component/Control'
@@ -8,19 +7,7 @@ import Chart from './component/Chart'
 import './container.scss'
 import config from './config'
 
-const scheme = new ColorScheme()
-const schemes = [
-    'mono',
-    'contrast',
-    'triade',
-    'tetrade',
-    'analogic']
-const variations = [
-    'pastel',
-    'soft',
-    'light',
-    'hard',
-    'pale']
+import { scheme, schemes, variations } from './theme'
 
 const events = new EventEmitter()
 
@@ -111,7 +98,6 @@ class D3React extends React.Component {
                     events={events}
                     />
                 <Control
-                    chartConfig={this.state.chartConfig}
                     chartType={this.state.chartType}
                     options={this.options}
                     chartConfig={this.state.chartConfig}
