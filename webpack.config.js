@@ -85,6 +85,5 @@ const prod = {
         }),
     ],
 };
-console.log('s', base.env)
 
 module.exports = isProd ? merge(base, prod) : merge(base, dev);

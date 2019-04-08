@@ -12,11 +12,15 @@
         "babel-preset-stage-2": "^6.24.1",
         "copy-webpack-plugin": "^4.2.0",
         "css-loader": "^0.28.7",
-        "eslint": "^4.10.0",
+        "eslint": "^5.16.0",
         "eslint-config-airbnb": "^16.1.0",
+        "eslint-config-standard": "^12.0.0",
         "eslint-plugin-import": "^2.8.0",
         "eslint-plugin-jsx-a11y": "^6.0.2",
+        "eslint-plugin-node": "^8.0.1",
+        "eslint-plugin-promise": "^4.1.1",
         "eslint-plugin-react": "^7.4.0",
+        "eslint-plugin-standard": "^4.0.0",
         "eslint-watch": "^3.1.3",
         "file-loader": "^1.1.5",
         "jest": "^21.2.1",
@@ -43,14 +47,12 @@
         "react-testing-library": "^5.0.1"
     },
     "scripts": {
-        "watch": "./node_modules/.bin/webpack -d --watch",
-        "dev": "./node_modules/.bin/webpack-dev-server -d --hot --inline --progress --colors",
-        "build": "NODE_ENV=production ./node_modules/.bin/webpack -p",
-        "test": "yarn jest && yarn lint",
-        "test:watch": "yarn jest:watch & yarn lint:watch",
-        "jest": "./node_modules/.bin/jest",
-        "jest:watch": "./node_modules/.bin/jest --watch",
-        "lint": "./node_modules/.bin/eslint src/ test --ext .js --ext .jsx",
-        "lint:watch": "./node_modules/.bin/esw src/ test --ext .js --ext .jsx -w --color --clear"
+        "watch": "webpack -d --watch",
+        "dev": "webpack-dev-server -d --hot --inline --progress --colors",
+        "build": "NODE_ENV=production webpack -p",
+        "test": "jest",
+        "test:watch": "jest --watch",
+        "lint": "eslint src src/test --ext .js --ext .jsx",
+        "lint:watch": "esw src src/test --ext .js --ext .jsx -w --color --clear"
     }
 }
