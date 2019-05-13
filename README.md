@@ -17,32 +17,38 @@ git clone git@github.com:goatstone/d3-frame.git
 ### Install
 ```
 cd d3-frame/
-yarn
+npm install
 ```
 ### Development
 
 ```    
-yarn run dev
-yarn run watch
+npm run watch
 ```    
+
+### Run Browswersync
+```
+cd dist/
+
+browser-sync start --server --files "*" 
+```
 
 ### Lint
 
 ```    
-yarn run lint
-yarn run lint:watch
+npm run lint
+npm run lint:watch
 ```    
 
 ### Build
 
 ```    
-yarn run build
+npm run build
 ```    
 
 ### Test
 ```    
-yarn run test
-yarn run test:watch
+npm run test
+npm run test:watch
 ```    
 
 ## Overview
