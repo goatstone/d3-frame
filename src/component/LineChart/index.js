@@ -26,7 +26,7 @@ function LineChart({
             ({ data }) => {
                 // date scale function
                 const xScale = d3.scaleTime()
-                    .domain(d3.extent(data, d => new Date(d.day).setHours(0, 0, 0, 0)))
+                    .domain(d3.extent(data.line, d => new Date(d.day).setHours(0, 0, 0, 0)))
                     .range([0, width])
                 // quality scale function
                 const yScale = LScale(data.line.map(d => d.quality), barHeightMax, 0)
@@ -36,7 +36,6 @@ function LineChart({
                         className="line-chart"
                         data-component-type="chart"
                     >
-                        xxxx
                     <ChartFrame
                             width={containerWidth}
                             height={height}
@@ -47,21 +46,21 @@ function LineChart({
                         >
                             <XAxis
                                 xScale={xScale}
-                                ticks={data.length / 2}
+                                ticks={data.line.length / 2}
                                 barHeightMax={barHeightMax}
                             />
                             <YAxis
                                 yScale={yScale}
                             />
                             <SparkLine
-                                data={data}
+                                data={data.line}
                                 xScale={xScale}
                                 yScale={yScale}
                             />
                             <Symbols
                                 xScale={xScale}
                                 yScale={yScale}
-                                data={data}
+                                data={data.line}
                                 symbol={chartSymbol}
                             />
                         </ChartFrame>
