@@ -8,13 +8,13 @@ import './container.scss'
 import config from './config'
 
 import { scheme, schemes, variations } from './theme'
-import dataC from './data'
+import data from './data'
 
 const events = new EventEmitter()
 
 const defaultState = {
     name: 'd3 Frame',
-    data: dataC,
+    data,
 }
 export { defaultState }
 
@@ -22,12 +22,9 @@ const ContextA = React.createContext(defaultState)
 export { ContextA }
 
 class D3React extends React.Component {
-    constructor({
-        data,
-    }) {
+    constructor() {
         super(...Array.from(arguments))
         this.state = {
-            data,
             chartConfig: config.chart,
             chartType: config.options.types[2].name, // the selected chart
             isInfoVissible: false,
@@ -103,7 +100,6 @@ class D3React extends React.Component {
             <section data-id="container">
                 <Chart
                     chartType={this.state.chartType}
-                    data={this.state.data}
                     chartConfig={this.state.chartConfig}
                     events={events}
                 />

@@ -35,7 +35,7 @@ function LineChart({
                         data-id="line-chart"
                         className="line-chart"
                         data-component-type="chart"
-                    >
+                    >x
                     <ChartFrame
                             width={containerWidth}
                             height={height}

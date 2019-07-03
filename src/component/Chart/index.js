@@ -6,7 +6,6 @@ import PieChart from '../PieChart'
 
 function Chart({
     chartType,
-    data,
     chartConfig,
 }) {
     return (
@@ -22,7 +21,6 @@ function Chart({
 
             }
             {chartType === 'pie' && <div><PieChart
-                data={data.bar}
                 config={chartConfig}
                 events
                 options={chartConfig.options}
