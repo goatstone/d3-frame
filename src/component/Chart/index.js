@@ -12,12 +12,10 @@ function Chart({
     return (
         <div>
             {chartType === 'bar' && <BarChart
-                data={data.bar}
                 config={chartConfig}
                 />
             }
             {chartType === 'line' && <LineChart
-                data={data.line}
                 config={chartConfig}
                 events
                 />
