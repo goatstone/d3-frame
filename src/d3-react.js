@@ -8,8 +8,18 @@ import './container.scss'
 import config from './config'
 
 import { scheme, schemes, variations } from './theme'
+import dataC from './data'
 
 const events = new EventEmitter()
+
+const defaultState = {
+    name: 'd3 Frame',
+    data: dataC,
+}
+export { defaultState }
+
+const ContextA = React.createContext(defaultState)
+export { ContextA }
 
 class D3React extends React.Component {
     constructor({
@@ -70,13 +80,13 @@ class D3React extends React.Component {
             themeColors = grayThemeColors
         }
         const newColorConfig =
-            {
-                background: themeColors[1],
-                foreground: themeColors[0],
-                axis: themeColors[3],
-                label: themeColors[2],
-                theme: themeColors,
-            }
+        {
+            background: themeColors[1],
+            foreground: themeColors[0],
+            axis: themeColors[3],
+            label: themeColors[2],
+            theme: themeColors,
+        }
         const chartConfig = Object.assign(
             {},
             this.state.chartConfig,
@@ -96,13 +106,13 @@ class D3React extends React.Component {
                     data={this.state.data}
                     chartConfig={this.state.chartConfig}
                     events={events}
-                    />
+                />
                 <Control
                     chartType={this.state.chartType}
                     options={this.options}
                     chartConfig={this.state.chartConfig}
                     events={events}
-                    />
+                />
                 <section data-id="info-min">
                     <a href="https://github.com/goatstone/d3-frame" target="new">
                         D3 Framework
