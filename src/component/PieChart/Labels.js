@@ -22,7 +22,7 @@ const Text = ({ data, color = 'white' }) => {
             style={{ stroke: color }}
             x={tD.location[0]}
             y={tD.location[1]}
-            key={`${tD.label}`} >
+            key={`${tD.label}`}>
             {tD.label}
         </text>
     ))
@@ -30,13 +30,15 @@ const Text = ({ data, color = 'white' }) => {
 const Labels = ({
     data, chartTop, chartLeft, dataId, color = 'white',
 }) => {
-    return (<g
-        data-id={dataId}
-        style={{ transform: `translate(${chartLeft - 5}px, ${chartTop + 7}px)` }}>
-        <Text
-        color={color}
-        data={data} />
-    </g>)
+    return (
+        <g
+            data-id={dataId}
+            style={{ transform: `translate(${chartLeft - 5}px, ${chartTop + 7}px)` }}>
+            <Text
+            color={color}
+            data={data} />
+        </g>
+    )
 }
 
 export default Labels

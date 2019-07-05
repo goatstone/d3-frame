@@ -7,11 +7,13 @@ const YAxis = ({ data, height }) => {
         .scale(yScaleBarChart(data, height))
         .ticks(3, '%')
 
-    return (<g
+    return (
+      <g
         ref={node => d3.select(node).call(yAxisD3Node)}
         style={{
             transform: `translate(0, ${0}px)`,
         }}
-        />)
+        />
+    )
 }
 export default YAxis

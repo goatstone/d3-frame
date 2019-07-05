@@ -1,5 +1,7 @@
 import React from 'react'
 import './control-style.scss'
+/* eslint jsx-a11y/label-has-associated-control: [0] */
+/* eslint react/jsx-wrap-multilines: [0] */
 
 function Control({
     events,
@@ -12,23 +14,19 @@ function Control({
         const { name, value } = e.target
         events.emit(name, value)
     }
-    const Button = () => (
-        <button name="info" value="show" onClick={emitEvent}>
-            ?
-            </button>
-    )
     return (
         <section data-id="control">
             <form>
                 <label key="info" data-id="control.info">
-                    <Button />
+                    <button name="info" value="show" onClick={emitEvent} type="button">
+                        ?
+                    </button>
                 </label>
                 <label key="type" data-id="control.type">
                     Chart Type
                     <select name="chartType" onChange={emitEvent} value={chartType}>
                         {options.types
-                            .map(cto =>
-                                <option value={cto.name} key={cto.name}>{cto.display}</option>)
+                            .map(cto => <option value={cto.name} key={cto.name}>{cto.display}</option>)
                         }
                     </select>
                 </label>
@@ -45,7 +43,8 @@ function Control({
                                     value={co[0]}
                                     key={co[0]}>
                                     {co[1].name}
-                                </option>))
+                                </option>
+                                ))
                         }
                     </select>
                 </label>
@@ -58,8 +57,7 @@ function Control({
                             value={chartConfig.symbol}
                             >
                             {options.symbols
-                                .map(cso =>
-                                    <option value={cso.name} key={cso.name}>{cso.display}</option>)
+                                .map(cso => <option value={cso.name} key={cso.name}>{cso.display}</option>)
                             }
                         </select>
                     </label>)

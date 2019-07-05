@@ -11,7 +11,8 @@ const ChartFrame = ({
 }) => {
     const chartLeft = margin[3]
     const chartTop = margin[0]
-    return (<svg
+    return (
+    <svg
         className="main"
         width={containerWidth}
         height={height}
@@ -28,7 +29,8 @@ const ChartFrame = ({
         <g style={{ transform: `translate(${chartLeft}px, ${chartTop}px)` }}>
             {children}
         </g>
-            </svg>)
+            </svg>
+            )
 }
 
 export default ChartFrame

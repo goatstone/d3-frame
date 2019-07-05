@@ -8,9 +8,11 @@ const SparkLine = ({ data, xScale, yScale }) => {
 
     const linePath = sparkLine(data)
 
-    return (<g>
+    return (
+      <g>
         <path className="spark-line" d={linePath} />
-    </g>)
+      </g>
+    )
 }
 
 export default SparkLine

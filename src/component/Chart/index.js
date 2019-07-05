@@ -1,6 +1,6 @@
 import React from 'react'
 
-import BarChart from '../BarChart/'
+import BarChart from '../BarChart'
 import LineChart from '../LineChart'
 import PieChart from '../PieChart'
 
@@ -10,25 +10,31 @@ function Chart({
 }) {
     return (
         <div>
-            {chartType === 'bar' && <BarChart
+            {chartType === 'bar' && (
+            <BarChart
                 config={chartConfig}
                 />
+                )
             }
-            {chartType === 'line' && <LineChart
-                config={chartConfig}
-                events
-                />
-
-            }
-            {chartType === 'pie' && <div><PieChart
+            {chartType === 'line' && (
+            <LineChart
                 config={chartConfig}
                 events
-                options={chartConfig.options}
                 />
-                <h3>The Frequency of Letters in the English Language</h3>
-            </div>
+                )
             }
-        </div >
+            {chartType === 'pie' && (
+                <div>
+                    <PieChart
+                    config={chartConfig}
+                    events
+                    options={chartConfig.options}
+                    />
+                    <h3>The Frequency of Letters in the English Language</h3>
+                </div>
+            )
+            }
+        </div>
     )
 }
 

@@ -21,8 +21,10 @@ const Symbols = ({
                 d={arc()}
                 />
         ))
-    return (<g>
+    return (
+      <g>
         {chartSymbols}
-    </g>)
+      </g>
+    )
 }
 export default Symbols

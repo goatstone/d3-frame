@@ -1,3 +1,5 @@
+/* eslint react/destructuring-assignment: [0] */
+
 import React from 'react'
 import './info-style.scss'
 
@@ -6,6 +8,7 @@ const Info = props => (
         data-id="info"
         onClick={props.onClick}
         onKeyPress={props.onClick}
+        type="button"
         >
         <div>
             <h2>D3 Framework</h2>

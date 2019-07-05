@@ -22,53 +22,54 @@ function LineChart({
         chartSymbol = config.symbol,
     } = config
     return (
-        <ContextA.Consumer>{
-            ({ data }) => {
-                // date scale function
-                const xScale = d3.scaleTime()
-                    .domain(d3.extent(data.line, d => new Date(d.day).setHours(0, 0, 0, 0)))
-                    .range([0, width])
-                // quality scale function
-                const yScale = LScale(data.line.map(d => d.quality), barHeightMax, 0)
-                return (
-                    <div
-                        data-id="line-chart"
-                        className="line-chart"
-                        data-component-type="chart"
-                    >x
-                    <ChartFrame
-                            width={containerWidth}
-                            height={height}
-                            background={backgroundColor}
-                            margin={margin}
-                            containerWidth={containerWidth}
+        <ContextA.Consumer>
+            {
+                ({ data }) => {
+                    // date scale function
+                    const xScale = d3.scaleTime()
+                        .domain(d3.extent(data.line, d => new Date(d.day).setHours(0, 0, 0, 0)))
+                        .range([0, width])
+                    // quality scale function
+                    const yScale = LScale(data.line.map(d => d.quality), barHeightMax, 0)
+                    return (
+                        <div
+                            data-id="line-chart"
+                            className="line-chart"
                             data-component-type="chart"
                         >
-                            <XAxis
-                                xScale={xScale}
-                                ticks={data.line.length / 2}
-                                barHeightMax={barHeightMax}
-                            />
-                            <YAxis
-                                yScale={yScale}
-                            />
-                            <SparkLine
-                                data={data.line}
-                                xScale={xScale}
-                                yScale={yScale}
-                            />
-                            <Symbols
-                                xScale={xScale}
-                                yScale={yScale}
-                                data={data.line}
-                                symbol={chartSymbol}
-                            />
-                        </ChartFrame>
-                        <h3>Quality Level Over Time</h3>
-                    </div>
-                )
+                        <ChartFrame
+                                width={containerWidth}
+                                height={height}
+                                background={backgroundColor}
+                                margin={margin}
+                                containerWidth={containerWidth}
+                                data-component-type="chart"
+                            >
+                                <XAxis
+                                    xScale={xScale}
+                                    ticks={data.line.length / 2}
+                                    barHeightMax={barHeightMax}
+                                />
+                                <YAxis
+                                    yScale={yScale}
+                                />
+                                <SparkLine
+                                    data={data.line}
+                                    xScale={xScale}
+                                    yScale={yScale}
+                                />
+                                <Symbols
+                                    xScale={xScale}
+                                    yScale={yScale}
+                                    data={data.line}
+                                    symbol={chartSymbol}
+                                />
+                            </ChartFrame>
+                            <h3>Quality Level Over Time</h3>
+                        </div>
+                    )
+                }
             }
-        }
         </ContextA.Consumer>
     )
 }

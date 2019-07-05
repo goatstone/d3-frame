@@ -7,11 +7,13 @@ const XAxis = ({ data, width, height }) => {
         .scale(xScaleBarChart(data, width))
         .ticks(data.length / 2)
 
-    return (<g
+    return (
+      <g
         ref={node => d3.select(node).call(xAxisD3Node)}
         style={{
             transform: `translate(0, ${height - 110}px)`,
         }}
-        />)
+        />
+    )
 }
 export default XAxis

@@ -6,12 +6,14 @@ const XAxis = ({ xScale, ticks, barHeightMax }) => {
         .scale(xScale)
         .ticks(ticks)
 
-    return (<g
-        ref={node => d3.select(node).call(xAxis)}
-        style={{
-            transform: `translateY(${barHeightMax}px)`,
-        }}
-        />)
+    return (
+        <g
+            ref={node => d3.select(node).call(xAxis)}
+            style={{
+                transform: `translateY(${barHeightMax}px)`,
+            }}
+            />
+    )
 }
 
 export default XAxis
