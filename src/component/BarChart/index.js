@@ -1,10 +1,11 @@
 import React from 'react'
-import ContextA from '../../ContextA'
+// import ContextA from '../../ContextA'
 import Bars from './Bars'
 import ChartFrame from '../ChartFrame'
 import XAxis from './XAxis'
 import YAxis from './YAxis'
 import './style.scss'
+import { StoreContext } from '../../StoreContext'
 
 const BarChart = ({ config }) => {
   const {
@@ -18,10 +19,11 @@ const BarChart = ({ config }) => {
   } = config
 
   return (
-    <ContextA.Consumer>
+    <StoreContext.Consumer>
       {
-        ({ data }) => (
+        ({ state }) => (
           <div>
+            {state.isInfoVisible ? 'aa' : 'b'}
             <div
               data-id="bar-chart"
               data-component-type="chart"
@@ -35,17 +37,17 @@ const BarChart = ({ config }) => {
                 containerWidth={containerWidth}
               >
                 <XAxis
-                  data={data.bar}
+                  data={state.data.bar}
                   width={width}
                   height={300}
                 />
                 <YAxis
-                  data={data.bar}
+                  data={state.data.bar}
                   width={width}
                   height={barHeightMax}
                 />
                 <Bars
-                  data={data.bar}
+                  data={state.data.bar}
                   width={width}
                   height={height}
                   barHeightMax={barHeightMax}
@@ -58,7 +60,7 @@ const BarChart = ({ config }) => {
           </div>
         )
       }
-    </ContextA.Consumer>
+    </StoreContext.Consumer>
   )
 }
 
