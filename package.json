@@ -69,6 +69,7 @@
         "browserslist": "^4.6.3",
         "color-scheme": "^1.0.1",
         "d3": "^5.9.7",
+        "eslint-config-airbnb-typescript": "^4.0.0",
         "numeral": "^2.0.6",
         "ramda": "^0.25.0",
         "react": "^16.8.6",
@@ -86,7 +87,40 @@
         "test2": "node scripts/test.js"
     },
     "eslintConfig": {
-        "extends": "react-app"
+        "extends": "airbnb-typescript",
+        "rules": {
+            "global-require": 0,
+            "semi": [
+                "error",
+                "never"
+            ],
+            "react/jsx-filename-extension": [
+                1,
+                {
+                    "extensions": [
+                        ".js",
+                        ".jsx",
+                        ".tsx"
+                    ]
+                }
+            ],
+            "jsx-a11y/label-has-for": [
+                0
+            ],
+            "jsx-a11y/label-has-associated-control": [
+                0
+            ]
+        },
+        "globals": {
+            "describe": true,
+            "test": true,
+            "expect": true,
+            "document": true,
+            "beforeEach": true,
+            "it": true,
+            "jest": true,
+            "beforeAll": true
+        }
     },
     "browserslist": {
         "production": [
