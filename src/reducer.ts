@@ -1,3 +1,4 @@
+/* eslint indent: "off" */
 import { StateInterface } from './state'
 
 enum actionTypes {

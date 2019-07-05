@@ -8,16 +8,8 @@ import './container.scss'
 import config from './config'
 
 import { scheme, schemes, variations } from './theme'
-import data from './data'
 
 const events = new EventEmitter()
-
-const defaultState = {
-  name: 'd3 Frame',
-  data,
-  isInfoVisible: true,
-}
-export { defaultState }
 
 class D3React extends React.Component {
   constructor() {
