@@ -89,11 +89,15 @@
     "eslintConfig": {
         "extends": "airbnb-typescript",
         "rules": {
+            "arrow-body-style": [0],
+            "arrow-parens": [0],
+            "indent": ["error", 2],
             "global-require": 0,
             "semi": [
                 "error",
                 "never"
             ],
+            "react/prop-types": [0],
             "react/jsx-filename-extension": [
                 1,
                 {
@@ -104,6 +108,9 @@
                     ]
                 }
             ],
+            "react/no-access-state-in-setstate": [0],
+            "react/destructuring-assignment": [0],
+            "prefer-rest-params": [0],
             "jsx-a11y/label-has-for": [
                 0
             ],
