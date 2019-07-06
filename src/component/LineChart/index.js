@@ -24,13 +24,13 @@ function LineChart({
   return (
     <StoreContext.Consumer>
       {
-        ({ data }) => {
+        ({ state }) => {
           // date scale function
           const xScale = d3.scaleTime()
-            .domain(d3.extent(data.line, d => new Date(d.day).setHours(0, 0, 0, 0)))
+            .domain(d3.extent(state.data.line, d => new Date(d.day).setHours(0, 0, 0, 0)))
             .range([0, width])
           // quality scale function
-          const yScale = LScale(data.line.map(d => d.quality), barHeightMax, 0)
+          const yScale = LScale(state.data.line.map(d => d.quality), barHeightMax, 0)
           return (
             <div
               data-id="line-chart"
@@ -47,21 +47,21 @@ function LineChart({
               >
                 <XAxis
                   xScale={xScale}
-                  ticks={data.line.length / 2}
+                  ticks={state.data.line.length / 2}
                   barHeightMax={barHeightMax}
                 />
                 <YAxis
                   yScale={yScale}
                 />
                 <SparkLine
-                  data={data.line}
+                  data={state.data.line}
                   xScale={xScale}
                   yScale={yScale}
                 />
                 <Symbols
                   xScale={xScale}
                   yScale={yScale}
-                  data={data.line}
+                  data={state.data.line}
                   symbol={chartSymbol}
                 />
               </ChartFrame>
