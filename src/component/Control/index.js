@@ -31,7 +31,7 @@ function Control({
               </label>
               <label key="type" data-id="control.type">
                 Chart Type
-                <select name="chartType" onChange={noOp} value={chartType}>
+                <select name="chartType" onChange={() => actions.setChartType('pie')} value={chartType}>
                   {options.types
                     .map(cto => <option value={cto.name} key={cto.name}>{cto.display}</option>)
                   }
