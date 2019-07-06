@@ -19,13 +19,18 @@ function Control({
           <section data-id="control">
             <form>
               <label key="info" data-id="control.info">
-                <button name="info" value="show" onClick={actions.showInfo} type="button">
+                <button
+                  name="info"
+                  value="show"
+                  onClick={actions.showInfo}
+                  type="button"
+                  disabled={state.isInfoVisible}
+                >
                   ?
                 </button>
               </label>
               <label key="type" data-id="control.type">
                 Chart Type
-                {state.isInfoVisible ? 'a' : 'b'}
                 <select name="chartType" onChange={noOp} value={chartType}>
                   {options.types
                     .map(cto => <option value={cto.name} key={cto.name}>{cto.display}</option>)

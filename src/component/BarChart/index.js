@@ -22,7 +22,6 @@ const BarChart = ({ config }) => {
       {
         ({ state }) => (
           <div>
-            {state.isInfoVisible ? 'aa' : 'b'}
             <div
               data-id="bar-chart"
               data-component-type="chart"

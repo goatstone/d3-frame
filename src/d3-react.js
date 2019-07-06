@@ -1,7 +1,7 @@
 import React from 'react'
 import Info from './component/Info'
 import Control from './component/Control'
-// import Chart from './component/Chart'
+import Chart from './component/Chart'
 import './container.scss'
 import config from './config'
 
@@ -14,6 +14,10 @@ function D3React() {
       {({ state, actions }) => {
         return (
           <React.Fragment>
+            <Chart
+              chartType="bar"
+              chartConfig={config.chart}
+            />
             <Control
               chartType="bar"
               options={config.options}
