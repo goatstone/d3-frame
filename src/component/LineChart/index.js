@@ -2,12 +2,12 @@ import React from 'react'
 import * as d3 from 'd3'
 import ChartFrame from '../ChartFrame'
 import YAxis from './YAxis'
-import ContextA from '../../ContextA'
 import XAxis from './XAxis'
 import Symbols from './Symbols'
 import SparkLine from './SparkLine'
 import LScale from './l-scale'
 import './style.scss'
+import { StoreContext } from '../../StoreContext'
 
 function LineChart({
   config,
@@ -22,7 +22,7 @@ function LineChart({
     chartSymbol = config.symbol,
   } = config
   return (
-    <ContextA.Consumer>
+    <StoreContext.Consumer>
       {
         ({ data }) => {
           // date scale function
@@ -70,7 +70,7 @@ function LineChart({
           )
         }
       }
-    </ContextA.Consumer>
+    </StoreContext.Consumer>
   )
 }
 export default LineChart

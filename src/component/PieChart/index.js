@@ -1,9 +1,9 @@
 import React from 'react'
-import ContextA from '../../ContextA'
 import ChartFrame from '../ChartFrame'
 import Labels from './Labels'
 import Pies from './Pies'
 import './pie-chart-style.scss'
+import { StoreContext } from '../../StoreContext'
 
 function PieChart({
   config,
@@ -21,8 +21,8 @@ function PieChart({
   const chartTop = 130
   const id = 'pie-chart'
   return (
-    <ContextA.Consumer>
-      {({ data }) => {
+    <StoreContext.Consumer>
+      {({ state }) => {
         return (
           <ChartFrame
             width={containerWidth}
@@ -33,14 +33,14 @@ function PieChart({
             chartId={id}
           >
             <Labels
-              data={data.bar}
+              data={state.data.bar}
               chartLeft={chartLeft}
               chartTop={chartTop}
               dataId="pie-chart-labels"
               color={labelColor}
             />
             <Pies
-              data={data.bar}
+              data={state.data.bar}
               chartLeft={chartLeft}
               chartTop={chartTop}
               dataId="pie-chart-pies"
@@ -49,7 +49,7 @@ function PieChart({
           </ChartFrame>
         )
       }}
-    </ContextA.Consumer>
+    </StoreContext.Consumer>
 
   )
 }

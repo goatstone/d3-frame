@@ -1,5 +1,4 @@
 import React from 'react'
-// import ContextA from '../../ContextA'
 import Bars from './Bars'
 import ChartFrame from '../ChartFrame'
 import XAxis from './XAxis'
