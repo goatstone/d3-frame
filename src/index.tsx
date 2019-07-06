@@ -8,9 +8,6 @@ import defaultState from './state'
 ReactDOM.render(
   <StoreProvider>
     <ContextA.Provider value={defaultState}>
-      <div>
-        {defaultState.isInfoVisible ? 'a' : 'b'}
-      </div>
       <D3React />
     </ContextA.Provider>
   </StoreProvider>, document.getElementById('root'),

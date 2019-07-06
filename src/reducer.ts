@@ -24,6 +24,8 @@ function reducer(state: StateInterface, action: AppActionsUnionInterface): State
   switch (action.type) {
     case actionTypes.SHOW_INFO:
       return Object.assign({}, state, { isInfoVisible: true })
+    case actionTypes.HIDE_INFO:
+      return Object.assign({}, state, { isInfoVisible: false })
     default:
       throw new Error('Error: Action type does not exist')
   }
