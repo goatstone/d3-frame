@@ -19,9 +19,9 @@ export default {
       { name: 'gray', display: 'Gray' },
     ],
     types: [
-      { name: 'line', display: 'Line' },
-      { name: 'pie', display: 'Pie' },
-      { name: 'bar', display: 'Bar' },
+      { name: 'LINE', display: 'Line' },
+      { name: 'PIE', display: 'Pie' },
+      { name: 'BAR', display: 'Bar' },
     ],
     themes: {
       red: { hue: 0, name: 'Red' },

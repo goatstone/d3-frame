@@ -17,5 +17,6 @@ const StoreProvider: React.FC = ({ children }) => {
     </StoreContext.Provider>
   )
 }
+const StoreConsumer = StoreContext.Consumer
 
-export { StoreContext, StoreProvider }
+export { StoreContext, StoreProvider, StoreConsumer }
