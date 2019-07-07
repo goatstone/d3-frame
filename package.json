@@ -70,6 +70,8 @@
         "color-scheme": "^1.0.1",
         "d3": "^5.9.7",
         "eslint-config-airbnb-typescript": "^4.0.0",
+        "jss": "^9.8.7",
+        "jss-preset-default": "^4.5.0",
         "numeral": "^2.0.6",
         "ramda": "^0.25.0",
         "react": "^16.8.6",
@@ -89,15 +91,24 @@
     "eslintConfig": {
         "extends": "airbnb-typescript",
         "rules": {
-            "arrow-body-style": [0],
-            "arrow-parens": [0],
-            "indent": ["error", 2],
+            "arrow-body-style": [
+                0
+            ],
+            "arrow-parens": [
+                0
+            ],
+            "indent": [
+                "error",
+                2
+            ],
             "global-require": 0,
             "semi": [
                 "error",
                 "never"
             ],
-            "react/prop-types": [0],
+            "react/prop-types": [
+                0
+            ],
             "react/jsx-filename-extension": [
                 1,
                 {
@@ -108,9 +119,15 @@
                     ]
                 }
             ],
-            "react/no-access-state-in-setstate": [0],
-            "react/destructuring-assignment": [0],
-            "prefer-rest-params": [0],
+            "react/no-access-state-in-setstate": [
+                0
+            ],
+            "react/destructuring-assignment": [
+                0
+            ],
+            "prefer-rest-params": [
+                0
+            ],
             "jsx-a11y/label-has-for": [
                 0
             ],
