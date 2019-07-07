@@ -2,9 +2,8 @@ import React from 'react'
 import ChartFrame from '../ChartFrame'
 import Labels from './Labels'
 import Pies from './Pies'
-import './pie-chart-style.scss'
 import { StoreContext } from '../../StoreContext'
-import getColors from '../../getColors'
+import getStyle, { styleTypes } from '../../get-style'
 
 function PieChart({
   config,
@@ -26,7 +25,7 @@ function PieChart({
           <ChartFrame
             width={containerWidth}
             height={height}
-            background={getColors(state.theme).background()}
+            background={getStyle(state.theme, styleTypes.GENERIC).background(true)}
             margin={margin}
             containerWidth={containerWidth}
             chartId={id}
@@ -35,15 +34,13 @@ function PieChart({
               data={state.data.bar}
               chartLeft={chartLeft}
               chartTop={chartTop}
-              dataId="pie-chart-labels"
               color={labelColor}
             />
             <Pies
               data={state.data.bar}
               chartLeft={chartLeft}
               chartTop={chartTop}
-              dataId="pie-chart-pies"
-              foregroundColor={getColors(state.theme).foreground()}
+              foregroundColor={getStyle(state.theme, styleTypes.GENERIC).foreground(true)}
             />
           </ChartFrame>
         )
