@@ -10,6 +10,12 @@ const chartSymbolTypes = {
   SQUARE: 'SQUARE',
   TRIANGLE: 'TRIANGLE',
 }
+const themes = {
+  GRAY: 'GRAY',
+  RED: 'RED',
+  GREEN: 'GREEN',
+  BLUE: 'BLUE',
+}
 export interface StateInterface {
   isInfoVisible: boolean;
   data: object;
@@ -17,6 +23,8 @@ export interface StateInterface {
   chartType: string;
   chartSymbolTypes: object;
   chartSymbolType: string;
+  themes: object;
+  theme: string;
 }
 const defaultState = {
   isInfoVisible: false,
@@ -25,6 +33,8 @@ const defaultState = {
   chartType: chartTypes.BAR,
   chartSymbolTypes,
   chartSymbolType: chartSymbolTypes.CIRCLE,
+  themes,
+  theme: themes.GRAY,
 }
 
 export default defaultState
