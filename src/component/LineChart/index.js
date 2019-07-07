@@ -6,9 +6,7 @@ import XAxis from './XAxis'
 import Symbols from './Symbols'
 import SparkLine from './SparkLine'
 import LScale from './l-scale'
-// import './style.scss'
 import { StoreContext } from '../../StoreContext'
-// import getColors from '../../getColors'
 import getStyle, { styleTypes } from '../../get-style'
 
 function LineChart({
