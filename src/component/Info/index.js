@@ -1,13 +1,10 @@
-/* eslint react/destructuring-assignment: [0] */
-
 import React from 'react'
-import './info-style.scss'
 
-const Info = props => (
+const Info = ({ onClick }) => (
   <button
-    data-id="info"
-    onClick={props.onClick}
-    onKeyPress={props.onClick}
+    className="info-panel"
+    onClick={onClick}
+    onKeyPress={onClick}
     type="button"
   >
     <div>
