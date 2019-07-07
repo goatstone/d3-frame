@@ -6,9 +6,10 @@ import XAxis from './XAxis'
 import Symbols from './Symbols'
 import SparkLine from './SparkLine'
 import LScale from './l-scale'
-import './style.scss'
+// import './style.scss'
 import { StoreContext } from '../../StoreContext'
-import getColors from '../../getColors'
+// import getColors from '../../getColors'
+import getStyle, { styleTypes } from '../../get-style'
 
 function LineChart({
   config,
@@ -33,13 +34,13 @@ function LineChart({
           return (
             <div
               data-id="line-chart"
-              className="line-chart"
+              className={getStyle(state.theme, styleTypes.GENERIC).main()}
               data-component-type="chart"
             >
               <ChartFrame
                 width={containerWidth}
                 height={height}
-                background={getColors(state.theme).background()}
+                background={getStyle(state.theme, styleTypes.GENERIC).background(true)}
                 margin={margin}
                 containerWidth={containerWidth}
                 data-component-type="chart"

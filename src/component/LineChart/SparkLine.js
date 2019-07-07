@@ -10,7 +10,7 @@ const SparkLine = ({ data, xScale, yScale }) => {
 
   return (
     <g>
-      <path className="spark-line" d={linePath} />
+      <path className="sparkline" d={linePath} />
     </g>
   )
 }

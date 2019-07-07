@@ -3,7 +3,6 @@ import Bars from './Bars'
 import ChartFrame from '../ChartFrame'
 import XAxis from './XAxis'
 import YAxis from './YAxis'
-// import './style.scss'
 import { StoreContext } from '../../StoreContext'
 import getStyle, { styleTypes } from '../../get-style'
 

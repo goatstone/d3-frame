@@ -9,3 +9,11 @@ body {
     width: 100%;
     height: 100%;
 }
+.sparkline {
+    fill: none;
+    stroke: white;
+}
+.chart-symbols {
+    fill: white;
+    stroke: white;
+}

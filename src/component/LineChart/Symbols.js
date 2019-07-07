@@ -16,10 +16,11 @@ const Symbols = ({
     }))
     .map(circlePoint => (
       <path
-        data-id="line-chart-symbol"
+        className="chart-symbols"
         style={{ transform: `translate(${circlePoint.x}px, ${circlePoint.y}px)` }}
         key={`${circlePoint.x},${circlePoint.y}`}
         d={arc()}
+        fill="red"
       />
     ))
   return (
