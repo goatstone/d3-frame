@@ -5,47 +5,98 @@ import { StoreContext } from '../../StoreContext'
 
 jss.setup(preset())
 
+const backgroundColor = '#777'
+const foregroundColor = '#111'
+const styleTypes = { GENERIC: 'GENERIC', CONTROL: 'CONTROL' }
 const style = {
-  main: {
-    position: 'fixed',
-    bottom: 0,
-    left: 0,
-    display: 'flex',
-    fontSize: '1rem',
-    flexDirection: 'row',
-    justifyContent: 'center',
-    padding: '1px',
-    margin: '3px',
-    background: '#777',
-    borderRadius: '0.5rem',
-    '& label': {
-      color: '#eee',
-      display: 'inline-block',
-      border: '1px solid #999',
-      borderRadius: '6px',
-      padding: '3px',
-      margin: '3px',
+  [styleTypes.GENERIC]: {
+    main: {
+      display: 'flex',
+      flexDirection: 'row',
+      justifyContent: 'center',
+      padding: '1px',
+      margin: '1px',
+      background: backgroundColor,
     },
-    '& button, select': {
-      background: '#ccc',
-      borderRadius: '3px',
+  },
+  [styleTypes.CONTROL]: {
+    main: {
+      position: 'fixed',
+      bottom: 0,
+      left: 0,
+      display: 'flex',
       fontSize: '1rem',
-      padding: '6px',
-      margin: '6px',
-      fontWeight: 900,
+      flexDirection: 'row',
+      justifyContent: 'center',
+      padding: '1px',
+      margin: '3px',
+      background: backgroundColor,
+      borderRadius: '0.5rem',
+      '& label': {
+        color: foregroundColor,
+        display: 'inline-block',
+        border: '1px solid #999',
+        borderRadius: '6px',
+        padding: '3px',
+        margin: '3px',
+      },
+      '& button, select': {
+        color: foregroundColor,
+        fontSize: '1rem',
+        padding: '6px',
+        margin: '6px',
+        fontWeight: 900,
+      },
     },
   },
 }
-const sheet = jss.createStyleSheet(style).attach()
-
+function getStyle(theme, styleType) {
+  if (!style[styleType]) {
+    throw new Error(`${styleType} : style type does not exist`)
+  }
+  /* eslint indent: "off" */
+  switch (theme) {
+    case 'RED':
+      style[styleType].main.background = 'red'
+      break
+    case 'GRAY':
+      style[styleType].main.background = 'gray'
+      break
+    case 'GREEN':
+      style[styleType].main.background = 'green'
+      break
+    case 'BLUE':
+      style[styleType].main.background = 'blue'
+      break
+    default:
+      throw new Error('Theme does not exist')
+  }
+  const main = () => {
+    const sheet = jss.createStyleSheet(style[styleType]).attach()
+    console.log(sheet.classes)
+    return sheet.classes.main
+  }
+  const background = () => {
+    console.log(style[styleType].main.background)
+    // { background: style[styleType].background }
+    // const backgroundA = { main: { background: style[styleType].main.background } }
+    const backgroundA = { a: { background: style[styleType].main.background } }
+    const sheet = jss.createStyleSheet(backgroundA).attach()
+    return sheet.classes.a
+  }
+  return {
+    main,
+    background,
+  }
+}
 function Control() {
   return (
     <StoreContext.Consumer>
       {({ state, actions }) => {
         return (
-          <section className={sheet.classes.main}>
+          <section className={getStyle(state.theme, styleTypes.CONTROL).main()}>
             <form>
-              <label className={sheet.classes.formLabel}>
+              <label>
                 <button
                   onClick={actions.showInfo}
                   type="button"
@@ -68,7 +119,7 @@ function Control() {
                     ))}
                 </select>
               </label>
-              <label>
+              <label className={getStyle(state.theme, styleTypes.GENERIC).background()}>
                 Theme
                 <select
                   name="theme"
