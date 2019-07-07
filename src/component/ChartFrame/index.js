@@ -1,5 +1,5 @@
 import React from 'react'
-import './chart-frame-style.scss'
+// import './chart-frame-style.scss'
 
 const ChartFrame = ({
   children,
