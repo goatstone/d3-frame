@@ -1,4 +1,4 @@
-section[data-id=container] {
+section.container {
   font-family: sans-serif;
   text-align: center;
   display: inline-flex;
@@ -10,7 +10,7 @@ section[data-id=container] {
   padding: 30px;
   width: 100%;
 }
-section[data-id=container] h3 {
+section.container h3 {
     color: #aaa;
 }
 a {

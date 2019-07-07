@@ -30,3 +30,32 @@ function getColors(theme) {
   }
 }
 export default getColors
+
+// import { scheme, schemes, variations } from './theme'
+//   setTheme(themeId) {
+//     const selectedTheme = this.options.themes[themeId]
+//     const grayThemeColors = ['#111', '#444', '#aaa', '#eee']
+//     scheme
+//       .from_hue(selectedTheme.hue)
+//       .scheme(schemes[0])
+//       .variation(variations[3])
+//     let themeColors = scheme.colors().map(c => `#${c}`)
+//     if (typeof selectedTheme.saturation !== 'undefined'
+//       && selectedTheme.saturation === 0) {
+//       themeColors = grayThemeColors
+//     }
+//     const newColorConfig = {
+//       background: themeColors[1],
+//       foreground: themeColors[0],
+//       axis: themeColors[3],
+//       label: themeColors[2],
+//       theme: themeColors,
+//     }
+//     const chartConfig = Object.assign(
+//       {},
+//       this.state.chartConfig,
+//     )
+//     chartConfig.color = newColorConfig
+//     chartConfig.theme = themeId
+//     this.setState({ chartConfig })
+//   }
