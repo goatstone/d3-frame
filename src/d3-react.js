@@ -16,10 +16,7 @@ function D3React() {
               <Chart
                 chartConfig={config.chart}
               />
-              <Control
-                options={config.options}
-                chartConfig={config.chart}
-              />
+              <Control />
               <section>
                 <a href="https://github.com/goatstone/d3-frame" target="new">
                   D3 Framework
