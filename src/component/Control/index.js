@@ -50,39 +50,43 @@ const style = {
     },
   },
 }
-function getStyle(theme, styleType) {
-  if (!style[styleType]) {
-    throw new Error(`${styleType} : style type does not exist`)
-  }
+function updateStyle(theme, styleTypeB) {
   /* eslint indent: "off" */
   switch (theme) {
     case 'RED':
-      style[styleType].main.background = 'red'
+      style[styleTypeB].main.background = 'red'
       break
     case 'GRAY':
-      style[styleType].main.background = 'gray'
+      style[styleTypeB].main.background = 'gray'
       break
     case 'GREEN':
-      style[styleType].main.background = 'green'
+      style[styleTypeB].main.background = 'green'
       break
     case 'BLUE':
-      style[styleType].main.background = 'blue'
+      style[styleTypeB].main.background = 'blue'
       break
     default:
       throw new Error('Theme does not exist')
   }
+}
+function getStyle(theme, styleType) {
+  if (!style[styleType]) {
+    throw new Error(`${styleType} : style type does not exist`)
+  }
+  if (styleType !== styleTypes.CONTROL) {
+    updateStyle(theme, styleType)
+  }
   const main = () => {
     const sheet = jss.createStyleSheet(style[styleType]).attach()
-    console.log(sheet.classes)
     return sheet.classes.main
   }
   const background = () => {
-    console.log(style[styleType].main.background)
-    // { background: style[styleType].background }
-    // const backgroundA = { main: { background: style[styleType].main.background } }
-    const backgroundA = { a: { background: style[styleType].main.background } }
-    const sheet = jss.createStyleSheet(backgroundA).attach()
-    return sheet.classes.a
+    const sheet = jss.createStyleSheet({
+      main: {
+        background: style[styleType].main.background,
+      },
+    }).attach()
+    return sheet.classes.main
   }
   return {
     main,
