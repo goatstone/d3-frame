@@ -5,7 +5,7 @@ const chartTypes = {
   LINE: 'LINE',
   PIE: 'PIE',
 }
-const symbolTypes = {
+const chartSymbolTypes = {
   CIRCLE: 'CIRCLE',
   SQUARE: 'SQUARE',
   TRIANGLE: 'TRIANGLE',
@@ -15,16 +15,16 @@ export interface StateInterface {
   data: object;
   chartTypes: object;
   chartType: string;
-  symbolTypes: object;
-  symbolType: string;
+  chartSymbolTypes: object;
+  chartSymbolType: string;
 }
 const defaultState = {
   isInfoVisible: true,
   data,
   chartTypes,
   chartType: chartTypes.BAR,
-  symbolTypes,
-  symbolType: symbolTypes.CIRCLE,
+  chartSymbolTypes,
+  chartSymbolType: chartSymbolTypes.CIRCLE,
 }
 
 export default defaultState
