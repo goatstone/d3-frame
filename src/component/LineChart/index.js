@@ -8,6 +8,7 @@ import SparkLine from './SparkLine'
 import LScale from './l-scale'
 import './style.scss'
 import { StoreContext } from '../../StoreContext'
+import getColors from '../../getColors'
 
 function LineChart({
   config,
@@ -18,7 +19,6 @@ function LineChart({
     barHeightMax,
     margin,
     containerWidth,
-    color: { background: backgroundColor },
   } = config
   return (
     <StoreContext.Consumer>
@@ -39,7 +39,7 @@ function LineChart({
               <ChartFrame
                 width={containerWidth}
                 height={height}
-                background={backgroundColor}
+                background={getColors(state.theme).background()}
                 margin={margin}
                 containerWidth={containerWidth}
                 data-component-type="chart"

@@ -4,6 +4,7 @@ import Labels from './Labels'
 import Pies from './Pies'
 import './pie-chart-style.scss'
 import { StoreContext } from '../../StoreContext'
+import getColors from '../../getColors'
 
 function PieChart({
   config,
@@ -13,8 +14,6 @@ function PieChart({
     height,
     margin,
     containerWidth,
-    color: { background: backgroundColor },
-    color: { foreground: foregroundColor },
     color: { label: labelColor },
   } = config
   const chartLeft = Math.round(width / 2)
@@ -27,7 +26,7 @@ function PieChart({
           <ChartFrame
             width={containerWidth}
             height={height}
-            background={backgroundColor}
+            background={getColors(state.theme).background()}
             margin={margin}
             containerWidth={containerWidth}
             chartId={id}
@@ -44,7 +43,7 @@ function PieChart({
               chartLeft={chartLeft}
               chartTop={chartTop}
               dataId="pie-chart-pies"
-              foregroundColor={foregroundColor}
+              foregroundColor={getColors(state.theme).foreground()}
             />
           </ChartFrame>
         )
