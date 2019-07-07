@@ -1,5 +1,4 @@
 import React from 'react'
-// import './chart-frame-style.scss'
 
 const ChartFrame = ({
   children,
@@ -16,7 +15,6 @@ const ChartFrame = ({
       className="main"
       width={containerWidth}
       height={height}
-      data-id="chart-frame"
       data-component-type="container"
       data-chart-id={chartId}
     >
@@ -24,7 +22,6 @@ const ChartFrame = ({
         fill={background}
         width="100%"
         height={height}
-        data-id="chart-frame-background"
       />
       <g style={{ transform: `translate(${chartLeft}px, ${chartTop}px)` }}>
         {children}
