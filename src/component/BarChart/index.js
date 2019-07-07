@@ -6,6 +6,38 @@ import YAxis from './YAxis'
 import './style.scss'
 import { StoreContext } from '../../StoreContext'
 
+function getColors(theme) {
+  const color = {
+    foreground: 'lightgray',
+    background: 'black',
+  }
+  if (theme === 'RED') {
+    color.foreground = 'red'
+    color.background = 'darkred'
+  } else if (theme === 'GREEN') {
+    color.foreground = 'green'
+    color.background = 'darkgreen'
+  } else if (theme === 'BLUE') {
+    color.foreground = 'blue'
+    color.background = 'darkblue'
+  } else if (theme === 'GRAY') {
+    color.foreground = 'lightgray'
+    color.background = 'black'
+  } else {
+    throw new Error('No Color Theme found')
+  }
+  function background() {
+    return color.background
+  }
+  function foreground() {
+    return color.foreground
+  }
+  return {
+    background,
+    foreground,
+  }
+}
+
 const BarChart = ({ config }) => {
   const {
     width,
@@ -13,8 +45,6 @@ const BarChart = ({ config }) => {
     barHeightMax,
     margin,
     containerWidth,
-    color: { background: backgroundColor },
-    color: { foreground: foregroundColor },
   } = config
 
   return (
@@ -26,13 +56,11 @@ const BarChart = ({ config }) => {
               data-id="bar-chart"
               data-component-type="chart"
             >
-              abc
-              {state.theme}
               <ChartFrame
                 width={containerWidth}
                 height={height}
                 dataComponentType="chart"
-                background={backgroundColor}
+                background={getColors(state.theme).background()}
                 margin={margin}
                 containerWidth={containerWidth}
               >
@@ -51,7 +79,7 @@ const BarChart = ({ config }) => {
                   width={width}
                   height={height}
                   barHeightMax={barHeightMax}
-                  foregroundColor={foregroundColor}
+                  foregroundColor={getColors(state.theme).foreground()}
                 />
               </ChartFrame>
               <h3>The Frequency of Letters in the English Language</h3>
