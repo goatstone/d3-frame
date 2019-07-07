@@ -10,10 +10,14 @@ interface HideInfoInterface {
 interface SetChartTypeInterface {
   (chartType: string) : void
 }
+interface SetChartSymbolTypeInterface {
+  (symbol: string): void
+}
 export interface AppActionsInterface {
   showInfo: ShowInfoInterface
   hideInfo: HideInfoInterface
   setChartType: SetChartTypeInterface
+  setChartSymbolType: SetChartSymbolTypeInterface
 }
 
 function useAction(state: StateInterface, dispatch: dispatchInterface)
@@ -29,10 +33,14 @@ function useAction(state: StateInterface, dispatch: dispatchInterface)
   function setChartType(chartType: string) {
     dispatch({ type: actionTypes.SET_CHART_TYPE, chartType })
   }
+  function setChartSymbolType(symbol: string) {
+    dispatch({ type: actionTypes.SET_CHART_SYMBOL_TYPE, symbol })
+  }
   return {
     showInfo,
     hideInfo,
     setChartType,
+    setChartSymbolType,
   }
 }
 
