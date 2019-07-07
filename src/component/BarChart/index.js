@@ -26,6 +26,8 @@ const BarChart = ({ config }) => {
               data-id="bar-chart"
               data-component-type="chart"
             >
+              abc
+              {state.theme}
               <ChartFrame
                 width={containerWidth}
                 height={height}
