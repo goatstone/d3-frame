@@ -11,11 +11,23 @@ const style = {
   [styleTypes.GENERIC]: {
     main: {
       display: 'flex',
-      flexDirection: 'row',
-      justifyContent: 'center',
-      padding: '1px',
+      flexDirection: 'column',
+      justifyContent: 'flex-start',
+      width: '100%',
+      padding: '10px',
       margin: '1px',
       background: backgroundColor,
+      fontFamily: 'sans-serif',
+      textAlign: 'center',
+      flexWrap: 'wrap',
+      alignItems: 'center',
+      '& a': {
+        color: 'darkblue',
+        textDecoration: 'none',
+      },
+      '& hr': {
+        color: '#aaa',
+      },
     },
   },
   [styleTypes.CONTROL]: {

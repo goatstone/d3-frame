@@ -2,17 +2,17 @@ import React from 'react'
 import Info from './component/Info'
 import Control from './component/Control'
 import Chart from './component/Chart'
-import './container.scss'
 import config from './config'
 import { StoreContext } from './StoreContext'
+import getStyle, { styleTypes } from './get-style'
 
 function D3React() {
   return (
     <StoreContext.Consumer>
       {({ state, actions }) => {
         return (
-          <React.Fragment>
-            <section className="container">
+          <div className={getStyle(state.theme, styleTypes.GENERIC).main()}>
+            <section>
               <Chart
                 chartConfig={config.chart}
               />
@@ -30,7 +30,7 @@ function D3React() {
                 state.isInfoVisible && <Info onClick={actions.hideInfo} />
               }
             </section>
-          </React.Fragment>
+          </div>
         )
       }}
     </StoreContext.Consumer>
