@@ -17,6 +17,7 @@ const style = {
       padding: '10px',
       margin: '1px',
       background: backgroundColor,
+      color: '#eee',
       fontFamily: 'sans-serif',
       textAlign: 'center',
       flexWrap: 'wrap',
@@ -61,20 +62,24 @@ const style = {
     },
   },
 }
-function updateStyle(theme, styleTypeB) {
+function updateStyle(theme, styleType) {
   /* eslint indent: "off" */
   switch (theme) {
     case 'RED':
-      style[styleTypeB].main.background = 'red'
+      style[styleType].main.background = 'red'
+      style[styleType].main.color = 'orange'
       break
     case 'GRAY':
-      style[styleTypeB].main.background = 'gray'
+      style[styleType].main.background = 'gray'
+      style[styleType].main.color = 'lightgray'
       break
     case 'GREEN':
-      style[styleTypeB].main.background = 'green'
+      style[styleType].main.background = 'green'
+      style[styleType].main.color = 'lightgreen'
       break
     case 'BLUE':
-      style[styleTypeB].main.background = 'blue'
+      style[styleType].main.background = 'blue'
+      style[styleType].main.color = 'lightblue'
       break
     default:
       throw new Error('Theme does not exist')
@@ -92,7 +97,9 @@ function getStyle(theme, styleType) {
     const sheet = jss.createStyleSheet(selectedStyle).attach()
     return sheet.classes.main
   }
-  const background = () => {
+  // if value param return only value an not style sheet name
+  const background = (valueOnly) => {
+    if (valueOnly) return selectedStyle.main.background
     const sheet = jss.createStyleSheet({
       main: {
         background: selectedStyle.main.background,
@@ -100,9 +107,19 @@ function getStyle(theme, styleType) {
     }).attach()
     return sheet.classes.main
   }
+  const foreground = (valueOnly) => {
+    if (valueOnly) return selectedStyle.main.color
+    const sheet = jss.createStyleSheet({
+      main: {
+        color: selectedStyle.main.color,
+      },
+    }).attach()
+    return sheet.classes.main
+  }
   return {
     main,
     background,
+    foreground,
   }
 }
 

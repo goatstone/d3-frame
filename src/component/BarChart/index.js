@@ -5,7 +5,7 @@ import XAxis from './XAxis'
 import YAxis from './YAxis'
 import './style.scss'
 import { StoreContext } from '../../StoreContext'
-import getColors from '../../getColors'
+import getStyle, { styleTypes } from '../../get-style'
 
 const BarChart = ({ config }) => {
   const {
@@ -29,7 +29,7 @@ const BarChart = ({ config }) => {
                 width={containerWidth}
                 height={height}
                 dataComponentType="chart"
-                background={getColors(state.theme).background()}
+                background={getStyle(state.theme, styleTypes.GENERIC).background(true)}
                 margin={margin}
                 containerWidth={containerWidth}
               >
@@ -48,7 +48,7 @@ const BarChart = ({ config }) => {
                   width={width}
                   height={height}
                   barHeightMax={barHeightMax}
-                  foregroundColor={getColors(state.theme).foreground()}
+                  foregroundColor={getStyle(state.theme, styleTypes.GENERIC).foreground(true)}
                 />
               </ChartFrame>
               <h3>The Frequency of Letters in the English Language</h3>
