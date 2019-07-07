@@ -41,7 +41,7 @@ function useAction(state: StateInterface, dispatch: dispatchInterface)
     dispatch({ type: actionTypes.SET_CHART_SYMBOL_TYPE, symbol })
   }
   function setTheme(theme: string) {
-    dispatch({type: actionTypes.SET_THEME, theme})
+    dispatch({ type: actionTypes.SET_THEME, theme })
   }
   return {
     showInfo,

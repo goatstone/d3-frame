@@ -5,13 +5,9 @@ import './control-style.scss'
 import { StoreContext } from '../../StoreContext'
 
 function Control({
-  chartConfig,
-  // chartType,
+  // chartConfig,
   options,
 }) {
-  function noOp(e) {
-    console.log('no op', e)
-  }
   return (
     <StoreContext.Consumer>
       {({ state, actions }) => {
@@ -39,18 +35,20 @@ function Control({
               </label>
               <label key="color" data-id="control.color">
                 Theme
+                {/* const symbolName =
+                `symbol${symbol.slice(0, 1)}${symbol.slice(1).toLowerCase()}` */}
                 <select
                   name="theme"
-                  onChange={noOp}
-                  value={chartConfig.theme}
+                  onChange={(e) => actions.setTheme(e.target.value)}
+                  value={state.theme}
                 >
-                  {Object.entries(options.themes)
-                    .map(co => (
+                  {Object.entries(state.themes)
+                    .map(theme => (
                       <option
-                        value={co[0]}
-                        key={co[0]}
+                        value={theme[0]}
+                        key={theme[0]}
                       >
-                        {co[1].name}
+                        {`${theme[0].slice(0, 1)}${theme[0].slice(1).toLowerCase()}`}
                       </option>
                     ))
                   }
