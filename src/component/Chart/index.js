@@ -9,11 +9,9 @@ function Chart({
 }) {
   return (
     <StoreConsumer>
-      {({ state, actions }) => {
+      {({ state }) => {
         return (
           <div>
-            {state.chartType}
-            {actions.toString()}
             {state.chartType === state.chartTypes.BAR && (
               <BarChart
                 config={chartConfig}

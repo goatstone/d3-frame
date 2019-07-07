@@ -19,7 +19,6 @@ function LineChart({
     margin,
     containerWidth,
     color: { background: backgroundColor },
-    chartSymbol = config.symbol,
   } = config
   return (
     <StoreContext.Consumer>
@@ -62,7 +61,7 @@ function LineChart({
                   xScale={xScale}
                   yScale={yScale}
                   data={state.data.line}
-                  symbol={chartSymbol}
+                  symbol={state.chartSymbolType}
                 />
               </ChartFrame>
               <h3>Quality Level Over Time</h3>

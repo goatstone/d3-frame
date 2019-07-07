@@ -6,7 +6,7 @@ import { StoreContext } from '../../StoreContext'
 
 function Control({
   chartConfig,
-  chartType,
+  // chartType,
   options,
 }) {
   function noOp(e) {
@@ -56,16 +56,16 @@ function Control({
                   }
                 </select>
               </label>
-              {chartType === 'line' && (
+              {state.chartType === state.chartTypes.LINE && (
                 <label key="symbol" data-id="control.symbol">
                   Symbol
                   <select
                     name="chartSymbol"
-                    onChange={noOp}
-                    value={chartConfig.symbol}
+                    onChange={(e) => actions.setChartSymbolType(e.target.value)}
+                    value={state.chartSymbolType}
                   >
-                    {options.symbols
-                      .map(cso => <option value={cso.name} key={cso.name}>{cso.display}</option>)
+                    {Object.entries(state.chartSymbolTypes)
+                      .map(cso => <option value={cso[0]} key={cso[1]}>{`${cso[0].slice(0, 1)}${cso[0].slice(1).toLowerCase()}`}</option>)
                     }
                   </select>
                 </label>)

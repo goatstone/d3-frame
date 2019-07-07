@@ -4,8 +4,9 @@ import * as d3 from 'd3'
 const Symbols = ({
   data, xScale, yScale, symbol,
 }) => {
+  const symbolName = `symbol${symbol.slice(0, 1)}${symbol.slice(1).toLowerCase()}`
   const arc = d3.symbol()
-    .type(d3[symbol])
+    .type(d3[symbolName])
     .size(100)
 
   const chartSymbols = data

@@ -42,7 +42,7 @@ function reducer(state: StateInterface, action: AppActionsUnionInterface): State
     case actionTypes.SET_CHART_TYPE:
       return Object.assign({}, state, { chartType: action.chartType })
     case actionTypes.SET_CHART_SYMBOL_TYPE:
-      return Object.assign({}, state, { symbol: action.symbol })
+      return Object.assign({}, state, { chartSymbolType: action.symbol })
     default:
       throw new Error('Error: Action type does not exist')
   }

@@ -15,11 +15,9 @@ function D3React() {
         return (
           <React.Fragment>
             <Chart
-              chartType="bar"
               chartConfig={config.chart}
             />
             <Control
-              chartType="bar"
               options={config.options}
               chartConfig={config.chart}
             />

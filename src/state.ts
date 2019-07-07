@@ -19,7 +19,7 @@ export interface StateInterface {
   chartSymbolType: string;
 }
 const defaultState = {
-  isInfoVisible: true,
+  isInfoVisible: false,
   data,
   chartTypes,
   chartType: chartTypes.BAR,
