@@ -19,7 +19,7 @@ const Text = ({ data, color = 'white' }) => {
 
   return labelData.map(tD => (
     <text
-      style={{ stroke: color }}
+      fill={color}
       x={tD.location[0]}
       y={tD.location[1]}
       key={`${tD.label}`}

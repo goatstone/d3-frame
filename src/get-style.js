@@ -55,7 +55,7 @@ const style = {
         alignItems: 'center',
         flexWrap: 'wrap',
         border: '1px solid #999',
-        padding: '1px',
+        padding: '1px 6px',
         margin: '0 3px',
       },
       '& button, select': {

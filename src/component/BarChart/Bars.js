@@ -29,7 +29,6 @@ const elements = ({
             fill={foregroundColor}
           />
           <text
-            stroke={foregroundColor}
             fill={foregroundColor}
             key={`xxxx${d.frequency}`}
             x={d.x + 2}
