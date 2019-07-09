@@ -51,7 +51,14 @@ function Control() {
                     value={state.chartSymbolType}
                   >
                     {Object.values(state.chartSymbolTypes)
-                      .map(symbol => <option value={symbol} key={symbol}>{`${symbol.slice(0, 1)}${symbol[0].slice(1).toLowerCase()}`}</option>)
+                      .map(symbol => (
+                        <option
+                          value={symbol}
+                          key={symbol}
+                        >
+                          {`${symbol.slice(0, 1)}${symbol.slice(1).toLowerCase()}`}
+                        </option>
+                      ))
                     }
                   </select>
                 </label>
