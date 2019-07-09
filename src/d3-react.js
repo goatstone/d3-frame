@@ -16,10 +16,30 @@ function D3React() {
               <Chart
                 chartConfig={config.chart}
               />
-              <Control />
               {
                 state.isInfoVisible && <Info onClick={actions.hideInfo} />
               }
+            </section>
+            <div className="title-area">
+              <img src="d3-frame-logo.png" alt="D3 Frame Art" width="55" height="55" />
+              <h1>
+                <a href="https://github.com/goatstone/d3-frame" target="new">
+                  D3Frame
+                </a>
+              </h1>
+              <button
+                onClick={actions.showInfo}
+                type="button"
+                disabled={state.isInfoVisible}
+              >
+                ?
+              </button>
+            </div>
+            <Control />
+            <section className="copy-credit">
+              <a href="http://goatstone.com" target="new">
+                Goatstone &copy; 2019
+              </a>
             </section>
           </div>
         )

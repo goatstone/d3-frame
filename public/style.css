@@ -28,7 +28,6 @@ button.info-panel  {
     height: 100%;
     margin: 0;
     background: white;
-    /* opacity: 0.8; */
 }
 button.info-panel  div{
     color: black;
@@ -55,4 +54,24 @@ button.info-panel  {
 button.info-panel  a{
     color: darkblue;
     padding: 12px;
+}
+section.copy-credit {
+    font-size: 15px;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+}
+div.title-area {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    right: 0;
+    bottom: 0;
+}
+div.title-area img {
+    margin: 0 14px;
+}
+div.title-area button {
+    margin: 0 7px;
+    background: #ccc;
 }
