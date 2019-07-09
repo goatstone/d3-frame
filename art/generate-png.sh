@@ -1,0 +1,1 @@
+convert -background transparent d3-frame-logo.svg d3-frame-logo.png
