@@ -17,15 +17,6 @@ function D3React() {
                 chartConfig={config.chart}
               />
               <Control />
-              <section>
-                <a href="https://github.com/goatstone/d3-frame" target="new">
-                  D3 Framework
-                </a>
-                &nbsp;
-                <a href="http://goatstone.com" target="new">
-                  Goatstone &copy; 2018
-                </a>
-              </section>
               {
                 state.isInfoVisible && <Info onClick={actions.hideInfo} />
               }

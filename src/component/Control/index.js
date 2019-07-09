@@ -8,6 +8,7 @@ function Control() {
       {({ state, actions }) => {
         return (
           <section className={getStyle(state.theme, styleTypes.CONTROL).main()}>
+            <img src="d3-frame-logo.png" alt="D3 Frame Art" width="65" height="65" />
             <form>
               <label>
                 <button
@@ -68,6 +69,15 @@ function Control() {
                 )
               }
             </form>
+            <section>
+              <a href="https://github.com/goatstone/d3-frame" target="new">
+                D3 Framework
+              </a>
+              &nbsp;
+              <a href="http://goatstone.com" target="new">
+              Goatstone &copy; 2018
+              </a>
+            </section>
           </section>
         )
       }}

@@ -13,6 +13,7 @@ const Info = ({ onClick }) => (
         This site is the implementation of a series of
         methodologies for using the D3 visualization library with ReactJS and other frameworks.
       </p>
+      <img src="d3-frame-logo.png" alt="D3 Frame Art" />
       <a href="https://github.com/goatstone/d3-frame" target="new">
         D3 Framework Github
       </a>
