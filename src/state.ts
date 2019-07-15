@@ -26,6 +26,7 @@ export interface StateInterface {
   chartSymbolType: string;
   themes: object;
   theme: string;
+  iconNodes: object;
 }
 const defaultState = {
   isInfoVisible: false,
@@ -36,6 +37,13 @@ const defaultState = {
   chartSymbolType: chartSymbolTypes.CIRCLE,
   themes,
   theme: themes.GRAY,
+  iconNodes: {
+    nodes: [
+      { name: 'abc', position: [0, 0] },
+      { name: 'def', position: [100, 100] },
+      { name: 'gji', position: [200, 200] }],
+    isDrawn: false,
+  },
 }
 
 export default defaultState

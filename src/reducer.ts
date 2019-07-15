@@ -7,6 +7,7 @@ enum actionTypes {
   SET_CHART_TYPE = 'SET_CHART_TYPE',
   SET_CHART_SYMBOL_TYPE = 'SET_CHART_SYMBOL_TYPE',
   SET_THEME = 'SET_THEME',
+  SET_ICON_NODES = 'SET_ICON_NODES',
 }
 export { actionTypes }
 
@@ -28,12 +29,17 @@ export interface setThemeInterface {
   type: actionTypes.SET_THEME
   theme: string
 }
+export interface setIconNodes {
+  type: actionTypes.SET_ICON_NODES
+  iconNodes: object[]
+}
 export type AppActionsUnionInterface =
   | ShowInfoInterface
   | HideInfoInterface
   | SetChartTypeInterface
   | setChartSymbolType
   | setThemeInterface
+  | setIconNodes
 
 export interface dispatchInterface {
   (arg0: AppActionsUnionInterface): void
@@ -50,6 +56,12 @@ function reducer(state: StateInterface, action: AppActionsUnionInterface): State
       return Object.assign({}, state, { chartSymbolType: action.symbol })
     case actionTypes.SET_THEME:
       return Object.assign({}, state, { theme: action.theme })
+    case actionTypes.SET_ICON_NODES:
+      return Object.assign({}, state, {
+        iconNodes: {
+          nodes: action.iconNodes, isDrawn: false,
+        },
+      })
     default:
       throw new Error('Error: Action type does not exist')
   }
