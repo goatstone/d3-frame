@@ -9,23 +9,23 @@ import D3React from '../d3-react'
 Enzyme.configure({ adapter: new Adapter() })
 
 describe('D3 Framework', () => {
-    it('renders without crashing', () => {
-        const mounted = Enzyme.mount(<D3React
-            data
-        />)
-    })
-    it('has certain DOM elements', () => {
-        const mounted = Enzyme.mount(<D3React
-            data
-        />)
-        expect(mounted.find('section[data-id="container"]').length).toBe(1)
-        expect(mounted.find('button[name="info"]').length).toBe(1)
-    })
-    it('shows the Info element', () => {
-        const component = renderer.create(<D3React
-            data
-        />)
-        const tree = component.toJSON()
-        expect(tree).toMatchSnapshot()
-    })
+  it('renders without crashing', () => {
+    const mounted = Enzyme.mount(<D3React
+      data
+    />)
+  })
+  it('has certain DOM elements', () => {
+    const mounted = Enzyme.mount(<D3React
+      data
+    />)
+    expect(mounted.find('section[data-id="container"]').length).toBe(1)
+    expect(mounted.find('button[name="info"]').length).toBe(1)
+  })
+  it('shows the Info element', () => {
+    const component = renderer.create(<D3React
+      data
+    />)
+    const tree = component.toJSON()
+    expect(tree).toMatchSnapshot()
+  })
 })

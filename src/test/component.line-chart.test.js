@@ -10,12 +10,12 @@ const events = new EventEmitter()
 const LineChartWrapper = withResources(LineChart, { events })
 
 describe('Line Chart', () => {
-    it(' should  mount', () => {
-        const div = document.createElement('div')
-        ReactDOM.render(<LineChartWrapper
-            data={data.line}
-            config={config.chart}
-        />, div)
-        ReactDOM.unmountComponentAtNode(div)
-    })
+  it(' should  mount', () => {
+    const div = document.createElement('div')
+    ReactDOM.render(<LineChartWrapper
+      data={data.line}
+      config={config.chart}
+    />, div)
+    ReactDOM.unmountComponentAtNode(div)
+  })
 })
