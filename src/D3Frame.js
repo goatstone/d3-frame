@@ -8,7 +8,6 @@ import config from './config'
 import { StoreContext } from './StoreContext'
 import getStyle, { styleTypes } from './get-style'
 
-
 function D3Frame() {
   return (
     <StoreContext.Consumer>
