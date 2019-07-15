@@ -17,7 +17,6 @@ const ChartFrame = ({ children }) => {
       width={containerWidth}
       height={height}
       data-component-type="container"
-      // data-chart-id={chartId}
     >
       <rect
         fill={background}

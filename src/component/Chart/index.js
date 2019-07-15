@@ -3,6 +3,7 @@ import { StoreConsumer } from '../../StoreContext'
 import BarChart from '../BarChart'
 import LineChart from '../LineChart'
 import PieChart from '../PieChart'
+import ForceLayoutChart from '../ForceLayoutChart'
 
 function Chart() {
   return (
@@ -29,6 +30,12 @@ function Chart() {
               </div>
             )
             }
+            {state.chartType === state.chartTypes.FORCE_LAYOUT && (
+              <div>
+                <ForceLayoutChart />
+                <h3>Material Font Icons</h3>
+              </div>
+            )}
           </div>
         )
       }}
