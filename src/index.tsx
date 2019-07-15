@@ -1,10 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import D3React from './d3-react'
+import D3Frame from './D3Frame'
 import { StoreProvider } from './StoreContext'
 
 ReactDOM.render(
   <StoreProvider>
-    <D3React />
+    <D3Frame />
   </StoreProvider>, document.getElementById('root'),
 )

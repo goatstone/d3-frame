@@ -6,7 +6,7 @@ import config from './config'
 import { StoreContext } from './StoreContext'
 import getStyle, { styleTypes } from './get-style'
 
-function D3React() {
+function D3Frame() {
   return (
     <StoreContext.Consumer>
       {({ state, actions }) => {
@@ -49,4 +49,4 @@ function D3React() {
   )
 }
 
-export default D3React
+export default D3Frame
