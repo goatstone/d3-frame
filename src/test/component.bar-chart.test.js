@@ -2,14 +2,11 @@ import React from 'react'
 import Enzyme from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16'
 import BarChart from '../component/BarChart'
-import withResources from '../component/hoc/with-resources'
-import config from '../config'
 
 Enzyme.configure({ adapter: new Adapter() })
 
 describe('BarChart', () => {
   test('should mount and have a single SVG element', () => {
-    const BarChartWrapper = withResources(BarChart, { config: config.chart })
     const data = [
       ['A', 1.0],
       ['B', 0.01492],
@@ -22,7 +19,7 @@ describe('BarChart', () => {
       ['I', 0.06966],
       ['J', 0.00153],
     ]
-    const wrap = Enzyme.mount(<BarChartWrapper
+    const wrap = Enzyme.mount(<BarChart
       data={data}
       colors={{ background: 'red' }}
     />)

@@ -1,28 +1,27 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
 import Enzyme from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16'
 import renderer from 'react-test-renderer'
 
-import D3React from '../d3-react'
+import D3Frame from '../D3Frame'
 
 Enzyme.configure({ adapter: new Adapter() })
 
 describe('D3 Framework', () => {
   it('renders without crashing', () => {
-    const mounted = Enzyme.mount(<D3React
+    Enzyme.mount(<D3Frame
       data
     />)
   })
   it('has certain DOM elements', () => {
-    const mounted = Enzyme.mount(<D3React
+    const mounted = Enzyme.mount(<D3Frame
       data
     />)
     expect(mounted.find('section[data-id="container"]').length).toBe(1)
     expect(mounted.find('button[name="info"]').length).toBe(1)
   })
   it('shows the Info element', () => {
-    const component = renderer.create(<D3React
+    const component = renderer.create(<D3Frame
       data
     />)
     const tree = component.toJSON()

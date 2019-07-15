@@ -61,14 +61,14 @@
         "webpack-dev-server": "3.2.1",
         "webpack-manifest-plugin": "2.0.4",
         "workbox-webpack-plugin": "4.2.0",
-        "enzyme": "^3.10.0",
-        "enzyme-adapter-react-16": "^1.14.0",
         "node-sass": "^4.6.0",
         "eslint-watch": "^5.1.2",
         "eslint-config-airbnb-typescript": "^4.0.0"
     },
     "dependencies": {
         "browserslist": "^4.6.3",
+        "enzyme": "^3.10.0",
+        "enzyme-adapter-react-16": "^1.14.0",
         "color-scheme": "^1.0.1",
         "d3": "^5.9.7",
         "jss": "^9.8.7",
@@ -76,7 +76,8 @@
         "numeral": "^2.0.6",
         "ramda": "^0.25.0",
         "react": "^16.8.6",
-        "react-dom": "^16.8.6"
+        "react-dom": "^16.8.6",
+        "react-test-renderer": "^16.8.6"
     },
     "scripts": {
         "watch": "webpack -d --watch",
