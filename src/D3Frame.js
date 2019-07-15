@@ -3,6 +3,7 @@ import Info from './component/Info'
 import Control from './component/Control'
 import Chart from './component/Chart'
 import TitleArea from './component/TitleArea'
+import CopyCredit from './component/CopyCredit'
 import config from './config'
 import { StoreContext } from './StoreContext'
 import getStyle, { styleTypes } from './get-style'
@@ -19,11 +20,7 @@ function D3Frame() {
             />
             <TitleArea />
             <Control />
-            <section className="copy-credit">
-              <a href="http://goatstone.com" target="new">
-                Goatstone &copy; 2019
-              </a>
-            </section>
+            <CopyCredit />
             {
               state.isInfoVisible && <Info onClick={actions.hideInfo} />
             }
