@@ -1,13 +1,14 @@
 import React from 'react'
+import config from '../../config'
 
-const ChartFrame = ({
-  children,
+const {
   height,
-  background,
   margin,
   containerWidth,
-  chartId,
-}) => {
+  background,
+} = config.chart
+
+const ChartFrame = ({ children }) => {
   const chartLeft = margin[3]
   const chartTop = margin[0]
   return (
@@ -16,7 +17,7 @@ const ChartFrame = ({
       width={containerWidth}
       height={height}
       data-component-type="container"
-      data-chart-id={chartId}
+      // data-chart-id={chartId}
     >
       <rect
         fill={background}

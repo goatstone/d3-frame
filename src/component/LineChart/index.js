@@ -8,17 +8,17 @@ import SparkLine from './SparkLine'
 import LScale from './l-scale'
 import { StoreContext } from '../../StoreContext'
 import getStyle, { styleTypes } from '../../get-style'
+import config from '../../config'
 
-function LineChart({
-  config,
-}) {
-  const {
-    width,
-    height,
-    barHeightMax,
-    margin,
-    containerWidth,
-  } = config
+const {
+  height,
+  width,
+  margin,
+  barHeightMax,
+  containerWidth,
+} = config.chart
+
+function LineChart() {
   return (
     <StoreContext.Consumer>
       {

@@ -4,17 +4,17 @@ import Labels from './Labels'
 import Pies from './Pies'
 import { StoreContext } from '../../StoreContext'
 import getStyle, { styleTypes } from '../../get-style'
+import config from '../../config'
 
-function PieChart({
-  config,
-}) {
-  const {
-    width,
-    height,
-    margin,
-    containerWidth,
-    color: { label: labelColor },
-  } = config
+const {
+  height,
+  width,
+  margin,
+  containerWidth,
+  labelColor,
+} = config.chart
+
+function PieChart() {
   const chartLeft = Math.round(width / 2)
   const chartTop = 130
   const id = 'pie-chart'

@@ -5,16 +5,17 @@ import XAxis from './XAxis'
 import YAxis from './YAxis'
 import { StoreContext } from '../../StoreContext'
 import getStyle, { styleTypes } from '../../get-style'
+import config from '../../config'
 
-const BarChart = ({ config }) => {
-  const {
-    width,
-    height,
-    barHeightMax,
-    margin,
-    containerWidth,
-  } = config
+const {
+  height,
+  width,
+  margin,
+  barHeightMax,
+  containerWidth,
+} = config.chart
 
+const BarChart = () => {
   return (
     <StoreContext.Consumer>
       {

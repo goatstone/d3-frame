@@ -4,23 +4,18 @@ import BarChart from '../BarChart'
 import LineChart from '../LineChart'
 import PieChart from '../PieChart'
 
-function Chart({
-  chartConfig,
-}) {
+function Chart() {
   return (
     <StoreConsumer>
       {({ state }) => {
         return (
           <div>
             {state.chartType === state.chartTypes.BAR && (
-              <BarChart
-                config={chartConfig}
-              />
+              <BarChart />
             )
             }
             {state.chartType === state.chartTypes.LINE && (
               <LineChart
-                config={chartConfig}
                 events
               />
             )
@@ -28,9 +23,7 @@ function Chart({
             {state.chartType === state.chartTypes.PIE && (
               <div>
                 <PieChart
-                  config={chartConfig}
                   events
-                  options={chartConfig.options}
                 />
                 <h3>The Frequency of Letters in the English Language</h3>
               </div>
