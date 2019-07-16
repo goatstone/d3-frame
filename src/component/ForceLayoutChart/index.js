@@ -4,18 +4,18 @@ import { StoreContext } from '../../StoreContext'
 import ChartFrame from '../ChartFrame'
 import getStyle, { styleTypes } from '../../get-style'
 
-let nodes = []
+let iconNodes = []
 function ForceLayoutChart() {
   const { state } = useContext(StoreContext)
-  const gRef = React.useRef(null)
+  const svgGroupRef = React.useRef(null)
   function ticked() {
-    for (let i = 0; i < nodes.length; i += 1) {
-      gRef.current.children[i].style.transform = `translate(${nodes[i].x}px, ${nodes[i].y}px)`
+    for (let i = 0; i < iconNodes.length; i += 1) {
+      svgGroupRef.current.children[i].style.transform = `translate(${iconNodes[i].x}px, ${iconNodes[i].y}px)`
     }
   }
   useEffect(() => {
-    nodes = [...state.iconNodes]
-    const simulation = forceSimulation(nodes)
+    iconNodes = [...state.iconNodes]
+    const simulation = forceSimulation(iconNodes)
       .force('charge', forceManyBody())
       .force('center', forceCenter(150, 75))
     simulation.on('tick', () => ticked())
@@ -27,7 +27,7 @@ function ForceLayoutChart() {
   }
   return (
     <ChartFrame>
-      <g ref={gRef} className={getStyle(state.theme, styleTypes.GENERIC).main()}>
+      <g ref={svgGroupRef} className={getStyle(state.theme, styleTypes.GENERIC).main()}>
         {state.iconNodes.map(n => {
           return (
             <text
