@@ -6,7 +6,7 @@ import getStyle, { styleTypes } from '../../get-style'
 
 let nodes = []
 function ForceLayoutChart() {
-  const { state: stateInner } = useContext(StoreContext)
+  const { state } = useContext(StoreContext)
   const gRef = React.useRef(null)
   function ticked() {
     for (let i = 0; i < nodes.length; i += 1) {
@@ -14,7 +14,7 @@ function ForceLayoutChart() {
     }
   }
   useEffect(() => {
-    nodes = [...stateInner.iconNodes]
+    nodes = [...state.iconNodes]
     const simulation = forceSimulation(nodes)
       .force('charge', forceManyBody())
       .force('center', forceCenter(150, 75))
@@ -22,31 +22,24 @@ function ForceLayoutChart() {
   }, [])
   const iconStyle = {
     fontSize: '30px',
-    fill: getStyle(stateInner.theme, styleTypes.GENERIC).background(true),
+    fill: getStyle(state.theme, styleTypes.GENERIC).background(true),
     stroke: 'darkgray',
   }
   return (
-    <StoreContext.Consumer>
-      {({ state }) => {
-        return (
-          <ChartFrame>
-            <g ref={gRef} className={getStyle(state.theme, styleTypes.GENERIC).main()}>
-              {state.iconNodes.map(n => {
-                return (
-                  <text
-                    style={iconStyle}
-                    className="material-icons"
-                  >
-                    {n.name}
-                  </text>
-                )
-              })}
-            </g>
-          </ChartFrame>
-        )
-      }}
-    </StoreContext.Consumer>
-
+    <ChartFrame>
+      <g ref={gRef} className={getStyle(state.theme, styleTypes.GENERIC).main()}>
+        {state.iconNodes.map(n => {
+          return (
+            <text
+              style={iconStyle}
+              className="material-icons"
+            >
+              {n.name}
+            </text>
+          )
+        })}
+      </g>
+    </ChartFrame>
   )
 }
 export default ForceLayoutChart
