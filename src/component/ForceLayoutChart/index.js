@@ -1,7 +1,6 @@
 import React, { useEffect, useContext } from 'react'
 import { forceSimulation, forceManyBody, forceCenter } from 'd3-force'
 import { StoreContext } from '../../StoreContext'
-// import ChartFrame from '../ChartFrame'
 import getStyle, { styleTypes } from '../../get-style'
 
 let iconNodes = []
@@ -33,7 +32,7 @@ function ForceLayoutChart() {
     iconNodes = [...state.iconNodes.slice(0, iconMax)]
     const simulation = forceSimulation(iconNodes)
       .force('charge', forceManyBody().distanceMax(50))
-      .force('center', forceCenter(250, 250))
+      .force('center', forceCenter(225, 225))
     simulation.tick([1])
     simulation.on('tick', () => ticked())
   }, [])
@@ -45,21 +44,19 @@ function ForceLayoutChart() {
   return (
     <svg
       className="main"
-      width="500"
-      height="500"
-      data-component-type="container"
+      width="450"
+      height="450"
     >
       <rect
-        fill="black"
+        fill="white"
         width="100%"
-        height="500"
+        height="450"
       />
       <g ref={svgGroupRef} className={getStyle(state.theme, styleTypes.GENERIC).main()}>
         {state.iconNodes.slice(0, iconMax).map(n => {
           return (
             <text
-              x="0"
-              y="0"
+              key={`${Math.random()}${n.name}`}
               style={iconStyle}
               className="material-icons"
             >
