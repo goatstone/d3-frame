@@ -1,4 +1,5 @@
 import data from './data'
+import materialIconNames from './material-icon-names'
 
 const chartTypes = {
   BAR: 'BAR',
@@ -37,13 +38,7 @@ const defaultState = {
   chartSymbolType: chartSymbolTypes.CIRCLE,
   themes,
   theme: themes.GRAY,
-  iconNodes: [
-    { name: 'face' },
-    { name: 'alarm' },
-    { name: 'book' },
-    { name: 'build' },
-    { name: 'done' },
-  ],
+  iconNodes: materialIconNames,
 }
 
 export default defaultState
