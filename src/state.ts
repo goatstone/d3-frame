@@ -26,7 +26,7 @@ export interface StateInterface {
   chartSymbolType: string;
   themes: object;
   theme: string;
-  iconNodes: object;
+  iconNodes: {nodes: object[]; isDrawn: boolean};
 }
 const defaultState = {
   isInfoVisible: false,
@@ -42,7 +42,7 @@ const defaultState = {
       { name: 'abc', position: [0, 0] },
       { name: 'def', position: [100, 100] },
       { name: 'gji', position: [200, 200] }],
-    isDrawn: false,
+    isDrawn: true,
   },
 }
 

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 // import { forceSimulation, forceManyBody, forceCenter } from 'd3-force'
 import { StoreContext } from '../../StoreContext'
 import ChartFrame from '../ChartFrame'
@@ -36,11 +36,23 @@ const iconStyle = {
 // console.log(simulation)
 
 function ForceLayoutChart() {
+  // const { state: stateC, actions } = useContext(StoreContext)
+  const [count, setCount] = useState(0)
+  useEffect((eff) => {
+    console.log('effect', eff)
+    console.log('effect', count, setCount)
+    return () => {
+      setCount(count + 1)
+      // actions.setIsDrawn(true)
+    }
+  })
+
   return (
     <StoreContext.Consumer>
       {({ state }) => {
         return (
           <div>
+            {count}
             <ChartFrame>
               {state.iconNodes.nodes.map(n => {
                 return (

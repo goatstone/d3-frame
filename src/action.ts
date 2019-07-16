@@ -19,6 +19,9 @@ interface SetThemeInterface {
 interface SetIconNodesInterface {
   (node: object[]): void
 }
+interface SetIsDrawnInterface {
+  (isDrawn: boolean): void
+}
 export interface AppActionsInterface {
   showInfo: ShowInfoInterface
   hideInfo: HideInfoInterface
@@ -26,6 +29,7 @@ export interface AppActionsInterface {
   setChartSymbolType: SetChartSymbolTypeInterface
   setTheme: SetThemeInterface
   setIconNodes: SetIconNodesInterface
+  setIsDrawn: SetIsDrawnInterface
 }
 
 function useAction(state: StateInterface, dispatch: dispatchInterface)
@@ -50,6 +54,9 @@ function useAction(state: StateInterface, dispatch: dispatchInterface)
   function setIconNodes(iconNodes: object[]) {
     dispatch({ type: actionTypes.SET_ICON_NODES, iconNodes })
   }
+  function setIsDrawn(isDrawn: boolean) {
+    dispatch({ type: actionTypes.SET_IS_DRAWN, isDrawn })
+  }
   return {
     showInfo,
     hideInfo,
@@ -57,6 +64,7 @@ function useAction(state: StateInterface, dispatch: dispatchInterface)
     setChartSymbolType,
     setTheme,
     setIconNodes,
+    setIsDrawn,
   }
 }
 
