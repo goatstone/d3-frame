@@ -6,27 +6,26 @@ import { forceSimulation, forceManyBody, forceCenter } from 'd3-force'
 import { StoreContext } from '../../StoreContext'
 import ChartFrame from '../ChartFrame'
 
-const iconStyle = {
-  fill: 'red',
-  stroke: 'white',
-  transform: 'translate(30px, 130px) scale(3)',
-}
-
 let nodes = []
+const iconStyle = {
+  fontSize: '30px',
+  fill: 'white',
+  stroke: 'green',
+}
 function ForceLayoutChart() {
   const { state: stateInner } = useContext(StoreContext)
   const elRef = React.useRef(null)
+  const gRef = React.useRef(null)
   function ticked() {
     for (let i = 0; i < nodes.length; i += 1) {
-      elRef.current.childNodes[i].style.top = `${nodes[i].x}px`
-      elRef.current.childNodes[i].style.left = `${nodes[i].y}px`
+      gRef.current.children[i].style.transform = `translate(${nodes[i].x}px, ${nodes[i].y}px)`
     }
   }
   useEffect(() => {
     nodes = [...stateInner.iconNodes.nodes]
     const simulation = forceSimulation(nodes)
       .force('charge', forceManyBody())
-      .force('center', forceCenter(100, 100))
+      .force('center', forceCenter(150, 75))
     simulation.on('tick', () => ticked(elRef))
   }, [])
   return (
@@ -34,34 +33,19 @@ function ForceLayoutChart() {
       {({ state }) => {
         return (
           <div>
-            <div
-              ref={elRef}
-            >
-              {state.iconNodes.nodes.map(n => (
-                <div style={{ position: 'absolute' }}>{n.name}</div>
-              ))}
-            </div>
             <ChartFrame>
-              {state.iconNodes.nodes.map(n => {
-                return (
-                  <text
-                    x={10}
-                    y={10}
-                  >
-                    {n.name}
-                  </text>
-                )
-              })
-              }
-              <text
-                className="material-icons"
-                style={iconStyle}
-              >
-                face
-              </text>
-              <text style={{ transform: 'translate(5px, 5px)' }} stroke="red" fill="red">
-                {state.chartType}
-              </text>
+              <g ref={gRef} className="icon-list">
+                {state.iconNodes.nodes.map(n => {
+                  return (
+                    <text
+                      style={iconStyle}
+                      className="material-icons"
+                    >
+                      {n.name}
+                    </text>
+                  )
+                })}
+              </g>
             </ChartFrame>
           </div>
         )

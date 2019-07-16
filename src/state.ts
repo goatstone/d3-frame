@@ -39,11 +39,11 @@ const defaultState = {
   theme: themes.GRAY,
   iconNodes: {
     nodes: [
-      { name: 'A' },
-      { name: 'B' },
-      { name: 'C' },
-      { name: 'D' },
-      { name: 'E' },
+      { name: 'face' },
+      { name: 'alarm' },
+      { name: 'book' },
+      { name: 'build' },
+      { name: 'done' },
     ],
     isDrawn: true,
   },
