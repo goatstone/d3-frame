@@ -1,7 +1,4 @@
-import React, {
-  useEffect,
-  useContext,
-} from 'react'
+import React, { useEffect, useContext } from 'react'
 import { forceSimulation, forceManyBody, forceCenter } from 'd3-force'
 import { StoreContext } from '../../StoreContext'
 import ChartFrame from '../ChartFrame'
@@ -14,7 +11,6 @@ const iconStyle = {
 }
 function ForceLayoutChart() {
   const { state: stateInner } = useContext(StoreContext)
-  const elRef = React.useRef(null)
   const gRef = React.useRef(null)
   function ticked() {
     for (let i = 0; i < nodes.length; i += 1) {
@@ -26,28 +22,26 @@ function ForceLayoutChart() {
     const simulation = forceSimulation(nodes)
       .force('charge', forceManyBody())
       .force('center', forceCenter(150, 75))
-    simulation.on('tick', () => ticked(elRef))
+    simulation.on('tick', () => ticked())
   }, [])
   return (
     <StoreContext.Consumer>
       {({ state }) => {
         return (
-          <div>
-            <ChartFrame>
-              <g ref={gRef} className="icon-list">
-                {state.iconNodes.nodes.map(n => {
-                  return (
-                    <text
-                      style={iconStyle}
-                      className="material-icons"
-                    >
-                      {n.name}
-                    </text>
-                  )
-                })}
-              </g>
-            </ChartFrame>
-          </div>
+          <ChartFrame>
+            <g ref={gRef} className="icon-list">
+              {state.iconNodes.nodes.map(n => {
+                return (
+                  <text
+                    style={iconStyle}
+                    className="material-icons"
+                  >
+                    {n.name}
+                  </text>
+                )
+              })}
+            </g>
+          </ChartFrame>
         )
       }}
     </StoreContext.Consumer>
