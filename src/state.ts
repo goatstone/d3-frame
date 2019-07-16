@@ -39,9 +39,12 @@ const defaultState = {
   theme: themes.GRAY,
   iconNodes: {
     nodes: [
-      { name: 'abc', position: [0, 0] },
-      { name: 'def', position: [100, 100] },
-      { name: 'gji', position: [200, 200] }],
+      { name: 'A' },
+      { name: 'B' },
+      { name: 'C' },
+      { name: 'D' },
+      { name: 'E' },
+    ],
     isDrawn: true,
   },
 }
