@@ -2,13 +2,9 @@ import React, { useEffect, useContext } from 'react'
 import { forceSimulation, forceManyBody, forceCenter } from 'd3-force'
 import { StoreContext } from '../../StoreContext'
 import ChartFrame from '../ChartFrame'
+import getStyle, { styleTypes } from '../../get-style'
 
 let nodes = []
-const iconStyle = {
-  fontSize: '30px',
-  fill: 'white',
-  stroke: 'green',
-}
 function ForceLayoutChart() {
   const { state: stateInner } = useContext(StoreContext)
   const gRef = React.useRef(null)
@@ -24,12 +20,17 @@ function ForceLayoutChart() {
       .force('center', forceCenter(150, 75))
     simulation.on('tick', () => ticked())
   }, [])
+  const iconStyle = {
+    fontSize: '30px',
+    fill: getStyle(stateInner.theme, styleTypes.GENERIC).background(true),
+    stroke: 'darkgray',
+  }
   return (
     <StoreContext.Consumer>
       {({ state }) => {
         return (
           <ChartFrame>
-            <g ref={gRef} className="icon-list">
+            <g ref={gRef} className={getStyle(state.theme, styleTypes.GENERIC).main()}>
               {state.iconNodes.map(n => {
                 return (
                   <text

@@ -32,13 +32,13 @@ export default {
   },
   chart: {
     color: {
-      background: 'gray',
+      background: 'lightgray',
       foreground: 'darkblue',
       axis: '#666',
       label: '#eee',
       theme: [],
     },
-    background: 'blue',
+    background: 'darkgray',
     width: 600,
     containerWidth: 700,
     height: 300,
