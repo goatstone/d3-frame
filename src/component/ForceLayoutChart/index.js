@@ -36,9 +36,7 @@ function ForceLayoutChart() {
     }
   }
   useEffect(() => {
-    // if (iconNodes.length === 0) {
     iconNodes = [...state.iconNodes.slice(0, iconMax)]
-    // }
     const simulation = forceSimulation(iconNodes)
       .force('charge', forceManyBody().strength(15))
       .force('center', forceCenter(225, 225))
