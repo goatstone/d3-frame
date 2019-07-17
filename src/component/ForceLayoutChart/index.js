@@ -5,6 +5,7 @@ import {
   forceCenter,
   forceCollide,
 } from 'd3-force'
+import ChartFrame from '../ChartFrame'
 import { StoreContext } from '../../StoreContext'
 import getStyle, { styleTypes } from '../../get-style'
 
@@ -35,13 +36,15 @@ function ForceLayoutChart() {
       }
     }
   }
+  iconNodes = state.iconNodes.slice(0, iconMax)
   useEffect(() => {
-    iconNodes = [...state.iconNodes.slice(0, iconMax)]
-    const simulation = forceSimulation(iconNodes)
-      .force('charge', forceManyBody().strength(15))
-      .force('center', forceCenter(225, 225))
-      .force('collision', forceCollide().radius(15))
-    simulation.on('tick', () => ticked())
+    if (!iconNodes[0].x) {
+      const simulation = forceSimulation(iconNodes)
+        .force('charge', forceManyBody().strength(15))
+        .force('center', forceCenter(225, 225))
+        .force('collision', forceCollide().radius(15))
+      simulation.on('tick', () => ticked())
+    }
   }, [])
   const iconStyle = {
     fontSize: '25px',
@@ -49,20 +52,16 @@ function ForceLayoutChart() {
     stroke: 'gray',
   }
   return (
-    <svg
-      className="main"
-      width="450"
-      height="450"
+    <ChartFrame
+      background={getStyle(state.theme, styleTypes.GENERIC).background(true)}
+      heitght="400"
     >
-      <rect
-        fill="white"
-        width="100%"
-        height="450"
-      />
       <g ref={svgGroupRef} className={getStyle(state.theme, styleTypes.GENERIC).main()}>
-        {state.iconNodes.slice(0, iconMax).map(n => {
+        {iconNodes.slice(0, iconMax).map(n => {
           return (
             <text
+              x={(n.x) ? n.x : 0}
+              y={(n.y) ? n.y : 0}
               key={`${Math.random()}${n.name}`}
               style={iconStyle}
               className="material-icons"
@@ -72,7 +71,7 @@ function ForceLayoutChart() {
           )
         })}
       </g>
-    </svg>
+    </ChartFrame>
   )
 }
 export default ForceLayoutChart
