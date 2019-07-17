@@ -5,20 +5,19 @@ import {
   forceCenter,
   forceCollide,
 } from 'd3-force'
-import ChartFrame from '../ChartFrame'
 import { StoreContext } from '../../StoreContext'
 import getStyle, { styleTypes } from '../../get-style'
 
 let iconNodes = []
-const iconMax = Math.floor(50 * Math.random()) + 100
+const iconMax = Math.floor(50 * Math.random()) + 150
 function ForceLayoutChart() {
   const { state } = useContext(StoreContext)
   const svgGroupRef = React.useRef(null)
   const bounds = {
-    top: 30,
-    right: 410,
-    bottom: 540,
-    left: 0,
+    top: 50,
+    right: 450,
+    bottom: 600,
+    left: -20,
   }
   function ticked() {
     for (let i = 0; i < iconNodes.length; i += 1) {
@@ -40,8 +39,8 @@ function ForceLayoutChart() {
   useEffect(() => {
     if (!iconNodes[0].x) {
       const simulation = forceSimulation(iconNodes)
-        .force('charge', forceManyBody().strength(15))
-        .force('center', forceCenter(225, 225))
+        .force('charge', forceManyBody().strength(10))
+        .force('center', forceCenter(225, 250))
         .force('collision', forceCollide().radius(15))
       simulation.on('tick', () => ticked())
     }
@@ -52,10 +51,16 @@ function ForceLayoutChart() {
     stroke: 'gray',
   }
   return (
-    <ChartFrame
-      background={getStyle(state.theme, styleTypes.GENERIC).background(true)}
-      heitght="400"
+    <svg
+      className="main"
+      width="500"
+      height="500"
     >
+      <rect
+        fill="white"
+        width="500"
+        height="500"
+      />
       <g ref={svgGroupRef} className={getStyle(state.theme, styleTypes.GENERIC).main()}>
         {iconNodes.slice(0, iconMax).map(n => {
           return (
@@ -71,7 +76,7 @@ function ForceLayoutChart() {
           )
         })}
       </g>
-    </ChartFrame>
+    </svg>
   )
 }
 export default ForceLayoutChart
