@@ -6,6 +6,7 @@ const chartTypes = {
   LINE: 'LINE',
   PIE: 'PIE',
   FORCE_LAYOUT: 'FORCE_LAYOUT',
+  TREE: 'TREE',
 }
 const chartSymbolTypes = {
   CIRCLE: 'CIRCLE',
@@ -33,7 +34,7 @@ const defaultState = {
   isInfoVisible: false,
   data,
   chartTypes,
-  chartType: chartTypes.FORCE_LAYOUT,
+  chartType: chartTypes.TREE,
   chartSymbolTypes,
   chartSymbolType: chartSymbolTypes.CIRCLE,
   themes,

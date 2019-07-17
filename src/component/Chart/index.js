@@ -36,6 +36,11 @@ function Chart() {
                 <h3>Material Font Icons</h3>
               </div>
             )}
+            {state.chartType === state.chartTypes.TREE && (
+              <div>
+                <h3>Tree Layout</h3>
+              </div>
+            )}
           </div>
         )
       }}
