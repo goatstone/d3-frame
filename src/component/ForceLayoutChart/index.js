@@ -1,17 +1,22 @@
 import React, { useEffect, useContext } from 'react'
-import { forceSimulation, forceManyBody, forceCenter } from 'd3-force'
+import {
+  forceSimulation,
+  forceManyBody,
+  forceCenter,
+  forceCollide,
+} from 'd3-force'
 import { StoreContext } from '../../StoreContext'
 import getStyle, { styleTypes } from '../../get-style'
 
 let iconNodes = []
-const iconMax = 100
+const iconMax = Math.floor(50 * Math.random()) + 100
 function ForceLayoutChart() {
   const { state } = useContext(StoreContext)
   const svgGroupRef = React.useRef(null)
   const bounds = {
-    top: -140,
-    right: 900,
-    bottom: 500,
+    top: 30,
+    right: 410,
+    bottom: 540,
     left: 0,
   }
   function ticked() {
@@ -21,7 +26,9 @@ function ForceLayoutChart() {
         && iconNodes[i].x > bounds.left
         && iconNodes[i].y < bounds.bottom
         && iconNodes[i].y > bounds.top
+        && svgGroupRef.current
       ) {
+        // this Ref may disapper!
         svgGroupRef.current.children[i].style.transform = `
         translate(${iconNodes[i].x}px, ${iconNodes[i].y}px)
         `
@@ -29,15 +36,17 @@ function ForceLayoutChart() {
     }
   }
   useEffect(() => {
+    // if (iconNodes.length === 0) {
     iconNodes = [...state.iconNodes.slice(0, iconMax)]
+    // }
     const simulation = forceSimulation(iconNodes)
-      .force('charge', forceManyBody().distanceMax(50))
+      .force('charge', forceManyBody().strength(15))
       .force('center', forceCenter(225, 225))
-    simulation.tick([1])
+      .force('collision', forceCollide().radius(15))
     simulation.on('tick', () => ticked())
   }, [])
   const iconStyle = {
-    fontSize: '20px',
+    fontSize: '25px',
     fill: getStyle(state.theme, styleTypes.GENERIC).background(true),
     stroke: 'gray',
   }
