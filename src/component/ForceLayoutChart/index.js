@@ -10,15 +10,14 @@ import getStyle, { styleTypes } from '../../get-style'
 
 function ForceLayoutChart() {
   const { state } = useContext(StoreContext)
-  const iconNodes = state.iconNodes.slice(0, 100)
-  const [iNState, setINState] = useState([{ name: 'aaa' }])
-  const svgGroupRef = React.useRef(null)
+  const iconNodes = state.iconNodes.slice(0, 120)
+  const [localTrigger, setLocalTrigger] = useState(0)
   function tick() {
     /** trigger the redraw */
-    setINState([{ name: `${iconNodes[0].x}px` }])
+    setLocalTrigger(Math.random())
   }
   useEffect(() => {
-    setINState([{ name: '22222' }])
+    setLocalTrigger(localTrigger + 1)
     const simulation = forceSimulation(iconNodes)
     simulation
       .force('charge', forceManyBody().strength(10))
@@ -39,13 +38,13 @@ function ForceLayoutChart() {
         height="500"
       >
         /** trigger the redraw */
-        {iNState[0].name}
+        {localTrigger}
         <rect
           fill="white"
           width="500"
           height="500"
         />
-        <g ref={svgGroupRef} className={getStyle(state.theme, styleTypes.GENERIC).main()}>
+        <g className={getStyle(state.theme, styleTypes.GENERIC).main()}>
           {iconNodes.map(n => {
             return (
               <text
