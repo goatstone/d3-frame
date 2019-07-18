@@ -4,6 +4,7 @@ import BarChart from '../BarChart'
 import LineChart from '../LineChart'
 import PieChart from '../PieChart'
 import ForceLayoutChart from '../ForceLayoutChart'
+import TreeLayoutChart from '../TreeLayoutChart'
 
 function Chart() {
   return (
@@ -38,6 +39,7 @@ function Chart() {
             )}
             {state.chartType === state.chartTypes.TREE && (
               <div>
+                <TreeLayoutChart />
                 <h3>Tree Layout</h3>
               </div>
             )}
