@@ -26,23 +26,23 @@ function Control() {
                 ))}
             </label>
             <label className={getStyle(state.theme, styleTypes.GENERIC).background()}>
-              Theme
-              <select
-                name="theme"
-                onChange={(e) => actions.setTheme(e.target.value)}
-                value={state.theme}
-              >
-                {Object.values(state.themes)
-                  .map(theme => (
-                    <option
-                      value={theme}
-                      key={theme}
-                    >
-                      {`${theme.slice(0, 1)}${theme.slice(1).toLowerCase()}`}
-                    </option>
-                  ))
-                }
-              </select>
+              {Object.values(state.themes)
+                .map(theme => (
+                  <button
+                    value={theme}
+                    key={theme}
+                    type="button"
+                    style={{
+                      background: theme,
+                      width: '25px',
+                    }}
+                    onClick={() => actions.setTheme(theme)}
+                    disabled={state.theme === theme}
+                  >
+                    &nbsp;
+                  </button>
+                ))
+              }
             </label>
             {(state.chartType === state.chartTypes.LINE)
               && (

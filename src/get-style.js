@@ -62,12 +62,11 @@ const style = {
         color: foregroundColor,
         fontSize: '1rem',
         padding: '6px',
-        margin: '6px',
+        margin: '3px',
         fontWeight: 900,
       },
       '& button': {
         background: '#ccc',
-        borderColor: 'black',
         cursor: 'pointer',
       },
       '& button:disabled': {
