@@ -44,6 +44,19 @@ function Control() {
                 ))
               }
             </label>
+            {Object.values(state.chartSymbolTypes)
+              .map(symbol => (
+                <option
+                  value={symbol}
+                  key={symbol}
+                >
+                  {'First \u00b7 Second'}
+                  {'First \u2022 Second'}
+                  &SmallCircle;
+                </option>
+              ))
+            }
+
             {(state.chartType === state.chartTypes.LINE)
               && (
                 <label key="symbol">
