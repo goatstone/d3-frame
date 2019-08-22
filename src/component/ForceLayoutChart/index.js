@@ -7,6 +7,7 @@ import {
 } from 'd3-force'
 import { StoreContext } from '../../StoreContext'
 import getStyle, { styleTypes } from '../../get-style'
+import 'material-icons/iconfont/material-icons.css'
 
 function ForceLayoutChart() {
   const { state } = useContext(StoreContext)

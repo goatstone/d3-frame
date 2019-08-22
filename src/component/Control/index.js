@@ -1,6 +1,7 @@
 import React from 'react'
 import { StoreContext } from '../../StoreContext'
 import getStyle, { styleTypes } from '../../get-style'
+import 'material-icons/iconfont/material-icons.css'
 
 function Control() {
   return (
@@ -8,6 +9,9 @@ function Control() {
       {({ state, actions }) => {
         return (
           <section className={getStyle(state.theme, styleTypes.CONTROL).main()}>
+            <button className="material-icons" type="button">
+              bar_chart
+            </button>
             <label>
               Chart Type
               <select name="chart-type" onChange={(event) => actions.setChartType(event.target.value)} value={state.chartType}>
