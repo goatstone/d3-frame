@@ -4,6 +4,7 @@ import getStyle, { styleTypes } from '../../get-style'
 import 'material-icons/iconfont/material-icons.css'
 
 const iconList = ['bar_chart', 'show_chart', 'pie_chart', 'face']
+const symbolList = ['9711', '9723', '9651']
 function Control() {
   return (
     <StoreContext.Consumer>
@@ -44,39 +45,21 @@ function Control() {
                 ))
               }
             </label>
-            {Object.values(state.chartSymbolTypes)
-              .map(symbol => (
-                <option
-                  value={symbol}
-                  key={symbol}
-                >
-                  {'First \u00b7 Second'}
-                  {'First \u2022 Second'}
-                  &SmallCircle;
-                </option>
-              ))
-            }
-
             {(state.chartType === state.chartTypes.LINE)
               && (
                 <label key="symbol">
-                  Symbol
-                  <select
-                    name="chart-symbol"
-                    onChange={(e) => actions.setChartSymbolType(e.target.value)}
-                    value={state.chartSymbolType}
-                  >
-                    {Object.values(state.chartSymbolTypes)
-                      .map(symbol => (
-                        <option
-                          value={symbol}
-                          key={symbol}
-                        >
-                          {`${symbol.slice(0, 1)}${symbol.slice(1).toLowerCase()}`}
-                        </option>
-                      ))
-                    }
-                  </select>
+                  {Object.values(state.chartSymbolTypes)
+                    .map((symbol, i) => (
+                      <button
+                        value={symbol}
+                        key={symbol}
+                        type="button"
+                        onClick={() => actions.setChartSymbolType(symbol)}
+                      >
+                        {String.fromCodePoint(symbolList[i])}
+                      </button>
+                    ))
+                  }
                 </label>
               )
             }
