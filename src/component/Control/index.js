@@ -3,28 +3,27 @@ import { StoreContext } from '../../StoreContext'
 import getStyle, { styleTypes } from '../../get-style'
 import 'material-icons/iconfont/material-icons.css'
 
+const iconList = ['bar_chart', 'show_chart', 'pie_chart', 'face']
 function Control() {
   return (
     <StoreContext.Consumer>
       {({ state, actions }) => {
         return (
           <section className={getStyle(state.theme, styleTypes.CONTROL).main()}>
-            <button className="material-icons" type="button">
-              bar_chart
-            </button>
             <label>
-              Chart Type
-              <select name="chart-type" onChange={(event) => actions.setChartType(event.target.value)} value={state.chartType}>
-                {Object.values(state.chartTypes)
-                  .map(chartType => (
-                    <option
-                      value={chartType}
-                      key={chartType}
-                    >
-                      {`${chartType.slice(0, 1)}${chartType.slice(1).toLowerCase()}`}
-                    </option>
-                  ))}
-              </select>
+              {Object.values(state.chartTypes)
+                .map((chartType, i) => (
+                  <button
+                    value={chartType}
+                    key={chartType}
+                    type="button"
+                    className="material-icons"
+                    onClick={() => actions.setChartType(chartType)}
+                    disabled={state.chartType === chartType}
+                  >
+                    {iconList[i]}
+                  </button>
+                ))}
             </label>
             <label className={getStyle(state.theme, styleTypes.GENERIC).background()}>
               Theme

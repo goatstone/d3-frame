@@ -68,6 +68,11 @@ const style = {
       '& button': {
         background: '#ccc',
         borderColor: 'black',
+        cursor: 'pointer',
+      },
+      '& button:disabled': {
+        cursor: 'default',
+        background: 'white',
       },
       '& h1': {
         margin: '3px',
