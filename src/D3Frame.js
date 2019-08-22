@@ -3,7 +3,6 @@ import Info from './component/Info'
 import Control from './component/Control'
 import Chart from './component/Chart'
 import TitleArea from './component/TitleArea'
-import CopyCredit from './component/CopyCredit'
 import { StoreContext } from './StoreContext'
 import getStyle, { styleTypes } from './get-style'
 
@@ -16,7 +15,6 @@ function D3Frame() {
             <Chart />
             <TitleArea />
             <Control />
-            <CopyCredit />
             {
               state.isInfoVisible && <Info onClick={actions.hideInfo} />
             }

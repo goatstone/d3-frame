@@ -11,6 +11,14 @@ function Control() {
       {({ state, actions }) => {
         return (
           <section className={getStyle(state.theme, styleTypes.CONTROL).main()}>
+            <button
+              onClick={actions.showInfo}
+              className="material-icons"
+              type="button"
+              disabled={state.isInfoVisible}
+            >
+              info
+            </button>
             <label>
               {Object.values(state.chartTypes)
                 .map((chartType, i) => (

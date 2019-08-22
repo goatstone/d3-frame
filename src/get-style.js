@@ -61,11 +61,12 @@ const style = {
       '& button, select': {
         color: foregroundColor,
         fontSize: '1rem',
-        padding: '6px',
+        padding: '3px',
         margin: '3px',
-        fontWeight: 900,
+        // fontWeight: 900,
       },
       '& button': {
+        fontSize: '24px',
         background: '#ccc',
         cursor: 'pointer',
       },
