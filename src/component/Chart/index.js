@@ -10,7 +10,7 @@ function Chart() {
     <StoreConsumer>
       {({ state }) => {
         return (
-          <div>
+          <React.Fragment>
             {state.chartType === state.chartTypes.BAR && (
               <BarChart />
             )
@@ -36,7 +36,7 @@ function Chart() {
                 <h3>Material Font Icons</h3>
               </div>
             )}
-          </div>
+          </React.Fragment>
         )
       }}
     </StoreConsumer>

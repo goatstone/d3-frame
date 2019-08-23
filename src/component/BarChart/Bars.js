@@ -18,7 +18,6 @@ const elements = ({
       return (
         <g
           key={`x${d.label}`}
-          data-id="bar-chart.bars"
         >
           <rect
             key={`xx${d.y}`}

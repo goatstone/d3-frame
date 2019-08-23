@@ -24,9 +24,13 @@ const defaultStyle = {
     fill: 'black',
     color: 'white',
     background: 'black',
-    width: '600px',
-    height: '600px',
+    width: '100%',
+    height: '100%',
     fontFamily: 'Verdana, sans-serif',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'flex-start',
+    alignItems: 'center',
   },
 }
 const colorStyle = {

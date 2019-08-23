@@ -12,7 +12,15 @@ function Control() {
     <StoreContext.Consumer>
       {({ state, actions }) => {
         return (
-          <section>
+          <section
+            style={{
+              position: 'fixed',
+              display: 'flex',
+              justifyContent: 'center',
+              width: '100%',
+              bottom: 0,
+            }}
+          >
             {Object.values(themeNames).map(tN => {
               return (
                 <button

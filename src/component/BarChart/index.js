@@ -16,46 +16,39 @@ const {
 } = config.chart
 
 const BarChart = () => {
-  const { themeName, cssSheet } = useContext(ThemeContext)
+  const { cssSheet } = useContext(ThemeContext)
   return (
     <StoreContext.Consumer>
       {
         ({ state }) => (
-          <div>
-            {themeName}
-            {cssSheet.classes.backgroundA}
-            <div
-              data-id="bar-chart"
-              data-component-type="chart"
+          <React.Fragment>
+            <ChartFrame
+              width={containerWidth}
+              height={height}
+              dataComponentType="chart"
+              margin={margin}
+              containerWidth={containerWidth}
             >
-              <ChartFrame
-                width={containerWidth}
+              <XAxis
+                data={state.data.bar}
+                width={width}
+                height={300}
+              />
+              <YAxis
+                data={state.data.bar}
+                width={width}
+                height={barHeightMax}
+              />
+              <Bars
+                data={state.data.bar}
+                width={width}
                 height={height}
-                dataComponentType="chart"
-                margin={margin}
-                containerWidth={containerWidth}
-              >
-                <XAxis
-                  data={state.data.bar}
-                  width={width}
-                  height={300}
-                />
-                <YAxis
-                  data={state.data.bar}
-                  width={width}
-                  height={barHeightMax}
-                />
-                <Bars
-                  data={state.data.bar}
-                  width={width}
-                  height={height}
-                  barHeightMax={barHeightMax}
-                />
-              </ChartFrame>
-              <h3>The Frequency of Letters in the English Language</h3>
-            </div>
-
-          </div>
+                barHeightMax={barHeightMax}
+                className={cssSheet.classes.mainContainer}
+              />
+            </ChartFrame>
+            <h3>The Frequency of Letters in the English Language</h3>
+          </React.Fragment>
         )
       }
     </StoreContext.Consumer>
