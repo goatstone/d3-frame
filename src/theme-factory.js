@@ -12,6 +12,12 @@ const menuOptions = [
   { label: 'Gray', color: 'gray', keyValue: 'grayStyle' },
 ]
 const defaultStyle = {
+  mainContainer: {
+    stroke: 'gray',
+    fill: 'black',
+    width: '600px',
+    height: '600px',
+  },
   mapContainer: {
     stroke: 'gray',
     fill: 'black',
@@ -70,9 +76,11 @@ const blueStyle = colorize(defaultStyle, interpolateBlues)
 const greenStyle = colorize(defaultStyle, interpolateGreens)
 const grayStyle = colorize(defaultStyle, interpolateGreys)
 const darkStyle = colorize(defaultStyle, interpolateRdYlGn)
+const redStyle = colorize(defaultStyle, interpolateRdYlGn)
 const styles = {
   defaultStyle,
   styleB,
+  redStyle,
   blueStyle,
   greenStyle,
   grayStyle,

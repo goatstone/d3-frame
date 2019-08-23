@@ -5,16 +5,15 @@ import Chart from './component/Chart'
 import TitleArea from './component/TitleArea'
 import { StoreContext } from './StoreContext'
 import { ThemeContext } from './ThemeContext'
-import getStyle, { styleTypes } from './get-style'
 
 function D3Frame() {
-  const { themeName, setThemeName } = useContext(ThemeContext)
-  console.log(setThemeName)
+  const { themeName, cssSheet } = useContext(ThemeContext)
   return (
     <StoreContext.Consumer>
       {({ state, actions }) => {
         return (
-          <div className={getStyle(state.theme, styleTypes.GENERIC).main()}>
+          <div className={cssSheet.classes.mainContainer}>
+            {cssSheet.classes.mainContainer}
             {themeName}
             <Chart />
             <TitleArea />

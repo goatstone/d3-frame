@@ -9,21 +9,20 @@ const ThemeContext = createContext({})
 const themeNames = menuOptions
 const ThemeProvider = ({ children }) => {
   const [themeName, setThemeName] = useState('redStyle')
-  // const [themeName, setThemeName] =
-  // useState(themeNames.filter(tN => tN.keyValue === 'grayStyle'))
-  // let sheet = jss.createStyleSheet(themeFactory(sheetName))
-  // sheet.attach()
-  // const [cssSheet, setCssSheet] = useState(sheet)
+  const sheet = jss.createStyleSheet(themeFactory(themeName))
+  sheet.attach()
+  const [cssSheet, setCssSheet] = useState(sheet)
+  console.log('s', setCssSheet)
   useEffect(() => {
-    const newSheet = jss.createStyleSheet(themeFactory(menuOptions))
-    console.log(newSheet)
-    //   newSheet.attach()
-    // setTheme(newSheet)
+    const newSheet = jss.createStyleSheet(themeFactory(themeName))
+    console.log('eee', newSheet)
+    // newSheet.attach()
+    // setCssSheet(newSheet)
   }, [themeName])
 
 
   return (
-    <ThemeContext.Provider value={{ themeName, setThemeName }}>
+    <ThemeContext.Provider value={{ themeName, setThemeName, cssSheet }}>
       {children}
     </ThemeContext.Provider>
   )
