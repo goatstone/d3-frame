@@ -2,7 +2,7 @@ import {
   interpolateBlues,
   interpolateGreens,
   interpolateGreys,
-  interpolateRdYlGn,
+  interpolateReds,
 } from 'd3'
 
 const menuOptions = [
@@ -11,7 +11,13 @@ const menuOptions = [
   { label: 'Green', color: 'green', keyValue: 'greenStyle' },
   { label: 'Gray', color: 'gray', keyValue: 'grayStyle' },
 ]
-
+const interpolators = {
+  defaultStyle: interpolateGreys,
+  grayStyle: interpolateGreys,
+  redStyle: interpolateReds,
+  greenStyle: interpolateGreens,
+  blueStyle: interpolateBlues,
+}
 const defaultStyle = {
   mainContainer: {
     stroke: 'white',
@@ -48,7 +54,6 @@ function colorize(interpolator) {
   const steps = 9
   let i = 0
   let j = 1
-  // copy of colorStyle
   const cSCopy = JSON.parse(JSON.stringify(colorStyle))
   Object.keys(cSCopy).forEach(k => {
     cSCopy[k].stroke = interpolator(i)
@@ -60,19 +65,8 @@ function colorize(interpolator) {
   const newStyleObject = JSON.parse(JSON.stringify(defaultStyle))
   return newStyleObject
 }
-const redStyle = colorize(interpolateRdYlGn)
-const greenStyle = colorize(interpolateGreens)
-const blueStyle = colorize(interpolateBlues)
-const grayStyle = colorize(interpolateGreys)
-const styles = {
-  defaultStyle,
-  redStyle,
-  blueStyle,
-  greenStyle,
-  grayStyle,
-}
 function themeFactory(themeName = 'defaultStyle') {
-  return styles[themeName]
+  return colorize(interpolators[themeName])
 }
 export { menuOptions }
 export default themeFactory
