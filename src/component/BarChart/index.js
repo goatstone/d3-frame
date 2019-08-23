@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Bars from './Bars'
 import ChartFrame from '../ChartFrame'
 import XAxis from './XAxis'
 import YAxis from './YAxis'
 import { StoreContext } from '../../StoreContext'
+import { ThemeContext } from '../../ThemeContext'
 import config from '../../config'
 
 const {
@@ -15,11 +16,14 @@ const {
 } = config.chart
 
 const BarChart = () => {
+  const { themeName, cssSheet } = useContext(ThemeContext)
   return (
     <StoreContext.Consumer>
       {
         ({ state }) => (
           <div>
+            {themeName}
+            {cssSheet.classes.backgroundA}
             <div
               data-id="bar-chart"
               data-component-type="chart"

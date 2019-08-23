@@ -11,80 +11,65 @@ const menuOptions = [
   { label: 'Green', color: 'green', keyValue: 'greenStyle' },
   { label: 'Gray', color: 'gray', keyValue: 'grayStyle' },
 ]
+
 const defaultStyle = {
   mainContainer: {
-    stroke: 'gray',
+    stroke: 'white',
     fill: 'black',
+    color: 'white',
+    background: 'black',
     width: '600px',
     height: '600px',
+    fontFamily: 'Verdana, sans-serif',
   },
-  mapContainer: {
-    stroke: 'gray',
-    fill: 'black',
-    width: '600px',
-    height: '600px',
+}
+const colorStyle = {
+  backgroundA: {
+    fill: 'white',
   },
-  graticule: {
-    stroke: 'white',
-    fill: 'transparent',
-    strokeWidth: 3,
+  backgroundB: {
+    fill: '#111',
   },
-  earth: {
-    stroke: 'black',
-    fill: 'gray',
-    strokeWidth: 3,
+  foregroundA: {
+    fill: '#fff',
   },
-  state: {
-    stroke: 'white',
-    fill: 'transparent',
-    strokeWidth: 3,
-  },
-  city: {
-    stroke: 'red',
-    fill: 'transparent',
-    strokeWidth: 13,
+  foregroundB: {
+    fill: '#eee',
   },
   accent: {
     fill: 'red',
     stroke: 'orange',
   },
 }
-const styleB = JSON.parse(JSON.stringify(defaultStyle))
-Object.keys(styleB).forEach(k => {
-  styleB[k].fill = 'red'
-  styleB[k].stroke = 'blue'
-})
-// create the blueStyle option
-function colorize(styleObject, interpolator) {
-  const newStyleObject = JSON.parse(JSON.stringify(styleObject))
+function colorize(interpolator) {
+  defaultStyle.mainContainer.background = interpolator(0.2)
+  defaultStyle.mainContainer.fill = interpolator(0.5)
+  defaultStyle.mainContainer.stroke = interpolator(0.7)
   const steps = 9
   let i = 0
   let j = 1
-  Object.keys(newStyleObject).forEach(k => {
-    if (k !== 'graticule') {
-      newStyleObject[k].fill = interpolator(j)
-    }
-    if (k !== 'city') {
-      newStyleObject[k].stroke = interpolator(i)
-    }
+  // copy of colorStyle
+  const cSCopy = JSON.parse(JSON.stringify(colorStyle))
+  Object.keys(cSCopy).forEach(k => {
+    cSCopy[k].stroke = interpolator(i)
+    cSCopy[k].fill = interpolator(j)
     i += 1 / steps
     j -= 1 / steps
   })
+  Object.assign(defaultStyle, cSCopy)
+  const newStyleObject = JSON.parse(JSON.stringify(defaultStyle))
   return newStyleObject
 }
-const blueStyle = colorize(defaultStyle, interpolateBlues)
-const greenStyle = colorize(defaultStyle, interpolateGreens)
-const grayStyle = colorize(defaultStyle, interpolateGreys)
-const darkStyle = colorize(defaultStyle, interpolateRdYlGn)
-const redStyle = colorize(defaultStyle, interpolateRdYlGn)
+const redStyle = colorize(interpolateRdYlGn)
+const greenStyle = colorize(interpolateGreens)
+const blueStyle = colorize(interpolateBlues)
+const grayStyle = colorize(interpolateGreys)
 const styles = {
   defaultStyle,
-  styleB,
   redStyle,
   blueStyle,
   greenStyle,
   grayStyle,
-  darkStyle,
 }
 function themeFactory(themeName = 'defaultStyle') {
   return styles[themeName]

@@ -7,14 +7,12 @@ import { StoreContext } from './StoreContext'
 import { ThemeContext } from './ThemeContext'
 
 function D3Frame() {
-  const { themeName, cssSheet } = useContext(ThemeContext)
+  const { cssSheet } = useContext(ThemeContext)
   return (
     <StoreContext.Consumer>
       {({ state, actions }) => {
         return (
           <div className={cssSheet.classes.mainContainer}>
-            {cssSheet.classes.mainContainer}
-            {themeName}
             <Chart />
             <TitleArea />
             <Control />
