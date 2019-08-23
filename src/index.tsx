@@ -2,13 +2,13 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import D3Frame from './D3Frame'
 import { StoreProvider } from './StoreContext'
-import ThemeContext from './ThemeContext'
+import { ThemeProvider } from './ThemeContext'
 
 ReactDOM.render(
-  <ThemeContext.Provider value={{ a: 3 }}>
+  <ThemeProvider>
     <StoreProvider>
       <D3Frame />
     </StoreProvider>
-  </ThemeContext.Provider>,
+  </ThemeProvider>,
   document.getElementById('root'),
 )
