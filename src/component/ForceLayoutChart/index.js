@@ -21,7 +21,7 @@ function ForceLayoutChart() {
     const simulation = forceSimulation(iconNodes)
     simulation
       .force('charge', forceManyBody().strength(10))
-      .force('center', forceCenter(225, 250))
+      .force('center', forceCenter(150, 160))
       .force('collision', forceCollide().radius(15))
     simulation.on('tick', () => tick())
   }, [])
@@ -30,11 +30,11 @@ function ForceLayoutChart() {
     stroke: 'gray',
   }
   return (
-    <div>
+    <React.Fragment>
       <svg
         className="main"
-        width="500"
-        height="500"
+        width="350"
+        height="350"
       >
         /** trigger the redraw */
         {localTrigger}
@@ -59,7 +59,8 @@ function ForceLayoutChart() {
           })}
         </g>
       </svg>
-    </div>
+      <h3>Material Font Icons</h3>
+    </React.Fragment>
   )
 }
 export default ForceLayoutChart

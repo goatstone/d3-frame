@@ -22,19 +22,13 @@ function Chart() {
             )
             }
             {state.chartType === state.chartTypes.PIE && (
-              <div>
-                <PieChart
-                  events
-                />
-                <h3>The Frequency of Letters in the English Language</h3>
-              </div>
+              <PieChart
+                events
+              />
             )
             }
             {state.chartType === state.chartTypes.FORCE_LAYOUT && (
-              <div>
-                <ForceLayoutChart />
-                <h3>Material Font Icons</h3>
-              </div>
+              <ForceLayoutChart />
             )}
           </React.Fragment>
         )

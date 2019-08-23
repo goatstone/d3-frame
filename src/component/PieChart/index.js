@@ -21,25 +21,28 @@ function PieChart() {
     <StoreContext.Consumer>
       {({ state }) => {
         return (
-          <ChartFrame
-            width={containerWidth}
-            height={height}
-            margin={margin}
-            containerWidth={containerWidth}
-            chartId={id}
-          >
-            <Labels
-              data={state.data.bar}
-              chartLeft={chartLeft}
-              chartTop={chartTop}
-              color={labelColor}
-            />
-            <Pies
-              data={state.data.bar}
-              chartLeft={chartLeft}
-              chartTop={chartTop}
-            />
-          </ChartFrame>
+          <React.Fragment>
+            <ChartFrame
+              width={containerWidth}
+              height={height}
+              margin={margin}
+              containerWidth={containerWidth}
+              chartId={id}
+            >
+              <Labels
+                data={state.data.bar}
+                chartLeft={chartLeft}
+                chartTop={chartTop}
+                color={labelColor}
+              />
+              <Pies
+                data={state.data.bar}
+                chartLeft={chartLeft}
+                chartTop={chartTop}
+              />
+            </ChartFrame>
+            <h3>The Frequency of Letters in the English Language</h3>
+          </React.Fragment>
         )
       }}
     </StoreContext.Consumer>

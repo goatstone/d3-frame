@@ -29,10 +29,7 @@ function LineChart() {
           // quality scale function
           const yScale = LScale(state.data.line.map(d => d.quality), barHeightMax, 0)
           return (
-            <div
-              data-id="line-chart"
-              data-component-type="chart"
-            >
+            <React.Fragment>
               <ChartFrame
                 width={containerWidth}
                 height={height}
@@ -61,7 +58,7 @@ function LineChart() {
                 />
               </ChartFrame>
               <h3>Quality Level Over Time</h3>
-            </div>
+            </React.Fragment>
           )
         }
       }
