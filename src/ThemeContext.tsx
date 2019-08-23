@@ -1,14 +1,20 @@
 import React, { createContext, useState } from 'react'
 
-const defaultTheme = { a: 1 }
-const ThemeContext = createContext<any>(defaultTheme)
+const ThemeContext = createContext<any>({})
+const themeNames = {
+  GRAY: 'GRAY',
+  RED: 'RED',
+  BLUE: 'BLUE',
+  GREEN: 'GREEN',
+}
 const ThemeProvider: React.FC = ({ children }) => {
-  const [theme, setTheme] = useState(defaultTheme)
+  const [themeName, setThemeName] = useState(themeNames.GRAY)
+
   return (
-    <ThemeContext.Provider value={{ theme, setTheme }}>
+    <ThemeContext.Provider value={{ themeName, setThemeName }}>
       {children}
     </ThemeContext.Provider>
   )
 }
 
-export { ThemeContext, ThemeProvider }
+export { ThemeContext, ThemeProvider, themeNames }
