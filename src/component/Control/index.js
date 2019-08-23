@@ -1,16 +1,26 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { StoreContext } from '../../StoreContext'
 import getStyle, { styleTypes } from '../../get-style'
 import 'material-icons/iconfont/material-icons.css'
+import { ThemeContext, themeNames } from '../../ThemeContext'
 
 const iconList = ['bar_chart', 'show_chart', 'pie_chart', 'face']
 const symbolList = ['9711', '9723', '9651']
 function Control() {
+  const { themeName, setThemeName } = useContext(ThemeContext)
+
   return (
     <StoreContext.Consumer>
       {({ state, actions }) => {
         return (
           <section className={getStyle(state.theme, styleTypes.CONTROL).main()}>
+            {themeName}
+            <button
+              onClick={() => setThemeName(themeNames.BLUE)}
+              type="button"
+            >
+              set theme
+            </button>
             <button
               onClick={actions.showInfo}
               className="material-icons"
