@@ -1,6 +1,5 @@
 import React, { useContext } from 'react'
 import { StoreContext } from '../../StoreContext'
-import getStyle, { styleTypes } from '../../get-style'
 import 'material-icons/iconfont/material-icons.css'
 import { ThemeContext, themeNames } from '../../ThemeContext'
 
@@ -13,7 +12,7 @@ function Control() {
     <StoreContext.Consumer>
       {({ state, actions }) => {
         return (
-          <section className={getStyle(state.theme, styleTypes.CONTROL).main()}>
+          <section>
             {Object.values(themeNames).map(tN => {
               return (
                 <button
@@ -52,7 +51,7 @@ function Control() {
                   </button>
                 ))}
             </label>
-            <label className={getStyle(state.theme, styleTypes.GENERIC).background()}>
+            <label>
               {Object.values(state.themes)
                 .map(theme => (
                   <button

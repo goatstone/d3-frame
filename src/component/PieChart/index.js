@@ -3,7 +3,6 @@ import ChartFrame from '../ChartFrame'
 import Labels from './Labels'
 import Pies from './Pies'
 import { StoreContext } from '../../StoreContext'
-import getStyle, { styleTypes } from '../../get-style'
 import config from '../../config'
 
 const {
@@ -25,7 +24,6 @@ function PieChart() {
           <ChartFrame
             width={containerWidth}
             height={height}
-            background={getStyle(state.theme, styleTypes.GENERIC).background(true)}
             margin={margin}
             containerWidth={containerWidth}
             chartId={id}
@@ -40,7 +38,6 @@ function PieChart() {
               data={state.data.bar}
               chartLeft={chartLeft}
               chartTop={chartTop}
-              foregroundColor={getStyle(state.theme, styleTypes.GENERIC).foreground(true)}
             />
           </ChartFrame>
         )

@@ -7,7 +7,6 @@ import Symbols from './Symbols'
 import SparkLine from './SparkLine'
 import LScale from './l-scale'
 import { StoreContext } from '../../StoreContext'
-import getStyle, { styleTypes } from '../../get-style'
 import config from '../../config'
 
 const {
@@ -32,13 +31,11 @@ function LineChart() {
           return (
             <div
               data-id="line-chart"
-              className={getStyle(state.theme, styleTypes.GENERIC).main()}
               data-component-type="chart"
             >
               <ChartFrame
                 width={containerWidth}
                 height={height}
-                background={getStyle(state.theme, styleTypes.GENERIC).background(true)}
                 margin={margin}
                 containerWidth={containerWidth}
                 data-component-type="chart"

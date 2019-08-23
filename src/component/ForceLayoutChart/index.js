@@ -6,7 +6,6 @@ import {
   forceCollide,
 } from 'd3-force'
 import { StoreContext } from '../../StoreContext'
-import getStyle, { styleTypes } from '../../get-style'
 import 'material-icons/iconfont/material-icons.css'
 
 function ForceLayoutChart() {
@@ -28,7 +27,6 @@ function ForceLayoutChart() {
   }, [])
   const iconStyle = {
     fontSize: '25px',
-    fill: getStyle(state.theme, styleTypes.GENERIC).background(true),
     stroke: 'gray',
   }
   return (
@@ -45,7 +43,7 @@ function ForceLayoutChart() {
           width="500"
           height="500"
         />
-        <g className={getStyle(state.theme, styleTypes.GENERIC).main()}>
+        <g>
           {iconNodes.map(n => {
             return (
               <text
