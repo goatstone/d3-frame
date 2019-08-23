@@ -6,20 +6,16 @@ import themeFactory, { menuOptions } from './theme-factory'
 jss.setup(preset())
 
 const ThemeContext = createContext({})
-const themeNames = {
-  GRAY: 'GRAY',
-  RED: 'RED',
-  BLUE: 'BLUE',
-  GREEN: 'GREEN',
-}
+const themeNames = menuOptions
 const ThemeProvider = ({ children }) => {
-  const [themeName, setThemeName] = useState(themeNames.GRAY)
-  console.log(menuOptions)
+  const [themeName, setThemeName] = useState('redStyle')
+  // const [themeName, setThemeName] =
+  // useState(themeNames.filter(tN => tN.keyValue === 'grayStyle'))
   // let sheet = jss.createStyleSheet(themeFactory(sheetName))
   // sheet.attach()
   // const [cssSheet, setCssSheet] = useState(sheet)
   useEffect(() => {
-    const newSheet = jss.createStyleSheet(themeFactory(themeName))
+    const newSheet = jss.createStyleSheet(themeFactory(menuOptions))
     console.log(newSheet)
     //   newSheet.attach()
     // setTheme(newSheet)

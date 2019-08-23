@@ -18,10 +18,10 @@ function Control() {
               return (
                 <button
                   type="button"
-                  onClick={() => setThemeName(tN)}
-                  disabled={tN === themeName}
+                  onClick={() => setThemeName(tN.keyValue)}
+                  disabled={tN.keyValue === themeName}
                   style={{
-                    background: tN,
+                    background: tN.color,
                     width: '25px',
                   }}
                 >

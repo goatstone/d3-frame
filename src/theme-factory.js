@@ -6,15 +6,10 @@ import {
 } from 'd3'
 
 const menuOptions = [
+  { label: 'Red', color: 'red', keyValue: 'redStyle' },
   { label: 'Blue', color: 'blue', keyValue: 'blueStyle' },
   { label: 'Green', color: 'green', keyValue: 'greenStyle' },
   { label: 'Gray', color: 'gray', keyValue: 'grayStyle' },
-  {
-    label: 'Red Green',
-    color: 'green',
-    gradient: ['red', 'green'],
-    keyValue: 'darkStyle',
-  },
 ]
 const defaultStyle = {
   mapContainer: {
