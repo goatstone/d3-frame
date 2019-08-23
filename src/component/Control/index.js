@@ -51,25 +51,6 @@ function Control() {
                   </button>
                 ))}
             </label>
-            <label>
-              {Object.values(state.themes)
-                .map(theme => (
-                  <button
-                    value={theme}
-                    key={theme}
-                    type="button"
-                    style={{
-                      background: theme,
-                      width: '25px',
-                    }}
-                    onClick={() => actions.setTheme(theme)}
-                    disabled={state.theme === theme}
-                  >
-                    &nbsp;
-                  </button>
-                ))
-              }
-            </label>
             {(state.chartType === state.chartTypes.LINE)
               && (
                 <label key="symbol">
