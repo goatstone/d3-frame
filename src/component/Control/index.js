@@ -14,13 +14,21 @@ function Control() {
       {({ state, actions }) => {
         return (
           <section className={getStyle(state.theme, styleTypes.CONTROL).main()}>
-            {themeName}
-            <button
-              onClick={() => setThemeName(themeNames.BLUE)}
-              type="button"
-            >
-              set theme
-            </button>
+            {Object.values(themeNames).map(tN => {
+              return (
+                <button
+                  type="button"
+                  onClick={() => setThemeName(tN)}
+                  disabled={tN === themeName}
+                  style={{
+                    background: tN,
+                    width: '25px',
+                  }}
+                >
+                  &nbsp;
+                </button>
+              )
+            })}
             <button
               onClick={actions.showInfo}
               className="material-icons"
