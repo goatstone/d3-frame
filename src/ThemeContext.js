@@ -12,10 +12,8 @@ const ThemeProvider = ({ children }) => {
   const sheet = jss.createStyleSheet(themeFactory(themeName))
   sheet.attach()
   const [cssSheet, setCssSheet] = useState(sheet)
-  console.log('s', setCssSheet)
   useEffect(() => {
     const newSheet = jss.createStyleSheet(themeFactory(themeName))
-    console.log('eee', newSheet)
     newSheet.attach()
     setCssSheet(newSheet)
   }, [themeName])

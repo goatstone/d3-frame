@@ -3,7 +3,13 @@ import React from 'react'
 function TitleArea() {
   return (
     <div
-      className="title-area"
+      style={{
+        fontSize: '12px',
+        display: 'flex',
+        position: 'fixed',
+        right: 0,
+        bottom: 0,
+      }}
     >
       <img src="d3-frame-logo.png" alt="D3 Frame Art" width="35" height="35" />
       <h1>
