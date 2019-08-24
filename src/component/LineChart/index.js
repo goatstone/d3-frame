@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import * as d3 from 'd3'
 import ChartFrame from '../ChartFrame'
 import YAxis from './YAxis'
@@ -7,17 +7,16 @@ import Symbols from './Symbols'
 import SparkLine from './SparkLine'
 import LScale from './l-scale'
 import { StoreContext } from '../../StoreContext'
+import { ThemeContext } from '../../ThemeContext'
 import config from '../../config'
 
 const {
-  height,
   width,
-  margin,
   barHeightMax,
-  containerWidth,
 } = config.chart
 
 function LineChart() {
+  const { cssSheet } = useContext(ThemeContext)
   return (
     <StoreContext.Consumer>
       {
@@ -31,19 +30,16 @@ function LineChart() {
           return (
             <React.Fragment>
               <ChartFrame
-                width={containerWidth}
-                height={height}
-                margin={margin}
-                containerWidth={containerWidth}
-                data-component-type="chart"
+                cssClasses={cssSheet}
               >
                 <XAxis
                   xScale={xScale}
                   ticks={state.data.line.length / 2}
-                  barHeightMax={barHeightMax}
+                  cssClasses={cssSheet}
                 />
                 <YAxis
                   yScale={yScale}
+                  cssClasses={cssSheet}
                 />
                 <SparkLine
                   data={state.data.line}

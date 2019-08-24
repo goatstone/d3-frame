@@ -1,7 +1,7 @@
 import React from 'react'
 import * as d3 from 'd3'
 
-const XAxis = ({ xScale, ticks, barHeightMax }) => {
+const XAxis = ({ xScale, ticks, cssClasses }) => {
   const xAxis = d3.axisBottom()
     .scale(xScale)
     .ticks(ticks)
@@ -9,9 +9,7 @@ const XAxis = ({ xScale, ticks, barHeightMax }) => {
   return (
     <g
       ref={node => d3.select(node).call(xAxis)}
-      style={{
-        transform: `translateY(${barHeightMax}px)`,
-      }}
+      className={cssClasses.classes.chartXAxis}
     />
   )
 }
