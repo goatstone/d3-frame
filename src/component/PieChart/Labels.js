@@ -2,7 +2,7 @@ import React from 'react'
 import * as d3 from 'd3'
 
 let radius = 90
-const Text = ({ data, color = 'white' }) => {
+const Text = ({ data }) => {
   const labelData = data.map(function cb(c, i) {
     if (this[i].index > 20) {
       radius = 105 + (this[i].index - 20) * 14
@@ -19,7 +19,6 @@ const Text = ({ data, color = 'white' }) => {
 
   return labelData.map(tD => (
     <text
-      fill={color}
       x={tD.location[0]}
       y={tD.location[1]}
       key={`${tD.label}`}
@@ -32,7 +31,7 @@ const Labels = ({
   data, cssClasses,
 }) => (
   <g
-    className={cssClasses.classes.chartPieText}
+    className={cssClasses.classes.chartPiesText}
   >
     <Text
       data={data}

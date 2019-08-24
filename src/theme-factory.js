@@ -72,11 +72,20 @@ const defaultStyle = {
     color: 'orange',
     fill: 'blue',
     stroke: 'green',
+    strokeWidth: '1px',
+    fontSize: '12px',
   },
-  chartPieText: {
-    transform: 'translate(293px, 135px)',
-    fill: 'gray',
-    stroke: 'red',
+  chartPies: {
+    transform: 'translate(290px, 130px)',
+    fill: 'lightgray',
+    stroke: 'black',
+  },
+  chartPiesText: {
+    transform: 'translate(285px, 135px)',
+    fontSize: '10px',
+    fill: 'white',
+    stroke: 'transparent',
+    strokeWidth: '0',
   },
 }
 const colorStyle = {

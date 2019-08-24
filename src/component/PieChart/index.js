@@ -3,17 +3,17 @@ import ChartFrame from '../ChartFrame'
 import Labels from './Labels'
 import Pies from './Pies'
 import { StoreContext } from '../../StoreContext'
-import config from '../../config'
+// import config from '../../config'
 import { ThemeContext } from '../../ThemeContext'
 
-const {
-  width,
-} = config.chart
+// const {
+//   width,
+// } = config.chart
 
 function PieChart() {
   const { cssSheet } = useContext(ThemeContext)
-  const chartLeft = Math.round(width / 2)
-  const chartTop = 130
+  // const chartLeft = Math.round(width / 2)
+  // const chartTop = 130
   return (
     <StoreContext.Consumer>
       {({ state }) => {
@@ -28,8 +28,7 @@ function PieChart() {
               />
               <Pies
                 data={state.data.bar}
-                chartLeft={chartLeft}
-                chartTop={chartTop}
+                cssClasses={cssSheet}
               />
             </ChartFrame>
             <h3>The Frequency of Letters in the English Language</h3>
