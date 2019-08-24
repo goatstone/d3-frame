@@ -73,6 +73,11 @@ const defaultStyle = {
     fill: 'blue',
     stroke: 'green',
   },
+  chartPieText: {
+    transform: 'translate(293px, 135px)',
+    fill: 'gray',
+    stroke: 'red',
+  },
 }
 const colorStyle = {
   backgroundA: {

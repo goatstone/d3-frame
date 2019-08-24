@@ -29,14 +29,12 @@ const Text = ({ data, color = 'white' }) => {
   ))
 }
 const Labels = ({
-  data, chartTop, chartLeft, dataId, color = 'white',
+  data, cssClasses,
 }) => (
   <g
-    data-id={dataId}
-    style={{ transform: `translate(${chartLeft - 5}px, ${chartTop + 7}px)` }}
+    className={cssClasses.classes.chartPieText}
   >
     <Text
-      color={color}
       data={data}
     />
   </g>

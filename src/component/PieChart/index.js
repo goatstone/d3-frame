@@ -1,39 +1,30 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import ChartFrame from '../ChartFrame'
 import Labels from './Labels'
 import Pies from './Pies'
 import { StoreContext } from '../../StoreContext'
 import config from '../../config'
+import { ThemeContext } from '../../ThemeContext'
 
 const {
-  height,
   width,
-  margin,
-  containerWidth,
-  labelColor,
 } = config.chart
 
 function PieChart() {
+  const { cssSheet } = useContext(ThemeContext)
   const chartLeft = Math.round(width / 2)
   const chartTop = 130
-  const id = 'pie-chart'
   return (
     <StoreContext.Consumer>
       {({ state }) => {
         return (
           <React.Fragment>
             <ChartFrame
-              width={containerWidth}
-              height={height}
-              margin={margin}
-              containerWidth={containerWidth}
-              chartId={id}
+              cssClasses={cssSheet}
             >
               <Labels
                 data={state.data.bar}
-                chartLeft={chartLeft}
-                chartTop={chartTop}
-                color={labelColor}
+                cssClasses={cssSheet}
               />
               <Pies
                 data={state.data.bar}

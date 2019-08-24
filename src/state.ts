@@ -33,7 +33,7 @@ const defaultState = {
   isInfoVisible: false,
   data,
   chartTypes,
-  chartType: chartTypes.LINE,
+  chartType: chartTypes.PIE,
   chartSymbolTypes,
   chartSymbolType: chartSymbolTypes.CIRCLE,
   themes,
