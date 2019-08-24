@@ -38,14 +38,6 @@ function Control() {
                 )
               })}
             </section>
-            <button
-              onClick={actions.showInfo}
-              className="material-icons"
-              type="button"
-              disabled={state.isInfoVisible}
-            >
-              info
-            </button>
             <section className={cssSheet.classes.controlChartType}>
               {Object.values(state.chartTypes)
                 .map((chartType, i) => (

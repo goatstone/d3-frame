@@ -114,6 +114,13 @@ const defaultStyle = {
     bottom: 0,
     right: '40px',
   },
+  titleArea: {
+    position: 'fixed',
+    display: 'flex',
+    justifyContent: 'center',
+    bottom: 0,
+    left: 0,
+  },
 }
 const colorStyle = {
   backgroundA: {
