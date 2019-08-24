@@ -24,8 +24,7 @@ const BarChart = () => {
               />
               <YAxis
                 data={state.data.bar}
-                width={width}
-                height={height}
+                cssClasses={cssSheet}
               />
               <Bars
                 data={state.data.bar}
