@@ -5,8 +5,10 @@ import xScaleBarChart from './x-scale'
 import yScaleBarChart from './y-scale'
 
 const elements = ({
-  data, width, height, foregroundColor,
+  data, cssClasses,
 }) => {
+  const width = parseInt(cssClasses.getRule('chartBars').prop('width'), 10)
+  const height = parseInt(cssClasses.getRule('chartBars').prop('height'), 10)
   const elementData = barsData(
     data,
     xScaleBarChart(data, width),
@@ -17,6 +19,7 @@ const elements = ({
     .map(d => {
       return (
         <g
+          className={cssClasses.classes.chartBars}
           key={`x${d.label}`}
         >
           <rect
@@ -25,10 +28,10 @@ const elements = ({
             y={d.y}
             width={d.w}
             height={d.h}
-            fill={foregroundColor}
+            // fill={foregroundColor}
           />
           <text
-            fill={foregroundColor}
+            // fill={foregroundColor}
             key={`xxxx${d.frequency}`}
             x={d.x + 2}
             y={d.y - 5}

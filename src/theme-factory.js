@@ -59,11 +59,14 @@ const defaultStyle = {
     transform: 'translate(0, 0)',
   },
   chartBars: {
+    fontSize: '12px',
     color: 'orange',
-    fill: 'blue',
+    fill: 'gray',
     stroke: 'green',
-    width: '650px',
-    height: '300px',
+    strokeWidth: '1px',
+    width: '500px',
+    height: '200px',
+    transform: 'translate(0, 0)',
   },
   chartText: {
     color: 'orange',

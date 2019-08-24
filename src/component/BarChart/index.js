@@ -8,8 +8,6 @@ import { ThemeContext } from '../../ThemeContext'
 
 const BarChart = () => {
   const { cssSheet } = useContext(ThemeContext)
-  const width = 500
-  const height = 200
   return (
     <StoreContext.Consumer>
       {
@@ -28,9 +26,7 @@ const BarChart = () => {
               />
               <Bars
                 data={state.data.bar}
-                width={width}
-                height={height}
-                className={cssSheet.classes.BarChart}
+                cssClasses={cssSheet}
               />
             </ChartFrame>
             <h3>The Frequency of Letters in the English Language</h3>
