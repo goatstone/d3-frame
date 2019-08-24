@@ -5,16 +5,11 @@ import XAxis from './XAxis'
 import YAxis from './YAxis'
 import { StoreContext } from '../../StoreContext'
 import { ThemeContext } from '../../ThemeContext'
-import config from '../../config'
-
-const {
-  height,
-  width,
-  barHeightMax,
-} = config.chart
 
 const BarChart = () => {
   const { cssSheet } = useContext(ThemeContext)
+  const width = 500
+  const height = 200
   return (
     <StoreContext.Consumer>
       {
@@ -25,20 +20,18 @@ const BarChart = () => {
             >
               <XAxis
                 data={state.data.bar}
-                width={width}
-                height={300}
+                cssClasses={cssSheet}
               />
               <YAxis
                 data={state.data.bar}
                 width={width}
-                height={barHeightMax}
+                height={height}
               />
               <Bars
                 data={state.data.bar}
                 width={width}
                 height={height}
-                barHeightMax={barHeightMax}
-                className={cssSheet.classes.mainContainer}
+                className={cssSheet.classes.BarChart}
               />
             </ChartFrame>
             <h3>The Frequency of Letters in the English Language</h3>

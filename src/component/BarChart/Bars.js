@@ -5,13 +5,13 @@ import xScaleBarChart from './x-scale'
 import yScaleBarChart from './y-scale'
 
 const elements = ({
-  data, width, barHeightMax, foregroundColor,
+  data, width, height, foregroundColor,
 }) => {
   const elementData = barsData(
     data,
     xScaleBarChart(data, width),
-    yScaleBarChart(data, barHeightMax),
-    barHeightMax,
+    yScaleBarChart(data, height),
+    height,
   )
   const newData = elementData
     .map(d => {

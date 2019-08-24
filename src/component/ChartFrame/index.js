@@ -5,7 +5,6 @@ const ChartFrame = ({ children, cssClasses }) => {
     cssClasses.getRule('chartFrame').prop('padding'),
     10,
   )
-  console.log('a', padding)
   return (
     <svg className={cssClasses.classes.chartFrame}>
       <rect className={cssClasses.classes.chartFrame} />

@@ -41,19 +41,27 @@ const defaultStyle = {
     padding: '40px',
   },
   chartXAxis: {
-    color: 'blue',
-    fill: 'blue',
-    stroke: 'green',
+    color: 'black',
+    fill: 'transparent',
+    stroke: 'black',
+    strokeWidth: '2px',
+    width: '500px',
+    height: '200px',
+    transform: 'translate(0, 200px)',
   },
-  charYAxis: {
+  chartYAxis: {
     color: 'green',
     fill: 'blue',
     stroke: 'green',
+    width: '650px',
+    height: '300px',
   },
   chartBars: {
     color: 'orange',
     fill: 'blue',
     stroke: 'green',
+    width: '650px',
+    height: '300px',
   },
   chartText: {
     color: 'orange',
