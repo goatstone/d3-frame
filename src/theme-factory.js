@@ -38,7 +38,7 @@ const defaultStyle = {
     stroke: 'green',
     width: '650px',
     height: '300px',
-    padding: '40px',
+    padding: '0px',
   },
   chartXAxis: {
     color: 'black',
@@ -116,6 +116,13 @@ function colorize(interpolator) {
   defaultStyle.mainContainer.background = interpolator(0.2)
   defaultStyle.mainContainer.fill = interpolator(0.5)
   defaultStyle.mainContainer.stroke = interpolator(0.7)
+  defaultStyle.chartFrame.fill = interpolator(0.3)
+  defaultStyle.chartFrame.stroke = interpolator(0.8)
+  defaultStyle.chartBars.fill = interpolator(0.3)
+  defaultStyle.chartBars.stroke = interpolator(0.8)
+  defaultStyle.chartIconForce.stroke = interpolator(0.3)
+  defaultStyle.chartIconForce.fill = interpolator(0.9)
+  defaultStyle.chartPiesText.fill = interpolator(0.9)
   const steps = 9
   let i = 0
   let j = 1
