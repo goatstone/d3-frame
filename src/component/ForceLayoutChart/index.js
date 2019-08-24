@@ -7,8 +7,14 @@ import {
 } from 'd3-force'
 import { StoreContext } from '../../StoreContext'
 import 'material-icons/iconfont/material-icons.css'
+import { ThemeContext } from '../../ThemeContext'
 
 function ForceLayoutChart() {
+  const { cssSheet } = useContext(ThemeContext)
+  const centerX = parseInt(cssSheet.getRule('chartIconForce').prop('width'), 10) / 2
+  let centerY = parseInt(cssSheet.getRule('chartIconForce').prop('height'), 10) / 2
+  // offset
+  centerY -= 10
   const { state } = useContext(StoreContext)
   const iconNodes = state.iconNodes.slice(0, 120)
   const [localTrigger, setLocalTrigger] = useState(0)
@@ -21,27 +27,19 @@ function ForceLayoutChart() {
     const simulation = forceSimulation(iconNodes)
     simulation
       .force('charge', forceManyBody().strength(10))
-      .force('center', forceCenter(150, 160))
+      .force('center', forceCenter(centerX, centerY))
       .force('collision', forceCollide().radius(15))
     simulation.on('tick', () => tick())
   }, [])
-  const iconStyle = {
-    fontSize: '25px',
-    stroke: 'gray',
-  }
   return (
     <React.Fragment>
       <svg
-        className="main"
-        width="350"
-        height="350"
+        className={cssSheet.classes.chartIconForce}
       >
         /** trigger the redraw */
         {localTrigger}
         <rect
-          fill="white"
-          width="500"
-          height="500"
+          className={cssSheet.classes.chartIconForce}
         />
         <g>
           {iconNodes.map(n => {
@@ -50,7 +48,6 @@ function ForceLayoutChart() {
                 x={(n.x)}
                 y={(n.y)}
                 key={`${Math.random()}${n.name}`}
-                style={iconStyle}
                 className="material-icons"
               >
                 {n.name}

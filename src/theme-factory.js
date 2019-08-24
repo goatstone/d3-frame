@@ -87,6 +87,12 @@ const defaultStyle = {
     stroke: 'transparent',
     strokeWidth: '0',
   },
+  chartIconForce: {
+    fill: 'green',
+    stroke: 'black',
+    width: '500px',
+    height: '400px',
+  },
 }
 const colorStyle = {
   backgroundA: {
