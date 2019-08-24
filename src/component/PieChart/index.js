@@ -3,17 +3,11 @@ import ChartFrame from '../ChartFrame'
 import Labels from './Labels'
 import Pies from './Pies'
 import { StoreContext } from '../../StoreContext'
-// import config from '../../config'
 import { ThemeContext } from '../../ThemeContext'
-
-// const {
-//   width,
-// } = config.chart
 
 function PieChart() {
   const { cssSheet } = useContext(ThemeContext)
-  // const chartLeft = Math.round(width / 2)
-  // const chartTop = 130
+
   return (
     <StoreContext.Consumer>
       {({ state }) => {

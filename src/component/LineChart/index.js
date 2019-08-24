@@ -8,15 +8,11 @@ import SparkLine from './SparkLine'
 import LScale from './l-scale'
 import { StoreContext } from '../../StoreContext'
 import { ThemeContext } from '../../ThemeContext'
-import config from '../../config'
-
-const {
-  width,
-  barHeightMax,
-} = config.chart
 
 function LineChart() {
   const { cssSheet } = useContext(ThemeContext)
+  const width = parseInt(cssSheet.getRule('chartFrame').prop('width'), 10)
+  const height = parseInt(cssSheet.getRule('chartFrame').prop('height'), 10)
   return (
     <StoreContext.Consumer>
       {
@@ -26,7 +22,7 @@ function LineChart() {
             .domain(d3.extent(state.data.line, d => new Date(d.day).setHours(0, 0, 0, 0)))
             .range([0, width])
           // quality scale function
-          const yScale = LScale(state.data.line.map(d => d.quality), barHeightMax, 0)
+          const yScale = LScale(state.data.line.map(d => d.quality), height, 0)
           return (
             <React.Fragment>
               <ChartFrame
