@@ -32,6 +32,34 @@ const defaultStyle = {
     justifyContent: 'flex-start',
     alignItems: 'center',
   },
+  chartFrame: {
+    color: 'red',
+    fill: 'blue',
+    stroke: 'green',
+    width: '400px',
+    height: '300px',
+    padding: '20px',
+  },
+  chartXAxis: {
+    color: 'blue',
+    fill: 'blue',
+    stroke: 'green',
+  },
+  charYAxis: {
+    color: 'green',
+    fill: 'blue',
+    stroke: 'green',
+  },
+  chartBars: {
+    color: 'orange',
+    fill: 'blue',
+    stroke: 'green',
+  },
+  chartText: {
+    color: 'orange',
+    fill: 'blue',
+    stroke: 'green',
+  },
 }
 const colorStyle = {
   backgroundA: {
