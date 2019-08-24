@@ -36,9 +36,9 @@ const defaultStyle = {
     color: 'red',
     fill: 'blue',
     stroke: 'green',
-    width: '400px',
+    width: '650px',
     height: '300px',
-    padding: '20px',
+    padding: '40px',
   },
   chartXAxis: {
     color: 'blue',

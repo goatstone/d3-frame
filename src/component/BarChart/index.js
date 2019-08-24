@@ -10,9 +10,7 @@ import config from '../../config'
 const {
   height,
   width,
-  margin,
   barHeightMax,
-  containerWidth,
 } = config.chart
 
 const BarChart = () => {
@@ -23,11 +21,7 @@ const BarChart = () => {
         ({ state }) => (
           <React.Fragment>
             <ChartFrame
-              width={containerWidth}
-              height={height}
-              dataComponentType="chart"
-              margin={margin}
-              containerWidth={containerWidth}
+              cssClasses={cssSheet}
             >
               <XAxis
                 data={state.data.bar}
