@@ -6,7 +6,7 @@ import { ThemeContext, themeNames } from '../../ThemeContext'
 const iconList = ['bar_chart', 'show_chart', 'pie_chart', 'face']
 const symbolList = ['9711', '9723', '9651']
 function Control() {
-  const { themeName, setThemeName } = useContext(ThemeContext)
+  const { themeName, setThemeName, cssSheet } = useContext(ThemeContext)
 
   return (
     <StoreContext.Consumer>
@@ -21,21 +21,23 @@ function Control() {
               bottom: 0,
             }}
           >
-            {Object.values(themeNames).map(tN => {
-              return (
-                <button
-                  type="button"
-                  onClick={() => setThemeName(tN.keyValue)}
-                  disabled={tN.keyValue === themeName}
-                  style={{
-                    background: tN.color,
-                    width: '25px',
-                  }}
-                >
-                  &nbsp;
-                </button>
-              )
-            })}
+            <section className={cssSheet.classes.controlColor}>
+              {Object.values(themeNames).map(tN => {
+                return (
+                  <button
+                    type="button"
+                    onClick={() => setThemeName(tN.keyValue)}
+                    disabled={tN.keyValue === themeName}
+                    style={{
+                      background: tN.color,
+                      width: '25px',
+                    }}
+                  >
+                    &nbsp;
+                  </button>
+                )
+              })}
+            </section>
             <button
               onClick={actions.showInfo}
               className="material-icons"
@@ -44,7 +46,7 @@ function Control() {
             >
               info
             </button>
-            <label>
+            <section className={cssSheet.classes.controlChartType}>
               {Object.values(state.chartTypes)
                 .map((chartType, i) => (
                   <button
@@ -58,10 +60,10 @@ function Control() {
                     {iconList[i]}
                   </button>
                 ))}
-            </label>
+            </section>
             {(state.chartType === state.chartTypes.LINE)
               && (
-                <label key="symbol">
+                <section className={cssSheet.classes.controlSymbolType}>
                   {Object.values(state.chartSymbolTypes)
                     .map((symbol, i) => (
                       <button
@@ -74,7 +76,7 @@ function Control() {
                       </button>
                     ))
                   }
-                </label>
+                </section>
               )
             }
           </section>
