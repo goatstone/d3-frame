@@ -5,7 +5,8 @@ const ChartFrame = ({ children, cssClasses }) => {
     cssClasses.getRule('chartFrame').prop('padding'),
     10,
   )
-  const viewBoxVal = `-${padding} -${padding} 600 360 `
+  const xOffset = 20
+  const viewBoxVal = `-${padding + xOffset} -${padding} 600 360 `
   return (
     <svg
       className={cssClasses.classes.chartFrame}
