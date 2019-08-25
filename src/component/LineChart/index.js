@@ -7,7 +7,7 @@ import Symbols from './Symbols'
 import SparkLine from './SparkLine'
 import LScale from './l-scale'
 import { StoreContext } from '../../StoreContext'
-import { ThemeContext } from '../../ThemeContext'
+import { ThemeContext } from '../../theme/ThemeContext'
 
 function LineChart() {
   const { cssSheet } = useContext(ThemeContext)

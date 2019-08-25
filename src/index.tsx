@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import D3Frame from './D3Frame'
 import { StoreProvider } from './StoreContext'
-import { ThemeProvider } from './ThemeContext'
+import { ThemeProvider } from './theme/ThemeContext'
 
 ReactDOM.render(
   <ThemeProvider>

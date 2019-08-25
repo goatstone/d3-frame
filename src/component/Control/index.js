@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import { StoreContext } from '../../StoreContext'
 import 'material-icons/iconfont/material-icons.css'
-import { ThemeContext, themeNames } from '../../ThemeContext'
+import { ThemeContext, themeNames } from '../../theme/ThemeContext'
 
 const iconList = ['bar_chart', 'show_chart', 'pie_chart', 'face']
 const symbolList = ['9711', '9723', '9651']

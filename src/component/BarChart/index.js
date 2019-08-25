@@ -4,7 +4,7 @@ import ChartFrame from '../ChartFrame'
 import XAxis from './XAxis'
 import YAxis from './YAxis'
 import { StoreContext } from '../../StoreContext'
-import { ThemeContext } from '../../ThemeContext'
+import { ThemeContext } from '../../theme/ThemeContext'
 
 const BarChart = () => {
   const { cssSheet } = useContext(ThemeContext)

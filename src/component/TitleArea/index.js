@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import 'material-icons/iconfont/material-icons.css'
-import { ThemeContext } from '../../ThemeContext'
+import { ThemeContext } from '../../theme/ThemeContext'
 import { StoreContext } from '../../StoreContext'
 
 function TitleArea() {

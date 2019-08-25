@@ -3,7 +3,7 @@ import ChartFrame from '../ChartFrame'
 import Labels from './Labels'
 import Pies from './Pies'
 import { StoreContext } from '../../StoreContext'
-import { ThemeContext } from '../../ThemeContext'
+import { ThemeContext } from '../../theme/ThemeContext'
 
 function PieChart() {
   const { cssSheet } = useContext(ThemeContext)

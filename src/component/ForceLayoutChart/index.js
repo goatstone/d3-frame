@@ -7,7 +7,7 @@ import {
 } from 'd3-force'
 import { StoreContext } from '../../StoreContext'
 import 'material-icons/iconfont/material-icons.css'
-import { ThemeContext } from '../../ThemeContext'
+import { ThemeContext } from '../../theme/ThemeContext'
 import ChartFrame from '../ChartFrame'
 
 function ForceLayoutChart() {

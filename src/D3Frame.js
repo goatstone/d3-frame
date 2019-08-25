@@ -4,7 +4,7 @@ import Control from './component/Control'
 import Chart from './component/Chart'
 import TitleArea from './component/TitleArea'
 import { StoreContext } from './StoreContext'
-import { ThemeContext } from './ThemeContext'
+import { ThemeContext } from './theme/ThemeContext'
 
 function D3Frame() {
   const { cssSheet } = useContext(ThemeContext)
