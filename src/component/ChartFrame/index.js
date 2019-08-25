@@ -5,10 +5,15 @@ const ChartFrame = ({ children, cssClasses }) => {
     cssClasses.getRule('chartFrame').prop('padding'),
     10,
   )
+  const viewBoxVal = `-${padding} -${padding} 600 350 `
   return (
-    <svg className={cssClasses.classes.chartFrame}>
-      <rect className={cssClasses.classes.chartFrame} />
-      <g transform={`translate(${padding}, ${padding})`}>
+    <svg
+      className={cssClasses.classes.chartFrame}
+      viewBox={viewBoxVal}
+    >
+      {/* target size 650 x 300 */}
+      <rect width="650" height="300" />
+      <g>
         {children}
       </g>
     </svg>
