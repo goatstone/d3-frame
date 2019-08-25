@@ -20,7 +20,6 @@ const Symbols = ({
         style={{ transform: `translate(${circlePoint.x}px, ${circlePoint.y}px)` }}
         key={`${circlePoint.x},${circlePoint.y}`}
         d={arc()}
-        fill="red"
       />
     ))
   return (
