@@ -8,6 +8,7 @@ import {
 import { StoreContext } from '../../StoreContext'
 import 'material-icons/iconfont/material-icons.css'
 import { ThemeContext } from '../../ThemeContext'
+import ChartFrame from '../ChartFrame'
 
 function ForceLayoutChart() {
   const { cssSheet } = useContext(ThemeContext)
@@ -33,14 +34,11 @@ function ForceLayoutChart() {
   }, [])
   return (
     <React.Fragment>
-      <svg
-        className={cssSheet.classes.chartIconForce}
+      <ChartFrame
+        cssClasses={cssSheet}
       >
         /** trigger the redraw */
         {localTrigger}
-        <rect
-          className={cssSheet.classes.chartIconForce}
-        />
         <g>
           {iconNodes.map(n => {
             return (
@@ -55,8 +53,10 @@ function ForceLayoutChart() {
             )
           })}
         </g>
-      </svg>
-      <h3>Material Font Icons</h3>
+        <text className={cssSheet.classes.chartText}>
+          Material Font Icons
+        </text>
+      </ChartFrame>
     </React.Fragment>
   )
 }

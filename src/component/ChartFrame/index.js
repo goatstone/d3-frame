@@ -12,7 +12,7 @@ const ChartFrame = ({ children, cssClasses }) => {
       viewBox={viewBoxVal}
     >
       {/* target size 650 x 300 */}
-      <rect width="650" height="300" />
+      {/* <rect width="650" height="300" /> */}
       <g>
         {children}
       </g>
