@@ -48,8 +48,8 @@ const defaultStyle = {
     stroke: 'black',
     strokeWidth: '1px',
     width: '500px',
-    height: '200px',
-    transform: 'translate(0, 200px)',
+    height: '300px',
+    transform: 'translate(0, 300px)',
   },
   chartYAxis: {
     color: 'black',
@@ -57,7 +57,7 @@ const defaultStyle = {
     stroke: 'black',
     strokeWidth: '1px',
     width: '650px',
-    height: '200px',
+    height: '300px',
     transform: 'translate(0, 0)',
   },
   chartBars: {
@@ -67,15 +67,15 @@ const defaultStyle = {
     stroke: 'green',
     strokeWidth: '1px',
     width: '500px',
-    height: '200px',
+    height: '300px',
     transform: 'translate(0, 0)',
   },
   chartText: {
     fill: 'black',
     stroke: 'green',
     strokeWidth: '0',
-    fontSize: '24px',
-    transform: 'translate(70px, 330px)',
+    fontSize: '22px',
+    transform: 'translate(0, 340px)',
   },
   chartPies: {
     transform: 'translate(290px, 130px)',

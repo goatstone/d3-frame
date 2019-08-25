@@ -12,7 +12,7 @@ import { ThemeContext } from '../../ThemeContext'
 function LineChart() {
   const { cssSheet } = useContext(ThemeContext)
   // 650 x 300 target SVG size
-  const width = 650
+  const width = 550
   const height = 300
   return (
     <StoreContext.Consumer>
