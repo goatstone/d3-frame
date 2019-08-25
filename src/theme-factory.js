@@ -27,9 +27,9 @@ const defaultStyle = {
     width: '100%',
     height: '100%',
     fontFamily: 'Verdana, sans-serif',
-    // display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'flex-start',
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'center',
     alignItems: 'center',
   },
   chartFrame: {
@@ -37,10 +37,10 @@ const defaultStyle = {
     fill: 'blue',
     stroke: 'green',
     // 650 x 300 is the SVG target size
-    width: '300px',
-    height: '200px',
+    width: '600px',
+    height: '300px',
     padding: '10px',
-    outline: '1px solid gray',
+    margin: '33px',
   },
   chartXAxis: {
     color: 'black',

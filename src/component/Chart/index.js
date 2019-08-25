@@ -11,14 +11,6 @@ function Chart() {
       {({ state }) => {
         return (
           <React.Fragment>
-            <BarChart />
-            <LineChart
-              events
-            />
-            <PieChart
-              events
-            />
-            <ForceLayoutChart />
             {state.chartType === state.chartTypes.BAR && (
               <BarChart />
             )
