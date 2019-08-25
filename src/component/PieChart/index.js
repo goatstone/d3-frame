@@ -12,21 +12,21 @@ function PieChart() {
     <StoreContext.Consumer>
       {({ state }) => {
         return (
-          <React.Fragment>
-            <ChartFrame
+          <ChartFrame
+            cssClasses={cssSheet}
+          >
+            <Labels
+              data={state.data.bar}
               cssClasses={cssSheet}
-            >
-              <Labels
-                data={state.data.bar}
-                cssClasses={cssSheet}
-              />
-              <Pies
-                data={state.data.bar}
-                cssClasses={cssSheet}
-              />
-            </ChartFrame>
-            <h3>The Frequency of Letters in the English Language</h3>
-          </React.Fragment>
+            />
+            <Pies
+              data={state.data.bar}
+              cssClasses={cssSheet}
+            />
+            <text className={cssSheet.classes.chartText}>
+              The Frequency of Letters in the English Language
+            </text>
+          </ChartFrame>
         )
       }}
     </StoreContext.Consumer>

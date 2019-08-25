@@ -37,10 +37,10 @@ const defaultStyle = {
     fill: 'blue',
     stroke: 'green',
     // 650 x 300 is the SVG target size
-    width: '200px',
-    height: '100px',
+    width: '300px',
+    height: '200px',
     padding: '10px',
-    outline: '1px solid blue',
+    outline: '1px solid gray',
   },
   chartXAxis: {
     color: 'black',
@@ -71,11 +71,11 @@ const defaultStyle = {
     transform: 'translate(0, 0)',
   },
   chartText: {
-    color: 'orange',
-    fill: 'blue',
+    fill: 'black',
     stroke: 'green',
-    strokeWidth: '1px',
-    fontSize: '12px',
+    strokeWidth: '0',
+    fontSize: '24px',
+    transform: 'translate(70px, 330px)',
   },
   chartPies: {
     transform: 'translate(290px, 130px)',

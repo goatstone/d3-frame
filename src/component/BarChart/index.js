@@ -28,8 +28,10 @@ const BarChart = () => {
                 data={state.data.bar}
                 cssClasses={cssSheet}
               />
+              <text className={cssSheet.classes.chartText}>
+                The Frequency of Letters in the English Language
+              </text>
             </ChartFrame>
-            <h3>The Frequency of Letters in the English Language</h3>
           </React.Fragment>
         )
       }

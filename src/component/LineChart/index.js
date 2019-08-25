@@ -25,33 +25,33 @@ function LineChart() {
           // quality scale function
           const yScale = LScale(state.data.line.map(d => d.quality), height, 0)
           return (
-            <React.Fragment>
-              <ChartFrame
+            <ChartFrame
+              cssClasses={cssSheet}
+            >
+              <XAxis
+                xScale={xScale}
+                ticks={state.data.line.length / 2}
                 cssClasses={cssSheet}
-              >
-                <XAxis
-                  xScale={xScale}
-                  ticks={state.data.line.length / 2}
-                  cssClasses={cssSheet}
-                />
-                <YAxis
-                  yScale={yScale}
-                  cssClasses={cssSheet}
-                />
-                <SparkLine
-                  data={state.data.line}
-                  xScale={xScale}
-                  yScale={yScale}
-                />
-                <Symbols
-                  xScale={xScale}
-                  yScale={yScale}
-                  data={state.data.line}
-                  symbol={state.chartSymbolType}
-                />
-              </ChartFrame>
-              <h3>Quality Level Over Time</h3>
-            </React.Fragment>
+              />
+              <YAxis
+                yScale={yScale}
+                cssClasses={cssSheet}
+              />
+              <SparkLine
+                data={state.data.line}
+                xScale={xScale}
+                yScale={yScale}
+              />
+              <Symbols
+                xScale={xScale}
+                yScale={yScale}
+                data={state.data.line}
+                symbol={state.chartSymbolType}
+              />
+              <text className={cssSheet.classes.chartText}>
+                Quality Level Over Time
+              </text>
+            </ChartFrame>
           )
         }
       }
