@@ -7,7 +7,7 @@ const ChartFrame = ({ children, cssClasses }) => {
       className={cssClasses.classes.chartFrame}
       viewBox={viewBoxDims}
     >
-      <rect fill="red" width={viewBoxDims[2]} height={viewBoxDims[3]} />
+      <rect fill="gray" width={viewBoxDims[2]} height={viewBoxDims[3]} />
       <g transform="translate(50 50)">
         <rect fill="green" width="250" height="300" />
         {children}

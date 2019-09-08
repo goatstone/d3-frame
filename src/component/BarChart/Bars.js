@@ -7,7 +7,7 @@ const Bars = ({
   data, cssClasses,
 }) => {
   const width = 500
-  const height = 200
+  const height = 300
   const xScale = xScaleBarChart(data, width)
   const yScale = yScaleBarChart(data, height)
 
@@ -18,9 +18,9 @@ const Bars = ({
         label: d[0],
         frequency: d[1],
         x: xScale(d[0]),
-        y: yValue,
+        y: height - yValue,
         w: xScale.bandwidth(),
-        h: 300 - yValue,
+        h: yValue,
       }
     })
     .map(elementData => { // generate the elements for Bar
