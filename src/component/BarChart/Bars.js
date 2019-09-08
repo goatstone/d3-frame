@@ -18,9 +18,9 @@ const Bars = ({
         label: d[0],
         frequency: d[1],
         x: xScale(d[0]),
-        y: height - yValue,
+        y: yValue,
         w: xScale.bandwidth(),
-        h: yValue,
+        h: height - yValue,
       }
     })
     .map(elementData => { // generate the elements for Bar
