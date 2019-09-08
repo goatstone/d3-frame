@@ -4,12 +4,10 @@ import xScaleBarChart from './x-scale'
 import yScaleBarChart from './y-scale'
 
 const Bars = ({
-  data, cssClasses,
+  data, cssClasses, chartSize,
 }) => {
-  const width = 500
-  const height = 300
-  const xScale = xScaleBarChart(data, width)
-  const yScale = yScaleBarChart(data, height)
+  const xScale = xScaleBarChart(data, chartSize.w)
+  const yScale = yScaleBarChart(data, chartSize.h)
 
   const Bar = data
     .map(d => { // set up the data for the elements
@@ -20,7 +18,7 @@ const Bars = ({
         x: xScale(d[0]),
         y: yValue,
         w: xScale.bandwidth(),
-        h: height - yValue,
+        h: chartSize.h - yValue,
       }
     })
     .map(elementData => { // generate the elements for Bar
