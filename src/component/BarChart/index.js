@@ -13,13 +13,15 @@ const BarChart = () => {
   const { cssSheet } = useContext(ThemeContext)
   const { state } = useContext(StoreContext)
   // reuse this scale, pass it down to children
+  const topOffset = 30
+  const leftOffset = 40 // pixel value that the scales will use
   const xScale = xScaleBarChart(
     state.data.bar.map(d => d[0]),
-    [0, state.chartSize.w],
+    [leftOffset, state.chartSize.w],
   )
   const yScale = yScaleBarChart(
     [0, d3.max(state.data.bar, d => d[1])],
-    [state.chartSize.h, 0],
+    [state.chartSize.h, topOffset],
   )
   return (
     <React.Fragment>
@@ -34,6 +36,7 @@ const BarChart = () => {
           data={state.data.bar}
           cssClasses={cssSheet}
           yScale={yScale}
+          leftOffset={leftOffset}
         />
         <Bars
           data={state.data.bar}

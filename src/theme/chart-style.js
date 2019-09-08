@@ -24,9 +24,9 @@ const chartStyle = {
     fill: 'transparent',
     stroke: 'black',
     strokeWidth: '1px',
-    width: '650px',
-    height: '300px',
-    transform: 'translate(0, 0)',
+    // width: '650px',
+    // height: '300px',
+    // transform: 'translate(0, 0)',
   },
   chartBars: {
     fontSize: '12px',
