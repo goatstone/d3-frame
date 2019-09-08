@@ -1,11 +1,12 @@
 const chartStyle = {
   chartFrame: {
+    overflow: 'visible',
     color: 'red',
     fill: 'blue',
     stroke: 'green',
     // 650 x 300 is the SVG target size
-    width: '600px',
-    height: '300px',
+    // width: '600px',
+    // height: '300px',
     padding: '10px',
     margin: '33px',
   },

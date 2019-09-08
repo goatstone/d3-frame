@@ -1,6 +1,7 @@
 import data from './data'
 import materialIconNames from './material-icon-names'
 
+const chartSize = { w: 600, h: 300 }
 const chartTypes = {
   BAR: 'BAR',
   LINE: 'LINE',
@@ -32,6 +33,7 @@ export interface StateInterface {
 const defaultState = {
   isInfoVisible: false,
   data,
+  chartSize,
   chartTypes,
   chartType: chartTypes.BAR,
   chartSymbolTypes,
