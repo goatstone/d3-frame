@@ -33,6 +33,7 @@ const BarChart = () => {
         <YAxis
           data={state.data.bar}
           cssClasses={cssSheet}
+          yScale={yScale}
         />
         <Bars
           data={state.data.bar}

@@ -1,11 +1,9 @@
 import React from 'react'
 import * as d3 from 'd3'
-import yScaleBarChart from './y-scale-bar-chart'
 
-const YAxis = ({ data, cssClasses }) => {
-  const height = parseInt(cssClasses.getRule('chartYAxis').prop('height'), 10)
+const YAxis = ({ cssClasses, yScale }) => {
   const yAxisD3Node = d3.axisLeft()
-    .scale(yScaleBarChart([0, d3.max(data, d => d[1])], [height, 0]))
+    .scale(yScale)
     .ticks(3, '%')
 
   return (
