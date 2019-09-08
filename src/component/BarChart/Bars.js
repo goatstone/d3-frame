@@ -1,48 +1,53 @@
 import React from 'react'
 import numeral from 'numeral'
-import barsData from './bars-data'
 import xScaleBarChart from './x-scale'
 import yScaleBarChart from './y-scale'
 
-const elements = ({
+const Bars = ({
   data, cssClasses,
 }) => {
-  const width = parseInt(cssClasses.getRule('chartBars').prop('width'), 10)
-  const height = parseInt(cssClasses.getRule('chartBars').prop('height'), 10)
-  const elementData = barsData(
-    data,
-    xScaleBarChart(data, width),
-    yScaleBarChart(data, height),
-    height,
-  )
-  const newData = elementData
-    .map(d => {
+  const width = 500
+  const height = 200
+  const xScale = xScaleBarChart(data, width)
+  const yScale = yScaleBarChart(data, height)
+
+  const Bar = data
+    .map(d => { // set up the data for the elements
+      const yValue = yScale(d[1])
+      return {
+        label: d[0],
+        frequency: d[1],
+        x: xScale(d[0]),
+        y: yValue,
+        w: xScale.bandwidth(),
+        h: 300 - yValue,
+      }
+    })
+    .map(elementData => { // generate the elements for Bar
       return (
         <g
           className={cssClasses.classes.chartBars}
-          key={`x${d.label}`}
+          key={`x${elementData.label}`}
         >
           <rect
-            key={`xx${d.y}`}
-            x={d.x}
-            y={d.y}
-            width={d.w}
-            height={d.h}
-            // fill={foregroundColor}
+            key={`xx${elementData.y}`}
+            x={elementData.x}
+            y={elementData.y}
+            width={elementData.w}
+            height={elementData.h}
           />
           <text
-            // fill={foregroundColor}
-            key={`xxxx${d.frequency}`}
-            x={d.x + 2}
-            y={d.y - 5}
+            key={`-${elementData.frequency}`}
+            x={elementData.x + 2}
+            y={elementData.y - 5}
           >
             {
-              numeral(d.frequency * 100).format('0.0')
+              numeral(elementData.frequency * 100).format('0.0')
             }
           </text>
         </g>
       )
     })
-  return newData
+  return Bar
 }
-export default elements
+export default Bars
