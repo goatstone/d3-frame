@@ -1,12 +1,12 @@
 import React from 'react'
 import numeral from 'numeral'
-import xScaleBarChart from './x-scale'
+import xScaleBarChart from './x-scale-bar-chart'
 import yScaleBarChart from './y-scale'
 
 const Bars = ({
   data, cssClasses, chartSize,
 }) => {
-  const xScale = xScaleBarChart(data, chartSize.w)
+  const xScale = xScaleBarChart(data.map(d => d[0]), [0, chartSize.w])
   const yScale = yScaleBarChart(data, chartSize.h)
 
   const Bar = data
