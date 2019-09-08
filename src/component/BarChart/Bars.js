@@ -2,7 +2,7 @@ import React from 'react'
 import numeral from 'numeral'
 
 const Bars = ({
-  data, cssClasses, chartSize, xScale, yScale,
+  data, cssClasses, xScale, yScale,
 }) => {
   const Bar = data
     .map(d => { // set up the data for the elements
@@ -13,7 +13,7 @@ const Bars = ({
         x: xScale(d[0]),
         y: yValue,
         w: xScale.bandwidth(),
-        h: chartSize.h - yValue,
+        h: yScale(0) - yValue,
       }
     })
     .map(elementData => { // generate the elements for Bar
