@@ -1,21 +1,9 @@
 import React from 'react'
-import * as d3 from 'd3'
 import numeral from 'numeral'
-import xScaleBarChart from './x-scale-bar-chart'
-import yScaleBarChart from './y-scale-bar-chart'
 
 const Bars = ({
-  data, cssClasses, chartSize,
+  data, cssClasses, chartSize, xScale, yScale,
 }) => {
-  const xScale = xScaleBarChart(
-    data.map(d => d[0]),
-    [0, chartSize.w],
-  )
-  const yScale = yScaleBarChart(
-    [0, d3.max(data, d => d[1])],
-    [chartSize.h, 0],
-  )
-
   const Bar = data
     .map(d => { // set up the data for the elements
       const yValue = yScale(d[1])
