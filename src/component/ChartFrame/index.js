@@ -1,20 +1,15 @@
 import React from 'react'
 
 const ChartFrame = ({ children, cssClasses }) => {
-  const padding = parseInt(
-    cssClasses.getRule('chartFrame').prop('padding'),
-    10,
-  )
-  const xOffset = 20
-  const viewBoxVal = `-${padding + xOffset} -${padding} 600 360 `
+  const viewBoxDims = [0, 0, 600, 400] // TODO  get these values from state
   return (
     <svg
       className={cssClasses.classes.chartFrame}
-      viewBox={viewBoxVal}
+      viewBox={viewBoxDims}
     >
-      {/* target size 650 x 300 */}
-      {/* <rect width="650" height="300" /> */}
-      <g>
+      <rect fill="red" width={viewBoxDims[2]} height={viewBoxDims[3]} />
+      <g transform="translate(50 50)">
+        <rect fill="green" width="250" height="300" />
         {children}
       </g>
     </svg>
