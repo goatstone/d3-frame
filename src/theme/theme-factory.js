@@ -45,7 +45,7 @@ function colorize(interpolator) {
   defaultStyle.chartFrame.stroke = interpolator(0.8)
   defaultStyle.chartYAxis.stroke = interpolator(1)
   defaultStyle.chartXAxis.stroke = interpolator(1)
-  defaultStyle.chartBars.fill = interpolator(0.3)
+  defaultStyle.chartBars.fill = interpolator(0.7)
   defaultStyle.chartBars.stroke = interpolator(0.8)
   defaultStyle.chartIconForce.stroke = interpolator(0.3)
   defaultStyle.chartIconForce.fill = interpolator(0.9)
