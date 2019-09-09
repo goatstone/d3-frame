@@ -12,11 +12,9 @@ import ChartFrame from '../ChartFrame'
 
 function ForceLayoutChart() {
   const { cssSheet } = useContext(ThemeContext)
-  const centerX = parseInt(cssSheet.getRule('chartIconForce').prop('width'), 10) / 2
-  let centerY = parseInt(cssSheet.getRule('chartIconForce').prop('height'), 10) / 2
-  // offset
-  centerY -= 10
   const { state } = useContext(StoreContext)
+  const centerX = state.chartSize.w / 2
+  const centerY = state.chartSize.h / 2
   const iconNodes = state.iconNodes.slice(0, 120)
   const [localTrigger, setLocalTrigger] = useState(0)
   function tick() {
