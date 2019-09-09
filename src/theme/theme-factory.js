@@ -23,12 +23,28 @@ const menuOptions = [
   { label: 'Blue', color: 'blue', keyValue: 'blue' },
   { label: 'Green', color: 'green', keyValue: 'green' },
   { label: 'Gray', color: 'gray', keyValue: 'gray' },
+  { label: 'interpolateBrBG', color: 'blue', keyValue: 'a' },
+  { label: 'interpolatePRGn', color: 'gray', keyValue: 'b' },
+  { label: 'interpolatePiYG', color: 'blue', keyValue: 'c' },
+  { label: 'interpolateMagma', color: 'gray', keyValue: 'd' },
+  { label: 'interpolatePlasma', color: 'blue', keyValue: 'e' },
+  { label: 'interpolateCool', color: 'blue', keyValue: 'f' },
+  { label: 'interpolateWarm', color: 'blue', keyValue: 'g' },
+  { label: 'interpolateRainbow', color: 'gray', keyValue: 'h' },
 ]
 const styles = {
   red: { label: 'Red', interpolatorName: 'interpolateReds' },
   gray: { label: 'Gray', interpolatorName: 'interpolateGreys' },
   green: { label: 'Green', interpolatorName: 'interpolateGreens' },
   blue: { label: 'Blue', interpolatorName: 'interpolateBlues' },
+  a: { label: 'A', interpolatorName: 'interpolateBrBG' },
+  b: { label: 'B', interpolatorName: 'interpolatePRGn' },
+  c: { label: 'C', interpolatorName: 'interpolatePiYG' },
+  d: { label: 'C', interpolatorName: 'interpolateMagma' },
+  e: { label: 'C', interpolatorName: 'interpolatePlasma' },
+  f: { label: 'C', interpolatorName: 'interpolateCool' },
+  g: { label: 'C', interpolatorName: 'interpolateWarm' },
+  h: { label: 'C', interpolatorName: 'interpolateRainbow' },
 }
 const iVs = [
   {
