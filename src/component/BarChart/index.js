@@ -16,9 +16,10 @@ const BarChart = () => {
   const topOffset = 30
   const leftOffset = 40 // pixel value that the scales will use
   const bottomOffset = 40
+  const rightOffset = 30
   const xScale = xScaleBarChart(
     state.data.bar.map(d => d[0]),
-    [leftOffset, state.chartSize.w],
+    [leftOffset, state.chartSize.w - rightOffset],
   )
   const yScale = yScaleBarChart(
     [0, d3.max(state.data.bar, d => d[1])],
@@ -32,6 +33,7 @@ const BarChart = () => {
         <XAxis
           cssClasses={cssSheet}
           xScale={xScale}
+          bottomOffset={yScale(0)}
         />
         <YAxis
           data={state.data.bar}

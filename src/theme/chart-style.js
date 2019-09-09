@@ -4,9 +4,6 @@ const chartStyle = {
     color: 'red',
     fill: 'blue',
     stroke: 'green',
-    // 650 x 300 is the SVG target size
-    // width: '600px',
-    // height: '300px',
     padding: '10px',
     margin: '33px',
   },
@@ -15,18 +12,12 @@ const chartStyle = {
     fill: 'transparent',
     stroke: 'black',
     strokeWidth: '1px',
-    width: '500px',
-    height: '300px',
-    transform: 'translate(0, 300px)',
   },
   chartYAxis: {
     color: 'black',
     fill: 'transparent',
     stroke: 'black',
     strokeWidth: '1px',
-    // width: '650px',
-    // height: '300px',
-    // transform: 'translate(0, 0)',
   },
   chartBars: {
     fontSize: '12px',
