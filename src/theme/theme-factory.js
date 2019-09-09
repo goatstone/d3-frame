@@ -1,17 +1,12 @@
-import {
-  interpolateBlues,
-  // interpolateGreens,
-  // interpolateGreys,
-  // interpolateReds,
-} from 'd3'
+import * as d3 from 'd3'
 import chartStyle from './chart-style'
 import controlStyle from './control-style'
 
 const menuOptions = [
-  { label: 'Red', color: 'red', keyValue: 'redStyle' },
-  { label: 'Blue', color: 'blue', keyValue: 'blueStyle' },
-  { label: 'Green', color: 'green', keyValue: 'greenStyle' },
-  { label: 'Gray', color: 'gray', keyValue: 'grayStyle' },
+  { label: 'Red', color: 'red', keyValue: 'red' },
+  { label: 'Blue', color: 'blue', keyValue: 'blue' },
+  { label: 'Green', color: 'green', keyValue: 'green' },
+  { label: 'Gray', color: 'gray', keyValue: 'gray' },
 ]
 const defaultStyle = {
   mainContainer: {
@@ -49,12 +44,11 @@ Object.assign(defaultStyle, chartStyle, controlStyle)
 //   return newStyleObject
 // }
 const styles = {
-  red: { label: 'Red' },
-  gray: { label: 'Gray' },
-  green: { label: 'Green' },
-  blue: { label: 'Blue' },
+  red: { label: 'Red', interpolatorName: 'interpolateReds' },
+  gray: { label: 'Gray', interpolatorName: 'interpolateGreys' },
+  green: { label: 'Green', interpolatorName: 'interpolateGreens' },
+  blue: { label: 'Blue', interpolatorName: 'interpolateBlues' },
 }
-console.log(styles)
 const iVs = [
   {
     styleName: 'mainContainer',
@@ -84,7 +78,7 @@ function themeFactory(themeKey = 'default') {
   for (let i = 0; i < iVs.length; i += 1) {
     for (let j = 0; j < iVs[i].styleProps.length; j += 1) {
       newStyleObject[iVs[i].styleName][iVs[i]
-        .styleProps[j][0]] = interpolateBlues(iVs[i].styleProps[j][1])
+        .styleProps[j][0]] = d3[styles[themeKey].interpolatorName](iVs[i].styleProps[j][1])
     }
   }
   return newStyleObject

@@ -8,7 +8,7 @@ jss.setup(preset())
 const ThemeContext = createContext({})
 const themeNames = menuOptions
 const ThemeProvider = ({ children }) => {
-  const [themeName, setThemeName] = useState('grayStyle')
+  const [themeName, setThemeName] = useState('gray')
   const sheet = jss.createStyleSheet(themeFactory(themeName))
   sheet.attach()
   const [cssSheet, setCssSheet] = useState(sheet)
