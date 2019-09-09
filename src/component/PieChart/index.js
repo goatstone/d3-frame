@@ -31,7 +31,7 @@ function PieChart() {
               />
               <text
                 className={cssSheet.classes.chartText}
-                transform="translate(-260 130)"
+                transform="translate(-170 130)"
               >
                 The Frequency of Letters in the English Language
               </text>
