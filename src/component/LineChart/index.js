@@ -5,15 +5,12 @@ import YAxis from './YAxis'
 import XAxis from './XAxis'
 import Symbols from './Symbols'
 import SparkLine from './SparkLine'
-import LScale from './l-scale'
 import { StoreContext } from '../../StoreContext'
 import { ThemeContext } from '../../theme/ThemeContext'
 
 function LineChart() {
   const { cssSheet } = useContext(ThemeContext)
-  // 650 x 300 target SVG size
   const width = 550
-  const height = 300
   return (
     <StoreContext.Consumer>
       {
@@ -23,7 +20,10 @@ function LineChart() {
             .domain(d3.extent(state.data.line, d => new Date(d.day).setHours(0, 0, 0, 0)))
             .range([0, width])
           // quality scale function
-          const yScale = LScale(state.data.line.map(d => d.quality), height, 0)
+          const yDomain = d3.extent(state.data.line.map(d => d.quality))
+          const yScale = d3.scaleLinear()
+            .domain(yDomain)
+            .range([200, 0])
           return (
             <ChartFrame
               cssClasses={cssSheet}
@@ -32,6 +32,7 @@ function LineChart() {
                 xScale={xScale}
                 ticks={state.data.line.length / 2}
                 cssClasses={cssSheet}
+                bottomOffset={yScale(1)}
               />
               <YAxis
                 yScale={yScale}

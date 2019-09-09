@@ -35,7 +35,7 @@ const defaultState = {
   data,
   chartSize,
   chartTypes,
-  chartType: chartTypes.BAR,
+  chartType: chartTypes.LINE,
   chartSymbolTypes,
   chartSymbolType: chartSymbolTypes.CIRCLE,
   themes,
