@@ -84,9 +84,14 @@ const iVs = [
     ],
   },
 ]
+let prevThemeKey
+let newStyleObject = defaultStyle
 function themeFactory(themeKey = 'default') {
+  // bypass repeat calls with the same themeKey
+  if (prevThemeKey === themeKey) return newStyleObject
+  prevThemeKey = themeKey
   if (themeKey === 'default') return defaultStyle
-  const newStyleObject = JSON.parse(JSON.stringify(defaultStyle))
+  newStyleObject = JSON.parse(JSON.stringify(defaultStyle))
   for (let i = 0; i < iVs.length; i += 1) {
     for (let j = 0; j < iVs[i].styleProps.length; j += 1) {
       newStyleObject[iVs[i].styleName][iVs[i]
