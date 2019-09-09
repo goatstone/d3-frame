@@ -15,7 +15,7 @@ const BarChart = () => {
   // reuse this scale, pass it down to children
   const topOffset = 30
   const leftOffset = 40 // pixel value that the scales will use
-  const bottomOffset = 40
+  const bottomOffset = 30
   const rightOffset = 30
   const xScale = xScaleBarChart(
     state.data.bar.map(d => d[0]),

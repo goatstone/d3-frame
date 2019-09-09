@@ -23,11 +23,13 @@ function LineChart() {
             .domain(xDomain)
             .range(xRange)
           // quality scale function
+          const topOffset = 30
+          const bottomOffset = 30
           const yDomain = d3.extent(state.data.line.map(d => d.quality))
-          const bottomOffset = 40
+          const yRange = [state.chartSize.h - bottomOffset, topOffset]
           const yScale = d3.scaleLinear()
             .domain(yDomain)
-            .range([state.chartSize.h - bottomOffset, 0])
+            .range(yRange)
           return (
             <ChartFrame
               cssClasses={cssSheet}
