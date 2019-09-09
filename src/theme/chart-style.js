@@ -27,7 +27,7 @@ const chartStyle = {
     strokeWidth: '1px',
     width: '500px',
     height: '300px',
-    transform: 'translate(0, 0)',
+    // transform: 'translate(0, 0)',
   },
   chartText: {
     fill: 'black',
@@ -37,12 +37,12 @@ const chartStyle = {
     transform: 'translate(0, 340px)',
   },
   chartPies: {
-    transform: 'translate(290px, 130px)',
+    // transform: 'translate(290px, 130px)',
     fill: 'lightgray',
     stroke: 'black',
   },
   chartPiesText: {
-    transform: 'translate(285px, 135px)',
+    // transform: 'translate(285px, 135px)',
     fontSize: '10px',
     fill: 'white',
     stroke: 'transparent',

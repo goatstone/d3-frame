@@ -38,6 +38,7 @@ function LineChart() {
                 bottomOffset={yScale(Math.min(...yDomain))}
               />
               <YAxis
+                leftOffset={leftOffset}
                 yScale={yScale}
                 cssClasses={cssSheet}
               />

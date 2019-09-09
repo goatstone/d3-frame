@@ -11,7 +11,8 @@ const ChartFrame = ({ children, cssClasses }) => {
     >
       <g>
         <rect
-          fill="green"
+          fill="transparent"
+          stroke="gray"
           width={chartSize.w}
           height={chartSize.h}
         />
