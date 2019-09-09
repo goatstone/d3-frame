@@ -16,8 +16,9 @@ function LineChart() {
         ({ state }) => {
           // date scale function
           const leftOffset = 30
+          const rightOffset = 30
           const xDomain = d3.extent(state.data.line, d => new Date(d.day).setHours(0, 0, 0, 0))
-          const xRange = [leftOffset, state.chartSize.w]
+          const xRange = [leftOffset, state.chartSize.w - rightOffset]
           const xScale = d3.scaleTime()
             .domain(xDomain)
             .range(xRange)
