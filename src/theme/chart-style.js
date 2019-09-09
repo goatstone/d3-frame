@@ -33,7 +33,7 @@ const chartStyle = {
     stroke: 'green',
     strokeWidth: '0',
     fontSize: '22px',
-    transform: 'translate(0, 340px)',
+    // transform: 'translate(0, 340px)',
   },
   chartPies: {
     fill: 'lightgray',

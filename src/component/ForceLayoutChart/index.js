@@ -51,7 +51,10 @@ function ForceLayoutChart() {
             )
           })}
         </g>
-        <text className={cssSheet.classes.chartText}>
+        <text
+          transform="translate(40 320)"
+          className={cssSheet.classes.chartText}
+        >
           Material Font Icons
         </text>
       </ChartFrame>

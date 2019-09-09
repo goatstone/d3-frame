@@ -56,7 +56,10 @@ function LineChart() {
                 data={state.data.line}
                 symbol={state.chartSymbolType}
               />
-              <text className={cssSheet.classes.chartText}>
+              <text
+                transform="translate(40 320)"
+                className={cssSheet.classes.chartText}
+              >
                 Quality Level Over Time
               </text>
             </ChartFrame>

@@ -47,7 +47,10 @@ const BarChart = () => {
           xScale={xScale}
           yScale={yScale}
         />
-        <text className={cssSheet.classes.chartText}>
+        <text
+          transform="translate(40 320)"
+          className={cssSheet.classes.chartText}
+        >
           The Frequency of Letters in the English Language
         </text>
       </ChartFrame>
