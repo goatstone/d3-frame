@@ -6,6 +6,8 @@ const chartStyle = {
     stroke: 'green',
     padding: '10px',
     margin: '33px',
+    minWidth: '300px',
+    maxWidth: '700px',
   },
   chartXAxis: {
     color: 'black',
