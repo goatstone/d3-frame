@@ -1,9 +1,9 @@
-// import {
-//   interpolateBlues,
-//   interpolateGreens,
-//   interpolateGreys,
-//   interpolateReds,
-// } from 'd3'
+import {
+  interpolateBlues,
+  // interpolateGreens,
+  // interpolateGreys,
+  // interpolateReds,
+} from 'd3'
 import chartStyle from './chart-style'
 import controlStyle from './control-style'
 
@@ -13,13 +13,6 @@ const menuOptions = [
   { label: 'Green', color: 'green', keyValue: 'greenStyle' },
   { label: 'Gray', color: 'gray', keyValue: 'grayStyle' },
 ]
-// const interpolators = {
-//   defaultStyle: interpolateGreys,
-//   grayStyle: interpolateGreys,
-//   redStyle: interpolateReds,
-//   greenStyle: interpolateGreens,
-//   blueStyle: interpolateBlues,
-// }
 const defaultStyle = {
   mainContainer: {
     stroke: 'white',
@@ -67,24 +60,34 @@ const iVs = [
     styleName: 'mainContainer',
     styleProps: [
       ['fill', 0],
+      ['background', 0.5],
+    ],
+  },
+  {
+    styleName: 'chartFrame',
+    styleProps: [
+      ['fill', 0.5],
+      ['stroke', 0.8],
+    ],
+  },
+  {
+    styleName: 'chartPies',
+    styleProps: [
+      ['fill', 0.1],
+      ['stroke', 0.7],
     ],
   },
 ]
-// :string : styleObject
 function themeFactory(themeKey = 'default') {
   if (themeKey === 'default') return defaultStyle
   const newStyleObject = JSON.parse(JSON.stringify(defaultStyle))
   for (let i = 0; i < iVs.length; i += 1) {
     for (let j = 0; j < iVs[i].styleProps.length; j += 1) {
-      // console.log('XXXXXXXXXXXXXXXXXX', iVs[i].styleName)
-      newStyleObject[iVs[i].styleName][iVs[i].styleProps[j][0]] = 'red'
+      newStyleObject[iVs[i].styleName][iVs[i]
+        .styleProps[j][0]] = interpolateBlues(iVs[i].styleProps[j][1])
     }
   }
-  console.log('xx', newStyleObject.mainContainer)
   return newStyleObject
 }
-// function themeFactory(themeName = 'defaultStyle') {
-//   return colorize(interpolators[themeName])
-// }
 export { menuOptions }
 export default themeFactory
