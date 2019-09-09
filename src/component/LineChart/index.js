@@ -10,18 +10,20 @@ import { ThemeContext } from '../../theme/ThemeContext'
 
 function LineChart() {
   const { cssSheet } = useContext(ThemeContext)
-  const width = 550
   return (
     <StoreContext.Consumer>
       {
         ({ state }) => {
           // date scale function
+          const leftOffset = 30
+          const xDomain = d3.extent(state.data.line, d => new Date(d.day).setHours(0, 0, 0, 0))
+          const xRange = [leftOffset, state.chartSize.w]
           const xScale = d3.scaleTime()
-            .domain(d3.extent(state.data.line, d => new Date(d.day).setHours(0, 0, 0, 0)))
-            .range([0, width])
+            .domain(xDomain)
+            .range(xRange)
           // quality scale function
           const yDomain = d3.extent(state.data.line.map(d => d.quality))
-          const bottomOffset = 30
+          const bottomOffset = 40
           const yScale = d3.scaleLinear()
             .domain(yDomain)
             .range([state.chartSize.h - bottomOffset, 0])
