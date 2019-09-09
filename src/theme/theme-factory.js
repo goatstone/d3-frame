@@ -19,18 +19,18 @@ const defaultStyle = {
 }
 Object.assign(defaultStyle, chartStyle, controlStyle)
 const menuOptions = [
-  { label: 'Red', color: 'red', keyValue: 'red' },
-  { label: 'Blue', color: 'blue', keyValue: 'blue' },
-  { label: 'Green', color: 'green', keyValue: 'green' },
-  { label: 'Gray', color: 'gray', keyValue: 'gray' },
-  { label: 'interpolateBrBG', color: 'blue', keyValue: 'a' },
-  { label: 'interpolatePRGn', color: 'gray', keyValue: 'b' },
-  { label: 'interpolatePiYG', color: 'blue', keyValue: 'c' },
-  { label: 'interpolateMagma', color: 'gray', keyValue: 'd' },
-  { label: 'interpolatePlasma', color: 'blue', keyValue: 'e' },
-  { label: 'interpolateCool', color: 'blue', keyValue: 'f' },
-  { label: 'interpolateWarm', color: 'blue', keyValue: 'g' },
-  { label: 'interpolateRainbow', color: 'gray', keyValue: 'h' },
+  { label: 'Red', color: 'red', colors: ['red', 'white'], keyValue: 'red' },
+  { label: 'Blue', color: 'blue', colors: ['blue', 'white'], keyValue: 'blue' },
+  { label: 'Green', color: 'green', colors: ['green', 'white'], keyValue: 'green' },
+  { label: 'Gray', color: 'gray', colors: ['gray', 'white'], keyValue: 'gray' },
+  { label: 'interpolateBrBG', color: 'blue', colors: ['gray', 'green'], keyValue: 'a' },
+  { label: 'interpolatePRGn', color: 'gray', colors: ['purple', 'green'], keyValue: 'b' },
+  { label: 'interpolatePiYG', color: 'blue', colors: ['purple', 'green'], keyValue: 'c' },
+  { label: 'interpolateMagma', color: 'gray', colors: ['red', 'blue'], keyValue: 'd' },
+  { label: 'interpolatePlasma', color: 'blue', colors: ['green', 'red'], keyValue: 'e' },
+  { label: 'interpolateCool', color: 'blue', colors: ['lightblue', 'blue'], keyValue: 'f' },
+  { label: 'interpolateWarm', color: 'blue', colors: ['orange', 'white'], keyValue: 'g' },
+  { label: 'interpolateRainbow', color: 'gray', colors: ['red', 'green'], keyValue: 'h' },
 ]
 const styles = {
   red: { label: 'Red', interpolatorName: 'interpolateReds' },

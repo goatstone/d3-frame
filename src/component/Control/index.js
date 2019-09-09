@@ -29,9 +29,9 @@ function Control() {
                     onClick={() => setThemeName(tN.keyValue)}
                     disabled={tN.keyValue === themeName}
                     style={{
-                      // background: tN.color,
-                      background: 'linear-gradient(blue, red)',
+                      background: `linear-gradient(${tN.colors[0]}, ${tN.colors[1]})`,
                       width: '25px',
+                      cursor: 'pointer',
                     }}
                   >
                     &nbsp;
@@ -49,6 +49,9 @@ function Control() {
                     className="material-icons"
                     onClick={() => actions.setChartType(chartType)}
                     disabled={state.chartType === chartType}
+                    style={{
+                      cursor: 'pointer',
+                    }}
                   >
                     {iconList[i]}
                   </button>
