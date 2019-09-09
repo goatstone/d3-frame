@@ -147,7 +147,8 @@
             "beforeEach": true,
             "it": true,
             "jest": true,
-            "beforeAll": true
+            "beforeAll": true,
+            "window": true
         }
     },
     "browserslist": {

@@ -29,7 +29,8 @@ function Control() {
                     onClick={() => setThemeName(tN.keyValue)}
                     disabled={tN.keyValue === themeName}
                     style={{
-                      background: tN.color,
+                      // background: tN.color,
+                      background: 'linear-gradient(blue, red)',
                       width: '25px',
                     }}
                   >
