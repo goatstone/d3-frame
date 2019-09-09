@@ -21,9 +21,10 @@ function LineChart() {
             .range([0, width])
           // quality scale function
           const yDomain = d3.extent(state.data.line.map(d => d.quality))
+          const bottomOffset = 30
           const yScale = d3.scaleLinear()
             .domain(yDomain)
-            .range([200, 0])
+            .range([state.chartSize.h - bottomOffset, 0])
           return (
             <ChartFrame
               cssClasses={cssSheet}
@@ -32,7 +33,7 @@ function LineChart() {
                 xScale={xScale}
                 ticks={state.data.line.length / 2}
                 cssClasses={cssSheet}
-                bottomOffset={yScale(1)}
+                bottomOffset={yScale(Math.min(...yDomain))}
               />
               <YAxis
                 yScale={yScale}
