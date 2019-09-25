@@ -36,5 +36,6 @@ function Chart() {
     </StoreConsumer>
   )
 }
+Chart.displayName = 'Chart'
 
 export default Chart

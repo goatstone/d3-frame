@@ -28,6 +28,7 @@ function Control() {
                     type="button"
                     onClick={() => setThemeName(tN.keyValue)}
                     disabled={tN.keyValue === themeName}
+                    key={tN.keyValue}
                     style={{
                       background: tN.color,
                       width: '25px',
