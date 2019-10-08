@@ -2,22 +2,17 @@ import React, { useContext } from 'react'
 import { StoreContext } from '../../StoreContext'
 import 'material-icons/iconfont/material-icons.css'
 // import { ThemeContext, themeNames } from '../../theme/ThemeContext'
-// const iconList = ['bar_chart', 'show_chart', 'pie_chart', 'face']
-// const symbolList = ['9711', '9723', '9651']
+const iconList = ['bar_chart', 'show_chart', 'pie_chart', 'face']
+const symbolList = ['9711', '9723', '9651']
 function Control() {
   // const { themeName, setThemeName, cssSheet } = useContext(ThemeContext)
   const themeName = 'X'
   const setThemeName = () => { }
   const cssSheet = { classes: { controlColor: '' } }
-  const state = { chartTypes: {}, classes: { controlColor: '' }, chartSymbolTypes: {} }
   const themeNames = []
-  // { state, actions }
-  console.log('XXXX', StoreContext.Consumer)
   return (
     <StoreContext.Consumer>
-      {(props) => {
-        console.log('zzzzzzzzzzzzzzz', props)
-        // console.log('aaa', Object.entries( StoreContext.Consumer))
+      {({ state }) => { // { state, actions }
         return (
           <section
             style={{
