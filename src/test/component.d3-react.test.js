@@ -1,20 +1,19 @@
 import React from 'react'
 import Enzyme from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16'
-import renderer from 'react-test-renderer'
-
+/* eslint-disable-next-line */
+import jss from 'jss'
 import D3Frame from '../D3Frame'
 import { StoreProvider } from '../StoreContext'
 import { ThemeProvider } from '../theme/ThemeContext'
-import jss from 'jss'
 
-jest.mock("jss", () => {
+jest.mock('jss', () => {
   return {
     setup: () => 1,
     createStyleSheet: () => {
       return {
         attach: () => { },
-        classes: {mainContainer: {}}
+        classes: { mainContainer: {} },
       }
     },
   }
@@ -29,7 +28,7 @@ describe('D3 Framework', () => {
         <StoreProvider>
           <D3Frame />
         </StoreProvider>
-      </ThemeProvider>
+      </ThemeProvider>,
     )
   })
 })
