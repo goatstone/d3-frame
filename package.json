@@ -94,7 +94,6 @@
     },
     "eslintConfig": {
         "extends": "airbnb-typescript",
-        "plugins": ["@typescript-eslint"],
         "rules": {
             "arrow-body-style": [
                 0
