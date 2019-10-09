@@ -4,13 +4,13 @@ import { StoreProvider } from '../StoreContext'
 import { ThemeProvider } from '../theme/ThemeContext'
 import LineChart from '../component/LineChart'
 
-jest.mock("jss", () => {
+jest.mock('jss', () => {
   return {
     setup: () => 1,
     createStyleSheet: () => {
       return {
         attach: () => { },
-        classes: {mainContainer: {}}
+        classes: { mainContainer: {} },
       }
     },
   }
@@ -24,8 +24,9 @@ describe('Line Chart', () => {
         <StoreProvider>
           <LineChart />
         </StoreProvider>
-      </ThemeProvider>
-      , div)
+      </ThemeProvider>,
+      div,
+    )
     ReactDOM.unmountComponentAtNode(div)
   })
 })
