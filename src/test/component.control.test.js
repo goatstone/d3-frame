@@ -5,15 +5,16 @@ import Control from '../component/Control'
 
 Enzyme.configure({ adapter: new Adapter() })
 
-const mockCb = jest.fn()
+const mockSetChartType = jest.fn()
+const mockSetChartSymbolType = jest.fn()
 jest.mock('../StoreContext', () => {
   return {
     StoreContext: {
       Consumer: props => {
         return props.children({
           actions: {
-            setChartType: mockCb,
-            setChartSymbolType: mockCb,
+            setChartType: mockSetChartType,
+            setChartSymbolType: mockSetChartSymbolType,
           },
           state: {
             chartType: 'LINE',
@@ -48,8 +49,7 @@ describe('Control', () => {
     const wrapper = Enzyme.mount(
       <Control />,
     )
-    wrapper.find('button').at(0).simulate('click')
-    wrapper.find('button').at(0).simulate('click')
-    expect(mockCb.mock.calls.length).toBe(2)
+    wrapper.find('button[value="BAR"]').at(0).simulate('click') // select a chart type button
+    expect(mockSetChartType.mock.calls.length).toBe(1)
   })
 })

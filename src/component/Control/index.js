@@ -53,7 +53,6 @@ function Control() {
                     disabled={state.chartType === chartType}
                   >
                     {iconList[i]}
-                    {chartType}
                   </button>
                 ))}
             </section>
