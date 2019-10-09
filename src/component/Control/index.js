@@ -1,18 +1,15 @@
 import React, { useContext } from 'react'
 import { StoreContext } from '../../StoreContext'
 import 'material-icons/iconfont/material-icons.css'
-// import { ThemeContext, themeNames } from '../../theme/ThemeContext'
+import { ThemeContext, themeNames } from '../../theme/ThemeContext'
+
 const iconList = ['bar_chart', 'show_chart', 'pie_chart', 'face']
 const symbolList = ['9711', '9723', '9651']
 function Control() {
-  // const { themeName, setThemeName, cssSheet } = useContext(ThemeContext)
-  const themeName = 'X'
-  const setThemeName = () => { }
-  const cssSheet = { classes: { controlColor: '' } }
-  const themeNames = []
+  const { themeName, setThemeName, cssSheet } = useContext(ThemeContext)
   return (
     <StoreContext.Consumer>
-      {({ state, actions }) => { // { state, actions }
+      {({ state, actions }) => {
         return (
           <section
             style={{
@@ -31,6 +28,7 @@ function Control() {
                     onClick={() => setThemeName(tN.keyValue)}
                     disabled={tN.keyValue === themeName}
                     key={tN.keyValue}
+                    value={tN.keyValue}
                     style={{
                       background: tN.color,
                       width: '25px',
