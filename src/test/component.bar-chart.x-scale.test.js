@@ -1,9 +1,8 @@
-import xScaleBarChart from '../component/BarChart/x-scale'
+import xScaleBarChart from '../component/BarChart/x-scale-bar-chart'
 
-const data = [1, 0.1]
 describe('xScaleBarChart', () => {
   test('should return a function', () => {
-    const xScale = xScaleBarChart(data)
+    const xScale = xScaleBarChart(1, 2)
     expect(typeof xScale).toBe('function')
   })
 })

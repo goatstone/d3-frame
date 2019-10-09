@@ -7,7 +7,6 @@ const iconList = ['bar_chart', 'show_chart', 'pie_chart', 'face']
 const symbolList = ['9711', '9723', '9651']
 function Control() {
   const { themeName, setThemeName, cssSheet } = useContext(ThemeContext)
-
   return (
     <StoreContext.Consumer>
       {({ state, actions }) => {
@@ -28,6 +27,8 @@ function Control() {
                     type="button"
                     onClick={() => setThemeName(tN.keyValue)}
                     disabled={tN.keyValue === themeName}
+                    key={tN.keyValue}
+                    value={tN.keyValue}
                     style={{
                       background: `linear-gradient(${tN.colors[0]}, ${tN.colors[1]})`,
                       width: '25px',

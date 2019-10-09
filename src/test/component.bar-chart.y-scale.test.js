@@ -1,9 +1,8 @@
-import yScaleBarChart from '../component/BarChart/y-scale'
+import yScaleBarChart from '../component/BarChart/y-scale-bar-chart'
 
-const data = [1, 0.1]
 describe('yScaleBarChart', () => {
   test('should return a function', () => {
-    const yScale = yScaleBarChart(data)
+    const yScale = yScaleBarChart(1, 2)
     expect(typeof yScale).toBe('function')
   })
 })
