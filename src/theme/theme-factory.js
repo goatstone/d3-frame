@@ -18,6 +18,7 @@ const defaultStyle = {
   },
 }
 Object.assign(defaultStyle, chartStyle, controlStyle)
+/* eslint-disable object-curly-newline */
 const menuOptions = [
   { label: 'Red', color: 'red', colors: ['red', 'white'], keyValue: 'red' },
   { label: 'Blue', color: 'blue', colors: ['blue', 'white'], keyValue: 'blue' },
