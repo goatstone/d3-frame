@@ -57,15 +57,29 @@ describe('Control', () => {
     wrapper.find('[value="redStyle"]').at(0).simulate('click')
     expect(mockFn.mock.calls.length).toBe(1)
   })
-  it.skip(' should  mount and have certain text', () => {
+  it(' should  mount and have certain text', () => {
     const el = Enzyme.mount(
-      <Control />,
+      <ThemeContext.Provider value={{
+        themeName: 'XXX',
+        setThemeName: () => (1),
+        cssSheet: { classes: { controlColor: 'XXX' } },
+      }}
+      >
+        <Control />
+      </ThemeContext.Provider>,
     )
     expect(el.text(/bar/)).toBeTruthy()
   })
-  it.skip(' should  call actions provided', () => {
+  it(' should  call actions provided', () => {
     const wrapper = Enzyme.mount(
-      <Control />,
+      <ThemeContext.Provider value={{
+        themeName: 'XXX',
+        setThemeName: () => (1),
+        cssSheet: { classes: { controlColor: 'XXX' } },
+      }}
+      >
+        <Control />
+      </ThemeContext.Provider>,
     )
     wrapper.find('button[value="BAR"]').at(0).simulate('click') // select a chart type button
     expect(mockSetChartType.mock.calls.length).toBe(1)
