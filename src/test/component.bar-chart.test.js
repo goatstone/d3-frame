@@ -2,27 +2,28 @@ import React from 'react'
 import Enzyme from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16'
 import BarChart from '../component/BarChart'
+import { StoreContext } from '../StoreContext'
+//     <StoreContext.Provider value={{ state, actions }}>
+import { ThemeContext } from '../theme/ThemeContext'
 
 Enzyme.configure({ adapter: new Adapter() })
 
 describe('BarChart', () => {
   test('should mount and have a single SVG element', () => {
-    const data = [
-      ['A', 1.0],
-      ['B', 0.01492],
-      ['C', 0.02782],
-      ['D', 0.04253],
-      ['E', 0.12702],
-      ['F', 0.02288],
-      ['G', 0.02015],
-      ['H', 0.06094],
-      ['I', 0.06966],
-      ['J', 0.00153],
-    ]
-    const wrap = Enzyme.mount(<BarChart
-      data={data}
-      colors={{ background: 'red' }}
-    />)
+    const state = {
+      data: { bar: [] },
+      chartSize: { w: 0, h: 0 },
+    }
+    const wrap = Enzyme.mount(
+      <ThemeContext.Provider value={{
+        cssSheet: { classes: {} },
+      }}
+      >
+        <StoreContext.Provider value={{ state }}>
+          <BarChart />
+        </StoreContext.Provider>
+      </ThemeContext.Provider>,
+    )
     expect(wrap.find('svg').length).toBe(1)
   })
 })
