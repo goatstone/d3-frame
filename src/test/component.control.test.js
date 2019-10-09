@@ -54,7 +54,7 @@ describe('Control', () => {
       </ThemeContext.Provider>
       ,
     )
-    wrapper.find('[value="redStyle"]').at(0).simulate('click')
+    wrapper.find('[value="red"]').at(0).simulate('click')
     expect(mockFn.mock.calls.length).toBe(1)
   })
   it(' should  mount and have certain text', () => {
