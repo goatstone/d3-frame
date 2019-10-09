@@ -12,7 +12,7 @@ function Control() {
   const themeNames = []
   return (
     <StoreContext.Consumer>
-      {({ state }) => { // { state, actions }
+      {({ state, actions }) => { // { state, actions }
         return (
           <section
             style={{
@@ -53,6 +53,7 @@ function Control() {
                     disabled={state.chartType === chartType}
                   >
                     {iconList[i]}
+                    {chartType}
                   </button>
                 ))}
             </section>
