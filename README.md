@@ -59,7 +59,7 @@ D3 is an extensive library and comes with many utilities that become redundant w
 
 React is a web development tool that enables the creation of a higher level of abstraction. In the case of charts, these higher levels of abstraction will take the form of components and declarative tag syntax. A chart may be represented in JSX like this:
 
-`"
+```
       <ChartFrame
         cssClasses={cssSheet}
       >
