@@ -2,6 +2,8 @@
 
 Methodologies for using the D3 visualization library with ReactJS
 
+[![CircleCI](https://circleci.com/gh/goatstone/d3-frame.svg?style=svg)](https://circleci.com/gh/goatstone/d3-frame)
+
 ## Website
     
 [d3-frame.goatstone.com](http://d3-frame.goatstone.com)
@@ -20,15 +22,16 @@ cd d3-frame/
 npm install
 ```
 ### Development
-
 ```    
-npm run watch
+npm run start
 ```    
-
+### Build
+```
+npm run build
+```
 ### Run Browswersync
 ```
 cd dist/
-
 browser-sync start --server --files "*" 
 ```
 
@@ -38,13 +41,6 @@ browser-sync start --server --files "*"
 npm run lint
 npm run lint:watch
 ```    
-
-### Build
-
-```    
-npm run build
-```    
-
 ### Test
 ```    
 npm run test
@@ -53,84 +49,72 @@ npm run test:watch
 
 ## Overview
 
-The following outlines strategies for approaching data visualization issues on the web.
+D3 Frame is intended to illustrate strategies for approaching data visualization issues on the web and explores issues that arise when using D3 with other frameworks, such as React. 
 
-There are many ways to visualize data. I am going to explore issues, specifically, that arise when using D3 with other frameworks, such as ReactJS. 
+D3 Frame demonstrates these strategies with a sampling of visualizations: Line, Pie, Bar, Icon Layout. A series of controls give the user the ability to set a chart type, characteristics of the chart, and modify data.
 
-Ultimately, the objective is to clearly separate the functionality of D3 from any framework that you may be using in the future. 
-
-D3 is a very large library and comes with many utilities that become redundant when working with a modern client side web framework. Fortunately, as of D3 version 4.0, one can strategically use libraries as needed.
-
+D3 is an extensive library and comes with many utilities that become redundant when working with a modern web framework. Fortunately, as of D3 version 4.0, one can strategically use the parts of D3 as needed.
 
 ### A Higher Level of Abstraction
 
-The tools React brings enable the creation of a higher level of abstraction. In the case of charts these higher levels of abstraction will represent a chart. A chart may be represented in JSX like this:
+React is a web development tool that enables the creation of a higher level of abstraction. In the case of charts, these higher levels of abstraction will take the form of components and declarative tag syntax. A chart may be represented in JSX like this:
 
+`"
+      <ChartFrame
+        cssClasses={cssSheet}
+      >
+        <XAxis
+          data={state.data.bar}
+          xScale={xScale}
+        />
+        <YAxis
+          data={state.data.bar}
+          yScale={yScale}
+        />
+        <Bars
+          data={state.data.bar}
+          xScale={xScale}
+          yScale={yScale}
+        />
+      </ChartFrame>
 ```
-<ChartFrame width=”300” color=”red”>
-<Bars color=”blue” / >
-<XAxis / >
-<YAxis />
-</ChartFrame>
-```
 
-Once this higher level of abstraction is created, ideally it will enable the open/closed principle. Developers can work with this level of abstraction, without having to change the underlying implementation. There are libraries that offer this type of abstraction out of the box such as the Vicotry library. These methodologies should enable the building of an abstraction that fits the specific needs of your project. In this way one can potentially build a higher level of abstraction that implements the open/closed principle more effectively.
-
+The higher level of abstraction is created and enables a clear view of what the code is intended to represent. Developers will work with this level of abstraction, without having to change it. Building upon these methodologies should enable the establishment of a representation that fits the specific needs of any given project. 
 
 ### Some Issues To Consider
 
 #### A unified DOM update system
 
-Since D3 interacts with the DOM there are potential conflicts when both libraries try to change the DOM. To address this I will simply not be using the D3 DOM manipulation and use only ReactJS to update the DOM. 
+Since D3 interacts with the browsers' Document Object Model, there are potential conflicts when both libraries try to change it. To address this issue, I will not be using the D3 DOM manipulation and use only React to update the DOM. 
 
 #### A unified event system
 
-DIfferent libraries come with different notions of how an event system should be done. A single eventing system with the same form of event objects being sent is crucial to a successful application.
+DIfferent libraries come with varying notions of how an event system will be implemented. D3 Frame uses Reacts'  Synthetic Events. For global state Reacts' Context and Hooks are used.
 
-### The implementation
+### Strategies for Library usage
 
-The application to demonstrate these strategies will consist of a sampling of some basic chart types: 
- - Line 
- - Pie 
- - Bar 
+#### Scales
+Scales for converting abstract data into a visual representation are an essential tool for working with data. D3s' scale tools are ideal for this and function as the core tool for many of the visualization tasks.
 
-A series of controls will be presented. The controls will give the user the ability to 
+#### Generation of Axis
+The D3 axis tools can generate HTML DOM axis according to the specifications given.
 
- - Set a chart type, 
- - Characteristics of the chart 
- - Such as colors or symbol type. 
- - Data can be modified in order to demonstrate the variations of the chart.
- - Control self modifies, depending on given settings
-
-### Strategies
-#### Library usage
-
-#### Scale: D3
-Convert abstract data into a visual representation. An essential and fundamental task for representing data. D3s’ scale tool is ideal for this and functions as the core tool for many of the visualization tasks that would be undertaken.
-
-#### Generation of Axis: D3
-D3 provides tools that make the process of creating visualizations less tedious. The Axis tools are such.
-
-#### Color Generation: D3
-Theme generation, color control
-
-#### Text Formatting: NumeralJS MomentJS 
-Format text to properly display values according to region
+#### Color Generation
+Theme generation, color control, and color selection. D3s' collection of color-related tools have a wide range of applications.
 
 #### Styles
-Currently the strategy for applying styles is to use SCSS. There are many ways to apply style. SCSS provides a well tested solution that enables a packaging of the style with the component itself.
-
+More than one way of using styles can be useful in an application.
+One tool D3 Frame uses is [JSS](https://cssinjs.org). This tool is used with style definitions generated with D3s Color Interpolator to create a variety of themes.
 
 ## Links to relevant sites
 
-[D3](https://d3js.org/)
- , [React](https://reactjs.org/)
- , [ReactJS refs and the DOM](https://reactjs.org/docs/refs-and-the-dom.html)
+* [D3](https://d3js.org/)
+* [React](https://reactjs.org/)
+* [JSS](https://cssinjs.org)
 
-The starter kits used for this application
+The starter kit used for this application
 
-[React, Webpack, Babel, Jest, ESLint Starter](https://github.com/oscarmorrison/react-webpack-starter)
- ,[Create React App](https://github.com/facebookincubator/create-react-app)
+[Create React App](https://github.com/facebookincubator/create-react-app)
 
 
 
